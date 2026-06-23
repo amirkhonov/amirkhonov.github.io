@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Физика — Подготовка к ДТМ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+<style>
+  :root{
+    --ink:#1b2235; --ink-soft:#3a4256; --paper:#f7f6f2; --card:#ffffff;
+    --rule:#e3e0d6; --muted:#6b6f7d;
+    --mech:#1f5fa6; --mech-bg:#eaf1f9;
+    --mol:#c0480e; --mol-bg:#fbeee6;
+    --elec:#6b34c4; --elec-bg:#f1ebfb;
+    --opt:#0f766e; --opt-bg:#e6f3f1;
+    --tip:#9a6700; --tip-bg:#fdf3d8;
+    --formula-bg:#eef1f6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Literata',Georgia,serif; font-size:18px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:linear-gradient(160deg,#161d2e 0%,#1f2a44 55%,#283a5e 100%);
+    color:#f4f3ee; padding:90px 24px 70px; position:relative; overflow:hidden;
+  }
+  .cover::after{
+    content:""; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:34px 34px; mask-image:radial-gradient(circle at 70% 30%,#000,transparent 75%);
+    opacity:.5;
+  }
+  .cover-inner{max-width:860px; margin:0 auto; position:relative; z-index:1;}
+  .cover .eyebrow{font-family:'Manrope',sans-serif; letter-spacing:.32em; text-transform:uppercase; font-size:13px; font-weight:600; color:#9fc1ec;}
+  .cover h1{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(40px,8vw,72px); line-height:1.02; margin:18px 0 10px; letter-spacing:-.01em;}
+  .cover .sub{font-size:20px; color:#cdd6e6; max-width:560px; margin:0 0 34px;}
+  .cover .domains{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+  .cover .dchip{font-family:'Manrope',sans-serif; font-size:13.5px; font-weight:600; padding:7px 14px; border-radius:100px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);}
+  .cover .meta{margin-top:40px; font-family:'Manrope',sans-serif; font-size:14px; color:#8ea3c4; border-top:1px solid rgba(255,255,255,.14); padding-top:18px; max-width:620px;}
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:48px 0 8px;}
+  .intro h2{font-family:'Manrope',sans-serif; font-weight:700; font-size:26px; margin:0 0 14px;}
+  .intro p{margin:0 0 14px; color:var(--ink-soft);}
+  .intro .small{font-size:15.5px; color:var(--muted);}
+
+  /* ---------- TOC ---------- */
+  .toc{padding:34px 0 10px;}
+  .toc h2{font-family:'Manrope',sans-serif; font-weight:800; font-size:22px; letter-spacing:.02em; text-transform:uppercase; color:var(--ink); margin:0 0 20px; padding-bottom:10px; border-bottom:2px solid var(--ink);}
+  .toc-group{margin-bottom:26px;}
+  .toc-group h3{font-family:'Manrope',sans-serif; font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 8px;}
+  .toc-group.m h3{color:var(--mech);} .toc-group.t h3{color:var(--mol);}
+  .toc-group.e h3{color:var(--elec);} .toc-group.o h3{color:var(--opt);}
+  .toc ul{list-style:none; margin:0; padding:0;}
+  .toc li{margin:0;}
+  .toc a{display:flex; gap:12px; align-items:baseline; text-decoration:none; color:var(--ink-soft); padding:5px 0; font-size:16.5px; border-bottom:1px dotted var(--rule);}
+  .toc a:hover{color:var(--ink);}
+  .toc a .code{font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; min-width:38px; color:var(--muted);}
+
+  /* ---------- SECTIONS ---------- */
+  .chapter{padding:54px 0 10px; border-top:1px solid var(--rule); margin-top:30px;}
+  .domain-head{padding:30px 0 6px;}
+  .domain-head .num{font-family:'Manrope',sans-serif; font-weight:800; font-size:15px; letter-spacing:.2em;}
+  .domain-head h2{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(28px,5vw,40px); margin:6px 0 0; line-height:1.05;}
+  .domain-rule{height:5px; border-radius:3px; margin:16px 0 0;}
+
+  .topic{scroll-margin-top:18px; padding:30px 0 6px;}
+  .topic h3{font-family:'Manrope',sans-serif; font-weight:700; font-size:24px; margin:0 0 4px; display:flex; gap:12px; align-items:baseline;}
+  .topic h3 .code{font-size:16px; font-weight:800; padding:3px 9px; border-radius:7px; color:#fff;}
+  .topic h4{font-family:'Manrope',sans-serif; font-weight:700; font-size:17px; margin:26px 0 8px; color:var(--ink); letter-spacing:.01em;}
+  .topic p{margin:0 0 12px;}
+  .topic ul{margin:6px 0 14px; padding-left:22px;}
+  .topic li{margin:5px 0;}
+
+  /* domain-tinted accents applied via parent class */
+  .dom-m .topic h3 .code{background:var(--mech);} .dom-m .domain-rule{background:var(--mech);} .dom-m .domain-head .num{color:var(--mech);}
+  .dom-t .topic h3 .code{background:var(--mol);} .dom-t .domain-rule{background:var(--mol);} .dom-t .domain-head .num{color:var(--mol);}
+  .dom-e .topic h3 .code{background:var(--elec);} .dom-e .domain-rule{background:var(--elec);} .dom-e .domain-head .num{color:var(--elec);}
+  .dom-o .topic h3 .code{background:var(--opt);} .dom-o .domain-rule{background:var(--opt);} .dom-o .domain-head .num{color:var(--opt);}
+
+  /* formula reference box */
+  .formulas{background:var(--formula-bg); border-radius:12px; padding:18px 22px; margin:10px 0 18px; border:1px solid #dde3ec;}
+  .formulas .ftitle{font-family:'Manrope',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .formulas ul{list-style:none; margin:0; padding:0;}
+  .formulas li{margin:9px 0; padding-left:16px; position:relative; line-height:1.5;}
+  .formulas li::before{content:""; position:absolute; left:0; top:11px; width:6px; height:6px; border-radius:50%; background:var(--muted);}
+  .fname{font-family:'Manrope',sans-serif; font-weight:600; font-size:15px; color:var(--ink-soft);}
+
+  /* worked example */
+  .ex{background:var(--card); border:1px solid var(--rule); border-left-width:4px; border-radius:10px; padding:18px 22px; margin:16px 0;}
+  .dom-m .ex{border-left-color:var(--mech);} .dom-t .ex{border-left-color:var(--mol);}
+  .dom-e .ex{border-left-color:var(--elec);} .dom-o .ex{border-left-color:var(--opt);}
+  .ex .extag{font-family:'Manrope',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.08em; display:inline-block; margin:0 0 8px;}
+  .dom-m .ex .extag{color:var(--mech);} .dom-t .ex .extag{color:var(--mol);}
+  .dom-e .ex .extag{color:var(--elec);} .dom-o .ex .extag{color:var(--opt);}
+  .ex .q{margin:0 0 6px;}
+  .ex .sol{margin-top:12px; padding-top:12px; border-top:1px dashed var(--rule);}
+  .ex .sol-label{font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin:0 0 6px;}
+  .ex .ans{font-family:'Manrope',sans-serif; font-weight:700; margin-top:10px; padding:8px 12px; background:var(--paper); border-radius:8px; display:inline-block;}
+
+  /* exam tip */
+  .tip{background:var(--tip-bg); border:1px solid #ecd9a0; border-radius:10px; padding:14px 18px; margin:16px 0; font-size:16px;}
+  .tip .tlabel{font-family:'Manrope',sans-serif; font-weight:800; font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--tip); margin:0 0 5px;}
+
+  .katex{font-size:1.02em;}
+  .katex-display{margin:.5em 0; overflow-x:auto; overflow-y:hidden; padding:2px 0;}
+
+  .totop{display:block; text-align:right; font-family:'Manrope',sans-serif; font-size:13px; color:var(--muted); text-decoration:none; margin:14px 0 0;}
+  .totop:hover{color:var(--ink);}
+
+  footer{margin-top:50px; padding:36px 0 60px; border-top:2px solid var(--ink); color:var(--muted); font-family:'Manrope',sans-serif; font-size:14px;}
+
+  @media (max-width:560px){ body{font-size:16.5px;} .wrap{padding:0 18px;} }
+  @media print{
+    .cover{background:#1f2a44 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .totop{display:none;} a{color:inherit; text-decoration:none;}
+    .chapter,.topic{break-inside:auto;} .ex,.formulas,.tip{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<header class="cover">
+  <div class="cover-inner">
+    <div class="eyebrow">DTM &middot; Oliy ta'lim &middot; Подготовка</div>
+    <h1>Физика</h1>
+    <p class="sub">Полное пособие для подготовки к вступительному тесту ДТМ: теория, формулы и разобранные примеры по каждой теме официальной программы.</p>
+    <div class="domains">
+      <span class="dchip">1 · Механика</span>
+      <span class="dchip">2 · Молекулярная физика и термодинамика</span>
+      <span class="dchip">3 · Электродинамика</span>
+      <span class="dchip">4 · Оптика. ТО. Квантовая и ядерная физика</span>
+    </div>
+    <p class="meta">Структура пособия точно следует кодам тем официальной спецификации ДТМ (1.1 … 4.2). Под каждой темой: ключевые формулы + примеры с полными решениями и приёмами для теста.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ================= INTRO ================= -->
+<section class="intro" id="top">
+  <h2>Как пользоваться пособием</h2>
+  <p>Книга построена по официальной программе ДТМ по физике. Каждая тема содержит три блока: <strong>краткую теорию с формулами</strong> для быстрого повторения, <strong>разобранные примеры</strong> экзаменного типа с пошаговым решением, и местами <strong>приёмы для теста</strong> — как быстрее выбрать ответ.</p>
+  <p class="small">Совет по стратегии: на самом тесте сначала решайте задачи «по формуле» (узнал тип → подставил), а приёмы вроде подстановки вариантов ответа, проверки размерности и предельных случаев держите как ускорители для трудных пунктов. Открытые задачи решайте от первых принципов.</p>
+</section>
+
+<!-- ================= TOC ================= -->
+<nav class="toc">
+  <h2>Содержание</h2>
+
+  <div class="toc-group m">
+    <h3>1 · Механика</h3>
+    <ul>
+      <li><a href="#t1-1"><span class="code">1.1</span> Кинематика</a></li>
+      <li><a href="#t1-2"><span class="code">1.2</span> Динамика. Статика</a></li>
+      <li><a href="#t1-3"><span class="code">1.3</span> Законы сохранения в механике</a></li>
+      <li><a href="#t1-4"><span class="code">1.4</span> Механические колебания и волны</a></li>
+      <li><a href="#t1-5"><span class="code">1.5</span> Гидро- и аэростатика и динамика</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-group t">
+    <h3>2 · Молекулярная физика и термодинамика</h3>
+    <ul>
+      <li><a href="#t2-1"><span class="code">2.1</span> МКТ. Уравнение состояния идеального газа</a></li>
+      <li><a href="#t2-2"><span class="code">2.2</span> Основы термодинамики</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-group e">
+    <h3>3 · Электродинамика</h3>
+    <ul>
+      <li><a href="#t3-1"><span class="code">3.1</span> Электростатика</a></li>
+      <li><a href="#t3-2"><span class="code">3.2</span> Законы постоянного тока</a></li>
+      <li><a href="#t3-3"><span class="code">3.3</span> Ток в различных средах</a></li>
+      <li><a href="#t3-4"><span class="code">3.4</span> Магнитное поле. Электромагнитная индукция</a></li>
+      <li><a href="#t3-5"><span class="code">3.5</span> Электромагнитные колебания и волны</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-group o">
+    <h3>4 · Оптика. ТО. Квантовая и ядерная физика</h3>
+    <ul>
+      <li><a href="#t4-1"><span class="code">4.1</span> Геометрическая и волновая оптика. ТО</a></li>
+      <li><a href="#t4-2"><span class="code">4.2</span> Квантовая, атомная и ядерная физика</a></li>
+    </ul>
+  </div>
+</nav>
+
+</div><!-- /wrap -->
+
+<div class="wrap">
+<section class="chapter dom-m">
+  <div class="domain-head">
+    <div class="num">РАЗДЕЛ 1</div>
+    <h2>Механика</h2>
+    <div class="domain-rule"></div>
+  </div>
+
+  <!-- ===== 1.1 Кинематика ===== -->
+  <article class="topic" id="t1-1">
+    <h3><span class="code">1.1</span> Кинематика</h3>
+    <p>Кинематика описывает движение, не интересуясь его причинами. Главное — правильно выбрать систему отсчёта и тип движения.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Равномерное движение:</span> $x = x_0 + v t$</li>
+        <li><span class="fname">Равноускоренное:</span> $v = v_0 + a t,\quad x = x_0 + v_0 t + \dfrac{a t^2}{2},\quad v^2 = v_0^2 + 2 a \,\Delta x$</li>
+        <li><span class="fname">Средняя скорость:</span> $\langle v\rangle = \dfrac{\text{весь путь}}{\text{всё время}}$ (не среднее арифметическое скоростей!)</li>
+        <li><span class="fname">Свободное падение:</span> $a = g \approx 9{,}8\ \text{м/с}^2$ (на тесте часто берут $10$)</li>
+        <li><span class="fname">Бросок под углом $\alpha$:</span> $v_{0x}=v_0\cos\alpha,\ v_{0y}=v_0\sin\alpha$; дальность $L=\dfrac{v_0^2\sin 2\alpha}{g}$, высота $H=\dfrac{v_0^2\sin^2\alpha}{2g}$, время полёта $t=\dfrac{2v_0\sin\alpha}{g}$</li>
+        <li><span class="fname">Движение по окружности:</span> $v=\omega R,\ \omega=\dfrac{2\pi}{T}=2\pi\nu,\ a_{\text{цс}}=\dfrac{v^2}{R}=\omega^2 R$</li>
+        <li><span class="fname">Относительность:</span> $\vec v_{1/2}=\vec v_1-\vec v_2$ (скорость тела 1 относительно тела 2)</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Равноускоренное движение</span>
+      <p class="q">Автомобиль трогается с места и за $t=10$ с разгоняется до $v=72$ км/ч. Найдите ускорение и пройденный путь.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Переведём скорость: $v = 72\ \text{км/ч} = \dfrac{72}{3{,}6}=20$ м/с. Начальная скорость $v_0=0$.</p>
+        <p>Ускорение: $a=\dfrac{v-v_0}{t}=\dfrac{20}{10}=2\ \text{м/с}^2.$</p>
+        <p>Путь удобно через среднюю скорость: $s=\dfrac{v_0+v}{2}\,t=\dfrac{0+20}{2}\cdot 10 = 100$ м.</p>
+        <span class="ans">$a = 2\ \text{м/с}^2,\quad s = 100\ \text{м}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Свободное падение</span>
+      <p class="q">Тело падает без начальной скорости с высоты $h=20$ м. Найдите время падения и скорость удара о землю ($g=10\ \text{м/с}^2$).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Из $h=\dfrac{g t^2}{2}$ получаем $t=\sqrt{\dfrac{2h}{g}}=\sqrt{\dfrac{2\cdot 20}{10}}=\sqrt{4}=2$ с.</p>
+        <p>Скорость удара: $v=g t = 10\cdot 2 = 20$ м/с.</p>
+        <span class="ans">$t = 2\ \text{с},\quad v = 20\ \text{м/с}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Бросок под углом</span>
+      <p class="q">Тело брошено под углом $\alpha=30^\circ$ к горизонту со скоростью $v_0=20$ м/с. Найдите дальность полёта и максимальную высоту ($g=10$).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Дальность: $L=\dfrac{v_0^2\sin 2\alpha}{g}=\dfrac{20^2\cdot\sin 60^\circ}{10}=\dfrac{400\cdot 0{,}866}{10}\approx 34{,}6$ м.</p>
+        <p>Высота: $H=\dfrac{v_0^2\sin^2\alpha}{2g}=\dfrac{400\cdot(0{,}5)^2}{20}=\dfrac{100}{20}=5$ м.</p>
+        <span class="ans">$L \approx 34{,}6\ \text{м},\quad H = 5\ \text{м}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Максимальная дальность всегда при $\alpha=45^\circ$ (тогда $\sin 2\alpha=1$). Углы $30^\circ$ и $60^\circ$ дают <em>одинаковую</em> дальность ($\sin 60^\circ=\sin 120^\circ$) — это частая «ловушка» в вариантах ответа.
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Движение по окружности</span>
+      <p class="q">Точка движется по окружности радиусом $R=0{,}5$ м с периодом $T=2$ с. Найдите линейную скорость и центростремительное ускорение.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Угловая скорость: $\omega=\dfrac{2\pi}{T}=\dfrac{2\pi}{2}=\pi\approx 3{,}14$ рад/с.</p>
+        <p>Линейная скорость: $v=\omega R=\pi\cdot 0{,}5\approx 1{,}57$ м/с.</p>
+        <p>Ускорение: $a_{\text{цс}}=\omega^2 R=\pi^2\cdot 0{,}5\approx 4{,}93\ \text{м/с}^2.$</p>
+        <span class="ans">$v \approx 1{,}57\ \text{м/с},\quad a_{\text{цс}} \approx 4{,}93\ \text{м/с}^2$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 5 · Относительность движения</span>
+      <p class="q">Два автомобиля едут навстречу со скоростями $v_1=60$ км/ч и $v_2=40$ км/ч. Расстояние между ними $100$ км. Через какое время они встретятся?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>В системе отсчёта одного авто другое приближается со скоростью сближения $v_{\text{отн}}=v_1+v_2=100$ км/ч (при движении навстречу скорости складываются).</p>
+        <p>Время: $t=\dfrac{S}{v_{\text{отн}}}=\dfrac{100}{100}=1$ ч.</p>
+        <span class="ans">$t = 1\ \text{ч}$</span>
+      </div>
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 1.2 Динамика. Статика ===== -->
+  <article class="topic" id="t1-2">
+    <h3><span class="code">1.2</span> Динамика. Статика</h3>
+    <p>Динамика связывает движение с силами через законы Ньютона. Статика — частный случай: тело в равновесии.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">II закон Ньютона:</span> $\vec F_{\text{рез}}=m\vec a$</li>
+        <li><span class="fname">Закон всемирного тяготения:</span> $F=G\dfrac{m_1 m_2}{R^2}$, где $G=6{,}67\cdot 10^{-11}$ Н·м²/кг²</li>
+        <li><span class="fname">Сила тяжести и вес:</span> $F_{\text{тяж}}=mg$; вес $P=m(g\pm a)$ (перегрузка/невесомость)</li>
+        <li><span class="fname">Закон Гука:</span> $F_{\text{упр}}=k|x|$</li>
+        <li><span class="fname">Трение:</span> покоя $F_{\text{тр}}\le\mu N$; скольжения $F_{\text{тр}}=\mu N$</li>
+        <li><span class="fname">Момент силы:</span> $M=F\cdot l$ ($l$ — плечо)</li>
+        <li><span class="fname">Условия равновесия:</span> $\sum\vec F=0$ и $\sum M=0$</li>
+        <li><span class="fname">Космические скорости:</span> $v_{\text{I}}=\sqrt{\dfrac{GM}{R}}\approx 7{,}9$ км/с; $v_{\text{II}}=\sqrt{2}\,v_{\text{I}}\approx 11{,}2$ км/с</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · II закон Ньютона</span>
+      <p class="q">На тело массой $m=4$ кг действует горизонтальная сила $F=20$ Н. Сила трения $F_{\text{тр}}=4$ Н. Найдите ускорение.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Результирующая вдоль движения: $F_{\text{рез}}=F-F_{\text{тр}}=20-4=16$ Н.</p>
+        <p>$a=\dfrac{F_{\text{рез}}}{m}=\dfrac{16}{4}=4\ \text{м/с}^2.$</p>
+        <span class="ans">$a = 4\ \text{м/с}^2$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Наклонная плоскость с трением</span>
+      <p class="q">Брусок скользит по наклонной плоскости с углом $\alpha=30^\circ$. Коэффициент трения $\mu=0{,}2$. Найдите ускорение ($g=10$).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Вдоль склона тянет $mg\sin\alpha$, тормозит трение $\mu mg\cos\alpha$. Масса сокращается:</p>
+        <p>$a=g(\sin\alpha-\mu\cos\alpha)=10\,(0{,}5-0{,}2\cdot 0{,}866)=10\,(0{,}5-0{,}173)=3{,}27\ \text{м/с}^2.$</p>
+        <span class="ans">$a \approx 3{,}3\ \text{м/с}^2$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Вес тела в лифте</span>
+      <p class="q">Человек массой $m=70$ кг стоит в лифте, который движется вверх с ускорением $a=2\ \text{м/с}^2$. Каков вес человека ($g=10$)?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>При движении с ускорением вверх возникает перегрузка: $P=m(g+a)=70\,(10+2)=840$ Н.</p>
+        <p>(Если бы лифт ускорялся вниз: $P=m(g-a)$; при свободном падении $a=g$ — невесомость, $P=0$.)</p>
+        <span class="ans">$P = 840\ \text{Н}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Закон Гука</span>
+      <p class="q">Под действием силы $F=15$ Н пружина удлинилась на $x=3$ см. Найдите жёсткость и удлинение при силе $25$ Н.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$k=\dfrac{F}{x}=\dfrac{15}{0{,}03}=500$ Н/м.</p>
+        <p>Новое удлинение: $x_2=\dfrac{F_2}{k}=\dfrac{25}{500}=0{,}05$ м $=5$ см.</p>
+        <span class="ans">$k = 500\ \text{Н/м},\quad x_2 = 5\ \text{см}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 5 · Правило моментов (рычаг)</span>
+      <p class="q">На концах невесомого рычага длиной $1{,}2$ м висят грузы $30$ Н и $60$ Н. Где расположить опору, чтобы рычаг был в равновесии?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Пусть плечо груза $60$ Н равно $l_2$, плечо груза $30$ Н равно $l_1$, причём $l_1+l_2=1{,}2$ м. Условие равновесия моментов:</p>
+        <p>$F_1 l_1 = F_2 l_2 \;\Rightarrow\; 30\,l_1 = 60\,l_2 \;\Rightarrow\; l_1 = 2 l_2.$</p>
+        <p>Тогда $2l_2+l_2=1{,}2 \Rightarrow l_2=0{,}4$ м, $l_1=0{,}8$ м.</p>
+        <span class="ans">Опора в $0{,}8$ м от меньшего груза (ближе к большему: $0{,}4$ м)</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      В задачах о наклонной плоскости и трении масса почти всегда сокращается — ускорение от массы не зависит. Если в вариантах ответа фигурирует $m$, такой ответ часто можно сразу отбросить.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 1.3 Законы сохранения ===== -->
+  <article class="topic" id="t1-3">
+    <h3><span class="code">1.3</span> Законы сохранения в механике</h3>
+    <p>Самый мощный инструмент: если знать «что сохраняется», часто можно решить задачу без подробного анализа сил.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Импульс:</span> $\vec p=m\vec v$; изменение $\vec F\,\Delta t=\Delta\vec p$</li>
+        <li><span class="fname">Закон сохранения импульса:</span> $\sum\vec p_{\text{до}}=\sum\vec p_{\text{после}}$ (замкнутая система)</li>
+        <li><span class="fname">Работа:</span> $A=F s\cos\alpha$; мощность $N=\dfrac{A}{t}=Fv$</li>
+        <li><span class="fname">Кинетическая энергия:</span> $E_k=\dfrac{mv^2}{2}$</li>
+        <li><span class="fname">Потенциальная энергия:</span> $E_p=mgh$ (тяжести); $E_p=\dfrac{kx^2}{2}$ (упругости)</li>
+        <li><span class="fname">Закон сохранения энергии:</span> $E_k+E_p=\text{const}$ (без трения)</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Сохранение импульса (неупругий удар)</span>
+      <p class="q">Тележка массой $2$ кг движется со скоростью $3$ м/с и сцепляется с неподвижной тележкой массой $4$ кг. Найдите скорость после сцепки.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$m_1 v_1 = (m_1+m_2)\,u \;\Rightarrow\; u=\dfrac{m_1 v_1}{m_1+m_2}=\dfrac{2\cdot 3}{2+4}=\dfrac{6}{6}=1$ м/с.</p>
+        <span class="ans">$u = 1\ \text{м/с}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Сохранение энергии</span>
+      <p class="q">Тело брошено вертикально вверх со скоростью $v_0=20$ м/с. На какую максимальную высоту оно поднимется ($g=10$)?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>В верхней точке вся кинетическая энергия перешла в потенциальную: $\dfrac{mv_0^2}{2}=mgh$.</p>
+        <p>$h=\dfrac{v_0^2}{2g}=\dfrac{20^2}{2\cdot 10}=\dfrac{400}{20}=20$ м.</p>
+        <span class="ans">$h = 20\ \text{м}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Работа и мощность</span>
+      <p class="q">Двигатель равномерно поднимает груз массой $100$ кг на высоту $6$ м за $4$ с. Найдите работу и мощность ($g=10$).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$A=mgh=100\cdot 10\cdot 6=6000$ Дж.</p>
+        <p>$N=\dfrac{A}{t}=\dfrac{6000}{4}=1500$ Вт.</p>
+        <span class="ans">$A = 6\ \text{кДж},\quad N = 1{,}5\ \text{кВт}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Энергия пружины</span>
+      <p class="q">Пружину жёсткостью $k=200$ Н/м сжали на $x=10$ см. Какую скорость получит тело массой $m=0{,}5$ кг, если отпустить пружину (трения нет)?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Энергия пружины переходит в кинетическую: $\dfrac{kx^2}{2}=\dfrac{mv^2}{2}$.</p>
+        <p>$v=x\sqrt{\dfrac{k}{m}}=0{,}1\sqrt{\dfrac{200}{0{,}5}}=0{,}1\sqrt{400}=0{,}1\cdot 20=2$ м/с.</p>
+        <span class="ans">$v = 2\ \text{м/с}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      В удар «слипанием» (неупругом) сохраняется только импульс, а часть энергии уходит в тепло. В абсолютно упругом ударе сохраняются <em>и</em> импульс, <em>и</em> кинетическая энергия. Не путайте — выбор закона определяет правильный ответ.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 1.4 Колебания и волны ===== -->
+  <article class="topic" id="t1-4">
+    <h3><span class="code">1.4</span> Механические колебания и волны</h3>
+    <p>Гармонические колебания описываются синусом; ключ к задачам — период и связь амплитуды скорости/ускорения с амплитудой смещения.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Смещение:</span> $x(t)=A\sin(\omega t+\varphi_0)$, где $\omega=2\pi\nu=\dfrac{2\pi}{T}$</li>
+        <li><span class="fname">Амплитуды:</span> $v_{\max}=A\omega,\quad a_{\max}=A\omega^2$</li>
+        <li><span class="fname">Пружинный маятник:</span> $T=2\pi\sqrt{\dfrac{m}{k}}$</li>
+        <li><span class="fname">Математический маятник:</span> $T=2\pi\sqrt{\dfrac{l}{g}}$</li>
+        <li><span class="fname">Энергия колебаний:</span> $\dfrac{mv^2}{2}+\dfrac{kx^2}{2}=\dfrac{kA^2}{2}=\text{const}$</li>
+        <li><span class="fname">Волна:</span> $v=\lambda\nu=\dfrac{\lambda}{T}$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Математический маятник</span>
+      <p class="q">Найдите период колебаний маятника длиной $l=1$ м ($g=10$). Как изменится период, если длину увеличить в $4$ раза?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$T=2\pi\sqrt{\dfrac{l}{g}}=2\pi\sqrt{\dfrac{1}{10}}\approx 2\pi\cdot 0{,}316\approx 1{,}99$ с.</p>
+        <p>Так как $T\propto\sqrt{l}$, при увеличении $l$ в $4$ раза период вырастет в $\sqrt{4}=2$ раза.</p>
+        <span class="ans">$T \approx 2\ \text{с};$ увеличится в $2$ раза</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Пружинный маятник</span>
+      <p class="q">Груз массой $m=0{,}2$ кг на пружине жёсткостью $k=80$ Н/м. Найдите период и частоту колебаний.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$T=2\pi\sqrt{\dfrac{m}{k}}=2\pi\sqrt{\dfrac{0{,}2}{80}}=2\pi\sqrt{0{,}0025}=2\pi\cdot 0{,}05\approx 0{,}314$ с.</p>
+        <p>$\nu=\dfrac{1}{T}\approx\dfrac{1}{0{,}314}\approx 3{,}18$ Гц.</p>
+        <span class="ans">$T \approx 0{,}31\ \text{с},\quad \nu \approx 3{,}2\ \text{Гц}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Максимальная скорость</span>
+      <p class="q">Тело колеблется по закону $x=0{,}05\sin(10t)$ (СИ). Найдите амплитуду, период и максимальную скорость.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Сравнивая с $x=A\sin(\omega t)$: $A=0{,}05$ м, $\omega=10$ рад/с.</p>
+        <p>$T=\dfrac{2\pi}{\omega}=\dfrac{2\pi}{10}\approx 0{,}63$ с; $v_{\max}=A\omega=0{,}05\cdot 10=0{,}5$ м/с.</p>
+        <span class="ans">$A=0{,}05\ \text{м},\ T\approx 0{,}63\ \text{с},\ v_{\max}=0{,}5\ \text{м/с}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Длина волны</span>
+      <p class="q">Звуковая волна частотой $\nu=340$ Гц распространяется в воздухе со скоростью $v=340$ м/с. Найдите длину волны.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\lambda=\dfrac{v}{\nu}=\dfrac{340}{340}=1$ м.</p>
+        <span class="ans">$\lambda = 1\ \text{м}$</span>
+      </div>
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 1.5 Гидро/аэростатика ===== -->
+  <article class="topic" id="t1-5">
+    <h3><span class="code">1.5</span> Гидро- и аэростатика и динамика</h3>
+    <p>Давление, закон Архимеда и уравнение Бернулли — три кита этой темы.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Давление:</span> $p=\dfrac{F}{S}$; давление столба жидкости $p=\rho g h$</li>
+        <li><span class="fname">Закон Паскаля (гидропресс):</span> $\dfrac{F_1}{S_1}=\dfrac{F_2}{S_2}$</li>
+        <li><span class="fname">Сообщающиеся сосуды:</span> $\rho_1 h_1=\rho_2 h_2$</li>
+        <li><span class="fname">Закон Архимеда:</span> $F_A=\rho_{\text{ж}}\,V_{\text{погр}}\,g$</li>
+        <li><span class="fname">Уравнение неразрывности:</span> $S_1 v_1=S_2 v_2$</li>
+        <li><span class="fname">Уравнение Бернулли:</span> $p+\rho g h+\dfrac{\rho v^2}{2}=\text{const}$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Давление столба жидкости</span>
+      <p class="q">Найдите давление воды на дно бассейна глубиной $h=2{,}5$ м ($\rho=1000$ кг/м³, $g=10$).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$p=\rho g h=1000\cdot 10\cdot 2{,}5=25\,000$ Па $=25$ кПа.</p>
+        <span class="ans">$p = 25\ \text{кПа}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Сила Архимеда</span>
+      <p class="q">Тело объёмом $V=0{,}002\ \text{м}^3$ полностью погружено в воду. Найдите выталкивающую силу ($\rho=1000$, $g=10$).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$F_A=\rho g V=1000\cdot 10\cdot 0{,}002=20$ Н.</p>
+        <span class="ans">$F_A = 20\ \text{Н}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Гидравлический пресс</span>
+      <p class="q">На малый поршень площадью $S_1=5\ \text{см}^2$ действует сила $F_1=100$ Н. Какая сила возникнет на большом поршне $S_2=250\ \text{см}^2$?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$F_2=F_1\cdot\dfrac{S_2}{S_1}=100\cdot\dfrac{250}{5}=100\cdot 50=5000$ Н.</p>
+        <span class="ans">$F_2 = 5000\ \text{Н}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Уравнение неразрывности</span>
+      <p class="q">Вода течёт по трубе. В широкой части ($S_1=20\ \text{см}^2$) скорость $v_1=1$ м/с. Какова скорость в узкой части $S_2=5\ \text{см}^2$?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$v_2=v_1\cdot\dfrac{S_1}{S_2}=1\cdot\dfrac{20}{5}=4$ м/с.</p>
+        <span class="ans">$v_2 = 4\ \text{м/с}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Сила Архимеда зависит от плотности <em>жидкости</em> и объёма <em>погружённой части</em>, а не от плотности тела. Если тело плавает — $F_A$ равна весу тела, и погружённая доля объёма равна отношению плотностей $\rho_{\text{тела}}/\rho_{\text{ж}}$.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+</section>
+</div><!-- /wrap -->
+
+<div class="wrap">
+<section class="chapter dom-t">
+  <div class="domain-head">
+    <div class="num">РАЗДЕЛ 2</div>
+    <h2>Молекулярная физика и термодинамика</h2>
+    <div class="domain-rule"></div>
+  </div>
+
+  <!-- ===== 2.1 МКТ. Идеальный газ ===== -->
+  <article class="topic" id="t2-1">
+    <h3><span class="code">2.1</span> МКТ. Уравнение состояния идеального газа</h3>
+    <p>Центральная формула темы — уравнение Менделеева–Клапейрона. Большинство задач сводятся к нему или к изопроцессам.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Количество вещества:</span> $\nu=\dfrac{m}{\mu}=\dfrac{N}{N_A}$, где $N_A=6{,}02\cdot 10^{23}$ моль⁻¹</li>
+        <li><span class="fname">Менделеев–Клапейрон:</span> $pV=\dfrac{m}{\mu}RT=\nu RT$, $R=8{,}31$ Дж/(моль·К)</li>
+        <li><span class="fname">Абсолютная температура:</span> $T=t^\circ\!C+273$</li>
+        <li><span class="fname">Основное уравнение МКТ:</span> $p=\dfrac{1}{3}n m_0\bar v^2=\dfrac{2}{3}n\bar E_k$; $p=nkT$, $k=1{,}38\cdot 10^{-23}$ Дж/К</li>
+        <li><span class="fname">Средняя энергия молекулы:</span> $\bar E_k=\dfrac{3}{2}kT$ (одноатомный газ)</li>
+        <li><span class="fname">Среднеквадратичная скорость:</span> $v_{\text{кв}}=\sqrt{\dfrac{3RT}{\mu}}$</li>
+        <li><span class="fname">Изопроцессы:</span> изотерм. $pV=\text{const}$; изохор. $\dfrac{p}{T}=\text{const}$; изобар. $\dfrac{V}{T}=\text{const}$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Уравнение Менделеева–Клапейрона</span>
+      <p class="q">Какое давление создаёт $2$ моль идеального газа в сосуде объёмом $V=20$ л при температуре $t=27\,^\circ\!C$?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$T=27+273=300$ К, $V=0{,}02\ \text{м}^3$.</p>
+        <p>$p=\dfrac{\nu RT}{V}=\dfrac{2\cdot 8{,}31\cdot 300}{0{,}02}=\dfrac{4986}{0{,}02}\approx 2{,}49\cdot 10^{5}$ Па.</p>
+        <span class="ans">$p \approx 2{,}5\cdot 10^{5}\ \text{Па} \approx 250\ \text{кПа}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Изотермический процесс (закон Бойля–Мариотта)</span>
+      <p class="q">Газ при давлении $p_1=200$ кПа занимает объём $V_1=3$ л. Каким станет давление, если при постоянной температуре объём уменьшить до $1{,}5$ л?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$p_1 V_1 = p_2 V_2 \;\Rightarrow\; p_2=\dfrac{p_1 V_1}{V_2}=\dfrac{200\cdot 3}{1{,}5}=400$ кПа.</p>
+        <span class="ans">$p_2 = 400\ \text{кПа}$ (объём уменьшили вдвое — давление выросло вдвое)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Изобарный процесс (закон Гей-Люссака)</span>
+      <p class="q">Газ при $T_1=300$ К занимает объём $V_1=2$ л. До какой температуры его нагрели при постоянном давлении, если объём стал $3$ л?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}\;\Rightarrow\;T_2=T_1\cdot\dfrac{V_2}{V_1}=300\cdot\dfrac{3}{2}=450$ К.</p>
+        <span class="ans">$T_2 = 450\ \text{К}$ (т.е. $177\,^\circ\!C$)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Среднеквадратичная скорость</span>
+      <p class="q">Найдите среднеквадратичную скорость молекул кислорода ($\mu=0{,}032$ кг/моль) при $T=300$ К.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$v_{\text{кв}}=\sqrt{\dfrac{3RT}{\mu}}=\sqrt{\dfrac{3\cdot 8{,}31\cdot 300}{0{,}032}}=\sqrt{\dfrac{7479}{0{,}032}}=\sqrt{233\,718}\approx 483$ м/с.</p>
+        <span class="ans">$v_{\text{кв}} \approx 483\ \text{м/с}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Всегда переводите температуру в Кельвины перед делением/умножением. Частая ошибка: «нагрели вдвое с $27\,^\circ\!C$» означает с $300$ К до $600$ К ($327\,^\circ\!C$), а не до $54\,^\circ\!C$.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 2.2 Термодинамика ===== -->
+  <article class="topic" id="t2-2">
+    <h3><span class="code">2.2</span> Основы термодинамики</h3>
+    <p>Здесь работают уравнение теплового баланса, первый закон термодинамики и КПД тепловых машин.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Нагрев/охлаждение:</span> $Q=cm\Delta t$</li>
+        <li><span class="fname">Плавление:</span> $Q=\lambda m$; <span class="fname">парообразование:</span> $Q=rm$; <span class="fname">сгорание:</span> $Q=qm$</li>
+        <li><span class="fname">Уравнение теплового баланса:</span> $\sum Q=0$ (отданное = полученному)</li>
+        <li><span class="fname">Первый закон ТД:</span> $Q=\Delta U+A$</li>
+        <li><span class="fname">Внутренняя энергия (одноат. газ):</span> $U=\dfrac{3}{2}\nu RT$, $\Delta U=\dfrac{3}{2}\nu R\Delta T$</li>
+        <li><span class="fname">Работа газа (изобара):</span> $A=p\,\Delta V$</li>
+        <li><span class="fname">КПД тепловой машины:</span> $\eta=\dfrac{Q_1-Q_2}{Q_1}$; цикл Карно $\eta=\dfrac{T_1-T_2}{T_1}$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Нагревание</span>
+      <p class="q">Сколько теплоты нужно, чтобы нагреть $2$ кг воды от $20\,^\circ\!C$ до $80\,^\circ\!C$? Удельная теплоёмкость воды $c=4200$ Дж/(кг·°C).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$Q=cm\Delta t=4200\cdot 2\cdot(80-20)=4200\cdot 2\cdot 60=504\,000$ Дж.</p>
+        <span class="ans">$Q = 504\ \text{кДж}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Тепловой баланс</span>
+      <p class="q">В $300$ г воды при $20\,^\circ\!C$ налили $200$ г воды при $70\,^\circ\!C$. Какая установится температура?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Тёплая вода отдаёт, холодная получает: $c m_1(\theta-t_1)=c m_2(t_2-\theta)$. $c$ сокращается:</p>
+        <p>$300(\theta-20)=200(70-\theta)\Rightarrow 300\theta-6000=14000-200\theta$.</p>
+        <p>$500\theta=20000\Rightarrow\theta=40\,^\circ\!C.$</p>
+        <span class="ans">$\theta = 40\,^\circ\!C$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Первый закон термодинамики</span>
+      <p class="q">Газу передали $Q=500$ Дж теплоты, при этом он совершил работу $A=200$ Дж. Как изменилась внутренняя энергия?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\Delta U=Q-A=500-200=300$ Дж.</p>
+        <span class="ans">$\Delta U = 300\ \text{Дж}$ (внутренняя энергия выросла)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · КПД цикла Карно</span>
+      <p class="q">Идеальная тепловая машина работает между нагревателем $T_1=500$ К и холодильником $T_2=300$ К. Найдите максимальный КПД.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\eta=\dfrac{T_1-T_2}{T_1}=\dfrac{500-300}{500}=\dfrac{200}{500}=0{,}4=40\%.$</p>
+        <span class="ans">$\eta = 40\%$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Связь теплоты с процессом: изотерма $Q=A$ ($\Delta U=0$); изохора $Q=\Delta U$ ($A=0$, ведь $\Delta V=0$); адиабата $A=-\Delta U$ ($Q=0$). Зная процесс, сразу видно, куда «уходит» теплота.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+</section>
+</div><!-- /wrap -->
+
+<div class="wrap">
+<section class="chapter dom-e">
+  <div class="domain-head">
+    <div class="num">РАЗДЕЛ 3</div>
+    <h2>Электродинамика</h2>
+    <div class="domain-rule"></div>
+  </div>
+
+  <!-- ===== 3.1 Электростатика ===== -->
+  <article class="topic" id="t3-1">
+    <h3><span class="code">3.1</span> Электростатика</h3>
+    <p>Закон Кулона, напряжённость и потенциал поля, конденсаторы. Различайте величины <em>векторные</em> (сила, напряжённость) и <em>скалярные</em> (потенциал, энергия).</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Закон Кулона:</span> $F=k\dfrac{|q_1||q_2|}{\varepsilon r^2}$, где $k=9\cdot 10^{9}$ Н·м²/Кл²</li>
+        <li><span class="fname">Напряжённость:</span> $E=\dfrac{F}{q}$; точечного заряда $E=\dfrac{kq}{r^2}$</li>
+        <li><span class="fname">Работа поля:</span> $A=q(\varphi_1-\varphi_2)=qU$; связь $U=Ed$ (однородное поле)</li>
+        <li><span class="fname">Ёмкость:</span> $C=\dfrac{q}{U}$; плоский конденсатор $C=\dfrac{\varepsilon\varepsilon_0 S}{d}$, $\varepsilon_0=8{,}85\cdot 10^{-12}$ Ф/м</li>
+        <li><span class="fname">Соединение конденсаторов:</span> параллельно $C=C_1+C_2+\dots$; последовательно $\dfrac{1}{C}=\dfrac{1}{C_1}+\dfrac{1}{C_2}+\dots$</li>
+        <li><span class="fname">Энергия конденсатора:</span> $W=\dfrac{qU}{2}=\dfrac{CU^2}{2}=\dfrac{q^2}{2C}$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Закон Кулона</span>
+      <p class="q">Два точечных заряда $q_1=2\cdot 10^{-6}$ Кл и $q_2=3\cdot 10^{-6}$ Кл находятся на расстоянии $r=0{,}3$ м в вакууме. Найдите силу взаимодействия.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$F=k\dfrac{q_1 q_2}{r^2}=9\cdot 10^{9}\cdot\dfrac{2\cdot 10^{-6}\cdot 3\cdot 10^{-6}}{0{,}3^2}=9\cdot 10^{9}\cdot\dfrac{6\cdot 10^{-12}}{0{,}09}.$</p>
+        <p>$=9\cdot 10^{9}\cdot 6{,}67\cdot 10^{-11}=0{,}6$ Н.</p>
+        <span class="ans">$F = 0{,}6\ \text{Н}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Напряжённость поля</span>
+      <p class="q">На заряд $q=5\cdot 10^{-8}$ Кл в некоторой точке поля действует сила $F=2\cdot 10^{-3}$ Н. Найдите напряжённость поля в этой точке.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$E=\dfrac{F}{q}=\dfrac{2\cdot 10^{-3}}{5\cdot 10^{-8}}=4\cdot 10^{4}$ В/м.</p>
+        <span class="ans">$E = 4\cdot 10^{4}\ \text{В/м}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Энергия конденсатора</span>
+      <p class="q">Конденсатор ёмкостью $C=20$ мкФ заряжён до напряжения $U=100$ В. Найдите заряд и запасённую энергию.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$q=CU=20\cdot 10^{-6}\cdot 100=2\cdot 10^{-3}$ Кл $=2$ мКл.</p>
+        <p>$W=\dfrac{CU^2}{2}=\dfrac{20\cdot 10^{-6}\cdot 100^2}{2}=\dfrac{20\cdot 10^{-6}\cdot 10^4}{2}=0{,}1$ Дж.</p>
+        <span class="ans">$q = 2\ \text{мКл},\quad W = 0{,}1\ \text{Дж}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Соединение конденсаторов</span>
+      <p class="q">Два конденсатора $C_1=6$ мкФ и $C_2=3$ мкФ. Найдите общую ёмкость при последовательном и при параллельном соединении.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Последовательно: $\dfrac{1}{C}=\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{3}{6}\Rightarrow C=2$ мкФ.</p>
+        <p>Параллельно: $C=C_1+C_2=6+3=9$ мкФ.</p>
+        <span class="ans">Последовательно $2$ мкФ; параллельно $9$ мкФ</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Конденсаторы соединяются «наоборот» по сравнению с резисторами: при <em>последовательном</em> соединении ёмкость уменьшается (как сопротивления при параллельном). Общая последовательная ёмкость всегда меньше наименьшей.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 3.2 Постоянный ток ===== -->
+  <article class="topic" id="t3-2">
+    <h3><span class="code">3.2</span> Законы постоянного тока</h3>
+    <p>Закон Ома, соединения проводников, ЭДС и полная цепь, мощность и тепло. Это «рабочая лошадка» теста — задач много.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Сила тока:</span> $I=\dfrac{q}{t}$; <span class="fname">Ом для участка:</span> $I=\dfrac{U}{R}$</li>
+        <li><span class="fname">Сопротивление:</span> $R=\rho\dfrac{l}{S}$</li>
+        <li><span class="fname">Последовательно:</span> $R=R_1+R_2+\dots,\ I=\text{const},\ U=U_1+U_2$</li>
+        <li><span class="fname">Параллельно:</span> $\dfrac{1}{R}=\dfrac{1}{R_1}+\dfrac{1}{R_2}+\dots,\ U=\text{const},\ I=I_1+I_2$</li>
+        <li><span class="fname">ЭДС и полная цепь:</span> $\varepsilon=\dfrac{A_{\text{ст}}}{q}$; $I=\dfrac{\varepsilon}{R+r}$</li>
+        <li><span class="fname">Работа и мощность:</span> $A=UIt$; $P=UI=I^2R=\dfrac{U^2}{R}$; закон Джоуля–Ленца $Q=I^2Rt$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Закон Ома для участка</span>
+      <p class="q">К проводнику сопротивлением $R=20$ Ом приложено напряжение $U=12$ В. Найдите силу тока.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$I=\dfrac{U}{R}=\dfrac{12}{20}=0{,}6$ А.</p>
+        <span class="ans">$I = 0{,}6\ \text{А}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Параллельное соединение</span>
+      <p class="q">Два резистора $R_1=6$ Ом и $R_2=3$ Ом соединены параллельно. Найдите общее сопротивление.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\dfrac{1}{R}=\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{3}{6}\Rightarrow R=2$ Ом.</p>
+        <p>Для двух резисторов удобна формула $R=\dfrac{R_1 R_2}{R_1+R_2}=\dfrac{6\cdot 3}{9}=2$ Ом.</p>
+        <span class="ans">$R = 2\ \text{Ом}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Полная цепь (ЭДС)</span>
+      <p class="q">Источник с ЭДС $\varepsilon=12$ В и внутренним сопротивлением $r=1$ Ом замкнут на резистор $R=5$ Ом. Найдите силу тока и напряжение на резисторе.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$I=\dfrac{\varepsilon}{R+r}=\dfrac{12}{5+1}=2$ А.</p>
+        <p>$U=IR=2\cdot 5=10$ В (часть ЭДС «теряется» на $r$: $Ir=2$ В).</p>
+        <span class="ans">$I = 2\ \text{А},\quad U = 10\ \text{В}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Мощность и тепло</span>
+      <p class="q">Через нагреватель сопротивлением $R=50$ Ом течёт ток $I=2$ А в течение $t=5$ мин. Найдите мощность и выделившееся количество теплоты.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$P=I^2R=2^2\cdot 50=200$ Вт.</p>
+        <p>$Q=Pt=200\cdot 300=60\,000$ Дж $=60$ кДж ($t=5$ мин $=300$ с).</p>
+        <span class="ans">$P = 200\ \text{Вт},\quad Q = 60\ \text{кДж}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      В параллельном соединении общее сопротивление всегда меньше наименьшего из резисторов — быстрый способ отбросить неверные варианты. Для двух одинаковых $R$: параллельно $R/2$, последовательно $2R$.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+</section>
+</div><!-- /wrap -->
+
+<div class="wrap">
+<section class="dom-e">
+
+  <!-- ===== 3.3 Ток в средах ===== -->
+  <article class="topic" id="t3-3">
+    <h3><span class="code">3.3</span> Ток в различных средах</h3>
+    <p>Особенности тока в металлах, полупроводниках, жидкостях (электролиз), газах и вакууме. На тесте чаще всего — зависимость сопротивления от температуры и электролиз.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы и факты</p>
+      <ul>
+        <li><span class="fname">Сопротивление и температура:</span> $R=R_0(1+\alpha t)$ — у металлов растёт с нагревом</li>
+        <li><span class="fname">Полупроводники:</span> сопротивление с нагревом <em>уменьшается</em> (растёт число носителей); проводимость электронная и дырочная</li>
+        <li><span class="fname">Электролиз (закон Фарадея):</span> $m=\dfrac{1}{F}\cdot\dfrac{\mu}{n}\,It$, где $F=96\,500$ Кл/моль</li>
+        <li><span class="fname">Газы:</span> проводят при ионизации (несамостоятельный/самостоятельный разряд)</li>
+        <li><span class="fname">Вакуум:</span> ток создаётся термоэлектронной эмиссией (диод)</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Сопротивление при нагреве</span>
+      <p class="q">При $0\,^\circ\!C$ сопротивление проводника $R_0=10$ Ом. Каким оно станет при $t=100\,^\circ\!C$? Температурный коэффициент $\alpha=0{,}004\ \text{°C}^{-1}$.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$R=R_0(1+\alpha t)=10\,(1+0{,}004\cdot 100)=10\,(1+0{,}4)=14$ Ом.</p>
+        <span class="ans">$R = 14\ \text{Ом}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Электролиз</span>
+      <p class="q">При электролизе через раствор пропустили ток $I=2$ А в течение $t=30$ мин. Найдите массу выделившейся меди ($\mu=0{,}064$ кг/моль, валентность $n=2$, $F=96\,500$ Кл/моль).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$t=1800$ с. $m=\dfrac{\mu I t}{nF}=\dfrac{0{,}064\cdot 2\cdot 1800}{2\cdot 96\,500}=\dfrac{230{,}4}{193\,000}\approx 1{,}19\cdot 10^{-3}$ кг.</p>
+        <span class="ans">$m \approx 1{,}2\ \text{г}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Запомнить</p>
+      Металлы при нагреве проводят <em>хуже</em> ($R$ растёт), полупроводники — <em>лучше</em> ($R$ падает). Это любимая «концептуальная» проверка в тестах без вычислений.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 3.4 Магнитное поле. Индукция ===== -->
+  <article class="topic" id="t3-4">
+    <h3><span class="code">3.4</span> Магнитное поле. Электромагнитная индукция</h3>
+    <p>Силы Ампера и Лоренца, магнитный поток и закон электромагнитной индукции Фарадея. Следите за углами в формулах с синусом/косинусом.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Сила Ампера:</span> $F_A=BIl\sin\alpha$ ($\alpha$ — угол между $\vec B$ и током)</li>
+        <li><span class="fname">Сила Лоренца:</span> $F_{\text{л}}=qvB\sin\alpha$</li>
+        <li><span class="fname">Поле прямого тока:</span> $B=\dfrac{\mu\mu_0 I}{2\pi r}$; в центре витка $B=\dfrac{\mu\mu_0 I}{2r}$</li>
+        <li><span class="fname">Магнитный поток:</span> $\Phi=BS\cos\alpha$ ($\alpha$ — угол между $\vec B$ и <em>нормалью</em>)</li>
+        <li><span class="fname">ЭДС индукции:</span> $\varepsilon_i=-\dfrac{\Delta\Phi}{\Delta t}$; самоиндукции $\varepsilon=-L\dfrac{\Delta I}{\Delta t}$</li>
+        <li><span class="fname">Энергия магнитного поля:</span> $W=\dfrac{LI^2}{2}$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Сила Ампера</span>
+      <p class="q">Проводник длиной $l=0{,}5$ м с током $I=4$ А находится в магнитном поле $B=0{,}2$ Тл перпендикулярно линиям поля. Найдите силу Ампера.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\sin 90^\circ=1$, поэтому $F_A=BIl=0{,}2\cdot 4\cdot 0{,}5=0{,}4$ Н.</p>
+        <span class="ans">$F_A = 0{,}4\ \text{Н}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Сила Лоренца</span>
+      <p class="q">Электрон ($q=1{,}6\cdot 10^{-19}$ Кл) влетает в поле $B=0{,}1$ Тл со скоростью $v=2\cdot 10^{6}$ м/с перпендикулярно линиям. Найдите силу Лоренца.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$F_{\text{л}}=qvB=1{,}6\cdot 10^{-19}\cdot 2\cdot 10^{6}\cdot 0{,}1=3{,}2\cdot 10^{-14}$ Н.</p>
+        <span class="ans">$F_{\text{л}} = 3{,}2\cdot 10^{-14}\ \text{Н}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Магнитный поток</span>
+      <p class="q">Контур площадью $S=0{,}02\ \text{м}^2$ находится в поле $B=0{,}5$ Тл. Найдите поток, если плоскость контура перпендикулярна полю.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Если плоскость перпендикулярна полю, то нормаль параллельна $\vec B$, $\alpha=0$, $\cos 0=1$:</p>
+        <p>$\Phi=BS=0{,}5\cdot 0{,}02=0{,}01$ Вб.</p>
+        <span class="ans">$\Phi = 0{,}01\ \text{Вб}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · ЭДС индукции</span>
+      <p class="q">Магнитный поток через контур равномерно уменьшился с $0{,}08$ Вб до $0{,}02$ Вб за $0{,}3$ с. Найдите ЭДС индукции.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$|\varepsilon_i|=\dfrac{|\Delta\Phi|}{\Delta t}=\dfrac{0{,}08-0{,}02}{0{,}3}=\dfrac{0{,}06}{0{,}3}=0{,}2$ В.</p>
+        <span class="ans">$\varepsilon_i = 0{,}2\ \text{В}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Угол в потоке $\Phi=BS\cos\alpha$ отсчитывается от <em>нормали</em> к плоскости, а в силе Ампера/Лоренца — от направления поля. Если «плоскость параллельна полю», поток равен нулю ($\cos 90^\circ=0$) — частая ловушка.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 3.5 ЭМ колебания и волны ===== -->
+  <article class="topic" id="t3-5">
+    <h3><span class="code">3.5</span> Электромагнитные колебания и волны</h3>
+    <p>Колебательный контур, формула Томсона, переменный ток и резонанс. Это тема, которую стоит проработать особенно тщательно — здесь много похожих формул, которые легко перепутать.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Формула Томсона (период контура):</span> $T=2\pi\sqrt{LC}$; частота $\nu=\dfrac{1}{2\pi\sqrt{LC}}$</li>
+        <li><span class="fname">Сохранение энергии в контуре:</span> $\dfrac{CU^2}{2}+\dfrac{LI^2}{2}=\dfrac{CU_0^2}{2}=\dfrac{LI_0^2}{2}$</li>
+        <li><span class="fname">Связь амплитуд:</span> $I_0=U_0\sqrt{\dfrac{C}{L}}$ (из равенства энергий)</li>
+        <li><span class="fname">Реактивные сопротивления:</span> индуктивное $X_L=\omega L$; ёмкостное $X_C=\dfrac{1}{\omega C}$</li>
+        <li><span class="fname">Закон Ома для RLC:</span> $I_{\max}=\dfrac{U_{\max}}{\sqrt{R^2+\left(\omega L-\dfrac{1}{\omega C}\right)^2}}$</li>
+        <li><span class="fname">Резонанс:</span> $\omega_{\text{рез}}=\dfrac{1}{\sqrt{LC}}$ (когда $X_L=X_C$)</li>
+        <li><span class="fname">Действующие значения:</span> $I_{\text{д}}=\dfrac{I_{\max}}{\sqrt 2},\ U_{\text{д}}=\dfrac{U_{\max}}{\sqrt 2}$</li>
+        <li><span class="fname">ЭМ волна:</span> $c=\lambda\nu$, $c=3\cdot 10^{8}$ м/с</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Формула Томсона</span>
+      <p class="q">Колебательный контур содержит катушку $L=2$ мГн и конденсатор $C=8$ мкФ. Найдите период собственных колебаний.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$L=2\cdot 10^{-3}$ Гн, $C=8\cdot 10^{-6}$ Ф.</p>
+        <p>$LC=2\cdot 10^{-3}\cdot 8\cdot 10^{-6}=16\cdot 10^{-9}$; $\sqrt{LC}=4\cdot 10^{-4{,}5}=1{,}26\cdot 10^{-4}$ с.</p>
+        <p>$T=2\pi\sqrt{LC}=2\pi\cdot 1{,}26\cdot 10^{-4}\approx 7{,}9\cdot 10^{-4}$ с.</p>
+        <span class="ans">$T \approx 0{,}79\ \text{мс}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Реактивные сопротивления</span>
+      <p class="q">В цепь переменного тока частотой $\omega=100$ рад/с включены катушка $L=0{,}5$ Гн и конденсатор $C=200$ мкФ. Найдите $X_L$ и $X_C$.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$X_L=\omega L=100\cdot 0{,}5=50$ Ом.</p>
+        <p>$X_C=\dfrac{1}{\omega C}=\dfrac{1}{100\cdot 200\cdot 10^{-6}}=\dfrac{1}{0{,}02}=50$ Ом.</p>
+        <p>Так как $X_L=X_C$, в цепи наблюдается <em>резонанс</em>.</p>
+        <span class="ans">$X_L = X_C = 50\ \text{Ом}$ — резонанс</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Закон Ома для цепи RLC</span>
+      <p class="q">В последовательной цепи $R=30$ Ом, $X_L=80$ Ом, $X_C=40$ Ом, амплитуда напряжения $U_{\max}=100$ В. Найдите амплитуду тока.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Полное сопротивление: $Z=\sqrt{R^2+(X_L-X_C)^2}=\sqrt{30^2+(80-40)^2}=\sqrt{900+1600}=\sqrt{2500}=50$ Ом.</p>
+        <p>$I_{\max}=\dfrac{U_{\max}}{Z}=\dfrac{100}{50}=2$ А.</p>
+        <span class="ans">$I_{\max} = 2\ \text{А}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Резонанс и длина волны</span>
+      <p class="q">На какую длину волны настроен контур с $L=1$ мкГн и $C=1$ нФ? ($c=3\cdot 10^{8}$ м/с.)</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$T=2\pi\sqrt{LC}=2\pi\sqrt{10^{-6}\cdot 10^{-9}}=2\pi\sqrt{10^{-15}}=2\pi\cdot 3{,}16\cdot 10^{-8}\approx 1{,}99\cdot 10^{-7}$ с.</p>
+        <p>$\lambda=cT=3\cdot 10^{8}\cdot 1{,}99\cdot 10^{-7}\approx 59{,}6$ м.</p>
+        <span class="ans">$\lambda \approx 60\ \text{м}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста (важно для AC)</p>
+      Резонанс — это всегда условие $X_L=X_C$, при котором полное сопротивление минимально ($Z=R$), а ток максимален. Если в задаче спрашивают «при какой частоте ток максимален» — отвечайте формулой Томсона $\omega=\dfrac{1}{\sqrt{LC}}$. Не путайте $X_L=\omega L$ (растёт с частотой) и $X_C=\dfrac{1}{\omega C}$ (падает с частотой).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+</section>
+</div><!-- /wrap -->
+
+<div class="wrap">
+<section class="chapter dom-o">
+  <div class="domain-head">
+    <div class="num">РАЗДЕЛ 4</div>
+    <h2>Оптика. ТО. Квантовая и ядерная физика</h2>
+    <div class="domain-rule"></div>
+  </div>
+
+  <!-- ===== 4.1 Оптика. ТО ===== -->
+  <article class="topic" id="t4-1">
+    <h3><span class="code">4.1</span> Геометрическая и волновая оптика. Теория относительности</h3>
+    <p>Преломление и полное внутреннее отражение, линзы, интерференция и дифракция, поляризация, плюс основы СТО. Внимательно с правилом знаков для линз.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Закон преломления:</span> $\dfrac{\sin\alpha}{\sin\beta}=n_{21}=\dfrac{n_2}{n_1}=\dfrac{v_1}{v_2}$</li>
+        <li><span class="fname">Полное внутреннее отражение:</span> $\sin\alpha_{\text{пр}}=\dfrac{n_2}{n_1}$ (при $n_1>n_2$)</li>
+        <li><span class="fname">Формула тонкой линзы:</span> $\dfrac{1}{F}=\dfrac{1}{d}+\dfrac{1}{f}$; оптическая сила $D=\dfrac{1}{F}$ (дптр)</li>
+        <li><span class="fname">Увеличение:</span> $\Gamma=\dfrac{f}{d}=\dfrac{H}{h}$</li>
+        <li><span class="fname">Интерференция:</span> максимум $\Delta=k\lambda$; минимум $\Delta=(2k+1)\dfrac{\lambda}{2}$</li>
+        <li><span class="fname">Дифракционная решётка:</span> $d\sin\varphi=k\lambda$</li>
+        <li><span class="fname">Закон Малюса:</span> $I=I_0\cos^2\alpha$</li>
+        <li><span class="fname">СТО (связь массы и энергии):</span> $E=mc^2$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Формула линзы</span>
+      <p class="q">Предмет находится на расстоянии $d=30$ см от собирающей линзы с фокусным расстоянием $F=10$ см. Где будет изображение?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\dfrac{1}{f}=\dfrac{1}{F}-\dfrac{1}{d}=\dfrac{1}{10}-\dfrac{1}{30}=\dfrac{3-1}{30}=\dfrac{2}{30}=\dfrac{1}{15}.$</p>
+        <p>$f=15$ см. Изображение действительное (за линзой), уменьшенное: $\Gamma=\dfrac{f}{d}=\dfrac{15}{30}=0{,}5$.</p>
+        <span class="ans">$f = 15\ \text{см}$, изображение действительное, уменьшенное в $2$ раза</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Оптическая сила</span>
+      <p class="q">Оптическая сила линзы $D=5$ дптр. Найдите фокусное расстояние.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$F=\dfrac{1}{D}=\dfrac{1}{5}=0{,}2$ м $=20$ см.</p>
+        <span class="ans">$F = 20\ \text{см}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Преломление света</span>
+      <p class="q">Луч падает из воздуха на воду ($n=1{,}33$) под углом $\alpha=45^\circ$. Найдите синус угла преломления.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\dfrac{\sin\alpha}{\sin\beta}=n\;\Rightarrow\;\sin\beta=\dfrac{\sin 45^\circ}{1{,}33}=\dfrac{0{,}707}{1{,}33}\approx 0{,}53.$</p>
+        <p>Тогда $\beta\approx 32^\circ$ — луч преломляется ближе к нормали (вошёл в более плотную среду).</p>
+        <span class="ans">$\sin\beta \approx 0{,}53,\quad \beta \approx 32^\circ$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Дифракционная решётка</span>
+      <p class="q">На решётку с периодом $d=2$ мкм падает свет с длиной волны $\lambda=500$ нм. Под каким углом виден максимум первого порядка?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$\sin\varphi=\dfrac{k\lambda}{d}=\dfrac{1\cdot 500\cdot 10^{-9}}{2\cdot 10^{-6}}=\dfrac{5\cdot 10^{-7}}{2\cdot 10^{-6}}=0{,}25.$</p>
+        <p>$\varphi\approx 14{,}5^\circ.$</p>
+        <span class="ans">$\sin\varphi = 0{,}25,\quad \varphi \approx 14{,}5^\circ$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 5 · Закон Малюса</span>
+      <p class="q">Свет интенсивностью $I_0$ проходит через анализатор, повёрнутый на $60^\circ$. Какая доля интенсивности пройдёт?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$I=I_0\cos^2 60^\circ=I_0\cdot(0{,}5)^2=0{,}25\,I_0.$</p>
+        <span class="ans">Пройдёт $25\%$ интенсивности</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста (важно для оптики)</p>
+      Правило знаков: для собирающей линзы $F>0$, для рассеивающей $F<0$. Если $d>2F$ — изображение действительное, уменьшенное; $F<d<2F$ — действительное, увеличенное; $d<F$ — мнимое, увеличенное (лупа). Это позволяет проверить ответ без вычислений.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== 4.2 Квантовая и ядерная физика ===== -->
+  <article class="topic" id="t4-2">
+    <h3><span class="code">4.2</span> Квантовая, атомная и ядерная физика</h3>
+    <p>Фотоны и фотоэффект, постулаты Бора, дефект массы и энергия связи, радиоактивный распад и ядерные реакции.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Ключевые формулы</p>
+      <ul>
+        <li><span class="fname">Энергия фотона:</span> $E=h\nu=\dfrac{hc}{\lambda}$, где $h=6{,}63\cdot 10^{-34}$ Дж·с</li>
+        <li><span class="fname">Импульс фотона:</span> $p=\dfrac{h}{\lambda}=\dfrac{E}{c}$</li>
+        <li><span class="fname">Уравнение фотоэффекта:</span> $h\nu=A_{\text{вых}}+\dfrac{mv^2}{2}$</li>
+        <li><span class="fname">Красная граница:</span> $\nu_{\min}=\dfrac{A}{h}$, $\lambda_{\max}=\dfrac{hc}{A}$</li>
+        <li><span class="fname">Дефект массы:</span> $\Delta m=[Zm_p+(A-Z)m_n]-M_{\text{ядра}}$</li>
+        <li><span class="fname">Энергия связи:</span> $E_{\text{св}}=\Delta m\cdot c^2$</li>
+        <li><span class="fname">Закон распада:</span> $N=N_0\cdot 2^{-t/T_{1/2}}$ ($T_{1/2}$ — период полураспада)</li>
+        <li><span class="fname">Распады:</span> $\alpha$: $^A_Z X\to {}^{A-4}_{Z-2}Y+{}^4_2\text{He}$; $\beta$: $^A_Z X\to {}^{\ \ A}_{Z+1}Y+{}^{\ 0}_{-1}e$</li>
+      </ul>
+    </div>
+
+    <h4>Разобранные примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Энергия фотона</span>
+      <p class="q">Найдите энергию фотона зелёного света с длиной волны $\lambda=500$ нм ($h=6{,}63\cdot 10^{-34}$ Дж·с, $c=3\cdot 10^{8}$ м/с).</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$E=\dfrac{hc}{\lambda}=\dfrac{6{,}63\cdot 10^{-34}\cdot 3\cdot 10^{8}}{500\cdot 10^{-9}}=\dfrac{1{,}989\cdot 10^{-25}}{5\cdot 10^{-7}}\approx 3{,}98\cdot 10^{-19}$ Дж.</p>
+        <p>(В электронвольтах: $\approx 2{,}5$ эВ, поделив на $1{,}6\cdot 10^{-19}$.)</p>
+        <span class="ans">$E \approx 4\cdot 10^{-19}\ \text{Дж} \approx 2{,}5\ \text{эВ}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Фотоэффект</span>
+      <p class="q">Работа выхода металла $A=3\cdot 10^{-19}$ Дж. На него падает свет с энергией фотона $E=5\cdot 10^{-19}$ Дж. Найдите максимальную кинетическую энергию электронов.</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>$E_k=h\nu-A=5\cdot 10^{-19}-3\cdot 10^{-19}=2\cdot 10^{-19}$ Дж.</p>
+        <span class="ans">$E_k = 2\cdot 10^{-19}\ \text{Дж}$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Радиоактивный распад</span>
+      <p class="q">Период полураспада изотопа $T_{1/2}=8$ суток. Какая доля атомов останется через $24$ суток?</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Число периодов: $\dfrac{t}{T_{1/2}}=\dfrac{24}{8}=3.$</p>
+        <p>$\dfrac{N}{N_0}=2^{-3}=\dfrac{1}{8}=0{,}125.$</p>
+        <span class="ans">Останется $\dfrac{1}{8}$ ($12{,}5\%$) атомов</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Ядерная реакция (закон сохранения)</span>
+      <p class="q">Допишите реакцию: $^{14}_{\ 7}\text{N}+{}^4_2\text{He}\to {}^{17}_{\ 8}\text{O}+\,?$</p>
+      <div class="sol">
+        <p class="sol-label">Решение</p>
+        <p>Сохраняется массовое число $A$ и зарядовое число $Z$.</p>
+        <p>$A$: $14+4=17+x\Rightarrow x=1.$ &nbsp; $Z$: $7+2=8+y\Rightarrow y=1.$</p>
+        <p>Частица с $A=1,\ Z=1$ — это протон $^1_1\text{H}$ (или $^1_1 p$).</p>
+        <span class="ans">Недостающая частица — протон $^1_1\text{H}$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Приём для теста</p>
+      Ядерные реакции решаются по двум законам сохранения: сумма верхних индексов ($A$) и сумма нижних ($Z$) до и после реакции одинаковы. При $\alpha$-распаде заряд уменьшается на $2$, масса на $4$; при $\beta^-$-распаде заряд растёт на $1$, масса не меняется.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+</section>
+
+<footer>
+  Пособие для подготовки к ДТМ по физике · структура по официальной спецификации (коды тем 1.1–4.2).<br>
+  Формулы и обозначения соответствуют учебникам Турдиева. Числа округлены; на тесте уточняйте $g$ ($9{,}8$ или $10$) по условию.
+</footer>
+
+</div><!-- /wrap -->
+</body>
+</html>
