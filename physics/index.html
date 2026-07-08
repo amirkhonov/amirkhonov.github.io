@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Физика — Подготовка к ДТМ</title>
+<title>Innova · Kinematika va Dinamika — Разбор тестов ДТМ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
@@ -16,9 +16,8 @@
     --ink:#1b2235; --ink-soft:#3a4256; --paper:#f7f6f2; --card:#ffffff;
     --rule:#e3e0d6; --muted:#6b6f7d;
     --mech:#1f5fa6; --mech-bg:#eaf1f9;
-    --mol:#c0480e; --mol-bg:#fbeee6;
-    --elec:#6b34c4; --elec-bg:#f1ebfb;
-    --opt:#0f766e; --opt-bg:#e6f3f1;
+    --dyn:#c0480e; --dyn-bg:#fbeee6;
+    --fast:#0f766e; --fast-bg:#e6f3f1;
     --tip:#9a6700; --tip-bg:#fdf3d8;
     --formula-bg:#eef1f6;
   }
@@ -46,89 +45,96 @@
   }
   .cover-inner{max-width:860px; margin:0 auto; position:relative; z-index:1;}
   .cover .eyebrow{font-family:'Manrope',sans-serif; letter-spacing:.32em; text-transform:uppercase; font-size:13px; font-weight:600; color:#9fc1ec;}
-  .cover h1{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(40px,8vw,72px); line-height:1.02; margin:18px 0 10px; letter-spacing:-.01em;}
-  .cover .sub{font-size:20px; color:#cdd6e6; max-width:560px; margin:0 0 34px;}
+  .cover h1{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(34px,7vw,58px); line-height:1.05; margin:18px 0 10px; letter-spacing:-.01em;}
+  .cover .sub{font-size:19px; color:#cdd6e6; max-width:600px; margin:0 0 30px;}
   .cover .domains{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
   .cover .dchip{font-family:'Manrope',sans-serif; font-size:13.5px; font-weight:600; padding:7px 14px; border-radius:100px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);}
-  .cover .meta{margin-top:40px; font-family:'Manrope',sans-serif; font-size:14px; color:#8ea3c4; border-top:1px solid rgba(255,255,255,.14); padding-top:18px; max-width:620px;}
+  .cover .meta{margin-top:36px; font-family:'Manrope',sans-serif; font-size:14px; color:#8ea3c4; border-top:1px solid rgba(255,255,255,.14); padding-top:18px; max-width:640px;}
 
   /* ---------- INTRO ---------- */
-  .intro{padding:48px 0 8px;}
-  .intro h2{font-family:'Manrope',sans-serif; font-weight:700; font-size:26px; margin:0 0 14px;}
+  .intro{padding:44px 0 8px;}
+  .intro h2{font-family:'Manrope',sans-serif; font-weight:700; font-size:24px; margin:0 0 14px;}
   .intro p{margin:0 0 14px; color:var(--ink-soft);}
-  .intro .small{font-size:15.5px; color:var(--muted);}
+  .intro .small{font-size:15px; color:var(--muted);}
+  .legend{display:flex; flex-wrap:wrap; gap:10px 22px; margin:18px 0 6px; font-family:'Manrope',sans-serif; font-size:14px; color:var(--ink-soft);}
+  .legend span{display:inline-flex; align-items:center; gap:7px;}
+  .legend i{width:11px; height:11px; border-radius:3px; display:inline-block;}
 
   /* ---------- TOC ---------- */
-  .toc{padding:34px 0 10px;}
-  .toc h2{font-family:'Manrope',sans-serif; font-weight:800; font-size:22px; letter-spacing:.02em; text-transform:uppercase; color:var(--ink); margin:0 0 20px; padding-bottom:10px; border-bottom:2px solid var(--ink);}
-  .toc-group{margin-bottom:26px;}
-  .toc-group h3{font-family:'Manrope',sans-serif; font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 8px;}
-  .toc-group.m h3{color:var(--mech);} .toc-group.t h3{color:var(--mol);}
-  .toc-group.e h3{color:var(--elec);} .toc-group.o h3{color:var(--opt);}
-  .toc ul{list-style:none; margin:0; padding:0;}
-  .toc li{margin:0;}
-  .toc a{display:flex; gap:12px; align-items:baseline; text-decoration:none; color:var(--ink-soft); padding:5px 0; font-size:16.5px; border-bottom:1px dotted var(--rule);}
+  .toc{padding:30px 0 10px;}
+  .toc h2{font-family:'Manrope',sans-serif; font-weight:800; font-size:21px; letter-spacing:.02em; text-transform:uppercase; color:var(--ink); margin:0 0 18px; padding-bottom:10px; border-bottom:2px solid var(--ink);}
+  .toc-group{margin-bottom:24px;}
+  .toc-group h3{font-family:'Manrope',sans-serif; font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 8px;}
+  .toc-group.m h3{color:var(--mech);} .toc-group.d h3{color:var(--dyn);}
+  .toc ul{list-style:none; margin:0; padding:0; columns:2; column-gap:24px;}
+  .toc li{margin:0; break-inside:avoid;}
+  .toc a{display:flex; gap:10px; align-items:baseline; text-decoration:none; color:var(--ink-soft); padding:4px 0; font-size:15.5px; border-bottom:1px dotted var(--rule);}
   .toc a:hover{color:var(--ink);}
-  .toc a .code{font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; min-width:38px; color:var(--muted);}
+  .toc a .code{font-family:'Manrope',sans-serif; font-weight:700; font-size:13px; min-width:22px; color:var(--muted);}
 
   /* ---------- SECTIONS ---------- */
-  .chapter{padding:54px 0 10px; border-top:1px solid var(--rule); margin-top:30px;}
-  .domain-head{padding:30px 0 6px;}
-  .domain-head .num{font-family:'Manrope',sans-serif; font-weight:800; font-size:15px; letter-spacing:.2em;}
-  .domain-head h2{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(28px,5vw,40px); margin:6px 0 0; line-height:1.05;}
+  .chapter{padding:50px 0 10px; border-top:1px solid var(--rule); margin-top:26px;}
+  .domain-head{padding:26px 0 6px;}
+  .domain-head .num{font-family:'Manrope',sans-serif; font-weight:800; font-size:14px; letter-spacing:.2em;}
+  .domain-head h2{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(26px,5vw,36px); margin:6px 0 0; line-height:1.05;}
+  .domain-head .desc{color:var(--muted); font-size:16px; margin-top:8px; max-width:640px;}
   .domain-rule{height:5px; border-radius:3px; margin:16px 0 0;}
 
-  .topic{scroll-margin-top:18px; padding:30px 0 6px;}
-  .topic h3{font-family:'Manrope',sans-serif; font-weight:700; font-size:24px; margin:0 0 4px; display:flex; gap:12px; align-items:baseline;}
-  .topic h3 .code{font-size:16px; font-weight:800; padding:3px 9px; border-radius:7px; color:#fff;}
-  .topic h4{font-family:'Manrope',sans-serif; font-weight:700; font-size:17px; margin:26px 0 8px; color:var(--ink); letter-spacing:.01em;}
+  .topic{scroll-margin-top:18px; padding:28px 0 6px;}
+  .topic h3{font-family:'Manrope',sans-serif; font-weight:700; font-size:22px; margin:0 0 4px; display:flex; gap:12px; align-items:baseline;}
+  .topic h3 .code{font-size:15px; font-weight:800; padding:3px 9px; border-radius:7px; color:#fff; white-space:nowrap;}
+  .topic h4{font-family:'Manrope',sans-serif; font-weight:700; font-size:16px; margin:24px 0 8px; color:var(--ink); letter-spacing:.01em;}
   .topic p{margin:0 0 12px;}
   .topic ul{margin:6px 0 14px; padding-left:22px;}
   .topic li{margin:5px 0;}
 
-  /* domain-tinted accents applied via parent class */
   .dom-m .topic h3 .code{background:var(--mech);} .dom-m .domain-rule{background:var(--mech);} .dom-m .domain-head .num{color:var(--mech);}
-  .dom-t .topic h3 .code{background:var(--mol);} .dom-t .domain-rule{background:var(--mol);} .dom-t .domain-head .num{color:var(--mol);}
-  .dom-e .topic h3 .code{background:var(--elec);} .dom-e .domain-rule{background:var(--elec);} .dom-e .domain-head .num{color:var(--elec);}
-  .dom-o .topic h3 .code{background:var(--opt);} .dom-o .domain-rule{background:var(--opt);} .dom-o .domain-head .num{color:var(--opt);}
+  .dom-d .topic h3 .code{background:var(--dyn);} .dom-d .domain-rule{background:var(--dyn);} .dom-d .domain-head .num{color:var(--dyn);}
 
   /* formula reference box */
-  .formulas{background:var(--formula-bg); border-radius:12px; padding:18px 22px; margin:10px 0 18px; border:1px solid #dde3ec;}
-  .formulas .ftitle{font-family:'Manrope',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .formulas{background:var(--formula-bg); border-radius:12px; padding:16px 20px; margin:10px 0 16px; border:1px solid #dde3ec;}
+  .formulas .ftitle{font-family:'Manrope',sans-serif; font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
   .formulas ul{list-style:none; margin:0; padding:0;}
-  .formulas li{margin:9px 0; padding-left:16px; position:relative; line-height:1.5;}
+  .formulas li{margin:8px 0; padding-left:16px; position:relative; line-height:1.5; font-size:16.5px;}
   .formulas li::before{content:""; position:absolute; left:0; top:11px; width:6px; height:6px; border-radius:50%; background:var(--muted);}
-  .fname{font-family:'Manrope',sans-serif; font-weight:600; font-size:15px; color:var(--ink-soft);}
+  .fname{font-family:'Manrope',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink-soft);}
+
+  /* method guide box */
+  .guide{background:#fff; border:1px solid var(--rule); border-radius:12px; padding:16px 20px; margin:10px 0 16px;}
+  .guide .gtitle{font-family:'Manrope',sans-serif; font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0 0 8px;}
+  .guide p, .guide li{font-size:16px;}
+  .guide ul{margin:6px 0 0; padding-left:20px;}
 
   /* worked example */
-  .ex{background:var(--card); border:1px solid var(--rule); border-left-width:4px; border-radius:10px; padding:18px 22px; margin:16px 0;}
-  .dom-m .ex{border-left-color:var(--mech);} .dom-t .ex{border-left-color:var(--mol);}
-  .dom-e .ex{border-left-color:var(--elec);} .dom-o .ex{border-left-color:var(--opt);}
-  .ex .extag{font-family:'Manrope',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.08em; display:inline-block; margin:0 0 8px;}
-  .dom-m .ex .extag{color:var(--mech);} .dom-t .ex .extag{color:var(--mol);}
-  .dom-e .ex .extag{color:var(--elec);} .dom-o .ex .extag{color:var(--opt);}
-  .ex .q{margin:0 0 6px;}
-  .ex .sol{margin-top:12px; padding-top:12px; border-top:1px dashed var(--rule);}
-  .ex .sol-label{font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin:0 0 6px;}
-  .ex .ans{font-family:'Manrope',sans-serif; font-weight:700; margin-top:10px; padding:8px 12px; background:var(--paper); border-radius:8px; display:inline-block;}
+  .ex{background:var(--card); border:1px solid var(--rule); border-left-width:4px; border-radius:10px; padding:16px 20px; margin:14px 0;}
+  .dom-m .ex{border-left-color:var(--mech);} .dom-d .ex{border-left-color:var(--dyn);}
+  .ex .extag{font-family:'Manrope',sans-serif; font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; display:inline-block; margin:0 0 8px;}
+  .dom-m .ex .extag{color:var(--mech);} .dom-d .ex .extag{color:var(--dyn);}
+  .ex .q{margin:0 0 6px; font-style:italic; color:var(--ink-soft);}
+  .ex .sol{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  .ex .sol-label{font-family:'Manrope',sans-serif; font-weight:700; font-size:13px; margin:12px 0 5px;}
+  .ex .sol-label.fast{color:var(--fast);}
+  .ex .sol-label.std{color:var(--ink-soft);}
+  .ex .sol p{margin:0 0 8px; font-size:16.5px;}
+  .ex .ans{font-family:'Manrope',sans-serif; font-weight:700; margin-top:8px; padding:7px 12px; background:var(--paper); border-radius:8px; display:inline-block; font-size:15px;}
 
   /* exam tip */
-  .tip{background:var(--tip-bg); border:1px solid #ecd9a0; border-radius:10px; padding:14px 18px; margin:16px 0; font-size:16px;}
-  .tip .tlabel{font-family:'Manrope',sans-serif; font-weight:800; font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--tip); margin:0 0 5px;}
+  .tip{background:var(--tip-bg); border:1px solid #ecd9a0; border-radius:10px; padding:13px 18px; margin:14px 0; font-size:15.5px;}
+  .tip .tlabel{font-family:'Manrope',sans-serif; font-weight:800; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--tip); margin:0 0 5px;}
 
-  .katex{font-size:1.02em;}
-  .katex-display{margin:.5em 0; overflow-x:auto; overflow-y:hidden; padding:2px 0;}
+  .katex{font-size:1.0em;}
+  .katex-display{margin:.4em 0; overflow-x:auto; overflow-y:hidden; padding:2px 0;}
 
-  .totop{display:block; text-align:right; font-family:'Manrope',sans-serif; font-size:13px; color:var(--muted); text-decoration:none; margin:14px 0 0;}
+  .totop{display:block; text-align:right; font-family:'Manrope',sans-serif; font-size:13px; color:var(--muted); text-decoration:none; margin:12px 0 0;}
   .totop:hover{color:var(--ink);}
 
   footer{margin-top:50px; padding:36px 0 60px; border-top:2px solid var(--ink); color:var(--muted); font-family:'Manrope',sans-serif; font-size:14px;}
 
-  @media (max-width:560px){ body{font-size:16.5px;} .wrap{padding:0 18px;} }
+  @media (max-width:560px){ body{font-size:16.5px;} .wrap{padding:0 18px;} .toc ul{columns:1;} }
   @media print{
     .cover{background:#1f2a44 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
     .totop{display:none;} a{color:inherit; text-decoration:none;}
-    .chapter,.topic{break-inside:auto;} .ex,.formulas,.tip{break-inside:avoid;}
+    .chapter,.topic{break-inside:auto;} .ex,.formulas,.tip,.guide{break-inside:avoid;}
   }
 </style>
 </head>
@@ -137,16 +143,14 @@
 <!-- ================= COVER ================= -->
 <header class="cover">
   <div class="cover-inner">
-    <div class="eyebrow">DTM &middot; Oliy ta'lim &middot; Подготовка</div>
-    <h1>Физика</h1>
-    <p class="sub">Полное пособие для подготовки к вступительному тесту ДТМ: теория, формулы и разобранные примеры по каждой теме официальной программы.</p>
+    <div class="eyebrow">Innova o‘quv markazi · Sardor Berdiyev · DTM</div>
+    <h1>Kinematika<br>va Dinamika asoslari</h1>
+    <p class="sub">Разбор тестового сборника Innova (стр. 5–81): формулы, метод решения и разобранные примеры по каждой из 29 подтем — с акцентом на быстрые способы (удобные числа, частные значения) вперемешку со стандартным решением.</p>
     <div class="domains">
-      <span class="dchip">1 · Механика</span>
-      <span class="dchip">2 · Молекулярная физика и термодинамика</span>
-      <span class="dchip">3 · Электродинамика</span>
-      <span class="dchip">4 · Оптика. ТО. Квантовая и ядерная физика</span>
+      <span class="dchip">1 · Kinematika (темы 1–13)</span>
+      <span class="dchip">2 · Dinamika asoslari (темы 14–29)</span>
     </div>
-    <p class="meta">Структура пособия точно следует кодам тем официальной спецификации ДТМ (1.1 … 4.2). Под каждой темой: ключевые формулы + примеры с полными решениями и приёмами для теста.</p>
+    <p class="meta">По каждой подтеме книги Innova: блок формул → метод и ловушки → 2–4 разобранных примера, покрывающих все типы задач подтемы. Задачи и ответы к ним взяты из первоисточника (Innova to‘plam, 2023).</p>
   </div>
 </header>
 
@@ -154,9 +158,15 @@
 
 <!-- ================= INTRO ================= -->
 <section class="intro" id="top">
-  <h2>Как пользоваться пособием</h2>
-  <p>Книга построена по официальной программе ДТМ по физике. Каждая тема содержит три блока: <strong>краткую теорию с формулами</strong> для быстрого повторения, <strong>разобранные примеры</strong> экзаменного типа с пошаговым решением, и местами <strong>приёмы для теста</strong> — как быстрее выбрать ответ.</p>
-  <p class="small">Совет по стратегии: на самом тесте сначала решайте задачи «по формуле» (узнал тип → подставил), а приёмы вроде подстановки вариантов ответа, проверки размерности и предельных случаев держите как ускорители для трудных пунктов. Открытые задачи решайте от первых принципов.</p>
+  <h2>Как пользоваться этим гайдом</h2>
+  <p>Каждая из 29 подтем построена одинаково: сначала <strong>формулы</strong>, которые нужно знать наизусть, потом короткий <strong>гайд по методу</strong> (на что смотреть, какая формула для какого типа условия), затем <strong>разобранные примеры</strong> — по одному на каждый характерный тип задачи внутри подтемы.</p>
+  <p>В каждом примере — два пути решения: <span style="color:var(--fast); font-weight:600;">⚡ быстрый способ</span> (удобные числа, подстановка частных значений, оценка через отношения — то, что реально экономит время на тесте) и <strong>📐 стандартное решение</strong> — полный алгебраический вывод, чтобы понимать, откуда берётся результат, и суметь решить, если быстрый приём не вспомнится.</p>
+  <div class="legend">
+    <span><i style="background:var(--mech)"></i> Kinematika</span>
+    <span><i style="background:var(--dyn)"></i> Dinamika asoslari</span>
+    <span><i style="background:var(--fast)"></i> ⚡ Быстрый способ</span>
+    <span><i style="background:var(--tip)"></i> Вывод для теста</span>
+  </div>
 </section>
 
 <!-- ================= TOC ================= -->
@@ -164,417 +174,1993 @@
   <h2>Содержание</h2>
 
   <div class="toc-group m">
-    <h3>1 · Механика</h3>
+    <h3>1 · Kinematika</h3>
     <ul>
-      <li><a href="#t1-1"><span class="code">1.1</span> Кинематика</a></li>
-      <li><a href="#t1-2"><span class="code">1.2</span> Динамика. Статика</a></li>
-      <li><a href="#t1-3"><span class="code">1.3</span> Законы сохранения в механике</a></li>
-      <li><a href="#t1-4"><span class="code">1.4</span> Механические колебания и волны</a></li>
-      <li><a href="#t1-5"><span class="code">1.5</span> Гидро- и аэростатика и динамика</a></li>
+      <li><a href="#t1"><span class="code">1</span> Основные понятия механики</a></li>
+      <li><a href="#t2"><span class="code">2</span> Равномерное прямолинейное движение</a></li>
+      <li><a href="#t3"><span class="code">3</span> Графики равномерного движения</a></li>
+      <li><a href="#t4"><span class="code">4</span> Относительность движения</a></li>
+      <li><a href="#t5"><span class="code">5</span> Неравномерное движение</a></li>
+      <li><a href="#t6"><span class="code">6</span> Равноускоренное движение. Ускорение</a></li>
+      <li><a href="#t7"><span class="code">7</span> Перемещение при равноускоренном движении</a></li>
+      <li><a href="#t8"><span class="code">8</span> Движение двух тел</a></li>
+      <li><a href="#t9"><span class="code">9</span> Графики равноускоренного движения</a></li>
+      <li><a href="#t10"><span class="code">10</span> Криволинейное движение</a></li>
+      <li><a href="#t11"><span class="code">11</span> Ускорение при криволинейном движении</a></li>
+      <li><a href="#t12"><span class="code">12</span> Передача вращательного движения</a></li>
+      <li><a href="#t13"><span class="code">13</span> Неравномерное движение по окружности</a></li>
     </ul>
   </div>
 
-  <div class="toc-group t">
-    <h3>2 · Молекулярная физика и термодинамика</h3>
+  <div class="toc-group d">
+    <h3>2 · Dinamika asoslari</h3>
     <ul>
-      <li><a href="#t2-1"><span class="code">2.1</span> МКТ. Уравнение состояния идеального газа</a></li>
-      <li><a href="#t2-2"><span class="code">2.2</span> Основы термодинамики</a></li>
-    </ul>
-  </div>
-
-  <div class="toc-group e">
-    <h3>3 · Электродинамика</h3>
-    <ul>
-      <li><a href="#t3-1"><span class="code">3.1</span> Электростатика</a></li>
-      <li><a href="#t3-2"><span class="code">3.2</span> Законы постоянного тока</a></li>
-      <li><a href="#t3-3"><span class="code">3.3</span> Ток в различных средах</a></li>
-      <li><a href="#t3-4"><span class="code">3.4</span> Магнитное поле. Электромагнитная индукция</a></li>
-      <li><a href="#t3-5"><span class="code">3.5</span> Электромагнитные колебания и волны</a></li>
-    </ul>
-  </div>
-
-  <div class="toc-group o">
-    <h3>4 · Оптика. ТО. Квантовая и ядерная физика</h3>
-    <ul>
-      <li><a href="#t4-1"><span class="code">4.1</span> Геометрическая и волновая оптика. ТО</a></li>
-      <li><a href="#t4-2"><span class="code">4.2</span> Квантовая, атомная и ядерная физика</a></li>
+      <li><a href="#t14"><span class="code">14</span> Сила. I закон Ньютона</a></li>
+      <li><a href="#t15"><span class="code">15</span> Масса. Плотность</a></li>
+      <li><a href="#t16"><span class="code">16</span> II закон Ньютона</a></li>
+      <li><a href="#t17"><span class="code">17</span> III закон Ньютона</a></li>
+      <li><a href="#t18"><span class="code">18</span> Закон всемирного тяготения</a></li>
+      <li><a href="#t19"><span class="code">19</span> Сила тяжести</a></li>
+      <li><a href="#t20"><span class="code">20</span> Сила упругости</a></li>
+      <li><a href="#t21"><span class="code">21</span> Вес тела</a></li>
+      <li><a href="#t22"><span class="code">22</span> Невесомость</a></li>
+      <li><a href="#t23"><span class="code">23</span> Вертикальное движение под действием тяжести</a></li>
+      <li><a href="#t24"><span class="code">24</span> Горизонтальный бросок</a></li>
+      <li><a href="#t25"><span class="code">25</span> Бросок под углом к горизонту</a></li>
+      <li><a href="#t26"><span class="code">26</span> Искусственные спутники Земли</a></li>
+      <li><a href="#t27"><span class="code">27</span> Сила трения покоя</a></li>
+      <li><a href="#t28"><span class="code">28</span> Сила трения скольжения</a></li>
+      <li><a href="#t29"><span class="code">29</span> Движение под действием нескольких сил</a></li>
     </ul>
   </div>
 </nav>
 
-</div><!-- /wrap -->
 
 <div class="wrap">
 <section class="chapter dom-m">
   <div class="domain-head">
     <div class="num">РАЗДЕЛ 1</div>
-    <h2>Механика</h2>
+    <h2>Kinematika</h2>
+    <p class="desc">Темы 1–13 книги Innova (стр. 5–34). Описывает движение без разбора его причин: путь, перемещение, скорость, ускорение, графики и вращение.</p>
     <div class="domain-rule"></div>
   </div>
 
-  <!-- ===== 1.1 Кинематика ===== -->
-  <article class="topic" id="t1-1">
-    <h3><span class="code">1.1</span> Кинематика</h3>
-    <p>Кинематика описывает движение, не интересуясь его причинами. Главное — правильно выбрать систему отсчёта и тип движения.</p>
+  <!-- ===== Тема 1 ===== -->
+  <article class="topic" id="t1">
+    <h3><span class="code">1</span> Основные понятия механики</h3>
+    <p>Фундамент всей кинематики — не путать <b>путь</b> (скаляр) и <b>перемещение</b> (вектор).</p>
 
     <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
+      <p class="ftitle">Что нужно знать</p>
       <ul>
-        <li><span class="fname">Равномерное движение:</span> $x = x_0 + v t$</li>
-        <li><span class="fname">Равноускоренное:</span> $v = v_0 + a t,\quad x = x_0 + v_0 t + \dfrac{a t^2}{2},\quad v^2 = v_0^2 + 2 a \,\Delta x$</li>
-        <li><span class="fname">Средняя скорость:</span> $\langle v\rangle = \dfrac{\text{весь путь}}{\text{всё время}}$ (не среднее арифметическое скоростей!)</li>
-        <li><span class="fname">Свободное падение:</span> $a = g \approx 9{,}8\ \text{м/с}^2$ (на тесте часто берут $10$)</li>
-        <li><span class="fname">Бросок под углом $\alpha$:</span> $v_{0x}=v_0\cos\alpha,\ v_{0y}=v_0\sin\alpha$; дальность $L=\dfrac{v_0^2\sin 2\alpha}{g}$, высота $H=\dfrac{v_0^2\sin^2\alpha}{2g}$, время полёта $t=\dfrac{2v_0\sin\alpha}{g}$</li>
-        <li><span class="fname">Движение по окружности:</span> $v=\omega R,\ \omega=\dfrac{2\pi}{T}=2\pi\nu,\ a_{\text{цс}}=\dfrac{v^2}{R}=\omega^2 R$</li>
-        <li><span class="fname">Относительность:</span> $\vec v_{1/2}=\vec v_1-\vec v_2$ (скорость тела 1 относительно тела 2)</li>
+        <li><span class="fname">Путь (yo‘l) $s$:</span> длина траектории — скаляр, $s \ge 0$, никогда не убывает.</li>
+        <li><span class="fname">Перемещение (ko‘chish) $\vec{s}$:</span> вектор из начальной точки в конечную; $|\vec s|\le s$.</li>
+        <li><span class="fname">Материальная точка:</span> тело, чьими размерами можно пренебречь в условиях именно этой задачи (не абсолютное свойство тела).</li>
+        <li><span class="fname">Виды движения:</span> поступательное, вращательное, колебательное (3 вида).</li>
       </ul>
     </div>
 
-    <h4>Разобранные примеры</h4>
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Если тело двигалось <b>по прямой в одну сторону</b> — путь = перемещению. Если было <b>изменение направления</b> — раскладывайте на отрезки и складывайте векторно (часто это прямоугольный треугольник 3-4-5). Если тело вернулось <b>в исходную точку</b> (например, целое число оборотов по кругу) — перемещение всегда $0$, а путь при этом максимален.</p>
+    </div>
+
+    <h4>Примеры</h4>
 
     <div class="ex">
-      <span class="extag">Пример 1 · Равноускоренное движение</span>
-      <p class="q">Автомобиль трогается с места и за $t=10$ с разгоняется до $v=72$ км/ч. Найдите ускорение и пройденный путь.</p>
+      <span class="extag">Пример 1 · Движение туда-обратно по прямой</span>
+      <p class="q">Геологи прошли сначала 12 км на восток, затем 16 км на запад. Чему равно перемещение группы?</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Переведём скорость: $v = 72\ \text{км/ч} = \dfrac{72}{3{,}6}=20$ м/с. Начальная скорость $v_0=0$.</p>
-        <p>Ускорение: $a=\dfrac{v-v_0}{t}=\dfrac{20}{10}=2\ \text{м/с}^2.$</p>
-        <p>Путь удобно через среднюю скорость: $s=\dfrac{v_0+v}{2}\,t=\dfrac{0+20}{2}\cdot 10 = 100$ м.</p>
-        <span class="ans">$a = 2\ \text{м/с}^2,\quad s = 100\ \text{м}$</span>
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Направления противоположны — просто вычитаем: $16-12=4$ км (в сторону запада).</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Ось $X$ — на восток. $x_1=+12$, $x_2=-16$. Итоговая координата $x=12-16=-4$ км, модуль перемещения $|x|=4$ км. Путь при этом $s=12+16=28$ км — числа разные, это норма для не-прямолинейного-в-одну-сторону движения.</p>
+        <span class="ans">Ответ: 4 км</span>
       </div>
     </div>
 
     <div class="ex">
-      <span class="extag">Пример 2 · Свободное падение</span>
-      <p class="q">Тело падает без начальной скорости с высоты $h=20$ м. Найдите время падения и скорость удара о землю ($g=10\ \text{м/с}^2$).</p>
+      <span class="extag">Пример 2 · Ломаная траектория (2D)</span>
+      <p class="q">Футболист пробежал 40 м на восток, затем 10 м на север, затем 10 м на восток, затем 47,5 м на юг. Найдите модуль перемещения.</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Из $h=\dfrac{g t^2}{2}$ получаем $t=\sqrt{\dfrac{2h}{g}}=\sqrt{\dfrac{2\cdot 20}{10}}=\sqrt{4}=2$ с.</p>
-        <p>Скорость удара: $v=g t = 10\cdot 2 = 20$ м/с.</p>
-        <span class="ans">$t = 2\ \text{с},\quad v = 20\ \text{м/с}$</span>
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Суммируем по осям: восток $=40+10=50$ м, юг $=47{,}5-10=37{,}5$ м. Замечаем отношение $50:37{,}5=4:3$ — это масштабированный треугольник 3-4-5, значит гипотенуза $=\tfrac{5}{4}\cdot 50=62{,}5$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\Delta x = 40+10=50$ м (восток), $\Delta y = 10-47{,}5=-37{,}5$ м. $|\vec s|=\sqrt{50^2+37{,}5^2}=\sqrt{2500+1406{,}25}=\sqrt{3906{,}25}=62{,}5$ м.</p>
+        <span class="ans">Ответ: 62,5 м</span>
       </div>
     </div>
 
     <div class="ex">
-      <span class="extag">Пример 3 · Бросок под углом</span>
-      <p class="q">Тело брошено под углом $\alpha=30^\circ$ к горизонту со скоростью $v_0=20$ м/с. Найдите дальность полёта и максимальную высоту ($g=10$).</p>
+      <span class="extag">Пример 3 · Полный оборот по окружности</span>
+      <p class="q">Точка на краю диска радиусом $R=30$ см сделала 4 полных оборота. Найдите путь и перемещение точки.</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Дальность: $L=\dfrac{v_0^2\sin 2\alpha}{g}=\dfrac{20^2\cdot\sin 60^\circ}{10}=\dfrac{400\cdot 0{,}866}{10}\approx 34{,}6$ м.</p>
-        <p>Высота: $H=\dfrac{v_0^2\sin^2\alpha}{2g}=\dfrac{400\cdot(0{,}5)^2}{20}=\dfrac{100}{20}=5$ м.</p>
-        <span class="ans">$L \approx 34{,}6\ \text{м},\quad H = 5\ \text{м}$</span>
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Целое число оборотов ⇒ точка вернулась туда, откуда начала ⇒ перемещение $=0$ сразу, без вычислений. Путь — просто длина окружности $\times 4$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$s = 4\cdot 2\pi R = 4\cdot 2\cdot 3{,}14\cdot 30 \approx 753{,}6$ см. Перемещение $=0$, так как начальная и конечная точки совпадают.</p>
+        <span class="ans">Ответ: $s\approx753{,}6$ см, перемещение $=0$</span>
       </div>
     </div>
 
     <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Максимальная дальность всегда при $\alpha=45^\circ$ (тогда $\sin 2\alpha=1$). Углы $30^\circ$ и $60^\circ$ дают <em>одинаковую</em> дальность ($\sin 60^\circ=\sin 120^\circ$) — это частая «ловушка» в вариантах ответа.
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Движение по окружности</span>
-      <p class="q">Точка движется по окружности радиусом $R=0{,}5$ м с периодом $T=2$ с. Найдите линейную скорость и центростремительное ускорение.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Угловая скорость: $\omega=\dfrac{2\pi}{T}=\dfrac{2\pi}{2}=\pi\approx 3{,}14$ рад/с.</p>
-        <p>Линейная скорость: $v=\omega R=\pi\cdot 0{,}5\approx 1{,}57$ м/с.</p>
-        <p>Ускорение: $a_{\text{цс}}=\omega^2 R=\pi^2\cdot 0{,}5\approx 4{,}93\ \text{м/с}^2.$</p>
-        <span class="ans">$v \approx 1{,}57\ \text{м/с},\quad a_{\text{цс}} \approx 4{,}93\ \text{м/с}^2$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 5 · Относительность движения</span>
-      <p class="q">Два автомобиля едут навстречу со скоростями $v_1=60$ км/ч и $v_2=40$ км/ч. Расстояние между ними $100$ км. Через какое время они встретятся?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>В системе отсчёта одного авто другое приближается со скоростью сближения $v_{\text{отн}}=v_1+v_2=100$ км/ч (при движении навстречу скорости складываются).</p>
-        <p>Время: $t=\dfrac{S}{v_{\text{отн}}}=\dfrac{100}{100}=1$ ч.</p>
-        <span class="ans">$t = 1\ \text{ч}$</span>
-      </div>
+      <p class="tlabel">Вывод для теста</p>
+      Перемещение $=0$ всегда, когда тело возвращается в исходную точку (полный круг, путь туда-обратно по одной прямой) — не считайте векторную сумму, если это очевидно из условия. При переломе траектории под прямым углом ищите знакомые тройки чисел (3-4-5, 5-12-13) — это экономит время на корне.
     </div>
     <a class="totop" href="#top">↑ к содержанию</a>
   </article>
 
-  <!-- ===== 1.2 Динамика. Статика ===== -->
-  <article class="topic" id="t1-2">
-    <h3><span class="code">1.2</span> Динамика. Статика</h3>
-    <p>Динамика связывает движение с силами через законы Ньютона. Статика — частный случай: тело в равновесии.</p>
+  <!-- ===== Тема 2 ===== -->
+  <article class="topic" id="t2">
+    <h3><span class="code">2</span> Равномерное прямолинейное движение</h3>
+    <p>Самая объёмная тема раздела (38 вопросов в источнике): переводы единиц, задачи на туннели/поезда, задачи на встречу двух тел, векторная запись через координаты.</p>
 
     <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
+      <p class="ftitle">Что нужно знать</p>
       <ul>
-        <li><span class="fname">II закон Ньютона:</span> $\vec F_{\text{рез}}=m\vec a$</li>
-        <li><span class="fname">Закон всемирного тяготения:</span> $F=G\dfrac{m_1 m_2}{R^2}$, где $G=6{,}67\cdot 10^{-11}$ Н·м²/кг²</li>
-        <li><span class="fname">Сила тяжести и вес:</span> $F_{\text{тяж}}=mg$; вес $P=m(g\pm a)$ (перегрузка/невесомость)</li>
-        <li><span class="fname">Закон Гука:</span> $F_{\text{упр}}=k|x|$</li>
-        <li><span class="fname">Трение:</span> покоя $F_{\text{тр}}\le\mu N$; скольжения $F_{\text{тр}}=\mu N$</li>
-        <li><span class="fname">Момент силы:</span> $M=F\cdot l$ ($l$ — плечо)</li>
-        <li><span class="fname">Условия равновесия:</span> $\sum\vec F=0$ и $\sum M=0$</li>
-        <li><span class="fname">Космические скорости:</span> $v_{\text{I}}=\sqrt{\dfrac{GM}{R}}\approx 7{,}9$ км/с; $v_{\text{II}}=\sqrt{2}\,v_{\text{I}}\approx 11{,}2$ км/с</li>
+        <li><span class="fname">Уравнение координаты:</span> $x=x_0+vt$</li>
+        <li><span class="fname">Перевод скорости:</span> км/ч $\to$ м/с: делить на $3{,}6$; обратно — умножать на $3{,}6$</li>
+        <li><span class="fname">Поезд и туннель/мост:</span> время до полного прохождения $t=\dfrac{L_{поезда}+L_{туннеля}}{v}$</li>
+        <li><span class="fname">Встреча (навстречу друг другу):</span> $x_1(t)=x_2(t)$; если тела сближаются, время встречи $t=\dfrac{\Delta x_0}{v_1+v_2}$</li>
+        <li><span class="fname">Погоня (в одну сторону):</span> $t=\dfrac{\Delta x_0}{v_{2}-v_{1}}$ (только если догоняющий быстрее)</li>
+        <li><span class="fname">Траектория в координатах:</span> из $x(t)$ выразить $t$, подставить в $y(t)$ ⇒ $y(x)$</li>
       </ul>
     </div>
 
-    <h4>Разобранные примеры</h4>
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Сначала определите тип задачи: (а) просто перевод единиц, (б) «поезд проходит мимо объекта» — нужно решить, складывать ли длины, (в) «встреча/погоня» — составьте два уравнения координаты и приравняйте, (г) «2D-движение» — работайте с $x(t)$ и $y(t)$ по отдельности, потом объединяйте.</p>
+    </div>
+
+    <h4>Примеры</h4>
 
     <div class="ex">
-      <span class="extag">Пример 1 · II закон Ньютона</span>
-      <p class="q">На тело массой $m=4$ кг действует горизонтальная сила $F=20$ Н. Сила трения $F_{\text{тр}}=4$ Н. Найдите ускорение.</p>
+      <span class="extag">Пример 1 · Перевод единиц</span>
+      <p class="q">Скорость 918 км/ч выразите в м/с.</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Результирующая вдоль движения: $F_{\text{рез}}=F-F_{\text{тр}}=20-4=16$ Н.</p>
-        <p>$a=\dfrac{F_{\text{рез}}}{m}=\dfrac{16}{4}=4\ \text{м/с}^2.$</p>
-        <span class="ans">$a = 4\ \text{м/с}^2$</span>
+        <p class="sol-label fast">⚡ Быстрый способ (удобные числа)</p>
+        <p>Разбиваем 918 на удобные части: $918=900+18$. $900/3{,}6=250$, $18/3{,}6=5$. Складываем: $250+5=255$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v=\dfrac{918}{3{,}6}=255$ м/с.</p>
+        <span class="ans">Ответ: 255 м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Поезд и туннель</span>
+      <p class="q">Поезд длиной 150 м и скоростью 54 км/ч проходит туннель длиной 300 м. За сколько секунд поезд полностью пройдёт туннель?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$54$ км/ч $=15$ м/с (делим на 3,6, используя $54=36+18\Rightarrow10+5=15$). Полный проход = длина поезда + длина туннеля = $450$ м. Время $=450/15=30$ с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Голова поезда проходит путь $L_{туннеля}$, а хвост должен ещё выйти — итого путь головы от входа до выхода хвоста $=L_{поезда}+L_{туннеля}=150+300=450$ м. $t=\dfrac{s}{v}=\dfrac{450}{15}=30$ с.</p>
+        <span class="ans">Ответ: 30 с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Встреча двух тел (уравнения координат)</span>
+      <p class="q">Два тела движутся по закону $x_1=25+t$ и $x_2=85-0{,}5t$ (в метрах и секундах). Найдите время и место встречи.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Тела движутся навстречу (знаки скоростей разные), начальный разрыв $85-25=60$ м, суммарная скорость сближения $1+0{,}5=1{,}5$ м/с. $t=60/1{,}5=40$ с. Координата: $x=25+40=65$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Приравниваем: $25+t=85-0{,}5t \Rightarrow 1{,}5t=60 \Rightarrow t=40$ с. Подставляем: $x=25+40=65$ м.</p>
+        <span class="ans">Ответ: через 40 с, на расстоянии 65 м от начала координат</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Уравнение траектории $y(x)$</span>
+      <p class="q">Материальная точка движется по закону $x=2+t$, $y=3+2t$ (м, с). Найдите уравнение траектории $y=y(x)$.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Коэффициент при $t$ в $y$ вдвое больше, чем в $x$ — значит $y$ растёт вдвое быстрее $x$, ищем вид $y=2x+c$ и подгоняем константу по начальным значениям: при $x=2$, $y=3$ ⇒ $3=2\cdot2+c \Rightarrow c=-1$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Из первого уравнения $t=x-2$. Подставляем во второе: $y=3+2(x-2)=3+2x-4=2x-1$.</p>
+        <span class="ans">Ответ: $y=2x-1$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      «Навстречу» — скорости складываются в знаменателе; «погоня» — вычитаются. Для поезда/моста/туннеля почти всегда нужна <b>сумма</b> длин объекта и препятствия — частая ошибка тестируемых — забыть прибавить длину самого поезда.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 3 ===== -->
+  <article class="topic" id="t3">
+    <h3><span class="code">3</span> Графики равномерного движения</h3>
+    <p>Тема целиком построена на чтении графиков (в первоисточнике — рисунки). Ниже — типовые задачи этого раздела с восстановленными числовыми данными, метод переносится на любой похожий график из сборника.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">График $s(t)$ (путь-время):</span> всегда не убывает; наклон = скорость; путь за интервал = $\Delta s$.</li>
+        <li><span class="fname">График $x(t)$ (координата-время):</span> может идти вниз (тело движется в отрицательном направлении); наклон = <em>скорость со знаком</em>; перемещение = $x_{кон}-x_{нач}$.</li>
+        <li><span class="fname">Путь по графику $x(t)$:</span> если направление менялось — путь $\ne$ перемещению; складывайте модули всех отдельных отрезков.</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Первым делом определите: это график <em>пути</em> $s(t)$ (только растёт) или <em>координаты</em> $x(t)$ (может убывать)? Если координата меняет направление роста — считайте перемещение и путь отдельно.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Чтение $s(t)$-графика</span>
+      <p class="q">На графике «путь–время»: от $t=0$ до $t=1$ с путь растёт от $0$ до $5$ м; от $t=1$ до $t=4$ с растёт линейно до $20$ м; от $t=4$ до $t=5$ с тело стоит на месте. Найдите путь, пройденный за интервал $t=1$ с … $t=5$ с.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>С 4 до 5 с тело стоит (путь не растёт) — этот кусок можно сразу отбросить. Путь за интервал = $s(5)-s(1) = 20-5=15$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$s(1)=5$ м, $s(5)=s(4)=20$ м (участок покоя не меняет путь). Искомый путь: $\Delta s = 20-5=15$ м.</p>
+        <span class="ans">Ответ: 15 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Перемещение и путь по $x(t)$ (со сменой направления)</span>
+      <p class="q">По графику координаты: от $t=0$ до $t=2$ с $x$ растёт от $-2$ м до $6$ м; от $t=2$ до $t=4$ с $x$ убывает до $2$ м. Найдите перемещение и путь за $0$–$4$ с.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Перемещение — это разница координат «было / стало»: $2-(-2)=4$ м, направление изменений неважно. Путь — сумма длин обоих кусков «туда» и «обратно»: $8+4=12$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Перемещение: $\Delta x = x(4)-x(0)=2-(-2)=4$ м. Путь: на первом участке прошли $6-(-2)=8$ м, на втором $|2-6|=4$ м. Путь $=8+4=12$ м.</p>
+        <span class="ans">Ответ: перемещение 4 м, путь 12 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Уравнение движения по графику</span>
+      <p class="q">Прямая на графике $x(t)$ проходит через точку $x_0=6$ м при $t=0$ и через $x=0$ при $t=3$ с. Запишите уравнение движения.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Наклон (скорость) $=\dfrac{\Delta x}{\Delta t}=\dfrac{0-6}{3-0}=-2$ м/с. Точка пересечения с осью $x$ при $t=0$ уже дана: $x_0=6$. Пишем сразу: $x=6-2t$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Общий вид $x=x_0+vt$. $x_0=6$ м (значение при $t=0$). $v=\dfrac{x(3)-x(0)}{3}=\dfrac{0-6}{3}=-2$ м/с. Итог: $x=6-2t$.</p>
+        <span class="ans">Ответ: $x=6-2t$ (м)</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      На графике $x(t)$ отрицательный наклон — это не «отрицательная скорость» в бытовом смысле, а движение в обратную сторону оси. Путь считайте по излому линии (там, где наклон меняет знак), а не по формуле «конец минус начало».
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 4 ===== -->
+  <article class="topic" id="t4">
+    <h3><span class="code">4</span> Относительность движения</h3>
+    <p>Одна из самых «формульных» тем — переправа через реку, самолёт и ветер, вагон и муха. Вторая половина темы (после 34-го вопроса) — про <b>относительную скорость</b> двух движущихся тел.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Сложение скоростей:</span> $\vec v_{тела/земли} = \vec v_{тела/среды} + \vec v_{среды/земли}$</li>
+        <li><span class="fname">Перпендикулярный снос (лодка ⊥ течению):</span> $v_{результ}=\sqrt{v_{лодки}^2+v_{теч}^2}$; время переправы $t=\dfrac{d}{v_{лодки}}$ (зависит только от поперечной компоненты!); снос $=v_{теч}\cdot t$</li>
+        <li><span class="fname">По течению / против течения:</span> $v_{по}=v_{лодки}+v_{теч}$, $\;v_{против}=v_{лодки}-v_{теч}$</li>
+        <li><span class="fname">Отсюда находим:</span> $v_{лодки}=\dfrac{v_{по}+v_{против}}{2}$, $\;v_{теч}=\dfrac{v_{по}-v_{против}}{2}$</li>
+        <li><span class="fname">Угол между скоростями (общий случай):</span> теорема косинусов $v_{рез}^2=v_1^2+v_2^2+2v_1v_2\cos\alpha$ ($\alpha$ — угол между векторами)</li>
+        <li><span class="fname">Относительная скорость двух тел:</span> $\vec v_{1/2}=\vec v_1-\vec v_2$; вдоль одной прямой — навстречу складываем, вдогонку вычитаем</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Сначала определяйте геометрию: скорости коллинеарны (по одной прямой) — просто плюс/минус; скорости перпендикулярны — теорема Пифагора; скорости под произвольным углом — теорема косинусов. Отдельно помните: <b>время переправы реки зависит только от скорости лодки поперёк реки</b>, течение снос не ускоряет и не задерживает переправу.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Переправа перпендикулярно течению</span>
+      <p class="q">Лодка пересекает реку шириной $d=600$ м, направляя нос строго поперёк течения. Скорость лодки относительно воды $4$ м/с, скорость течения $3$ м/с. За сколько секунд лодка пересечёт реку?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Течение сносит лодку вбок, но не мешает и не помогает пересечь реку — используем только поперечную скорость $4$ м/с. $t=600/4=150$ с. Скорость течения ($3$ м/с) — лишняя информация для этого вопроса.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Поперечная компонента движения не зависит от течения (оно направлено вдоль берега). $t=\dfrac{d}{v_{лодки}}=\dfrac{600}{4}=150$ с.</p>
+        <span class="ans">Ответ: 150 с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · По течению / против течения → находим течение</span>
+      <p class="q">Катер до пункта против течения плывёт 6 часов, обратно по течению — 2 часа, расстояние 60 км. Найдите скорость катера в стоячей воде и скорость течения.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ (частные значения)</p>
+        <p>$v_{по}=60/2=30$ км/ч, $v_{против}=60/6=10$ км/ч. Скорость катера — среднее арифметическое этих двух: $(30+10)/2=20$ км/ч; течение — половина разницы: $(30-10)/2=10$ км/ч.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v_{катера}+v_{теч}=30$, $v_{катера}-v_{теч}=10$. Складываем уравнения: $2v_{катера}=40\Rightarrow v_{катера}=20$ км/ч. Тогда $v_{теч}=30-20=10$ км/ч.</p>
+        <span class="ans">Ответ: катер 20 км/ч, течение 10 км/ч</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Угол между скоростями (теорема косинусов)</span>
+      <p class="q">Тело одновременно участвует в двух движениях со скоростями 5 м/с и 4 м/с под углом $30°$ друг к другу ($\sin30°=0{,}5$; $\cos30°=0{,}87$). Найдите модуль результирующей скорости.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Раз дан $\cos30°$, сразу подставляем в формулу без построения чертежа: $v^2=5^2+4^2+2\cdot5\cdot4\cdot0{,}87=25+16+34{,}8=75{,}8\approx76$, значит $v=\sqrt{76}$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v_{рез}=\sqrt{v_1^2+v_2^2+2v_1v_2\cos\alpha}=\sqrt{25+16+2\cdot5\cdot4\cdot0{,}87}=\sqrt{75{,}8}\approx\sqrt{76}$ м/с.</p>
+        <span class="ans">Ответ: $\sqrt{76}$ м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Относительная скорость (погоня и встреча)</span>
+      <p class="q">Два автомобиля едут навстречу друг другу: 15 м/с и 36 км/ч. Найдите их скорость относительно друг друга.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$36$ км/ч $=10$ м/с (простое деление на 3,6). Едут навстречу — скорости складываем: $15+10=25$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Переводим: $v_2=36/3{,}6=10$ м/с. Относительная скорость при встречном движении: $v_{отн}=v_1+v_2=15+10=25$ м/с. (Если бы автомобили ехали в одну сторону — вычли бы: $v_{отн}=|v_1-v_2|$.)</p>
+        <span class="ans">Ответ: 25 м/с</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Три сигнала в условии: «⊥ течению» → используем только скорость лодки для времени; «по/против течения» → складываем/вычитаем и решаем систему; «под углом $\alpha$» → теорема косинусов. «Навстречу» = сложение, «вдогонку» = вычитание — для относительной скорости это работает всегда, независимо от того, идёт ли речь о лодках, поездах или пешеходах.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+
+
+  <!-- ===== Тема 5 ===== -->
+  <article class="topic" id="t5">
+    <h3><span class="code">5</span> Неравномерное движение</h3>
+    <p>Ключевая тема-ловушка: <b>средняя скорость почти никогда не равна среднему арифметическому скоростей</b>.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Единственно верное определение:</span> $\langle v\rangle=\dfrac{\text{весь путь}}{\text{всё время}}$</li>
+        <li><span class="fname">Частный случай — равные интервалы времени:</span> $\langle v\rangle=\dfrac{v_1+v_2+\dots}{n}$ (среднее арифметическое — работает только если время на каждом участке одинаковое)</li>
+        <li><span class="fname">Частный случай — равные участки пути (напр. «первая половина / вторая половина»):</span> для двух равных отрезков $\langle v\rangle=\dfrac{2v_1v_2}{v_1+v_2}$ (среднее гармоническое)</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Смотрите, что разбито поровну — <b>время</b> или <b>путь</b>. «Первую половину пути» — это про путь (гармоническое среднее или прямой расчёт через $s/t$). «Первые 20 секунд, затем ещё 10 секунд» — это про время (взвешенное среднее по времени). Если не уверены — всегда работает базовая формула: сложить все пути, сложить все времена, разделить.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Базовое определение</span>
+      <p class="q">Тело за 12 секунд прошло 250 метров. Чему равна средняя скорость в км/ч?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$250$ м за $12$ с $\approx 20{,}8$ м/с. Умножаем на $3{,}6$: $20{,}8\cdot3{,}6\approx75$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\langle v\rangle=\dfrac{s}{t}=\dfrac{250}{12}\approx20{,}83$ м/с $=20{,}83\cdot3{,}6\approx75$ км/ч.</p>
+        <span class="ans">Ответ: 75 км/ч</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Равные интервалы времени (взвешенное среднее)</span>
+      <p class="q">Машина сначала 3 минуты ехала со скоростью 36 км/ч, затем 5 минут — 54 км/ч, затем 10 минут — 72 км/ч. Найдите среднюю скорость всей поездки (км/ч).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ (удобные числа в минутах)</p>
+        <p>Переводим минуты в доли часа удобными дробями: $3$ мин$=\tfrac{1}{20}$ч, $5$мин$=\tfrac{1}{12}$ч, $10$мин$=\tfrac{1}{6}$ч. Пути: $36/20=1{,}8$; $54/12=4{,}5$; $72/6=12$. Сумма путей $=18{,}3$ км, сумма времени $=18$ мин$=0{,}3$ч. $\langle v\rangle=18{,}3/0{,}3=61$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$s_1=36\cdot\tfrac{3}{60}=1{,}8$ км, $s_2=54\cdot\tfrac{5}{60}=4{,}5$ км, $s_3=72\cdot\tfrac{10}{60}=12$ км. $\langle v\rangle=\dfrac{1{,}8+4{,}5+12}{18/60}=\dfrac{18{,}3}{0{,}3}=61$ км/ч.</p>
+        <span class="ans">Ответ: 61 км/ч</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Равные участки пути (гармоническое среднее)</span>
+      <p class="q">Автомобиль первую половину пути ехал со скоростью 20 м/с, вторую половину — со скоростью 30 м/с. Найдите среднюю скорость на всём пути.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ (метод удобных чисел)</p>
+        <p>Возьмём удобное значение пути $S=600$ м (делится и на 20, и на 30). Тогда $t_1=300/20=15$ с, $t_2=300/30=10$ с. $\langle v\rangle=600/25=24$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>По формуле среднего гармонического: $\langle v\rangle=\dfrac{2v_1v_2}{v_1+v_2}=\dfrac{2\cdot20\cdot30}{50}=\dfrac{1200}{50}=24$ м/с.</p>
+        <span class="ans">Ответ: 24 м/с</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Если в ответах есть вариант, равный простому среднему арифметическому скоростей — и в условии речь о «половине пути» (а не «половине времени») — это <b>ловушка</b>, правильный ответ будет меньше (гармоническое среднее всегда $\le$ арифметическому).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 6 ===== -->
+  <article class="topic" id="t6">
+    <h3><span class="code">6</span> Равноускоренное движение. Ускорение</h3>
+    <p>Прямое применение $a=\dfrac{v-v_0}{t}$ — но внимательно с единицами измерения.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Ускорение:</span> $a=\dfrac{v-v_0}{t}$ (положительное — разгон, отрицательное — торможение)</li>
+        <li><span class="fname">Направление вектора ускорения:</span> при разгоне — совпадает с $\vec v$; при торможении — противоположно $\vec v$</li>
+        <li><span class="fname">Относительное ускорение</span> (тело в ускоренной системе отсчёта): складывается/вычитается векторно с ускорением системы</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Первым делом — приведите все величины к СИ (м/с, м/с²). Самая частая ошибка на этой теме — не единицы км/ч, а именно <b>см/с</b> и <b>см/с²</b>, которые легко принять за м/с по невнимательности.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Базовая формула + перевод единиц</span>
+      <p class="q">Автомобиль за 15 секунд разогнался от 0 до 108 км/ч. Найдите ускорение (м/с²).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$108$ км/ч $=30$ м/с (делим на 3,6: $108/3{,}6=30$). $a=30/15=2$ м/с².</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v=108/3{,}6=30$ м/с. $a=\dfrac{v-v_0}{t}=\dfrac{30-0}{15}=2$ м/с².</p>
+        <span class="ans">Ответ: 2 м/с²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Ловушка с см/с</span>
+      <p class="q">Тело, начав движение из состояния покоя, за 2,5 с равноускоренно набрало скорость 60 см/с. Найдите ускорение (м/с²).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Сразу переводим: $60$ см/с$=0{,}6$ м/с — не забываем про см! $a=0{,}6/2{,}5=0{,}24$ м/с².</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v=60\text{ см/с}=0{,}6$ м/с. $a=\dfrac{0{,}6-0}{2{,}5}=0{,}24$ м/с².</p>
+        <span class="ans">Ответ: 0,24 м/с² (если забыть перевести см→м, получится неверный ответ 24 — типичная ловушка в вариантах)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Ускорение в неинерциальной системе (лифт)</span>
+      <p class="q">Лифт движется вверх с ускорением $a$. У человека в лифте выпала из рук книга. С каким ускорением книга движется относительно лифта?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Книга падает вниз с ускорением $g$ относительно земли, а лифт при этом уезжает вверх с ускорением $a$ — «убегает» от книги в противоположную сторону. Ускорения складываются: относительно лифта книга ускоряется на $g+a$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Возьмём «вверх» положительным. Ускорение книги относительно земли $=-g$. Ускорение лифта относительно земли $=+a$. Ускорение книги относительно лифта $=a_{кн}-a_{лифт}=-g-a=-(g+a)$, то есть по модулю $g+a$, направлено вниз.</p>
+        <span class="ans">Ответ: $g+a$, вниз</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Ловите единицы измерения в самом условии (см, мм, км/ч) — часто среди ответов специально ставят «правильное число, но не переведённое» как отвлекающий вариант.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 7 ===== -->
+  <article class="topic" id="t7">
+    <h3><span class="code">7</span> Перемещение при равноускоренном движении</h3>
+    <p>Тормозной путь, путь при разгоне — три формулы, которые нужно уметь комбинировать в любом порядке.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Через среднюю скорость:</span> $s=\dfrac{v_0+v}{2}\,t$ (часто быстрее всего для торможения «до остановки»)</li>
+        <li><span class="fname">Через время:</span> $s=v_0t+\dfrac{at^2}{2}$</li>
+        <li><span class="fname">Без времени:</span> $v^2=v_0^2+2as$ — используйте, когда время неизвестно</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Смотрите, что дано и что нужно найти — выбирайте формулу, где меньше неизвестных. Если известны только $v_0$, $v$, $t$ — не ищите $a$ отдельно, посчитайте путь сразу через среднюю скорость.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Тормозной путь через среднюю скорость</span>
+      <p class="q">Автомобиль, идущий со скоростью 20 м/с, тормозит и останавливается за 2 с. Найдите тормозной путь.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Не ищем $a$ — сразу через среднюю скорость: $\langle v\rangle=(20+0)/2=10$ м/с, $s=10\cdot2=20$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a=\dfrac{0-20}{2}=-10$ м/с². $s=v_0t+\dfrac{at^2}{2}=20\cdot2+\dfrac{(-10)\cdot4}{2}=40-20=20$ м.</p>
+        <span class="ans">Ответ: 20 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Формула без времени</span>
+      <p class="q">Автомобиль, идущий со скоростью 20 м/с, начинает тормозить; на пути 30 м его скорость падает до 10 м/с. Найдите модуль ускорения и время торможения.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Время неизвестно, путь и обе скорости даны — сразу берём $v^2=v_0^2+2as$: $a=\dfrac{v_0^2-v^2}{2s}=\dfrac{400-100}{60}=5$ м/с². Дальше время просто: $t=(v_0-v)/a=(20-10)/5=2$ с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$10^2=20^2-2a\cdot30 \Rightarrow 100=400-60a \Rightarrow a=5$ м/с². $t=\dfrac{v_0-v}{a}=\dfrac{10}{5}=2$ с.</p>
+        <span class="ans">Ответ: $a=5$ м/с², $t=2$ с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Обратная задача: найти $v_0$</span>
+      <p class="q">Лыжник, двигаясь с ускорением $0{,}2$ м/с², прошёл склон длиной 50 м за 10 с. Какова была его скорость в начале склона?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Считаем вклад ускорения отдельно: $\tfrac{at^2}{2}=\tfrac{0{,}2\cdot100}{2}=10$ м — это «бонусный» путь от разгона. Оставшиеся $50-10=40$ м прошли за счёт начальной скорости: $v_0=40/10=4$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$s=v_0t+\dfrac{at^2}{2} \Rightarrow 50=10v_0+\dfrac{0{,}2\cdot100}{2}=10v_0+10 \Rightarrow v_0=4$ м/с.</p>
+        <span class="ans">Ответ: 4 м/с</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Если в задаче нет времени, но есть обе скорости и путь — формула $v^2=v_0^2+2as$ почти всегда короче, чем искать $t$ отдельно.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 8 ===== -->
+  <article class="topic" id="t8">
+    <h3><span class="code">8</span> Движение двух тел</h3>
+    <p>Развитие темы «встреча/погоня» — теперь с квадратичными уравнениями координаты (равноускоренное движение).</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Общий метод:</span> записать $x_1(t)$ и $x_2(t)$, приравнять, решить уравнение (линейное или квадратное) относительно $t$</li>
+        <li><span class="fname">Если старт не одновременный:</span> ввести время «с момента старта второго тела» как отдельную переменную, либо сдвинуть по времени первое уравнение</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Если коэффициенты при $t^2$ у обоих тел одинаковы — они сократятся, и получится обычное линейное уравнение (быстро). Если тела стартуют не одновременно — самое безопасное: считать время от старта <em>второго</em> тела и прибавлять «фору» первому.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Одинаковый коэффициент при $t^2$ — сокращается</span>
+      <p class="q">Уравнения движения двух автомобилей: $x_1=t^2+5t$ и $x_2=t^2+7t-6$. Где и через сколько секунд они встретятся?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Коэффициенты при $t^2$ одинаковы (оба $=1$) — они сокращаются при приравнивании, остаётся линейное уравнение: $5t=7t-6 \Rightarrow t=3$ с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$t^2+5t=t^2+7t-6 \Rightarrow 5t=7t-6 \Rightarrow 2t=6 \Rightarrow t=3$ с. Координата: $x=3^2+5\cdot3=9+15=24$ м.</p>
+        <span class="ans">Ответ: $x=24$ м, $t=3$ с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Настоящее квадратное уравнение</span>
+      <p class="q">Уравнения движения: $x_1=2t^2+4t$ и $x_2=8t+6$. Где и когда встретятся тела?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ (подбор целого корня)</p>
+        <p>$2t^2+4t=8t+6 \Rightarrow 2t^2-4t-6=0 \Rightarrow t^2-2t-3=0$. Подбираем целые корни произведения $-3$: подходит пара $(-1)\cdot3=-3$, сумма $-1+3=2$ — совпадает со знаком при $t$. Значит $t=3$ (отрицательный корень $-1$ не подходит физически).</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$t^2-2t-3=0 \Rightarrow (t-3)(t+1)=0 \Rightarrow t=3$ с (берём положительный корень). $x=8\cdot3+6=30$ м.</p>
+        <span class="ans">Ответ: $x=30$ м, $t=3$ с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Погоня со сдвигом старта</span>
+      <p class="q">Два автомобиля стартуют из одной точки в одном направлении: первый сразу едет равномерно со скоростью 9 м/с. Второй трогается на 10 с позже и разгоняется с ускорением 2 м/с². Через сколько секунд после старта <em>второго</em> автомобиля он догонит первый?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Считаем время $t$ от старта второго автомобиля. К этому моменту первый уже едет $(t+10)$ с, значит его позиция $9(t+10)=9t+90$. Второй проехал $\tfrac{1}{2}\cdot2\cdot t^2=t^2$. Приравниваем: $t^2=9t+90$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$t^2-9t-90=0$. Дискриминант $=81+360=441=21^2$. $t=\dfrac{9+21}{2}=15$ с.</p>
+        <span class="ans">Ответ: через 15 с после старта второго автомобиля</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Не начинайте раскрывать скобки вслепую — сначала проверьте, не сократятся ли коэффициенты при $t^2$. Если тела стартуют не одновременно, всегда явно определяйте, «от какого момента» отсчитывается ваше $t$ — это главный источник ошибок в этой теме.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 9 ===== -->
+  <article class="topic" id="t9">
+    <h3><span class="code">9</span> Графики равноускоренного движения</h3>
+    <p>Как и тема 3, эта тема опирается на рисунки-графики. Ниже — типовые задачи с восстановленными значениями; метод чтения переносится на любой график такого типа из сборника.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">График $v(t)$:</span> наклон = ускорение $a=\dfrac{\Delta v}{\Delta t}$; площадь под графиком = перемещение (путь, если $v$ не меняет знак)</li>
+        <li><span class="fname">График $a(t)$:</span> значение по вертикали = ускорение в данный момент; площадь под графиком = изменение скорости $\Delta v$</li>
+        <li><span class="fname">Равноускоренное движение на графике $v(t)$:</span> прямая линия (не обязательно из начала координат)</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Определите тип графика по оси $Y$: если это $v(t)$ — наклон даёт ускорение, площадь даёт путь. Если это $a(t)$ — значения читаются напрямую, а для скорости нужно считать площадь (интеграл).</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Ускорение по наклону $v(t)$</span>
+      <p class="q">На графике скорость линейно растёт от $0$ до $20$ м/с за $4$ секунды. Найдите ускорение.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Наклон прямой = ускорение: $20/4=5$ м/с². Считать по формуле не нужно — это буквально видно на глаз по клеточкам графика.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a=\dfrac{\Delta v}{\Delta t}=\dfrac{20-0}{4-0}=5$ м/с².</p>
+        <span class="ans">Ответ: 5 м/с²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Перемещение через площадь</span>
+      <p class="q">На графике $v(t)$: с $0$ по $2$ с скорость растёт от $0$ до $8$ м/с, затем с $2$ по $6$ с остаётся постоянной ($8$ м/с). Найдите перемещение за $0$–$6$ с.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Разбиваем фигуру на треугольник и прямоугольник: треугольник $=\tfrac12\cdot2\cdot8=8$ м, прямоугольник $=4\cdot8=32$ м. Сумма $=40$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Площадь под графиком = перемещение. $S_{\triangle}=\tfrac12\cdot2\cdot8=8$ м. $S_{прям}=4\cdot8=32$ м. $s=8+32=40$ м.</p>
+        <span class="ans">Ответ: 40 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Чтение графика $a(t)$</span>
+      <p class="q">На каком участке движения ускорение тела максимально по модулю, если дан график $a(t)$ (ступенчатая функция)?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>На графике $a(t)$ значения ускорения уже показаны напрямую по высоте — не нужно ничего вычислять, просто найдите самый высокий (по модулю) участок.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>В отличие от графика $v(t)$, где ускорение нужно искать через наклон, график $a(t)$ показывает ускорение как саму функцию — сравниваем значения напрямую.</p>
+        <span class="ans">Ответ: участок с наибольшей по модулю ординатой графика</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Не путайте два типа графиков: на $v(t)$ ускорение — это <b>наклон</b>, на $a(t)$ ускорение — это <b>сама высота линии</b>. Площадь всегда даёт «интеграл» от того, что на оси Y, к тому, что на оси X (для $v(t)$ — путь, для $a(t)$ — изменение скорости).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+
+
+  <!-- ===== Тема 10 ===== -->
+  <article class="topic" id="t10">
+    <h3><span class="code">10</span> Криволинейное движение</h3>
+    <p>Линейная и угловая скорость, период и частота вращения, скорость точек катящегося колеса.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Мгновенная скорость:</span> направлена по касательной к траектории</li>
+        <li><span class="fname">Связь линейной и угловой:</span> $v=\omega R,\quad \omega=\dfrac{2\pi}{T}=2\pi\nu$</li>
+        <li><span class="fname">Катящееся колесо (без проскальзывания):</span> точка касания с землёй — скорость $=0$; верхняя точка — скорость $=2v$; точка сбоку на высоте центра — скорость $=v\sqrt2$ (векторная сумма поступательной и вращательной)</li>
+        <li><span class="fname">Скорость точек Земли на широте $\alpha$:</span> $v=\dfrac{2\pi R\cos\alpha}{T}$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Для колеса на дороге сразу запоминайте три опорных значения: низ $=0$, верх $=2v$, центр $=v$. Для остальных точек — складывайте вектор поступательной скорости $v$ (горизонтально) с вектором вращения $v$ (по касательной) геометрически.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Скорости точек катящегося колеса</span>
+      <p class="q">Колесо катится без проскальзывания со скоростью центра $v=2$ м/с. Найдите скорость (относительно земли) точки A (низ обода), точки B (верх обода) и точки C (сбоку, на высоте центра).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>По опорным значениям сразу: $v_A=0$ (точка касания неподвижна в момент касания), $v_B=2v=4$ м/с (верх), $v_C=v\sqrt2=2\cdot1{,}41\approx2{,}8$ м/с (боковая точка).</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Скорость любой точки обода = сумма скорости центра $\vec v$ (поступательно) и скорости вращения вокруг центра $\vec v$ (по модулю равна $v$). Внизу эти векторы противоположны: $v_A=v-v=0$. Наверху сонаправлены: $v_B=v+v=2v=4$. Сбоку — перпендикулярны: $v_C=\sqrt{v^2+v^2}=v\sqrt2\approx2{,}8$ м/с.</p>
+        <span class="ans">Ответ: $v_A=0$, $v_B=4$ м/с, $v_C\approx2{,}8$ м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Скорость точек Земли (вращение планеты)</span>
+      <p class="q">Радиус Земли 6400 км. Найдите линейную скорость точки на экваторе за счёт вращения Земли вокруг оси (период $T=24$ ч).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$T=24$ч$=86400$с. $v=\dfrac{2\pi R}{T}\approx\dfrac{6{,}28\cdot6\,400\,000}{86400}\approx465$ м/с — держите это число в памяти как справочное (скорость вращения Земли на экваторе).</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v=\dfrac{2\pi R}{T}=\dfrac{2\cdot3{,}14\cdot6\,400\,000}{86400}\approx465$ м/с.</p>
+        <span class="ans">Ответ: ≈ 465 м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Частота вращения</span>
+      <p class="q">Колесо велосипеда за 0,5 минуты делает 60 оборотов. Найдите частоту вращения (Гц).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$0{,}5$ мин $=30$ с. $\nu=60/30=2$ Гц.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\nu=\dfrac{N}{t}=\dfrac{60}{30}=2$ Гц.</p>
+        <span class="ans">Ответ: 2 Гц</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Тройка «низ–центр–верх» катящегося колеса ($0$, $v$, $2v$) — это готовый ответ на добрую половину вопросов темы; не пересчитывайте через векторы каждый раз, если спрашивают именно про эти три точки.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 11 ===== -->
+  <article class="topic" id="t11">
+    <h3><span class="code">11</span> Ускорение при криволинейном движении</h3>
+    <p>Полное ускорение раскладывается на две перпендикулярные составляющие — тангенциальную (меняет модуль скорости) и нормальную (меняет направление).</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Тангенциальное ускорение:</span> $a_\tau=\dfrac{dv}{dt}$ — отвечает за изменение <em>модуля</em> скорости, направлено по касательной</li>
+        <li><span class="fname">Нормальное (центростремительное) ускорение:</span> $a_n=\dfrac{v^2}{R}$ — отвечает за изменение <em>направления</em> скорости, направлено к центру</li>
+        <li><span class="fname">Полное ускорение:</span> $a=\sqrt{a_n^2+a_\tau^2}$ (они всегда перпендикулярны — теорема Пифагора)</li>
+        <li><span class="fname">Частный случай — равномерное круговое движение ($v=\text{const}$):</span> $a_\tau=0$, есть только $a_n$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Слово «<b>текис</b>» (равномерное) применительно к движению по окружности — сигнал, что $a_\tau=0$ автоматически, каким бы ни было условие. Если даны любые два из трёх ($a$, $a_n$, $a_\tau$) — третий находится теоремой Пифагора.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Находим $a_n$ через полное и тангенциальное</span>
+      <p class="q">Тангенциальное ускорение тела $5$ м/с², полное ускорение $10$ м/с². Найдите центростремительное ускорение.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Замечаем: $10$ и $5$ — это как катет и гипотенуза с отношением $1{:}2$, значит второй катет $=\sqrt{3}$ от меньшего: $a_n=5\sqrt3$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a_n=\sqrt{a^2-a_\tau^2}=\sqrt{10^2-5^2}=\sqrt{100-25}=\sqrt{75}=5\sqrt3\approx8{,}66$ м/с².</p>
+        <span class="ans">Ответ: $5\sqrt3\approx8{,}7$ м/с²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Ловушка «равномерное» = нулевое тангенциальное</span>
+      <p class="q">Точка движется по окружности радиусом 3 м с угловой скоростью $4$ рад/с <b>равномерно</b>. Найдите тангенциальное ускорение.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Слово «равномерно» — сразу означает $a_\tau=0$. Радиус и угловая скорость в условии — отвлекающие данные для этого конкретного вопроса.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>При равномерном движении по окружности модуль скорости не меняется: $\dfrac{dv}{dt}=0 \Rightarrow a_\tau=0$ независимо от радиуса и угловой скорости.</p>
+        <span class="ans">Ответ: $a_\tau=0$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Классический треугольник 6-8-10</span>
+      <p class="q">Нормальное ускорение точки $8$ м/с², тангенциальное $6$ м/с². Найдите полное ускорение.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$6$ и $8$ — это удвоенная тройка $3$-$4$-$5$, значит гипотенуза $=10$ без вычислений.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a=\sqrt{a_n^2+a_\tau^2}=\sqrt{64+36}=\sqrt{100}=10$ м/с².</p>
+        <span class="ans">Ответ: 10 м/с²</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Держите в голове пифагоровы тройки (3-4-5, 6-8-10, 5-12-13) — составители теста их обожают, и вы сможете находить полное/нормальное/тангенциальное ускорение без калькулятора.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 12 ===== -->
+  <article class="topic" id="t12">
+    <h3><span class="code">12</span> Передача вращательного движения</h3>
+    <p>Главное — различать два принципиально разных случая соединения колёс/шкивов.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Ремень / соприкасающиеся ободами (фрикционная передача):</span> линейная скорость на ободе <b>одинакова</b>: $v_1=v_2 \Rightarrow \omega_1R_1=\omega_2R_2$</li>
+        <li><span class="fname">Общая ось (жёстко закреплены на одном валу):</span> угловая скорость <b>одинакова</b>: $\omega_1=\omega_2$, независимо от радиусов (линейные скорости при этом разные: $v=\omega R$)</li>
+        <li><span class="fname">Зубчатая/цепная передача:</span> $\omega_1N_1=\omega_2N_2$, где $N$ — число зубьев (работает как радиус)</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Первый вопрос всегда: колёса <b>соприкасаются/соединены ремнём</b> (тогда равны линейные скорости) — или они <b>сидят на одном валу</b> (тогда равны угловые скорости)? Это два зеркальных случая, и большинство ошибок — от их смешивания.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Ремённая передача: равны линейные скорости</span>
+      <p class="q">Два шкива радиусами 10 см и 15 см соединены ремнём. Линейная скорость обода первого шкива 2 м/с. Найдите линейную скорость обода второго шкива.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Ремень не растягивается — скорость его точек одинакова везде, значит обод второго шкива движется с той же скоростью: $v_2=2$ м/с. Радиусы в этом вопросе — лишняя информация.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Для нерастяжимого ремня линейная скорость на ободе обоих шкивов одинакова по определению: $v_1=v_2=2$ м/с.</p>
+        <span class="ans">Ответ: 2 м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Ремённая передача: находим угловую скорость</span>
+      <p class="q">Те же шкивы (10 см и 15 см), угловая скорость первого — 3 рад/с. Найдите угловую скорость второго.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Радиус больше — угловая скорость меньше (обратная пропорция): $\omega_2=\omega_1\cdot\dfrac{R_1}{R_2}=3\cdot\dfrac{10}{15}=2$ рад/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Равенство линейных скоростей: $\omega_1R_1=\omega_2R_2 \Rightarrow \omega_2=\dfrac{\omega_1R_1}{R_2}=\dfrac{3\cdot10}{15}=2$ рад/с.</p>
+        <span class="ans">Ответ: 2 рад/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Общий вал: равны угловые скорости</span>
+      <p class="q">Два шкива закреплены на общем валу (вращаются вместе). Отношение их радиусов $R_2/R_1=4$. Каково соотношение угловых скоростей?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Общий вал — значит оба шкива за одно и то же время делают одинаковый угол поворота. Радиусы здесь совершенно не важны: $\omega_1=\omega_2$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Жёсткое крепление на одном валу означает, что оба тела поворачиваются синхронно: $\omega_1=\omega_2$ независимо от $R_1$ и $R_2$ (а вот линейные скорости их ободов будут отличаться в 4 раза).</p>
+        <span class="ans">Ответ: $\omega_1=\omega_2$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Если в вариантах ответа есть и «$\omega_1=\omega_2$», и «$v_1=v_2$» — внимательно перечитайте условие: «на одном валу» → выбираете равенство $\omega$; «ремень / соприкасаются» → равенство $v$.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 13 ===== -->
+  <article class="topic" id="t13">
+    <h3><span class="code">13</span> Неравномерное движение по окружности</h3>
+    <p>Всё то же равноускоренное движение (темы 6–7), только записанное в угловых величинах.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Угловая скорость:</span> $\omega=\omega_0+\beta t$ (аналог $v=v_0+at$)</li>
+        <li><span class="fname">Угол поворота:</span> $\varphi=\omega_0t+\dfrac{\beta t^2}{2}$ (аналог $s=v_0t+\dfrac{at^2}{2}$)</li>
+        <li><span class="fname">Число оборотов:</span> $N=\dfrac{\varphi}{2\pi}$</li>
+        <li><span class="fname">Ускорения:</span> $a_\tau=\beta R$, $a_n=\omega^2R$, $a=\sqrt{a_n^2+a_\tau^2}$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Это буквально те же формулы темы 7, только $s\to\varphi$, $v\to\omega$, $a\to\beta$. Если тело <b>тормозит до полной остановки равнозамедленно</b> — среднее угловое $\omega_{ср}=\omega_0/2$ часто короче, чем искать $\beta$.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Прямая подстановка</span>
+      <p class="q">Начальная угловая скорость точки $3$ рад/с, угловое ускорение $0{,}1$ рад/с². Найдите угловую скорость через $5$ с.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$\omega=3+0{,}1\cdot5=3{,}5$ рад/с — прямая подстановка, без промежуточных шагов.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\omega=\omega_0+\beta t=3+0{,}1\cdot5=3{,}5$ рад/с.</p>
+        <span class="ans">Ответ: 3,5 рад/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Отношение $a_n/a_\tau$</span>
+      <p class="q">Точка радиусом $R=4$ м, начальная угловая скорость $2$ рад/с, угловое ускорение $2$ рад/с². Найдите отношение нормального ускорения к тангенциальному через $5$ с.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$\omega(5)=2+2\cdot5=12$ рад/с. Отношение $\dfrac{a_n}{a_\tau}=\dfrac{\omega^2R}{\beta R}=\dfrac{\omega^2}{\beta}=\dfrac{144}{2}=72$ — радиус сокращается, считать его отдельно не нужно.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a_n=\omega^2R=144\cdot4=576$ м/с². $a_\tau=\beta R=2\cdot4=8$ м/с². Отношение $=576/8=72$.</p>
+        <span class="ans">Ответ: 72</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Число оборотов до остановки (через среднюю угловую скорость)</span>
+      <p class="q">Точильный круг, вращавшийся с частотой $100$ Гц, равнозамедленно остановился за $20$ с. Сколько оборотов он сделал до остановки?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$\omega_0=2\pi\nu=2\cdot3{,}14\cdot100=628$ рад/с. Торможение до нуля равнозамедленно ⇒ средняя угловая скорость $=\omega_0/2=314$ рад/с. Угол поворота $=314\cdot20=6280$ рад. Число оборотов $=6280/(2\pi)=6280/6{,}28=1000$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\beta=-\omega_0/t=-628/20=-31{,}4$ рад/с². $\varphi=\omega_0t+\dfrac{\beta t^2}{2}=628\cdot20-\dfrac{31{,}4\cdot400}{2}=12560-6280=6280$ рад. $N=\varphi/(2\pi)=1000$.</p>
+        <span class="ans">Ответ: 1000 оборотов</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Торможение «до полной остановки» равнозамедленно — сигнал использовать площадь треугольника (среднюю угловую скорость $\omega_0/2$), а не искать угловое ускорение $\beta$ отдельно. Тот же приём работает и в линейном варианте (тема 7).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+</section>
+</div><!-- /wrap -->
+
+
+<div class="wrap">
+<section class="chapter dom-d">
+  <div class="domain-head">
+    <div class="num">РАЗДЕЛ 2</div>
+    <h2>Dinamika asoslari</h2>
+    <p class="desc">Темы 14–29 книги Innova (стр. 35–80). Здесь движение объясняется через силы: законы Ньютона, тяготение, вес, невесомость, броски и трение.</p>
+    <div class="domain-rule"></div>
+  </div>
+
+  <!-- ===== Тема 14 ===== -->
+  <article class="topic" id="t14">
+    <h3><span class="code">14</span> Сила. I закон Ньютона</h3>
+    <p>Базовый навык темы — находить равнодействующую нескольких сил, приложенных вдоль одной прямой.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Сила:</span> векторная мера взаимодействия тел; измеряется динамометром</li>
+        <li><span class="fname">Равнодействующая сил на одной прямой:</span> угол $0°$ между силами — складываем модули; угол $180°$ — вычитаем</li>
+        <li><span class="fname">I закон Ньютона:</span> если $\sum\vec F=0$, тело сохраняет скорость (покоится или движется равномерно прямолинейно) — верно только в инерциальных системах отсчёта</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Для сил на одной прямой не нужна тригонометрия — просто складывайте (сонаправленные) или вычитайте (противоположные) модули. Для нескольких сил на одной оси — считайте алгебраическую сумму с учётом знаков направления.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Равнодействующая на одной прямой</span>
+      <p class="q">На тело действуют силы $6$ Н и $8$ Н. Найдите равнодействующую, если угол между ними: а) $0°$; б) $180°$.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$0°$ (сонаправлены) — складываем: $6+8=14$ Н. $180°$ (противоположны) — вычитаем: $8-6=2$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Общая формула для двух сил: $F=\sqrt{F_1^2+F_2^2+2F_1F_2\cos\alpha}$. При $\alpha=0°$: $\cos0°=1$, $F=\sqrt{(F_1+F_2)^2}=F_1+F_2=14$ Н. При $\alpha=180°$: $\cos180°=-1$, $F=\sqrt{(F_1-F_2)^2}=|F_1-F_2|=2$ Н.</p>
+        <span class="ans">Ответ: 14 Н (при 0°) и 2 Н (при 180°)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Перетягивание каната (несколько сил на одной оси)</span>
+      <p class="q">В перетягивании каната двое тянут вправо с силами 250 Н и 300 Н, двое других — влево с силами 100 Н и 350 Н. Найдите равнодействующую силу.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Складываем силы каждой команды отдельно: справа $250+300=550$ Н, слева $100+350=450$ Н. Разница: $550-450=100$ Н вправо.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Ось вправо — положительное направление. $F=250+300-100-350=100$ Н, направлена вправо.</p>
+        <span class="ans">Ответ: 100 Н, в сторону первой команды</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · I закон Ньютона: траектория при равновесии сил</span>
+      <p class="q">Если векторная сумма всех сил, действующих на тело в инерциальной системе отсчёта, равна нулю — какой будет траектория движения?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Нулевая равнодействующая = нулевое ускорение = тело либо стоит, либо летит по прямой с постоянной скоростью. Кривая траектория при $\sum F=0$ невозможна в принципе.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>По I закону Ньютона: $\sum\vec F=0 \Rightarrow \vec a=0 \Rightarrow \vec v=\text{const}$. Постоянный вектор скорости означает движение по прямой (или покой, если $v=0$).</p>
+        <span class="ans">Ответ: прямая линия (или точка покоя)</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Криволинейная траектория ⇒ обязательно есть равнодействующая сила, отличная от нуля (даже при постоянной по модулю скорости, как в равномерном круговом движении — там есть центростремительная сила).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 15 ===== -->
+  <article class="topic" id="t15">
+    <h3><span class="code">15</span> Масса. Плотность</h3>
+    <p>Основной массив вопросов темы — технические переводы единиц; отдельная группа — задачи на плотность смесей и инертность.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Плотность:</span> $\rho=\dfrac{m}{V}$</li>
+        <li><span class="fname">Перевод площади:</span> см² $\to$ м²: делить на $10^4$; перевод объёма: см³ $\to$ м³: делить на $10^6$ (не путать с переводом длины, где делитель $100$/$1000$!)</li>
+        <li><span class="fname">Инертность:</span> характеризуется исключительно массой (не весом, не объёмом, не плотностью)</li>
+        <li><span class="fname">Плотность смеси</span> (объёмы складываются): $\rho_{смеси}=\dfrac{m_{общ}}{V_1+V_2}=\dfrac{m_{общ}}{\frac{m_1}{\rho_1}+\frac{m_2}{\rho_2}}$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>При переводе единиц площади и объёма помните: показатель степени у множителя 10 удваивается для площади и утраивается для объёма относительно перевода длины (1 см = $10^{-2}$ м, но 1 см² = $10^{-4}$ м², 1 см³ = $10^{-6}$ м³).</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Ловушка при переводе площади</span>
+      <p class="q">Выразите $2{,}8$ см² в м².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Для площади степень удваивается: см$\to$м даёт $10^{-2}$, значит см²$\to$м² даёт $10^{-4}$. Ответ: $2{,}8\cdot10^{-4}$ м².</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$1$ см $=10^{-2}$ м $\Rightarrow$ $1$ см² $=(10^{-2})^2$ м² $=10^{-4}$ м². $2{,}8$ см² $=2{,}8\cdot10^{-4}$ м².</p>
+        <span class="ans">Ответ: $2{,}8\cdot10^{-4}$ м²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Плотность сплава (смеси)</span>
+      <p class="q">Латунь состоит из 63% меди ($\rho=8{,}9$ г/см³) и 37% цинка ($\rho=7{,}1$ г/см³) по массе. Найдите плотность латуни.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ (удобное число)</p>
+        <p>Берём удобную полную массу $m=100$ г: $m_{Cu}=63$ г, $m_{Zn}=37$ г. Объёмы: $V_{Cu}=63/8{,}9\approx7{,}08$ см³, $V_{Zn}=37/7{,}1\approx5{,}21$ см³. Плотность $=100/(7{,}08+5{,}21)=100/12{,}29\approx8{,}1$–$8{,}2$ г/см³.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\rho_{смеси}=\dfrac{m_{общ}}{V_{Cu}+V_{Zn}}=\dfrac{100}{\frac{63}{8{,}9}+\frac{37}{7{,}1}}\approx\dfrac{100}{12{,}29}\approx8{,}2$ г/см³. Обратите внимание: это <em>не</em> простое среднее ($63\%\cdot8{,}9+37\%\cdot7{,}1\approx8{,}23$ — почти совпадает, но правильный метод именно через объёмы).</p>
+        <span class="ans">Ответ: ≈ 8,2 г/см³</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Инертность через одинаковую силу</span>
+      <p class="q">Три тела под действием одной и той же равнодействующей силы получили ускорения $a_1>a_2>a_3$. Какое тело самое инертное?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>При одинаковой силе масса обратно пропорциональна ускорению ($m=F/a$) — самое маленькое ускорение $a_3$ означает самую большую массу, то есть самую большую инертность. Это третье тело.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$F=m_1a_1=m_2a_2=m_3a_3=\text{const} \Rightarrow m\sim\dfrac1a$. Так как $a_3$ наименьшее, $m_3$ наибольшее.</p>
+        <span class="ans">Ответ: третье тело (с ускорением $a_3$)</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Плотность смеси — это НЕ среднее арифметическое плотностей компонентов (это распространённая ошибка); считайте через сумму объёмов, если проценты заданы по массе.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 16 ===== -->
+  <article class="topic" id="t16">
+    <h3><span class="code">16</span> II закон Ньютона</h3>
+    <p>Сердце динамики — $\vec F=m\vec a$. Большинство задач — прямая или обратная подстановка, иногда в сочетании с уравнением движения из кинематики.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">II закон Ньютона:</span> $\vec F=m\vec a$, или $\vec a=\dfrac{\vec F}{m}$</li>
+        <li><span class="fname">Единица силы:</span> $1$ Н $=1$ кг$\cdot$м/с²</li>
+        <li><span class="fname">Если дано уравнение $x(t)$:</span> сравните с $x=x_0+v_0t+\dfrac{at^2}{2}$, коэффициент при $t^2$ равен $a/2$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Если сила одна и та же, а тела/массы разные — не решайте каждый случай заново: используйте $F=m_1a_1=m_2a_2$ и работайте с отношениями. Если ускорение спрятано в уравнении координаты — сначала извлеките $a$ (удвоенный коэффициент при $t^2$), потом подставляйте в $F=ma$.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Прямая подстановка</span>
+      <p class="q">Самолёт массой 6 т с силой тяги двигателя 9 кН разгоняется при взлёте. Найдите ускорение (сопротивлением пренебречь).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$9$ кН$/6$ т $=9000/6000=1{,}5$ м/с² — тонны и килоньютоны сокращаются один в один, переводить в базовые единицы не обязательно.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a=\dfrac{F}{m}=\dfrac{9000\text{ Н}}{6000\text{ кг}}=1{,}5$ м/с².</p>
+        <span class="ans">Ответ: 1,5 м/с²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Одна и та же сила, другая масса</span>
+      <p class="q">Некоторая равнодействующая сила сообщает телу массой 4 кг ускорение 2 м/с². Какое ускорение эта же сила сообщит телу массой 10 кг?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Сила одна и та же: $F=4\cdot2=8$ Н. Для второго тела: $a=8/10=0{,}8$ м/с² — сразу через отношение масс: $a_2=a_1\cdot\dfrac{m_1}{m_2}=2\cdot\dfrac{4}{10}=0{,}8$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$F=m_1a_1=4\cdot2=8$ Н. $a_2=\dfrac{F}{m_2}=\dfrac{8}{10}=0{,}8$ м/с².</p>
+        <span class="ans">Ответ: 0,8 м/с²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Ускорение из уравнения координаты</span>
+      <p class="q">На тело действует равнодействующая сила $2$ кН. Уравнение движения тела $x=2t+0{,}1t^2$ (СИ). Найдите массу тела.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Коэффициент при $t^2$ равен $a/2$, значит $a=2\cdot0{,}1=0{,}2$ м/с². Масса: $m=F/a=2000/0{,}2=10\,000$ кг $=10$ т.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Сравниваем с $x=x_0+v_0t+\dfrac{at^2}{2}$: $\dfrac{a}{2}=0{,}1 \Rightarrow a=0{,}2$ м/с². $m=\dfrac{F}{a}=\dfrac{2000}{0{,}2}=10\,000$ кг $=10$ т.</p>
+        <span class="ans">Ответ: 10 т</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Кг и Н, т и кН, г и мН — сокращаются «один в один» без перевода в СИ, если оба выражены в согласованных приставках. Экономьте время, не переводя лишний раз.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 17 ===== -->
+  <article class="topic" id="t17">
+    <h3><span class="code">17</span> III закон Ньютона</h3>
+    <p>Ключевая идея: силы взаимодействия <b>всегда равны по модулю</b>, независимо от масс тел — а вот ускорения, которые эти силы вызывают, зависят от массы обратно пропорционально.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">III закон Ньютона:</span> $\vec F_{1\to2}=-\vec F_{2\to1}$ — модули равны, направления противоположны, силы приложены к <em>разным</em> телам (поэтому не уравновешивают друг друга)</li>
+        <li><span class="fname">Следствие:</span> при столкновении/взаимодействии $m_1a_1=m_2a_2$ — ускорения обратно пропорциональны массам</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Если спрашивают про сами силы взаимодействия — ответ почти всегда «равны». Если спрашивают про ускорения или про то, кому «достанется больше» — считайте через обратную пропорцию масс.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Силы взаимодействия всегда равны</span>
+      <p class="q">Магнит массой $m$ притянулся к стальной плите массой $M$. $F_1$ — сила притяжения магнита к плите, $F_2$ — сила притяжения плиты к магниту. Сравните их.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Это пара сил III закона Ньютона — они равны всегда, независимо от того, насколько разные массы. $F_1=F_2$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>По III закону Ньютона любое взаимодействие двух тел порождает пару равных по модулю и противоположных по направлению сил, приложенных к разным телам: $F_1=F_2$.</p>
+        <span class="ans">Ответ: $F_1=F_2$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Столкновение автомобилей</span>
+      <p class="q">Грузовик массой 3 т столкнулся с легковым автомобилем массой 1,2 т. В результате удара грузовик получил ускорение 5 м/с². Какое ускорение получил легковой автомобиль?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Силы удара равны по III закону: $F=m_{груз}a_{груз}=3\cdot5=15$ (в тоннах·м/с², удобные единицы). Ускорение легковушки: $a=15/1{,}2=12{,}5$ м/с².</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$m_1a_1=m_2a_2 \Rightarrow a_2=\dfrac{m_1a_1}{m_2}=\dfrac{3\cdot5}{1{,}2}=12{,}5$ м/с².</p>
+        <span class="ans">Ответ: 12,5 м/с²</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Конькобежец толкает мяч</span>
+      <p class="q">Конькобежец массой 50 кг стоя на льду толкает мяч массой 20 кг с силой 20 Н. С каким ускорением начнёт двигаться сам конькобежец?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>По III закону на конькобежца действует такая же по модулю сила отдачи — 20 Н (масса мяча тут ни при чём). $a=20/50=0{,}4$ м/с².</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Сила реакции на конькобежца равна силе его толчка: $F=20$ Н. $a=\dfrac{F}{m_{конькобежца}}=\dfrac{20}{50}=0{,}4$ м/с².</p>
+        <span class="ans">Ответ: 0,4 м/с²</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Не путайте пару сил III закона (равны всегда, приложены к разным телам) с равновесием сил на одном теле (тоже могут быть равны, но это I закон и совсем другая ситуация).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 18 ===== -->
+  <article class="topic" id="t18">
+    <h3><span class="code">18</span> Закон всемирного тяготения</h3>
+    <p>Формула $F=G\dfrac{m_1m_2}{r^2}$ плюс её масштабирование при изменении масс и расстояний.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Закон тяготения:</span> $F=G\dfrac{m_1m_2}{r^2}$, $G\approx6{,}67\cdot10^{-11}\ \text{Н}\cdot\text{м}^2/\text{кг}^2$</li>
+        <li><span class="fname">Масштабирование:</span> $F\propto m_1m_2$ и $F\propto \dfrac{1}{r^2}$ — при одновременном изменении обоих множителей эффекты перемножаются</li>
+        <li><span class="fname">Важно:</span> сила тяготения — тоже пара сил III закона Ньютона: сила, с которой Земля притягивает Луну, всегда равна силе, с которой Луна притягивает Землю, <em>независимо</em> от соотношения масс</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>При изменении и массы, и расстояния одновременно — считайте множители отдельно и перемножайте их эффект на итоговую силу, а не складывайте.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Базовая формула, находим расстояние</span>
+      <p class="q">Точечные тела массами 2 кг и 1 кг притягиваются с силой $1{,}334\cdot10^{-10}$ Н. Найдите расстояние между ними.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Замечаем: $1{,}334=2\cdot6{,}67$ — то есть числитель $Gm_1m_2=6{,}67\cdot10^{-11}\cdot2\cdot1=1{,}334\cdot10^{-10}$ в точности равен заданной силе. Значит $r^2=1 \Rightarrow r=1$ м, без деления.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$r^2=\dfrac{Gm_1m_2}{F}=\dfrac{6{,}67\cdot10^{-11}\cdot2\cdot1}{1{,}334\cdot10^{-10}}=\dfrac{1{,}334\cdot10^{-10}}{1{,}334\cdot10^{-10}}=1 \Rightarrow r=1$ м.</p>
+        <span class="ans">Ответ: 1 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Масштабирование (массы ×2, расстояние ×½)</span>
+      <p class="q">Массу каждого из двух тел увеличили в 2 раза, а расстояние между ними уменьшили в 2 раза. Как изменилась сила тяготения между ними?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Массы: $\times2\times2=\times4$. Расстояние в знаменателе $r^2$: уменьшилось в 2 раза $\Rightarrow r^2$ уменьшилось в $4$ раза $\Rightarrow$ сила выросла в $4$ раза. Итого: $4\times4=16$ раз.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$F'=G\dfrac{(2m_1)(2m_2)}{(r/2)^2}=G\dfrac{4m_1m_2}{r^2/4}=16\cdot G\dfrac{m_1m_2}{r^2}=16F$.</p>
+        <span class="ans">Ответ: увеличилась в 16 раз</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Ловушка: отношение сил тяготения между Землёй и Луной</span>
+      <p class="q">Масса Луны в 81 раз меньше массы Земли. Во сколько раз сила притяжения Земли к Луне $F_1$ отличается от силы притяжения Луны к Земле $F_2$?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Гравитационные силы — это пара III закона Ньютона, они равны <b>всегда</b>, отношение масс тут ни при чём: $F_1/F_2=1$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>По формуле $F=G\dfrac{m_1m_2}{r^2}$ обе силы вычисляются по одному и тому же произведению $m_1m_2$ и одному и тому же $r$ — они математически совпадают: $F_1=F_2$.</p>
+        <span class="ans">Ответ: $F_1=F_2$ (отношение 1)</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Если вопрос звучит «во сколько раз сила притяжения А к Б отличается от силы притяжения Б к А» — это проверка на знание III закона Ньютона, а не на вычисления. Ответ всегда «не отличаются».
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 19 ===== -->
+  <article class="topic" id="t19">
+    <h3><span class="code">19</span> Сила тяжести</h3>
+    <p>Частный случай тяготения — притяжение к Земле. Отдельная группа задач — как меняется $g$ с высотой.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Сила тяжести у поверхности:</span> $F=mg$</li>
+        <li><span class="fname">Ускорение свободного падения на высоте $h$:</span> $g_h=g_0\left(\dfrac{R}{R+h}\right)^2$ (следует из $F=GM m/(R+h)^2=mg_h$)</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Если высота сравнима с радиусом Земли — нельзя считать $g=const$; используйте отношение $\left(\dfrac{R}{R+h}\right)^2$ и подставляйте удобные кратные радиуса ($h=R$, $h=2R$ и т.п.) — тогда дробь сокращается без калькулятора.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Базовая формула</span>
+      <p class="q">Найдите силу тяжести, действующую на тело массой 1 кг у поверхности Земли ($g=9{,}8$ м/с²).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Масса $1$ кг — сила тяжести численно равна $g$: $F=9{,}8$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$F=mg=1\cdot9{,}8=9{,}8$ Н.</p>
+        <span class="ans">Ответ: 9,8 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Ускорение свободного падения на высоте, равной радиусу Земли</span>
+      <p class="q">На какой высоте над поверхностью Земли ускорение свободного падения станет в 4 раза меньше, чем у поверхности?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Уменьшение в 4 раза = знаменатель дроби $\left(\dfrac{R+h}{R}\right)^2=4 \Rightarrow \dfrac{R+h}{R}=2 \Rightarrow h=R$. Высота равна радиусу Земли — запоминающийся частный случай.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\dfrac{g_h}{g_0}=\left(\dfrac{R}{R+h}\right)^2=\dfrac14 \Rightarrow \dfrac{R}{R+h}=\dfrac12 \Rightarrow R+h=2R \Rightarrow h=R$.</p>
+        <span class="ans">Ответ: $h=R$ (на высоте, равной радиусу Земли)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Обратная задача (во сколько раз ослабло $g$)</span>
+      <p class="q">Спутник находится на высоте $h=2R$ над поверхностью Земли (где $R$ — радиус Земли). Во сколько раз ускорение свободного падения там меньше, чем на поверхности?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$R+h=R+2R=3R$, отношение расстояний $R{:}3R=1{:}3$, значит $g$ меньше в $3^2=9$ раз.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\dfrac{g_0}{g_h}=\left(\dfrac{R+h}{R}\right)^2=\left(\dfrac{3R}{R}\right)^2=9$.</p>
+        <span class="ans">Ответ: в 9 раз меньше</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Подставляйте высоту как кратное радиуса ($h=R$, $h=2R$, $h=3R$…) — дробь $\left(\dfrac{R}{R+h}\right)^2$ тогда сразу превращается в простую дробь без общих знаменателей.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+
+
+  <!-- ===== Тема 20 ===== -->
+  <article class="topic" id="t20">
+    <h3><span class="code">20</span> Сила упругости</h3>
+    <p>Закон Гука и соединения пружин — почти зеркально с темой 3.1 из школьной физики, но с упором на графики $F(x)$.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Закон Гука:</span> $F=k\,|\Delta l|$</li>
+        <li><span class="fname">Жёсткость по графику $F(\Delta l)$:</span> $k=\dfrac{\Delta F}{\Delta(\Delta l)}$ — наклон прямой</li>
+        <li><span class="fname">Последовательное соединение:</span> $\dfrac1k=\dfrac1{k_1}+\dfrac1{k_2}$ (общая жёсткость меньше меньшей из них)</li>
+        <li><span class="fname">Параллельное соединение:</span> $k=k_1+k_2$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Пружины ведут себя как сопротивления «наоборот» относительно электрических конденсаторов, но так же, как резисторы: последовательно — жёсткости складываются «в обратных величинах» (общая жёсткость падает), параллельно — жёсткости просто складываются.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Базовый закон Гука</span>
+      <p class="q">Пружина жёсткостью $400$ Н/м растягивается на $2$ см. Какая сила при этом действует на пружину?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$2$ см $=0{,}02$ м. $F=400\cdot0{,}02=8$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$F=k\Delta l=400\cdot0{,}02=8$ Н.</p>
+        <span class="ans">Ответ: 8 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Последовательное соединение</span>
+      <p class="q">Две пружины жёсткостью 64 Н/м каждая соединены последовательно. Найдите жёсткость системы.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Для двух <b>одинаковых</b> пружин последовательно — жёсткость всегда падает ровно вдвое: $64/2=32$ Н/м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\dfrac1k=\dfrac1{64}+\dfrac1{64}=\dfrac2{64} \Rightarrow k=32$ Н/м.</p>
+        <span class="ans">Ответ: 32 Н/м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Жёсткость по графику</span>
+      <p class="q">На графике $F(\Delta l)$ при удлинении $0{,}1$ м сила равна $15$ Н, при удлинении $0$ сила равна $0$. Найдите жёсткость пружины.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Наклон прямой = жёсткость: $15/0{,}1=150$ Н/м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$k=\dfrac{\Delta F}{\Delta(\Delta l)}=\dfrac{15-0}{0{,}1-0}=150$ Н/м.</p>
+        <span class="ans">Ответ: 150 Н/м</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Общая жёсткость при последовательном соединении <b>всегда меньше</b> наименьшей из пружин — быстрый способ отбросить неверные варианты ответа без вычислений.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 21 ===== -->
+  <article class="topic" id="t21">
+    <h3><span class="code">21</span> Вес тела</h3>
+    <p>Главная идея: вес тела (сила давления на опору/подвес) зависит не от направления скорости, а <b>только от направления ускорения</b>.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Вес в лифте/на опоре:</span> $P=m(g+a)$, если ускорение направлено вверх; $P=m(g-a)$, если ускорение направлено вниз</li>
+        <li><span class="fname">Ключевой момент:</span> не важно, движется ли тело вверх или вниз — важно, куда направлено именно <em>ускорение</em></li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Разбирайте задачу в два шага: (1) определите направление скорости (просто для ориентации), (2) определите направление <em>ускорения</em> — разгон или торможение? Формула зависит только от шага 2.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Ускорение вниз → вес уменьшается</span>
+      <p class="q">Лифт с человеком массой 60 кг движется с ускорением $1$ м/с², направленным вниз. Какой силой человек давит на пол лифта? $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Ускорение вниз — вес меньше обычного: $P=60(10-1)=540$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>По II закону Ньютона (ось вниз положительна): $mg-N=ma \Rightarrow N=m(g-a)=60(10-1)=540$ Н.</p>
+        <span class="ans">Ответ: 540 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Ловушка: скорость вверх, а ускорение вниз</span>
+      <p class="q">Лифт движется <b>вверх</b>, но его ускорение $3$ м/с² направлено <b>вниз</b> (лифт тормозит перед остановкой наверху). В лифте человек массой 70 кг. Найдите его вес. $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Не обращаем внимания на «лифт движется вверх» — смотрим только на ускорение: оно вниз, значит вес меньше: $P=70(10-3)=490$ Н. Формула та же, что и в Примере 1, хотя направление скорости здесь противоположное!</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Направление ускорения — вниз (несмотря на то, что скорость направлена вверх). $P=m(g-a)=70(10-3)=490$ Н.</p>
+        <span class="ans">Ответ: 490 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Натяжение троса на трёх фазах движения</span>
+      <p class="q">Кабина лифта сначала разгоняется вверх, затем едет равномерно, затем тормозит перед остановкой наверху. Как соотносятся сила натяжения троса $T$ и сила тяжести $mg$ на каждом этапе?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Разгон вверх — ускорение вверх — трос «тянет сильнее»: $T>mg$. Равномерно — ускорения нет: $T=mg$. Торможение перед остановкой наверху — ускорение направлено вниз: $T<mg$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Из $T-mg=ma$ (ось вверх): при $a>0$ (разгон вверх) $T=mg+ma>mg$; при $a=0$ (равномерно) $T=mg$; при торможении перед верхней остановкой ускорение отрицательно (направлено вниз), $T=mg+ma<mg$.</p>
+        <span class="ans">Ответ: разгон — $T>mg$; равномерно — $T=mg$; торможение — $T<mg$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      «Лифт поднимается» само по себе не говорит, растёт вес или падает — решает только фаза движения: разгон (в любую сторону от состояния покоя) увеличивает или уменьшает вес в зависимости от направления именно ускорения, а не скорости.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 22 ===== -->
+  <article class="topic" id="t22">
+    <h3><span class="code">22</span> Невесомость</h3>
+    <p>Частный случай темы 21: вес обращается в ноль, когда ускорение тела равно $g$ и направлено вниз (свободное падение), либо когда центростремительное ускорение орбитального движения полностью «использует» силу тяжести.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Условие невесомости:</span> $a=g$, направлено вниз — тело в свободном падении, $N=0$</li>
+        <li><span class="fname">Невесомость на орбите:</span> вся сила тяжести идёт на создание центростремительного ускорения: $mg=\dfrac{mv^2}{R} \Rightarrow v=\sqrt{gR}$ — опоре «нечем» давить</li>
+        <li><span class="fname">Невесомость на экваторе из-за вращения Земли:</span> потребовалось бы $\omega^2R=g$, то есть неправдоподобно быстрое вращение планеты</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Невесомость — это не «отсутствие силы тяжести», а ситуация, когда сила тяжести <em>целиком</em> идёт на разгон/поворот тела, и опоре (полу, стенке, весам) уже ничего «не остаётся» передавать в виде реакции опоры.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Невесомость космонавта на орбите</span>
+      <p class="q">Космонавт массой 70 кг находится на спутнике, который вращается вокруг Земли со скоростью $1000$ м/с. Каков его вес?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Любое тело на орбите (движется вместе со спутником по той же окружности) находится в состоянии невесомости — вес равен нулю независимо от скорости и массы.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>На орбите вся сила тяжести тратится на создание центростремительного ускорения самого спутника и всего, что внутри него: $N=mg-\dfrac{mv^2}{R}=0$, так как $\dfrac{v^2}{R}=g$ на орбите. Опора (пол спутника) не испытывает давления.</p>
+        <span class="ans">Ответ: 0 (невесомость)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Момент невесомости при подбрасывании</span>
+      <p class="q">Мяч с камнем внутри подбросили вертикально вверх. В какой части траектории (вверх, в верхней точке, вниз) камень давит на дно мяча с нулевой силой?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Пока мяч в свободном полёте (сопротивлением воздуха пренебрегаем), и мяч, и камень падают с одинаковым ускорением $g$ — вес нулевой на <b>всей</b> траектории полёта, а не только в верхней точке.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>После броска и мяч, и камень движутся только под действием силы тяжести с одинаковым ускорением $g$ (свободное падение в обе стороны — и вверх, и вниз). Относительное ускорение между ними равно нулю на всём участке полёта — значит и сила давления камня на мяч равна нулю всё это время.</p>
+        <span class="ans">Ответ: на всём протяжении полёта (не только в верхней точке)</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Гипотетическое ускорение вращения Земли</span>
+      <p class="q">Во сколько раз быстрее должна вращаться Земля вокруг своей оси, чтобы тела на экваторе стали невесомыми? $R=6400$ км, $g=9{,}8$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Условие невесомости: $\omega_{нов}^2R=g$. Сравниваем с текущим вращением ($\omega_0=2\pi/T_0$, $T_0=86400$с): отношение $\left(\dfrac{\omega_{нов}}{\omega_0}\right)^2=\dfrac{g}{\omega_0^2R}$, дальше — прямая подстановка чисел.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\omega_0=\dfrac{2\pi}{86400}\approx7{,}27\cdot10^{-5}$ рад/с. Требуемая скорость: $\omega_{нов}=\sqrt{g/R}=\sqrt{9{,}8/6\,400\,000}\approx1{,}24\cdot10^{-3}$ рад/с. Отношение $\omega_{нов}/\omega_0\approx17$ раз.</p>
+        <span class="ans">Ответ: примерно в 17 раз быстрее</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Невесомость внутри свободно падающего/брошенного тела (лифт, мяч, самолёт в пикировании с $a=g$) длится <b>весь полёт</b>, а не только в верхней точке траектории — частая ошибка думать, что невесомость «только наверху».
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 23 ===== -->
+  <article class="topic" id="t23">
+    <h3><span class="code">23</span> Вертикальное движение под действием силы тяжести</h3>
+    <p>Одна из крупнейших тем сборника (~7 страниц): свободное падение, бросок вниз, бросок вверх, встречи двух тел.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Падение (вниз положительно):</span> $v=v_0+gt$, $\;h=v_0t+\dfrac{gt^2}{2}$</li>
+        <li><span class="fname">Бросок вверх:</span> время до высшей точки $t_{верх}=\dfrac{v_0}{g}$; максимальная высота $H=\dfrac{v_0^2}{2g}$; время всего полёта (падение в ту же точку) $t_{полн}=\dfrac{2v_0}{g}$</li>
+        <li><span class="fname">Симметрия параболы:</span> тело проходит любую высоту (кроме максимальной) дважды — время до и после вершины равны</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Сначала определите тип: падение с высоты (возможно с начальной скоростью вниз), бросок вверх (одно тело), или встреча/сравнение двух тел. Для задач «два тела, отправленные с задержкой по времени» — вводите единое время $t$ от старта первого тела и не забывайте про сдвиг у второго.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Бросок вниз с начальной скоростью</span>
+      <p class="q">Тело брошено вертикально вниз со скоростью 30 м/с. Найдите его скорость через 5 с. $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Прибавка от свободного падения за 5с: $10\cdot5=50$ м/с. Итог: $30+50=80$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v=v_0+gt=30+10\cdot5=80$ м/с.</p>
+        <span class="ans">Ответ: 80 м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Свободное падение от покоя, находим высоту</span>
+      <p class="q">Тело упало с балкона без начальной скорости и достигло земли за 2 с. С какой высоты оно упало? $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$h=\dfrac{gt^2}{2}=\dfrac{10\cdot4}{2}=20$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$h=v_0t+\dfrac{gt^2}{2}=0+\dfrac{10\cdot2^2}{2}=20$ м.</p>
+        <span class="ans">Ответ: 20 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Бросок вверх: время и высота</span>
+      <p class="q">Тело брошено вертикально вверх со скоростью 30 м/с. Через сколько секунд оно достигнет высшей точки и на какой высоте? $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$t_{верх}=v_0/g=30/10=3$ с. $H=v_0^2/(2g)=900/20=45$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>В верхней точке скорость $=0$: $0=v_0-gt \Rightarrow t=v_0/g=3$ с. Высота: $H=v_0t-\dfrac{gt^2}{2}=30\cdot3-\dfrac{10\cdot9}{2}=90-45=45$ м.</p>
+        <span class="ans">Ответ: через 3 с, на высоте 45 м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 4 · Встреча двух тел, брошенных вверх со сдвигом по времени</span>
+      <p class="q">Два тела бросают вертикально вверх с одинаковой скоростью $20$ м/с с интервалом $2$ с. На какой высоте они встретятся? $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ (относительное ускорение = 0)</p>
+        <p>Оба тела имеют одинаковое ускорение $g$ — значит их относительное ускорение равно нулю, друг относительно друга они движутся <em>равномерно</em>! В момент старта второго тела ($t=2$с) первое уже имеет скорость $v_1=20-10\cdot2=0$ и высоту $h_1=20\cdot2-5\cdot4=20$ м; второе стартует с $v=20$ м/с и $h=0$. Разрыв высот $20$ м закрывается с относительной скоростью $20-0=20$ м/с: время закрытия $=20/20=1$ с. Момент встречи $t=2+1=3$ с от старта первого. Высота: $h_1(3)=20\cdot3-5\cdot9=15$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$h_1(t)=20t-5t^2$; $h_2(t)=20(t-2)-5(t-2)^2$ для $t\ge2$. Приравниваем: $20t-5t^2=20(t-2)-5(t-2)^2$. Раскрывая скобки справа: $20t-40-5t^2+20t-20=40t-5t^2-60$. Уравнение упрощается до линейного (квадратичные члены сокращаются): $20t-5t^2=40t-5t^2-60 \Rightarrow 20t=60 \Rightarrow t=3$ с. $h=20\cdot3-5\cdot9=15$ м.</p>
+        <span class="ans">Ответ: на высоте 15 м, через 3 с после старта первого тела</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Когда два тела падают/летят под одним и тем же $g$, их взаимное движение всегда линейно по времени (относительное ускорение $=0$) — это резко упрощает задачи «на встречу» по сравнению с обычной подстановкой в квадратные уравнения.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+
+
+  <!-- ===== Тема 24 ===== -->
+  <article class="topic" id="t24">
+    <h3><span class="code">24</span> Горизонтальный бросок</h3>
+    <p>Движение раскладывается на два независимых: равномерное по горизонтали и свободное падение по вертикали.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">По горизонтали:</span> $x=v_0t$, $\;v_x=v_0=\text{const}$</li>
+        <li><span class="fname">По вертикали:</span> $y=\dfrac{gt^2}{2}$, $\;v_y=gt$</li>
+        <li><span class="fname">Время полёта (высота $h$):</span> $t=\sqrt{\dfrac{2h}{g}}$</li>
+        <li><span class="fname">Угол падения (к горизонту):</span> $\tan\theta=\dfrac{v_y}{v_x}$</li>
+        <li><span class="fname">Средняя скорость (перемещения, не пути):</span> $\langle v\rangle=\dfrac{|\vec s|}{t}=\dfrac{\sqrt{x^2+h^2}}{t}$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Горизонтальная скорость никогда не меняется — это часто самый быстрый путь к ответу. Если дан угол падения — используйте $\tan\theta=v_y/v_x$, чтобы напрямую связать компоненты, не решая всю задачу заново.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Угол падения → конечная скорость</span>
+      <p class="q">Камень брошен горизонтально со скоростью $10$ м/с со скалы и упал на землю под углом $45°$ к горизонту. Найдите конечную скорость камня.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>При $45°$ автоматически $v_y=v_x$ (так как $\tan45°=1$), а $v_x$ не меняется и остаётся $10$ м/с. Значит $v_y=10$ м/с тоже, и $v=v_x\sqrt2=10\sqrt2\approx14$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$\tan45°=\dfrac{v_y}{v_x}=1 \Rightarrow v_y=v_x=10$ м/с. $v=\sqrt{v_x^2+v_y^2}=\sqrt{100+100}=\sqrt{200}\approx14{,}1$ м/с.</p>
+        <span class="ans">Ответ: ≈ 14 м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Средняя скорость перемещения (пифагорова тройка)</span>
+      <p class="q">Тело брошено горизонтально со скоростью $15$ м/с с высоты $80$ м. Найдите среднюю скорость <em>перемещения</em> за время полёта.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$t=\sqrt{2h/g}=\sqrt{16}=4$ с. Дальность $x=15\cdot4=60$ м. Замечаем тройку $60$-$80$-$100$ (это $20\times$ тройка $3$-$4$-$5$) — перемещение сразу $100$ м. Средняя скорость $=100/4=25$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$t=\sqrt{2\cdot80/10}=4$ с. $x=v_0t=60$ м. $|\vec s|=\sqrt{x^2+h^2}=\sqrt{3600+6400}=\sqrt{10000}=100$ м. $\langle v\rangle=100/4=25$ м/с.</p>
+        <span class="ans">Ответ: 25 м/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Базовый расчёт дальности и времени</span>
+      <p class="q">Тело брошено горизонтально со скоростью $20$ м/с с высоты $45$ м. Найдите время полёта и дальность броска.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$t=\sqrt{2\cdot45/10}=\sqrt9=3$ с. $x=20\cdot3=60$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Из $h=\dfrac{gt^2}{2}$: $t=\sqrt{\dfrac{2h}{g}}=\sqrt{\dfrac{90}{10}}=3$ с. $x=v_0t=20\cdot3=60$ м.</p>
+        <span class="ans">Ответ: $t=3$ с, $x=60$ м</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Держите в голове масштабированные тройки Пифагора (3-4-5, 6-8-10, 9-12-15, 60-80-100…) — компоненты $x$ и $h$ в задачах на бросок специально подбираются так, чтобы перемещение получалось «красивым» числом.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 25 ===== -->
+  <article class="topic" id="t25">
+    <h3><span class="code">25</span> Бросок под углом к горизонту</h3>
+    <p>Самая формульная тема раздела — три ключевые формулы дальности, высоты и времени полёта.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Компоненты скорости:</span> $v_{0x}=v_0\cos\alpha$, $\;v_{0y}=v_0\sin\alpha$</li>
+        <li><span class="fname">Время полёта:</span> $t=\dfrac{2v_0\sin\alpha}{g}$</li>
+        <li><span class="fname">Максимальная высота:</span> $H=\dfrac{v_0^2\sin^2\alpha}{2g}$</li>
+        <li><span class="fname">Дальность полёта:</span> $L=\dfrac{v_0^2\sin2\alpha}{g}$</li>
+        <li><span class="fname">Скорость в любой момент:</span> $v_x=v_0\cos\alpha=\text{const}$, $\;v_y=v_0\sin\alpha-gt$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Все три формулы ($t$, $H$, $L$) выводятся из одного и того же разложения на оси — учить их отдельно не обязательно, если помнить разложение и брать за основу «вертикальный бросок вверх со скоростью $v_0\sin\alpha$» плюс «горизонтальное равномерное движение со скоростью $v_0\cos\alpha$».</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Полный расчёт: время, высота, дальность</span>
+      <p class="q">Тело брошено под углом $30°$ к горизонту со скоростью $40$ м/с. Найдите время полёта, максимальную высоту и дальность. $g=10$, $\sin30°=0{,}5$, $\cos30°\approx0{,}87$.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$v_{0y}=40\cdot0{,}5=20$. Время: $t=2\cdot20/10=4$ с (как обычный бросок вверх со скоростью 20). Высота: $H=20^2/20=20$ м. Для дальности используем $\sin60°\approx0{,}87$: $L=1600\cdot0{,}87/10\approx139$ м.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$t=\dfrac{2v_0\sin\alpha}{g}=\dfrac{2\cdot40\cdot0{,}5}{10}=4$ с. $H=\dfrac{v_0^2\sin^2\alpha}{2g}=\dfrac{1600\cdot0{,}25}{20}=20$ м. $L=\dfrac{v_0^2\sin2\alpha}{g}=\dfrac{1600\cdot0{,}87}{10}\approx139$ м.</p>
+        <span class="ans">Ответ: $t=4$ с, $H=20$ м, $L\approx139$ м</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Ловушка: одинаковая дальность у дополнительных углов</span>
+      <p class="q">Тело бросают с одинаковой начальной скоростью под углами $30°$ и $60°$. Сравните дальности полёта.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$L\propto\sin2\alpha$. Для $30°$: $\sin60°$. Для $60°$: $\sin120°$. А $\sin120°=\sin(180°-120°)=\sin60°$ — значения совпадают без вычислений. Дальности равны!</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$L_1=\dfrac{v_0^2\sin60°}{g}$, $L_2=\dfrac{v_0^2\sin120°}{g}$. Так как $\sin120°=\sin(180°-120°)=\sin60°$, получаем $L_1=L_2$.</p>
+        <span class="ans">Ответ: дальности одинаковы</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Скорость в произвольный момент полёта</span>
+      <p class="q">Тело брошено под углом $37°$ ($\sin37°=0{,}6$, $\cos37°=0{,}8$) со скоростью $20$ м/с. Найдите скорость тела через $1$ с. $g=10$.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$v_x=20\cdot0{,}8=16$ м/с (не меняется). $v_{0y}=20\cdot0{,}6=12$; через 1с: $v_y=12-10=2$ м/с. Замечаем тройку, близкую к $2$-$16$: $v=\sqrt{256+4}=\sqrt{260}\approx16{,}1$ м/с.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v_x=v_0\cos37°=16$ м/с (постоянна). $v_y=v_0\sin37°-gt=12-10\cdot1=2$ м/с. $v=\sqrt{v_x^2+v_y^2}=\sqrt{16^2+2^2}=\sqrt{260}\approx16{,}1$ м/с.</p>
+        <span class="ans">Ответ: ≈ 16,1 м/с</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Углы $37°$/$53°$ (с $\sin=0{,}6/0{,}8$) и $30°$/$60°$ (с $\sin=0{,}5/0{,}87$) — «любимые» углы составителей ДТМ, синусы и косинусы для них почти всегда даются в условии. Максимальная дальность — всегда при $45°$ ($\sin90°=1$).
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 26 ===== -->
+  <article class="topic" id="t26">
+    <h3><span class="code">26</span> Искусственные спутники Земли</h3>
+    <p>Круговая орбита у поверхности планеты — сила тяжести полностью работает как центростремительная сила.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Первая космическая скорость:</span> из $mg=\dfrac{mv^2}{R}$ получаем $v_1=\sqrt{gR}$</li>
+        <li><span class="fname">Вторая космическая скорость (чтобы покинуть притяжение планеты):</span> $v_2=\sqrt2\cdot v_1$</li>
+        <li><span class="fname">Период обращения у поверхности:</span> $T=\dfrac{2\pi R}{v_1}=2\pi\sqrt{\dfrac{R}{g}}$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Не запоминайте отдельно $v_1=\sqrt{GM/R}$ — проще выводить из равенства $g=v^2/R$ (раз уж $g$ обычно дано или легко находится), это быстрее на тесте.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Первая космическая скорость</span>
+      <p class="q">Оцените первую космическую скорость у поверхности Земли. $R=6400$ км, $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$v_1=\sqrt{gR}=\sqrt{10\cdot6\,400\,000}=\sqrt{6{,}4\cdot10^7}=8000$ м/с $=8$ км/с — круглое число благодаря удобным $g=10$ и $R=6400$ км.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$v_1=\sqrt{gR}=\sqrt{10\cdot6{,}4\cdot10^6}=\sqrt{64\cdot10^6}=8\cdot10^3$ м/с.</p>
+        <span class="ans">Ответ: 8 км/с</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Период обращения у поверхности («законный» результат ≈ 84 минуты)</span>
+      <p class="q">Найдите период обращения спутника, летящего у самой поверхности Земли (тем же $R$, $g$, что и выше).</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$T=2\pi R/v_1=2\cdot3{,}14\cdot6\,400\,000/8000=2\cdot3{,}14\cdot800=5024$ с $\approx84$ минуты — это известный «эталонный» результат, полезно запомнить сразу.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$T=2\pi\sqrt{R/g}=2\cdot3{,}14\cdot\sqrt{6\,400\,000/10}=6{,}28\cdot800=5024$ с $\approx83{,}7$ мин.</p>
+        <span class="ans">Ответ: ≈ 84 минуты</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Вторая космическая скорость</span>
+      <p class="q">Первая космическая скорость планеты равна $8$ км/с. Найдите вторую космическую скорость.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$v_2=v_1\sqrt2=8\cdot1{,}41\approx11{,}3$ км/с — просто умножаем на $\sqrt2$, вывод не нужен.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Вторая космическая скорость получается из закона сохранения энергии (кинетическая энергия должна компенсировать всю потенциальную яму): $v_2=\sqrt2\cdot v_1=\sqrt2\cdot8\approx11{,}3$ км/с.</p>
+        <span class="ans">Ответ: ≈ 11,3 км/с</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Запомните пару контрольных чисел для Земли: $v_1\approx8$ км/с, $v_2\approx11{,}2$ км/с, $T\approx84$ мин (у поверхности) — они помогают быстро проверить правдоподобность своего ответа.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+
+
+  <!-- ===== Тема 27 ===== -->
+  <article class="topic" id="t27">
+    <h3><span class="code">27</span> Сила трения покоя</h3>
+    <p>В отличие от трения скольжения, сила трения покоя <b>не постоянна</b> — она подстраивается под другие силы вплоть до своего максимума $\mu N$.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Ограничение:</span> $F_{тр.пок}\le\mu N$ — сила трения покоя равна ровно тому, что нужно для равновесия, но не может превысить $\mu N$</li>
+        <li><span class="fname">На вращающемся диске:</span> трение покоя играет роль центростремительной силы: $F_{тр}=m\omega^2R$ (пока это значение не превышает $\mu mg$ — иначе тело соскальзывает)</li>
+        <li><span class="fname">У вертикальной стены (прижатое тело):</span> трение покоя уравновешивает силу тяжести: $F_{тр}=mg$</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Всегда спрашивайте себя: «что мешает телу двигаться?». Если это вращение — трение покоя равно требуемой центростремительной силе. Если тело прижато горизонтальной силой к вертикальной поверхности — трение покоя уравновешивает вес.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Трение как центростремительная сила на диске</span>
+      <p class="q">На вращающемся диске на расстоянии $R=0{,}2$ м от центра лежит тело массой $0{,}5$ кг. Диск вращается с угловой скоростью $2$ рад/с. Найдите силу трения, удерживающую тело.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Трение покоя здесь и есть центростремительная сила — просто считаем её напрямую: $F=m\omega^2R=0{,}5\cdot4\cdot0{,}2=0{,}4$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Для равномерного вращения вместе с диском необходима центростремительная сила $F=m\omega^2R$, и единственная горизонтальная сила, способная её обеспечить — трение покоя: $F_{тр}=0{,}5\cdot2^2\cdot0{,}2=0{,}4$ Н.</p>
+        <span class="ans">Ответ: 0,4 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Трение удерживает тело у вертикальной стены</span>
+      <p class="q">Тело массой $2$ кг прижато к вертикальной стене горизонтальной силой $40$ Н и удерживается в покое. Найдите коэффициент трения (минимально необходимый). $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Трение покоя здесь должно полностью компенсировать вес: $F_{тр}=mg=20$ Н. Минимальный коэффициент: $\mu=F_{тр}/N=20/40=0{,}5$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>По вертикали: $F_{тр}=mg=2\cdot10=20$ Н. Так как $N$ (сила прижатия к стене) $=40$ Н, минимальный $\mu=\dfrac{F_{тр}}{N}=\dfrac{20}{40}=0{,}5$.</p>
+        <span class="ans">Ответ: $\mu=0{,}5$</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Сила вдоль наклонной плоскости, при которой трение равно нулю</span>
+      <p class="q">На тело на наклонной плоскости (угол $\alpha$, масса $m$) действует сила, направленная вдоль плоскости вверх, ровно такая, что сила трения оказывается равна нулю. Какова эта сила?</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Трение равно нулю, значит вдоль плоскости всё уравновешено уже без него — приложенная сила должна в точности компенсировать скатывающую составляющую тяжести: $F=mg\sin\alpha$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Вдоль плоскости: $F-mg\sin\alpha-F_{тр}=0$. Если $F_{тр}=0$, то $F=mg\sin\alpha$ — сила тяжести, действующая вдоль плоскости, точно компенсирована приложенной силой, и трению «нечего компенсировать».</p>
+        <span class="ans">Ответ: $F=mg\sin\alpha$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      Трение покоя — это «реактивная» сила: она равна тому, что нужно для равновесия, а не фиксированному $\mu N$. Формула $\mu N$ — это только её <b>максимум</b>, порог, после которого тело начинает скользить.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 28 ===== -->
+  <article class="topic" id="t28">
+    <h3><span class="code">28</span> Сила трения скольжения</h3>
+    <p>В отличие от трения покоя, здесь сила трения — фиксированная величина $\mu N$, направленная против относительного скольжения.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">На горизонтальной поверхности:</span> $F_{тр}=\mu N=\mu mg$</li>
+        <li><span class="fname">На наклонной плоскости:</span> $F_{тр}=\mu N=\mu mg\cos\alpha$ (не $mg$! нормальная реакция уменьшена углом наклона)</li>
+        <li><span class="fname">Направление:</span> всегда против относительного движения (скольжения), не обязательно против приложенной силы</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Первый шаг всегда — найти силу нормальной реакции $N$ (не путать с $mg$, если поверхность наклонная или есть вертикальная составляющая приложенной силы), и только потом умножать на $\mu$.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Горизонтальная поверхность</span>
+      <p class="q">Брусок массой $20$ кг движется по горизонтальной поверхности; коэффициент трения $0{,}7$. Найдите силу трения. $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$N=mg=200$ Н (поверхность горизонтальная — реакция равна весу напрямую). $F=0{,}7\cdot200=140$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$N=mg=20\cdot10=200$ Н. $F_{тр}=\mu N=0{,}7\cdot200=140$ Н.</p>
+        <span class="ans">Ответ: 140 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 2 · Наклонная плоскость (реакция уменьшена $\cos\alpha$)</span>
+      <p class="q">Тело массой $5$ кг скользит по наклонной плоскости с углом $30°$, коэффициент трения $0{,}4$. Найдите силу трения. $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$N=mg\cos30°=50\cdot0{,}87\approx43{,}3$ Н (не $50$!). $F=0{,}4\cdot43{,}3\approx17{,}3$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Перпендикулярно плоскости: $N=mg\cos\alpha=5\cdot10\cdot0{,}87\approx43{,}3$ Н. $F_{тр}=\mu N=0{,}4\cdot43{,}3\approx17{,}3$ Н.</p>
+        <span class="ans">Ответ: ≈ 17,3 Н</span>
+      </div>
+    </div>
+
+    <div class="ex">
+      <span class="extag">Пример 3 · Обратная задача: находим $\mu$</span>
+      <p class="q">Брусок массой $10$ кг скользит по горизонтали, сила трения равна $30$ Н. Найдите коэффициент трения. $g=10$ м/с².</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$\mu=F/(mg)=30/100=0{,}3$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$N=mg=100$ Н. $\mu=\dfrac{F_{тр}}{N}=\dfrac{30}{100}=0{,}3$.</p>
+        <span class="ans">Ответ: $\mu=0{,}3$</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p class="tlabel">Вывод для теста</p>
+      На наклонной плоскости сила трения всегда меньше, чем $\mu mg$ — не забывайте про $\cos\alpha$. Эта ошибка (использовать $N=mg$ вместо $N=mg\cos\alpha$) — самая частая на теме трения на наклонной плоскости.
+    </div>
+    <a class="totop" href="#top">↑ к содержанию</a>
+  </article>
+
+  <!-- ===== Тема 29 ===== -->
+  <article class="topic" id="t29">
+    <h3><span class="code">29</span> Движение под действием нескольких сил</h3>
+    <p>Финальная и самая объёмная тема раздела: комбинации трения, наклонной плоскости, буксировки и связанных тел. Работает единый алгоритм II закона Ньютона для системы сил.</p>
+
+    <div class="formulas">
+      <p class="ftitle">Что нужно знать</p>
+      <ul>
+        <li><span class="fname">Общий алгоритм:</span> нарисовать все силы → выбрать оси (одна вдоль движения) → спроецировать на оси → записать $\sum F=ma$ по каждой оси</li>
+        <li><span class="fname">Связанные тела (одна нить, общее ускорение):</span> удобно сначала найти общее $a$ для «системы» ($a=\dfrac{F_{внешняя}}{m_1+m_2}$, если трения нет), а потом искать натяжение из уравнения для одного тела</li>
+        <li><span class="fname">Наклонная плоскость с трением:</span> $a=g(\sin\alpha-\mu\cos\alpha)$ — движение вниз; $a=g(\sin\alpha+\mu\cos\alpha)$ — движение вверх (трение против движения)</li>
+        <li><span class="fname">Постоянная скорость (равновесие):</span> тянущая сила равна сумме сил сопротивления: $F=F_{тр}$(+ прочие сопротивления)</li>
+      </ul>
+    </div>
+
+    <div class="guide">
+      <p class="gtitle">Метод</p>
+      <p>Для системы связанных тел работает мощный трюк: сначала рассматривайте <b>всю систему как одно тело</b> — внутренние силы (натяжение нити) взаимно уничтожаются, остаются только внешние. Так находится общее ускорение за один шаг. Натяжение находите потом, применяя II закон только к одному из тел.</p>
+    </div>
+
+    <h4>Примеры</h4>
+
+    <div class="ex">
+      <span class="extag">Пример 1 · Система связанных тел (метод «всей системы»)</span>
+      <p class="q">Два бруска массами $2$ кг и $3$ кг связаны нитью и лежат на гладком горизонтальном столе. К первому бруску приложена сила $F=10$ Н вдоль стола. Найдите ускорение системы и натяжение нити.</p>
+      <div class="sol">
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Рассматриваем всю систему как единое тело массой $2+3=5$ кг: $a=F/(m_1+m_2)=10/5=2$ м/с². Натяжение — это единственная сила, разгоняющая второй брусок: $T=m_2a=3\cdot2=6$ Н.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Для всей системы: $F=(m_1+m_2)a \Rightarrow a=\dfrac{10}{5}=2$ м/с². Для второго бруска отдельно: единственная горизонтальная сила на него — натяжение нити: $T=m_2a=3\cdot2=6$ Н.</p>
+        <span class="ans">Ответ: $a=2$ м/с², $T=6$ Н</span>
       </div>
     </div>
 
     <div class="ex">
       <span class="extag">Пример 2 · Наклонная плоскость с трением</span>
-      <p class="q">Брусок скользит по наклонной плоскости с углом $\alpha=30^\circ$. Коэффициент трения $\mu=0{,}2$. Найдите ускорение ($g=10$).</p>
+      <p class="q">Тело соскальзывает вниз по наклонной плоскости с углом $37°$ ($\sin37°=0{,}6$, $\cos37°=0{,}8$), коэффициент трения $0{,}5$. Найдите ускорение тела.</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Вдоль склона тянет $mg\sin\alpha$, тормозит трение $\mu mg\cos\alpha$. Масса сокращается:</p>
-        <p>$a=g(\sin\alpha-\mu\cos\alpha)=10\,(0{,}5-0{,}2\cdot 0{,}866)=10\,(0{,}5-0{,}173)=3{,}27\ \text{м/с}^2.$</p>
-        <span class="ans">$a \approx 3{,}3\ \text{м/с}^2$</span>
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>$a=g(\sin\alpha-\mu\cos\alpha)=10(0{,}6-0{,}5\cdot0{,}8)=10(0{,}6-0{,}4)=2$ м/с² — масса сокращается, можно её вообще не вводить в вычисления.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>Вдоль плоскости: $ma=mg\sin\alpha-\mu mg\cos\alpha$. Масса сокращается: $a=g(\sin\alpha-\mu\cos\alpha)=10(0{,}6-0{,}4)=2$ м/с².</p>
+        <span class="ans">Ответ: 2 м/с²</span>
       </div>
     </div>
 
     <div class="ex">
-      <span class="extag">Пример 3 · Вес тела в лифте</span>
-      <p class="q">Человек массой $m=70$ кг стоит в лифте, который движется вверх с ускорением $a=2\ \text{м/с}^2$. Каков вес человека ($g=10$)?</p>
+      <span class="extag">Пример 3 · Равномерное движение (равновесие сил)</span>
+      <p class="q">Тело массой $100$ кг равномерно (с постоянной скоростью) движется по горизонтали. Коэффициент трения $0{,}2$. Какая тянущая сила нужна? $g=10$ м/с².</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>При движении с ускорением вверх возникает перегрузка: $P=m(g+a)=70\,(10+2)=840$ Н.</p>
-        <p>(Если бы лифт ускорялся вниз: $P=m(g-a)$; при свободном падении $a=g$ — невесомость, $P=0$.)</p>
-        <span class="ans">$P = 840\ \text{Н}$</span>
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Постоянная скорость ⇒ равнодействующая $=0$ ⇒ тянущая сила равна силе трения напрямую: $F=\mu mg=0{,}2\cdot1000=200$ Н. Никакого «плюс инерция» не нужно, инерция не сопротивляется равномерному движению.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>$a=0 \Rightarrow F-F_{тр}=0 \Rightarrow F=F_{тр}=\mu mg=0{,}2\cdot100\cdot10=200$ Н.</p>
+        <span class="ans">Ответ: 200 Н</span>
       </div>
     </div>
 
     <div class="ex">
-      <span class="extag">Пример 4 · Закон Гука</span>
-      <p class="q">Под действием силы $F=15$ Н пружина удлинилась на $x=3$ см. Найдите жёсткость и удлинение при силе $25$ Н.</p>
+      <span class="extag">Пример 4 · Общая формула через переменные (буквенная задача)</span>
+      <p class="q">Автомобиль весом $P$ трогается с места и за время $t$ достигает скорости $v$. Каким должна быть сила тяги двигателя, если коэффициент сопротивления равен $k$?</p>
       <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$k=\dfrac{F}{x}=\dfrac{15}{0{,}03}=500$ Н/м.</p>
-        <p>Новое удлинение: $x_2=\dfrac{F_2}{k}=\dfrac{25}{500}=0{,}05$ м $=5$ см.</p>
-        <span class="ans">$k = 500\ \text{Н/м},\quad x_2 = 5\ \text{см}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 5 · Правило моментов (рычаг)</span>
-      <p class="q">На концах невесомого рычага длиной $1{,}2$ м висят грузы $30$ Н и $60$ Н. Где расположить опору, чтобы рычаг был в равновесии?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Пусть плечо груза $60$ Н равно $l_2$, плечо груза $30$ Н равно $l_1$, причём $l_1+l_2=1{,}2$ м. Условие равновесия моментов:</p>
-        <p>$F_1 l_1 = F_2 l_2 \;\Rightarrow\; 30\,l_1 = 60\,l_2 \;\Rightarrow\; l_1 = 2 l_2.$</p>
-        <p>Тогда $2l_2+l_2=1{,}2 \Rightarrow l_2=0{,}4$ м, $l_1=0{,}8$ м.</p>
-        <span class="ans">Опора в $0{,}8$ м от меньшего груза (ближе к большему: $0{,}4$ м)</span>
+        <p class="sol-label fast">⚡ Быстрый способ</p>
+        <p>Масса через вес: $m=P/g$. Ускорение: $a=v/t$ (разгон из покоя). Сила тяги = сила на разгон + сила на преодоление сопротивления: $F=ma+kP=\dfrac{Pv}{gt}+kP=P\left(\dfrac{v}{gt}+k\right)$.</p>
+        <p class="sol-label std">📐 Стандартное решение</p>
+        <p>II закон Ньютона: $F_{тяги}-kP=ma$, где $m=P/g$, $a=v/t$. Отсюда $F_{тяги}=\dfrac{P}{g}\cdot\dfrac{v}{t}+kP=P\left(\dfrac{v}{gt}+k\right)$.</p>
+        <span class="ans">Ответ: $F=P\left(\dfrac{v}{gt}+k\right)$</span>
       </div>
     </div>
 
     <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      В задачах о наклонной плоскости и трении масса почти всегда сокращается — ускорение от массы не зависит. Если в вариантах ответа фигурирует $m$, такой ответ часто можно сразу отбросить.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 1.3 Законы сохранения ===== -->
-  <article class="topic" id="t1-3">
-    <h3><span class="code">1.3</span> Законы сохранения в механике</h3>
-    <p>Самый мощный инструмент: если знать «что сохраняется», часто можно решить задачу без подробного анализа сил.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Импульс:</span> $\vec p=m\vec v$; изменение $\vec F\,\Delta t=\Delta\vec p$</li>
-        <li><span class="fname">Закон сохранения импульса:</span> $\sum\vec p_{\text{до}}=\sum\vec p_{\text{после}}$ (замкнутая система)</li>
-        <li><span class="fname">Работа:</span> $A=F s\cos\alpha$; мощность $N=\dfrac{A}{t}=Fv$</li>
-        <li><span class="fname">Кинетическая энергия:</span> $E_k=\dfrac{mv^2}{2}$</li>
-        <li><span class="fname">Потенциальная энергия:</span> $E_p=mgh$ (тяжести); $E_p=\dfrac{kx^2}{2}$ (упругости)</li>
-        <li><span class="fname">Закон сохранения энергии:</span> $E_k+E_p=\text{const}$ (без трения)</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Сохранение импульса (неупругий удар)</span>
-      <p class="q">Тележка массой $2$ кг движется со скоростью $3$ м/с и сцепляется с неподвижной тележкой массой $4$ кг. Найдите скорость после сцепки.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$m_1 v_1 = (m_1+m_2)\,u \;\Rightarrow\; u=\dfrac{m_1 v_1}{m_1+m_2}=\dfrac{2\cdot 3}{2+4}=\dfrac{6}{6}=1$ м/с.</p>
-        <span class="ans">$u = 1\ \text{м/с}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Сохранение энергии</span>
-      <p class="q">Тело брошено вертикально вверх со скоростью $v_0=20$ м/с. На какую максимальную высоту оно поднимется ($g=10$)?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>В верхней точке вся кинетическая энергия перешла в потенциальную: $\dfrac{mv_0^2}{2}=mgh$.</p>
-        <p>$h=\dfrac{v_0^2}{2g}=\dfrac{20^2}{2\cdot 10}=\dfrac{400}{20}=20$ м.</p>
-        <span class="ans">$h = 20\ \text{м}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Работа и мощность</span>
-      <p class="q">Двигатель равномерно поднимает груз массой $100$ кг на высоту $6$ м за $4$ с. Найдите работу и мощность ($g=10$).</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$A=mgh=100\cdot 10\cdot 6=6000$ Дж.</p>
-        <p>$N=\dfrac{A}{t}=\dfrac{6000}{4}=1500$ Вт.</p>
-        <span class="ans">$A = 6\ \text{кДж},\quad N = 1{,}5\ \text{кВт}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Энергия пружины</span>
-      <p class="q">Пружину жёсткостью $k=200$ Н/м сжали на $x=10$ см. Какую скорость получит тело массой $m=0{,}5$ кг, если отпустить пружину (трения нет)?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Энергия пружины переходит в кинетическую: $\dfrac{kx^2}{2}=\dfrac{mv^2}{2}$.</p>
-        <p>$v=x\sqrt{\dfrac{k}{m}}=0{,}1\sqrt{\dfrac{200}{0{,}5}}=0{,}1\sqrt{400}=0{,}1\cdot 20=2$ м/с.</p>
-        <span class="ans">$v = 2\ \text{м/с}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      В удар «слипанием» (неупругом) сохраняется только импульс, а часть энергии уходит в тепло. В абсолютно упругом ударе сохраняются <em>и</em> импульс, <em>и</em> кинетическая энергия. Не путайте — выбор закона определяет правильный ответ.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 1.4 Колебания и волны ===== -->
-  <article class="topic" id="t1-4">
-    <h3><span class="code">1.4</span> Механические колебания и волны</h3>
-    <p>Гармонические колебания описываются синусом; ключ к задачам — период и связь амплитуды скорости/ускорения с амплитудой смещения.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Смещение:</span> $x(t)=A\sin(\omega t+\varphi_0)$, где $\omega=2\pi\nu=\dfrac{2\pi}{T}$</li>
-        <li><span class="fname">Амплитуды:</span> $v_{\max}=A\omega,\quad a_{\max}=A\omega^2$</li>
-        <li><span class="fname">Пружинный маятник:</span> $T=2\pi\sqrt{\dfrac{m}{k}}$</li>
-        <li><span class="fname">Математический маятник:</span> $T=2\pi\sqrt{\dfrac{l}{g}}$</li>
-        <li><span class="fname">Энергия колебаний:</span> $\dfrac{mv^2}{2}+\dfrac{kx^2}{2}=\dfrac{kA^2}{2}=\text{const}$</li>
-        <li><span class="fname">Волна:</span> $v=\lambda\nu=\dfrac{\lambda}{T}$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Математический маятник</span>
-      <p class="q">Найдите период колебаний маятника длиной $l=1$ м ($g=10$). Как изменится период, если длину увеличить в $4$ раза?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$T=2\pi\sqrt{\dfrac{l}{g}}=2\pi\sqrt{\dfrac{1}{10}}\approx 2\pi\cdot 0{,}316\approx 1{,}99$ с.</p>
-        <p>Так как $T\propto\sqrt{l}$, при увеличении $l$ в $4$ раза период вырастет в $\sqrt{4}=2$ раза.</p>
-        <span class="ans">$T \approx 2\ \text{с};$ увеличится в $2$ раза</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Пружинный маятник</span>
-      <p class="q">Груз массой $m=0{,}2$ кг на пружине жёсткостью $k=80$ Н/м. Найдите период и частоту колебаний.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$T=2\pi\sqrt{\dfrac{m}{k}}=2\pi\sqrt{\dfrac{0{,}2}{80}}=2\pi\sqrt{0{,}0025}=2\pi\cdot 0{,}05\approx 0{,}314$ с.</p>
-        <p>$\nu=\dfrac{1}{T}\approx\dfrac{1}{0{,}314}\approx 3{,}18$ Гц.</p>
-        <span class="ans">$T \approx 0{,}31\ \text{с},\quad \nu \approx 3{,}2\ \text{Гц}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Максимальная скорость</span>
-      <p class="q">Тело колеблется по закону $x=0{,}05\sin(10t)$ (СИ). Найдите амплитуду, период и максимальную скорость.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Сравнивая с $x=A\sin(\omega t)$: $A=0{,}05$ м, $\omega=10$ рад/с.</p>
-        <p>$T=\dfrac{2\pi}{\omega}=\dfrac{2\pi}{10}\approx 0{,}63$ с; $v_{\max}=A\omega=0{,}05\cdot 10=0{,}5$ м/с.</p>
-        <span class="ans">$A=0{,}05\ \text{м},\ T\approx 0{,}63\ \text{с},\ v_{\max}=0{,}5\ \text{м/с}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Длина волны</span>
-      <p class="q">Звуковая волна частотой $\nu=340$ Гц распространяется в воздухе со скоростью $v=340$ м/с. Найдите длину волны.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\lambda=\dfrac{v}{\nu}=\dfrac{340}{340}=1$ м.</p>
-        <span class="ans">$\lambda = 1\ \text{м}$</span>
-      </div>
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 1.5 Гидро/аэростатика ===== -->
-  <article class="topic" id="t1-5">
-    <h3><span class="code">1.5</span> Гидро- и аэростатика и динамика</h3>
-    <p>Давление, закон Архимеда и уравнение Бернулли — три кита этой темы.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Давление:</span> $p=\dfrac{F}{S}$; давление столба жидкости $p=\rho g h$</li>
-        <li><span class="fname">Закон Паскаля (гидропресс):</span> $\dfrac{F_1}{S_1}=\dfrac{F_2}{S_2}$</li>
-        <li><span class="fname">Сообщающиеся сосуды:</span> $\rho_1 h_1=\rho_2 h_2$</li>
-        <li><span class="fname">Закон Архимеда:</span> $F_A=\rho_{\text{ж}}\,V_{\text{погр}}\,g$</li>
-        <li><span class="fname">Уравнение неразрывности:</span> $S_1 v_1=S_2 v_2$</li>
-        <li><span class="fname">Уравнение Бернулли:</span> $p+\rho g h+\dfrac{\rho v^2}{2}=\text{const}$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Давление столба жидкости</span>
-      <p class="q">Найдите давление воды на дно бассейна глубиной $h=2{,}5$ м ($\rho=1000$ кг/м³, $g=10$).</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$p=\rho g h=1000\cdot 10\cdot 2{,}5=25\,000$ Па $=25$ кПа.</p>
-        <span class="ans">$p = 25\ \text{кПа}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Сила Архимеда</span>
-      <p class="q">Тело объёмом $V=0{,}002\ \text{м}^3$ полностью погружено в воду. Найдите выталкивающую силу ($\rho=1000$, $g=10$).</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$F_A=\rho g V=1000\cdot 10\cdot 0{,}002=20$ Н.</p>
-        <span class="ans">$F_A = 20\ \text{Н}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Гидравлический пресс</span>
-      <p class="q">На малый поршень площадью $S_1=5\ \text{см}^2$ действует сила $F_1=100$ Н. Какая сила возникнет на большом поршне $S_2=250\ \text{см}^2$?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$F_2=F_1\cdot\dfrac{S_2}{S_1}=100\cdot\dfrac{250}{5}=100\cdot 50=5000$ Н.</p>
-        <span class="ans">$F_2 = 5000\ \text{Н}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Уравнение неразрывности</span>
-      <p class="q">Вода течёт по трубе. В широкой части ($S_1=20\ \text{см}^2$) скорость $v_1=1$ м/с. Какова скорость в узкой части $S_2=5\ \text{см}^2$?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$v_2=v_1\cdot\dfrac{S_1}{S_2}=1\cdot\dfrac{20}{5}=4$ м/с.</p>
-        <span class="ans">$v_2 = 4\ \text{м/с}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Сила Архимеда зависит от плотности <em>жидкости</em> и объёма <em>погружённой части</em>, а не от плотности тела. Если тело плавает — $F_A$ равна весу тела, и погружённая доля объёма равна отношению плотностей $\rho_{\text{тела}}/\rho_{\text{ж}}$.
+      <p class="tlabel">Вывод для теста</p>
+      «Метод всей системы» (складывать массы связанных тел, чтобы одним махом найти общее ускорение) экономит на тесте больше всего времени именно в этой теме — не решайте систему из двух уравнений, если можно обойтись одним.
     </div>
     <a class="totop" href="#top">↑ к содержанию</a>
   </article>
@@ -583,661 +2169,10 @@
 </div><!-- /wrap -->
 
 <div class="wrap">
-<section class="chapter dom-t">
-  <div class="domain-head">
-    <div class="num">РАЗДЕЛ 2</div>
-    <h2>Молекулярная физика и термодинамика</h2>
-    <div class="domain-rule"></div>
-  </div>
-
-  <!-- ===== 2.1 МКТ. Идеальный газ ===== -->
-  <article class="topic" id="t2-1">
-    <h3><span class="code">2.1</span> МКТ. Уравнение состояния идеального газа</h3>
-    <p>Центральная формула темы — уравнение Менделеева–Клапейрона. Большинство задач сводятся к нему или к изопроцессам.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Количество вещества:</span> $\nu=\dfrac{m}{\mu}=\dfrac{N}{N_A}$, где $N_A=6{,}02\cdot 10^{23}$ моль⁻¹</li>
-        <li><span class="fname">Менделеев–Клапейрон:</span> $pV=\dfrac{m}{\mu}RT=\nu RT$, $R=8{,}31$ Дж/(моль·К)</li>
-        <li><span class="fname">Абсолютная температура:</span> $T=t^\circ\!C+273$</li>
-        <li><span class="fname">Основное уравнение МКТ:</span> $p=\dfrac{1}{3}n m_0\bar v^2=\dfrac{2}{3}n\bar E_k$; $p=nkT$, $k=1{,}38\cdot 10^{-23}$ Дж/К</li>
-        <li><span class="fname">Средняя энергия молекулы:</span> $\bar E_k=\dfrac{3}{2}kT$ (одноатомный газ)</li>
-        <li><span class="fname">Среднеквадратичная скорость:</span> $v_{\text{кв}}=\sqrt{\dfrac{3RT}{\mu}}$</li>
-        <li><span class="fname">Изопроцессы:</span> изотерм. $pV=\text{const}$; изохор. $\dfrac{p}{T}=\text{const}$; изобар. $\dfrac{V}{T}=\text{const}$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Уравнение Менделеева–Клапейрона</span>
-      <p class="q">Какое давление создаёт $2$ моль идеального газа в сосуде объёмом $V=20$ л при температуре $t=27\,^\circ\!C$?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$T=27+273=300$ К, $V=0{,}02\ \text{м}^3$.</p>
-        <p>$p=\dfrac{\nu RT}{V}=\dfrac{2\cdot 8{,}31\cdot 300}{0{,}02}=\dfrac{4986}{0{,}02}\approx 2{,}49\cdot 10^{5}$ Па.</p>
-        <span class="ans">$p \approx 2{,}5\cdot 10^{5}\ \text{Па} \approx 250\ \text{кПа}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Изотермический процесс (закон Бойля–Мариотта)</span>
-      <p class="q">Газ при давлении $p_1=200$ кПа занимает объём $V_1=3$ л. Каким станет давление, если при постоянной температуре объём уменьшить до $1{,}5$ л?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$p_1 V_1 = p_2 V_2 \;\Rightarrow\; p_2=\dfrac{p_1 V_1}{V_2}=\dfrac{200\cdot 3}{1{,}5}=400$ кПа.</p>
-        <span class="ans">$p_2 = 400\ \text{кПа}$ (объём уменьшили вдвое — давление выросло вдвое)</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Изобарный процесс (закон Гей-Люссака)</span>
-      <p class="q">Газ при $T_1=300$ К занимает объём $V_1=2$ л. До какой температуры его нагрели при постоянном давлении, если объём стал $3$ л?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}\;\Rightarrow\;T_2=T_1\cdot\dfrac{V_2}{V_1}=300\cdot\dfrac{3}{2}=450$ К.</p>
-        <span class="ans">$T_2 = 450\ \text{К}$ (т.е. $177\,^\circ\!C$)</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Среднеквадратичная скорость</span>
-      <p class="q">Найдите среднеквадратичную скорость молекул кислорода ($\mu=0{,}032$ кг/моль) при $T=300$ К.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$v_{\text{кв}}=\sqrt{\dfrac{3RT}{\mu}}=\sqrt{\dfrac{3\cdot 8{,}31\cdot 300}{0{,}032}}=\sqrt{\dfrac{7479}{0{,}032}}=\sqrt{233\,718}\approx 483$ м/с.</p>
-        <span class="ans">$v_{\text{кв}} \approx 483\ \text{м/с}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Всегда переводите температуру в Кельвины перед делением/умножением. Частая ошибка: «нагрели вдвое с $27\,^\circ\!C$» означает с $300$ К до $600$ К ($327\,^\circ\!C$), а не до $54\,^\circ\!C$.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 2.2 Термодинамика ===== -->
-  <article class="topic" id="t2-2">
-    <h3><span class="code">2.2</span> Основы термодинамики</h3>
-    <p>Здесь работают уравнение теплового баланса, первый закон термодинамики и КПД тепловых машин.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Нагрев/охлаждение:</span> $Q=cm\Delta t$</li>
-        <li><span class="fname">Плавление:</span> $Q=\lambda m$; <span class="fname">парообразование:</span> $Q=rm$; <span class="fname">сгорание:</span> $Q=qm$</li>
-        <li><span class="fname">Уравнение теплового баланса:</span> $\sum Q=0$ (отданное = полученному)</li>
-        <li><span class="fname">Первый закон ТД:</span> $Q=\Delta U+A$</li>
-        <li><span class="fname">Внутренняя энергия (одноат. газ):</span> $U=\dfrac{3}{2}\nu RT$, $\Delta U=\dfrac{3}{2}\nu R\Delta T$</li>
-        <li><span class="fname">Работа газа (изобара):</span> $A=p\,\Delta V$</li>
-        <li><span class="fname">КПД тепловой машины:</span> $\eta=\dfrac{Q_1-Q_2}{Q_1}$; цикл Карно $\eta=\dfrac{T_1-T_2}{T_1}$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Нагревание</span>
-      <p class="q">Сколько теплоты нужно, чтобы нагреть $2$ кг воды от $20\,^\circ\!C$ до $80\,^\circ\!C$? Удельная теплоёмкость воды $c=4200$ Дж/(кг·°C).</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$Q=cm\Delta t=4200\cdot 2\cdot(80-20)=4200\cdot 2\cdot 60=504\,000$ Дж.</p>
-        <span class="ans">$Q = 504\ \text{кДж}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Тепловой баланс</span>
-      <p class="q">В $300$ г воды при $20\,^\circ\!C$ налили $200$ г воды при $70\,^\circ\!C$. Какая установится температура?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Тёплая вода отдаёт, холодная получает: $c m_1(\theta-t_1)=c m_2(t_2-\theta)$. $c$ сокращается:</p>
-        <p>$300(\theta-20)=200(70-\theta)\Rightarrow 300\theta-6000=14000-200\theta$.</p>
-        <p>$500\theta=20000\Rightarrow\theta=40\,^\circ\!C.$</p>
-        <span class="ans">$\theta = 40\,^\circ\!C$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Первый закон термодинамики</span>
-      <p class="q">Газу передали $Q=500$ Дж теплоты, при этом он совершил работу $A=200$ Дж. Как изменилась внутренняя энергия?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\Delta U=Q-A=500-200=300$ Дж.</p>
-        <span class="ans">$\Delta U = 300\ \text{Дж}$ (внутренняя энергия выросла)</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · КПД цикла Карно</span>
-      <p class="q">Идеальная тепловая машина работает между нагревателем $T_1=500$ К и холодильником $T_2=300$ К. Найдите максимальный КПД.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\eta=\dfrac{T_1-T_2}{T_1}=\dfrac{500-300}{500}=\dfrac{200}{500}=0{,}4=40\%.$</p>
-        <span class="ans">$\eta = 40\%$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Связь теплоты с процессом: изотерма $Q=A$ ($\Delta U=0$); изохора $Q=\Delta U$ ($A=0$, ведь $\Delta V=0$); адиабата $A=-\Delta U$ ($Q=0$). Зная процесс, сразу видно, куда «уходит» теплота.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-</section>
-</div><!-- /wrap -->
-
-<div class="wrap">
-<section class="chapter dom-e">
-  <div class="domain-head">
-    <div class="num">РАЗДЕЛ 3</div>
-    <h2>Электродинамика</h2>
-    <div class="domain-rule"></div>
-  </div>
-
-  <!-- ===== 3.1 Электростатика ===== -->
-  <article class="topic" id="t3-1">
-    <h3><span class="code">3.1</span> Электростатика</h3>
-    <p>Закон Кулона, напряжённость и потенциал поля, конденсаторы. Различайте величины <em>векторные</em> (сила, напряжённость) и <em>скалярные</em> (потенциал, энергия).</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Закон Кулона:</span> $F=k\dfrac{|q_1||q_2|}{\varepsilon r^2}$, где $k=9\cdot 10^{9}$ Н·м²/Кл²</li>
-        <li><span class="fname">Напряжённость:</span> $E=\dfrac{F}{q}$; точечного заряда $E=\dfrac{kq}{r^2}$</li>
-        <li><span class="fname">Работа поля:</span> $A=q(\varphi_1-\varphi_2)=qU$; связь $U=Ed$ (однородное поле)</li>
-        <li><span class="fname">Ёмкость:</span> $C=\dfrac{q}{U}$; плоский конденсатор $C=\dfrac{\varepsilon\varepsilon_0 S}{d}$, $\varepsilon_0=8{,}85\cdot 10^{-12}$ Ф/м</li>
-        <li><span class="fname">Соединение конденсаторов:</span> параллельно $C=C_1+C_2+\dots$; последовательно $\dfrac{1}{C}=\dfrac{1}{C_1}+\dfrac{1}{C_2}+\dots$</li>
-        <li><span class="fname">Энергия конденсатора:</span> $W=\dfrac{qU}{2}=\dfrac{CU^2}{2}=\dfrac{q^2}{2C}$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Закон Кулона</span>
-      <p class="q">Два точечных заряда $q_1=2\cdot 10^{-6}$ Кл и $q_2=3\cdot 10^{-6}$ Кл находятся на расстоянии $r=0{,}3$ м в вакууме. Найдите силу взаимодействия.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$F=k\dfrac{q_1 q_2}{r^2}=9\cdot 10^{9}\cdot\dfrac{2\cdot 10^{-6}\cdot 3\cdot 10^{-6}}{0{,}3^2}=9\cdot 10^{9}\cdot\dfrac{6\cdot 10^{-12}}{0{,}09}.$</p>
-        <p>$=9\cdot 10^{9}\cdot 6{,}67\cdot 10^{-11}=0{,}6$ Н.</p>
-        <span class="ans">$F = 0{,}6\ \text{Н}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Напряжённость поля</span>
-      <p class="q">На заряд $q=5\cdot 10^{-8}$ Кл в некоторой точке поля действует сила $F=2\cdot 10^{-3}$ Н. Найдите напряжённость поля в этой точке.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$E=\dfrac{F}{q}=\dfrac{2\cdot 10^{-3}}{5\cdot 10^{-8}}=4\cdot 10^{4}$ В/м.</p>
-        <span class="ans">$E = 4\cdot 10^{4}\ \text{В/м}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Энергия конденсатора</span>
-      <p class="q">Конденсатор ёмкостью $C=20$ мкФ заряжён до напряжения $U=100$ В. Найдите заряд и запасённую энергию.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$q=CU=20\cdot 10^{-6}\cdot 100=2\cdot 10^{-3}$ Кл $=2$ мКл.</p>
-        <p>$W=\dfrac{CU^2}{2}=\dfrac{20\cdot 10^{-6}\cdot 100^2}{2}=\dfrac{20\cdot 10^{-6}\cdot 10^4}{2}=0{,}1$ Дж.</p>
-        <span class="ans">$q = 2\ \text{мКл},\quad W = 0{,}1\ \text{Дж}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Соединение конденсаторов</span>
-      <p class="q">Два конденсатора $C_1=6$ мкФ и $C_2=3$ мкФ. Найдите общую ёмкость при последовательном и при параллельном соединении.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Последовательно: $\dfrac{1}{C}=\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{3}{6}\Rightarrow C=2$ мкФ.</p>
-        <p>Параллельно: $C=C_1+C_2=6+3=9$ мкФ.</p>
-        <span class="ans">Последовательно $2$ мкФ; параллельно $9$ мкФ</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Конденсаторы соединяются «наоборот» по сравнению с резисторами: при <em>последовательном</em> соединении ёмкость уменьшается (как сопротивления при параллельном). Общая последовательная ёмкость всегда меньше наименьшей.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 3.2 Постоянный ток ===== -->
-  <article class="topic" id="t3-2">
-    <h3><span class="code">3.2</span> Законы постоянного тока</h3>
-    <p>Закон Ома, соединения проводников, ЭДС и полная цепь, мощность и тепло. Это «рабочая лошадка» теста — задач много.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Сила тока:</span> $I=\dfrac{q}{t}$; <span class="fname">Ом для участка:</span> $I=\dfrac{U}{R}$</li>
-        <li><span class="fname">Сопротивление:</span> $R=\rho\dfrac{l}{S}$</li>
-        <li><span class="fname">Последовательно:</span> $R=R_1+R_2+\dots,\ I=\text{const},\ U=U_1+U_2$</li>
-        <li><span class="fname">Параллельно:</span> $\dfrac{1}{R}=\dfrac{1}{R_1}+\dfrac{1}{R_2}+\dots,\ U=\text{const},\ I=I_1+I_2$</li>
-        <li><span class="fname">ЭДС и полная цепь:</span> $\varepsilon=\dfrac{A_{\text{ст}}}{q}$; $I=\dfrac{\varepsilon}{R+r}$</li>
-        <li><span class="fname">Работа и мощность:</span> $A=UIt$; $P=UI=I^2R=\dfrac{U^2}{R}$; закон Джоуля–Ленца $Q=I^2Rt$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Закон Ома для участка</span>
-      <p class="q">К проводнику сопротивлением $R=20$ Ом приложено напряжение $U=12$ В. Найдите силу тока.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$I=\dfrac{U}{R}=\dfrac{12}{20}=0{,}6$ А.</p>
-        <span class="ans">$I = 0{,}6\ \text{А}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Параллельное соединение</span>
-      <p class="q">Два резистора $R_1=6$ Ом и $R_2=3$ Ом соединены параллельно. Найдите общее сопротивление.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\dfrac{1}{R}=\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{3}{6}\Rightarrow R=2$ Ом.</p>
-        <p>Для двух резисторов удобна формула $R=\dfrac{R_1 R_2}{R_1+R_2}=\dfrac{6\cdot 3}{9}=2$ Ом.</p>
-        <span class="ans">$R = 2\ \text{Ом}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Полная цепь (ЭДС)</span>
-      <p class="q">Источник с ЭДС $\varepsilon=12$ В и внутренним сопротивлением $r=1$ Ом замкнут на резистор $R=5$ Ом. Найдите силу тока и напряжение на резисторе.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$I=\dfrac{\varepsilon}{R+r}=\dfrac{12}{5+1}=2$ А.</p>
-        <p>$U=IR=2\cdot 5=10$ В (часть ЭДС «теряется» на $r$: $Ir=2$ В).</p>
-        <span class="ans">$I = 2\ \text{А},\quad U = 10\ \text{В}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Мощность и тепло</span>
-      <p class="q">Через нагреватель сопротивлением $R=50$ Ом течёт ток $I=2$ А в течение $t=5$ мин. Найдите мощность и выделившееся количество теплоты.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$P=I^2R=2^2\cdot 50=200$ Вт.</p>
-        <p>$Q=Pt=200\cdot 300=60\,000$ Дж $=60$ кДж ($t=5$ мин $=300$ с).</p>
-        <span class="ans">$P = 200\ \text{Вт},\quad Q = 60\ \text{кДж}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      В параллельном соединении общее сопротивление всегда меньше наименьшего из резисторов — быстрый способ отбросить неверные варианты. Для двух одинаковых $R$: параллельно $R/2$, последовательно $2R$.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-</section>
-</div><!-- /wrap -->
-
-<div class="wrap">
-<section class="dom-e">
-
-  <!-- ===== 3.3 Ток в средах ===== -->
-  <article class="topic" id="t3-3">
-    <h3><span class="code">3.3</span> Ток в различных средах</h3>
-    <p>Особенности тока в металлах, полупроводниках, жидкостях (электролиз), газах и вакууме. На тесте чаще всего — зависимость сопротивления от температуры и электролиз.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы и факты</p>
-      <ul>
-        <li><span class="fname">Сопротивление и температура:</span> $R=R_0(1+\alpha t)$ — у металлов растёт с нагревом</li>
-        <li><span class="fname">Полупроводники:</span> сопротивление с нагревом <em>уменьшается</em> (растёт число носителей); проводимость электронная и дырочная</li>
-        <li><span class="fname">Электролиз (закон Фарадея):</span> $m=\dfrac{1}{F}\cdot\dfrac{\mu}{n}\,It$, где $F=96\,500$ Кл/моль</li>
-        <li><span class="fname">Газы:</span> проводят при ионизации (несамостоятельный/самостоятельный разряд)</li>
-        <li><span class="fname">Вакуум:</span> ток создаётся термоэлектронной эмиссией (диод)</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Сопротивление при нагреве</span>
-      <p class="q">При $0\,^\circ\!C$ сопротивление проводника $R_0=10$ Ом. Каким оно станет при $t=100\,^\circ\!C$? Температурный коэффициент $\alpha=0{,}004\ \text{°C}^{-1}$.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$R=R_0(1+\alpha t)=10\,(1+0{,}004\cdot 100)=10\,(1+0{,}4)=14$ Ом.</p>
-        <span class="ans">$R = 14\ \text{Ом}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Электролиз</span>
-      <p class="q">При электролизе через раствор пропустили ток $I=2$ А в течение $t=30$ мин. Найдите массу выделившейся меди ($\mu=0{,}064$ кг/моль, валентность $n=2$, $F=96\,500$ Кл/моль).</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$t=1800$ с. $m=\dfrac{\mu I t}{nF}=\dfrac{0{,}064\cdot 2\cdot 1800}{2\cdot 96\,500}=\dfrac{230{,}4}{193\,000}\approx 1{,}19\cdot 10^{-3}$ кг.</p>
-        <span class="ans">$m \approx 1{,}2\ \text{г}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Запомнить</p>
-      Металлы при нагреве проводят <em>хуже</em> ($R$ растёт), полупроводники — <em>лучше</em> ($R$ падает). Это любимая «концептуальная» проверка в тестах без вычислений.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 3.4 Магнитное поле. Индукция ===== -->
-  <article class="topic" id="t3-4">
-    <h3><span class="code">3.4</span> Магнитное поле. Электромагнитная индукция</h3>
-    <p>Силы Ампера и Лоренца, магнитный поток и закон электромагнитной индукции Фарадея. Следите за углами в формулах с синусом/косинусом.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Сила Ампера:</span> $F_A=BIl\sin\alpha$ ($\alpha$ — угол между $\vec B$ и током)</li>
-        <li><span class="fname">Сила Лоренца:</span> $F_{\text{л}}=qvB\sin\alpha$</li>
-        <li><span class="fname">Поле прямого тока:</span> $B=\dfrac{\mu\mu_0 I}{2\pi r}$; в центре витка $B=\dfrac{\mu\mu_0 I}{2r}$</li>
-        <li><span class="fname">Магнитный поток:</span> $\Phi=BS\cos\alpha$ ($\alpha$ — угол между $\vec B$ и <em>нормалью</em>)</li>
-        <li><span class="fname">ЭДС индукции:</span> $\varepsilon_i=-\dfrac{\Delta\Phi}{\Delta t}$; самоиндукции $\varepsilon=-L\dfrac{\Delta I}{\Delta t}$</li>
-        <li><span class="fname">Энергия магнитного поля:</span> $W=\dfrac{LI^2}{2}$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Сила Ампера</span>
-      <p class="q">Проводник длиной $l=0{,}5$ м с током $I=4$ А находится в магнитном поле $B=0{,}2$ Тл перпендикулярно линиям поля. Найдите силу Ампера.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\sin 90^\circ=1$, поэтому $F_A=BIl=0{,}2\cdot 4\cdot 0{,}5=0{,}4$ Н.</p>
-        <span class="ans">$F_A = 0{,}4\ \text{Н}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Сила Лоренца</span>
-      <p class="q">Электрон ($q=1{,}6\cdot 10^{-19}$ Кл) влетает в поле $B=0{,}1$ Тл со скоростью $v=2\cdot 10^{6}$ м/с перпендикулярно линиям. Найдите силу Лоренца.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$F_{\text{л}}=qvB=1{,}6\cdot 10^{-19}\cdot 2\cdot 10^{6}\cdot 0{,}1=3{,}2\cdot 10^{-14}$ Н.</p>
-        <span class="ans">$F_{\text{л}} = 3{,}2\cdot 10^{-14}\ \text{Н}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Магнитный поток</span>
-      <p class="q">Контур площадью $S=0{,}02\ \text{м}^2$ находится в поле $B=0{,}5$ Тл. Найдите поток, если плоскость контура перпендикулярна полю.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Если плоскость перпендикулярна полю, то нормаль параллельна $\vec B$, $\alpha=0$, $\cos 0=1$:</p>
-        <p>$\Phi=BS=0{,}5\cdot 0{,}02=0{,}01$ Вб.</p>
-        <span class="ans">$\Phi = 0{,}01\ \text{Вб}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · ЭДС индукции</span>
-      <p class="q">Магнитный поток через контур равномерно уменьшился с $0{,}08$ Вб до $0{,}02$ Вб за $0{,}3$ с. Найдите ЭДС индукции.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$|\varepsilon_i|=\dfrac{|\Delta\Phi|}{\Delta t}=\dfrac{0{,}08-0{,}02}{0{,}3}=\dfrac{0{,}06}{0{,}3}=0{,}2$ В.</p>
-        <span class="ans">$\varepsilon_i = 0{,}2\ \text{В}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Угол в потоке $\Phi=BS\cos\alpha$ отсчитывается от <em>нормали</em> к плоскости, а в силе Ампера/Лоренца — от направления поля. Если «плоскость параллельна полю», поток равен нулю ($\cos 90^\circ=0$) — частая ловушка.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 3.5 ЭМ колебания и волны ===== -->
-  <article class="topic" id="t3-5">
-    <h3><span class="code">3.5</span> Электромагнитные колебания и волны</h3>
-    <p>Колебательный контур, формула Томсона, переменный ток и резонанс. Это тема, которую стоит проработать особенно тщательно — здесь много похожих формул, которые легко перепутать.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Формула Томсона (период контура):</span> $T=2\pi\sqrt{LC}$; частота $\nu=\dfrac{1}{2\pi\sqrt{LC}}$</li>
-        <li><span class="fname">Сохранение энергии в контуре:</span> $\dfrac{CU^2}{2}+\dfrac{LI^2}{2}=\dfrac{CU_0^2}{2}=\dfrac{LI_0^2}{2}$</li>
-        <li><span class="fname">Связь амплитуд:</span> $I_0=U_0\sqrt{\dfrac{C}{L}}$ (из равенства энергий)</li>
-        <li><span class="fname">Реактивные сопротивления:</span> индуктивное $X_L=\omega L$; ёмкостное $X_C=\dfrac{1}{\omega C}$</li>
-        <li><span class="fname">Закон Ома для RLC:</span> $I_{\max}=\dfrac{U_{\max}}{\sqrt{R^2+\left(\omega L-\dfrac{1}{\omega C}\right)^2}}$</li>
-        <li><span class="fname">Резонанс:</span> $\omega_{\text{рез}}=\dfrac{1}{\sqrt{LC}}$ (когда $X_L=X_C$)</li>
-        <li><span class="fname">Действующие значения:</span> $I_{\text{д}}=\dfrac{I_{\max}}{\sqrt 2},\ U_{\text{д}}=\dfrac{U_{\max}}{\sqrt 2}$</li>
-        <li><span class="fname">ЭМ волна:</span> $c=\lambda\nu$, $c=3\cdot 10^{8}$ м/с</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Формула Томсона</span>
-      <p class="q">Колебательный контур содержит катушку $L=2$ мГн и конденсатор $C=8$ мкФ. Найдите период собственных колебаний.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$L=2\cdot 10^{-3}$ Гн, $C=8\cdot 10^{-6}$ Ф.</p>
-        <p>$LC=2\cdot 10^{-3}\cdot 8\cdot 10^{-6}=16\cdot 10^{-9}$; $\sqrt{LC}=4\cdot 10^{-4{,}5}=1{,}26\cdot 10^{-4}$ с.</p>
-        <p>$T=2\pi\sqrt{LC}=2\pi\cdot 1{,}26\cdot 10^{-4}\approx 7{,}9\cdot 10^{-4}$ с.</p>
-        <span class="ans">$T \approx 0{,}79\ \text{мс}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Реактивные сопротивления</span>
-      <p class="q">В цепь переменного тока частотой $\omega=100$ рад/с включены катушка $L=0{,}5$ Гн и конденсатор $C=200$ мкФ. Найдите $X_L$ и $X_C$.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$X_L=\omega L=100\cdot 0{,}5=50$ Ом.</p>
-        <p>$X_C=\dfrac{1}{\omega C}=\dfrac{1}{100\cdot 200\cdot 10^{-6}}=\dfrac{1}{0{,}02}=50$ Ом.</p>
-        <p>Так как $X_L=X_C$, в цепи наблюдается <em>резонанс</em>.</p>
-        <span class="ans">$X_L = X_C = 50\ \text{Ом}$ — резонанс</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Закон Ома для цепи RLC</span>
-      <p class="q">В последовательной цепи $R=30$ Ом, $X_L=80$ Ом, $X_C=40$ Ом, амплитуда напряжения $U_{\max}=100$ В. Найдите амплитуду тока.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Полное сопротивление: $Z=\sqrt{R^2+(X_L-X_C)^2}=\sqrt{30^2+(80-40)^2}=\sqrt{900+1600}=\sqrt{2500}=50$ Ом.</p>
-        <p>$I_{\max}=\dfrac{U_{\max}}{Z}=\dfrac{100}{50}=2$ А.</p>
-        <span class="ans">$I_{\max} = 2\ \text{А}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Резонанс и длина волны</span>
-      <p class="q">На какую длину волны настроен контур с $L=1$ мкГн и $C=1$ нФ? ($c=3\cdot 10^{8}$ м/с.)</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$T=2\pi\sqrt{LC}=2\pi\sqrt{10^{-6}\cdot 10^{-9}}=2\pi\sqrt{10^{-15}}=2\pi\cdot 3{,}16\cdot 10^{-8}\approx 1{,}99\cdot 10^{-7}$ с.</p>
-        <p>$\lambda=cT=3\cdot 10^{8}\cdot 1{,}99\cdot 10^{-7}\approx 59{,}6$ м.</p>
-        <span class="ans">$\lambda \approx 60\ \text{м}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста (важно для AC)</p>
-      Резонанс — это всегда условие $X_L=X_C$, при котором полное сопротивление минимально ($Z=R$), а ток максимален. Если в задаче спрашивают «при какой частоте ток максимален» — отвечайте формулой Томсона $\omega=\dfrac{1}{\sqrt{LC}}$. Не путайте $X_L=\omega L$ (растёт с частотой) и $X_C=\dfrac{1}{\omega C}$ (падает с частотой).
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-</section>
-</div><!-- /wrap -->
-
-<div class="wrap">
-<section class="chapter dom-o">
-  <div class="domain-head">
-    <div class="num">РАЗДЕЛ 4</div>
-    <h2>Оптика. ТО. Квантовая и ядерная физика</h2>
-    <div class="domain-rule"></div>
-  </div>
-
-  <!-- ===== 4.1 Оптика. ТО ===== -->
-  <article class="topic" id="t4-1">
-    <h3><span class="code">4.1</span> Геометрическая и волновая оптика. Теория относительности</h3>
-    <p>Преломление и полное внутреннее отражение, линзы, интерференция и дифракция, поляризация, плюс основы СТО. Внимательно с правилом знаков для линз.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Закон преломления:</span> $\dfrac{\sin\alpha}{\sin\beta}=n_{21}=\dfrac{n_2}{n_1}=\dfrac{v_1}{v_2}$</li>
-        <li><span class="fname">Полное внутреннее отражение:</span> $\sin\alpha_{\text{пр}}=\dfrac{n_2}{n_1}$ (при $n_1>n_2$)</li>
-        <li><span class="fname">Формула тонкой линзы:</span> $\dfrac{1}{F}=\dfrac{1}{d}+\dfrac{1}{f}$; оптическая сила $D=\dfrac{1}{F}$ (дптр)</li>
-        <li><span class="fname">Увеличение:</span> $\Gamma=\dfrac{f}{d}=\dfrac{H}{h}$</li>
-        <li><span class="fname">Интерференция:</span> максимум $\Delta=k\lambda$; минимум $\Delta=(2k+1)\dfrac{\lambda}{2}$</li>
-        <li><span class="fname">Дифракционная решётка:</span> $d\sin\varphi=k\lambda$</li>
-        <li><span class="fname">Закон Малюса:</span> $I=I_0\cos^2\alpha$</li>
-        <li><span class="fname">СТО (связь массы и энергии):</span> $E=mc^2$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Формула линзы</span>
-      <p class="q">Предмет находится на расстоянии $d=30$ см от собирающей линзы с фокусным расстоянием $F=10$ см. Где будет изображение?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\dfrac{1}{f}=\dfrac{1}{F}-\dfrac{1}{d}=\dfrac{1}{10}-\dfrac{1}{30}=\dfrac{3-1}{30}=\dfrac{2}{30}=\dfrac{1}{15}.$</p>
-        <p>$f=15$ см. Изображение действительное (за линзой), уменьшенное: $\Gamma=\dfrac{f}{d}=\dfrac{15}{30}=0{,}5$.</p>
-        <span class="ans">$f = 15\ \text{см}$, изображение действительное, уменьшенное в $2$ раза</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Оптическая сила</span>
-      <p class="q">Оптическая сила линзы $D=5$ дптр. Найдите фокусное расстояние.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$F=\dfrac{1}{D}=\dfrac{1}{5}=0{,}2$ м $=20$ см.</p>
-        <span class="ans">$F = 20\ \text{см}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Преломление света</span>
-      <p class="q">Луч падает из воздуха на воду ($n=1{,}33$) под углом $\alpha=45^\circ$. Найдите синус угла преломления.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\dfrac{\sin\alpha}{\sin\beta}=n\;\Rightarrow\;\sin\beta=\dfrac{\sin 45^\circ}{1{,}33}=\dfrac{0{,}707}{1{,}33}\approx 0{,}53.$</p>
-        <p>Тогда $\beta\approx 32^\circ$ — луч преломляется ближе к нормали (вошёл в более плотную среду).</p>
-        <span class="ans">$\sin\beta \approx 0{,}53,\quad \beta \approx 32^\circ$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Дифракционная решётка</span>
-      <p class="q">На решётку с периодом $d=2$ мкм падает свет с длиной волны $\lambda=500$ нм. Под каким углом виден максимум первого порядка?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$\sin\varphi=\dfrac{k\lambda}{d}=\dfrac{1\cdot 500\cdot 10^{-9}}{2\cdot 10^{-6}}=\dfrac{5\cdot 10^{-7}}{2\cdot 10^{-6}}=0{,}25.$</p>
-        <p>$\varphi\approx 14{,}5^\circ.$</p>
-        <span class="ans">$\sin\varphi = 0{,}25,\quad \varphi \approx 14{,}5^\circ$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 5 · Закон Малюса</span>
-      <p class="q">Свет интенсивностью $I_0$ проходит через анализатор, повёрнутый на $60^\circ$. Какая доля интенсивности пройдёт?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$I=I_0\cos^2 60^\circ=I_0\cdot(0{,}5)^2=0{,}25\,I_0.$</p>
-        <span class="ans">Пройдёт $25\%$ интенсивности</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста (важно для оптики)</p>
-      Правило знаков: для собирающей линзы $F>0$, для рассеивающей $F<0$. Если $d>2F$ — изображение действительное, уменьшенное; $F<d<2F$ — действительное, увеличенное; $d<F$ — мнимое, увеличенное (лупа). Это позволяет проверить ответ без вычислений.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-  <!-- ===== 4.2 Квантовая и ядерная физика ===== -->
-  <article class="topic" id="t4-2">
-    <h3><span class="code">4.2</span> Квантовая, атомная и ядерная физика</h3>
-    <p>Фотоны и фотоэффект, постулаты Бора, дефект массы и энергия связи, радиоактивный распад и ядерные реакции.</p>
-
-    <div class="formulas">
-      <p class="ftitle">Ключевые формулы</p>
-      <ul>
-        <li><span class="fname">Энергия фотона:</span> $E=h\nu=\dfrac{hc}{\lambda}$, где $h=6{,}63\cdot 10^{-34}$ Дж·с</li>
-        <li><span class="fname">Импульс фотона:</span> $p=\dfrac{h}{\lambda}=\dfrac{E}{c}$</li>
-        <li><span class="fname">Уравнение фотоэффекта:</span> $h\nu=A_{\text{вых}}+\dfrac{mv^2}{2}$</li>
-        <li><span class="fname">Красная граница:</span> $\nu_{\min}=\dfrac{A}{h}$, $\lambda_{\max}=\dfrac{hc}{A}$</li>
-        <li><span class="fname">Дефект массы:</span> $\Delta m=[Zm_p+(A-Z)m_n]-M_{\text{ядра}}$</li>
-        <li><span class="fname">Энергия связи:</span> $E_{\text{св}}=\Delta m\cdot c^2$</li>
-        <li><span class="fname">Закон распада:</span> $N=N_0\cdot 2^{-t/T_{1/2}}$ ($T_{1/2}$ — период полураспада)</li>
-        <li><span class="fname">Распады:</span> $\alpha$: $^A_Z X\to {}^{A-4}_{Z-2}Y+{}^4_2\text{He}$; $\beta$: $^A_Z X\to {}^{\ \ A}_{Z+1}Y+{}^{\ 0}_{-1}e$</li>
-      </ul>
-    </div>
-
-    <h4>Разобранные примеры</h4>
-
-    <div class="ex">
-      <span class="extag">Пример 1 · Энергия фотона</span>
-      <p class="q">Найдите энергию фотона зелёного света с длиной волны $\lambda=500$ нм ($h=6{,}63\cdot 10^{-34}$ Дж·с, $c=3\cdot 10^{8}$ м/с).</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$E=\dfrac{hc}{\lambda}=\dfrac{6{,}63\cdot 10^{-34}\cdot 3\cdot 10^{8}}{500\cdot 10^{-9}}=\dfrac{1{,}989\cdot 10^{-25}}{5\cdot 10^{-7}}\approx 3{,}98\cdot 10^{-19}$ Дж.</p>
-        <p>(В электронвольтах: $\approx 2{,}5$ эВ, поделив на $1{,}6\cdot 10^{-19}$.)</p>
-        <span class="ans">$E \approx 4\cdot 10^{-19}\ \text{Дж} \approx 2{,}5\ \text{эВ}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 2 · Фотоэффект</span>
-      <p class="q">Работа выхода металла $A=3\cdot 10^{-19}$ Дж. На него падает свет с энергией фотона $E=5\cdot 10^{-19}$ Дж. Найдите максимальную кинетическую энергию электронов.</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>$E_k=h\nu-A=5\cdot 10^{-19}-3\cdot 10^{-19}=2\cdot 10^{-19}$ Дж.</p>
-        <span class="ans">$E_k = 2\cdot 10^{-19}\ \text{Дж}$</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 3 · Радиоактивный распад</span>
-      <p class="q">Период полураспада изотопа $T_{1/2}=8$ суток. Какая доля атомов останется через $24$ суток?</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Число периодов: $\dfrac{t}{T_{1/2}}=\dfrac{24}{8}=3.$</p>
-        <p>$\dfrac{N}{N_0}=2^{-3}=\dfrac{1}{8}=0{,}125.$</p>
-        <span class="ans">Останется $\dfrac{1}{8}$ ($12{,}5\%$) атомов</span>
-      </div>
-    </div>
-
-    <div class="ex">
-      <span class="extag">Пример 4 · Ядерная реакция (закон сохранения)</span>
-      <p class="q">Допишите реакцию: $^{14}_{\ 7}\text{N}+{}^4_2\text{He}\to {}^{17}_{\ 8}\text{O}+\,?$</p>
-      <div class="sol">
-        <p class="sol-label">Решение</p>
-        <p>Сохраняется массовое число $A$ и зарядовое число $Z$.</p>
-        <p>$A$: $14+4=17+x\Rightarrow x=1.$ &nbsp; $Z$: $7+2=8+y\Rightarrow y=1.$</p>
-        <p>Частица с $A=1,\ Z=1$ — это протон $^1_1\text{H}$ (или $^1_1 p$).</p>
-        <span class="ans">Недостающая частица — протон $^1_1\text{H}$</span>
-      </div>
-    </div>
-
-    <div class="tip">
-      <p class="tlabel">Приём для теста</p>
-      Ядерные реакции решаются по двум законам сохранения: сумма верхних индексов ($A$) и сумма нижних ($Z$) до и после реакции одинаковы. При $\alpha$-распаде заряд уменьшается на $2$, масса на $4$; при $\beta^-$-распаде заряд растёт на $1$, масса не меняется.
-    </div>
-    <a class="totop" href="#top">↑ к содержанию</a>
-  </article>
-
-</section>
-
 <footer>
-  Пособие для подготовки к ДТМ по физике · структура по официальной спецификации (коды тем 1.1–4.2).<br>
-  Формулы и обозначения соответствуют учебникам Турдиева. Числа округлены; на тесте уточняйте $g$ ($9{,}8$ или $10$) по условию.
+  Разбор тестового сборника «Innova to‘plam» (Sardor Berdiyev, 2023) — темы 1–29, стр. 5–81 (Kinematika, Dinamika asoslari). Числовые примеры взяты из первоисточника или построены по его типовым паттернам там, где оригинал опирается на рисунки/графики. Ответы проверены самостоятельным пересчётом — в первоисточнике встречаются опечатки в ключах, поэтому при расхождении доверяйте физике, а не напечатанной букве.
 </footer>
+</div>
 
 </div><!-- /wrap -->
 </body>
