@@ -72,6 +72,7 @@
   .flist li:last-child{border-bottom:none;}
   .flist .fx{font-size:14px; white-space:nowrap;}
   .flist .fd{color:var(--muted); font-size:11.5px; flex:1 1 140px;}
+  .flist .vars{flex:1 1 100%; color:#a3a7b3; font-size:10.5px; margin-top:1px;}
 
   .note{border-radius:6px; padding:5px 9px; margin:6px 0 0; font-size:11.5px; background:var(--tip-bg); border:1px solid #ecd9a0; color:#5c4a10;}
   .note b{color:var(--tip);}
@@ -124,11 +125,11 @@
     <div class="group">
       <h3><span class="code">1.1</span>Кинематика</h3>
       <ul class="flist">
-        <li><span class="fx">$v=\dfrac{\Delta s}{\Delta t}$</span><span class="fd">средняя скорость</span></li>
-        <li><span class="fx">$a=\dfrac{\Delta v}{\Delta t}$</span><span class="fd">ускорение</span></li>
-        <li><span class="fx">$s=v_0t+\dfrac{at^2}{2}$</span><span class="fd">путь при равноускоренном движении</span></li>
-        <li><span class="fx">$v=v_0\pm gt$</span><span class="fd">скорость при верт. движении</span></li>
-        <li><span class="fx">$h=v_0t\pm\dfrac{gt^2}{2}$</span><span class="fd">высота/путь при броске</span></li>
+        <li><span class="fx">$v=\dfrac{\Delta s}{\Delta t}$</span><span class="fd">средняя скорость</span><span class="vars">где: $v$ — скорость (м/с), $\Delta s$ — путь (м), $\Delta t$ — время (с)</span></li>
+        <li><span class="fx">$a=\dfrac{\Delta v}{\Delta t}$</span><span class="fd">ускорение</span><span class="vars">где: $a$ — ускорение (м/с²), $\Delta v$ — изменение скорости (м/с), $\Delta t$ — время (с)</span></li>
+        <li><span class="fx">$s=v_0t+\dfrac{at^2}{2}$</span><span class="fd">путь при равноускоренном движении</span><span class="vars">где: $s$ — путь (м), $v_0$ — нач. скорость (м/с), $t$ — время (с), $a$ — ускорение (м/с²)</span></li>
+        <li><span class="fx">$v=v_0\pm gt$</span><span class="fd">скорость при верт. движении</span><span class="vars">где: $v$ — скорость (м/с), $v_0$ — нач. скорость (м/с), $g$ — ускор. своб. падения (м/с²), $t$ — время (с)</span></li>
+        <li><span class="fx">$h=v_0t\pm\dfrac{gt^2}{2}$</span><span class="fd">высота/путь при броске</span><span class="vars">где: $h$ — высота/путь (м), $v_0$ — нач. скорость (м/с), $g$ — ускор. своб. падения (м/с²), $t$ — время (с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Без нач. скорости: $v=gt$, $h=gt^2/2$.</div>
     </div>
@@ -136,12 +137,12 @@
     <div class="group">
       <h3><span class="code">1.2</span>Вращение</h3>
       <ul class="flist">
-        <li><span class="fx">$\omega=\dfrac{\Delta\varphi}{\Delta t}$</span><span class="fd">угловая скорость</span></li>
-        <li><span class="fx">$\varepsilon=\dfrac{\Delta\omega}{\Delta t}$</span><span class="fd">угловое ускорение</span></li>
-        <li><span class="fx">$\varphi=\omega_0t+\dfrac{\varepsilon t^2}{2}$</span><span class="fd">угол поворота</span></li>
-        <li><span class="fx">$\omega=2\pi\nu$</span><span class="fd">через частоту</span></li>
-        <li><span class="fx">$\upsilon=\omega r$</span><span class="fd">линейная скорость точки</span></li>
-        <li><span class="fx">$\nu T=1$</span><span class="fd">частота и период обратны</span></li>
+        <li><span class="fx">$\omega=\dfrac{\Delta\varphi}{\Delta t}$</span><span class="fd">угловая скорость</span><span class="vars">где: $\omega$ — угловая скорость (рад/с), $\Delta\varphi$ — угол поворота (рад), $\Delta t$ — время (с)</span></li>
+        <li><span class="fx">$\varepsilon=\dfrac{\Delta\omega}{\Delta t}$</span><span class="fd">угловое ускорение</span><span class="vars">где: $\varepsilon$ — угловое ускорение (рад/с²), $\Delta\omega$ — изменение угл. скорости (рад/с²), $\Delta t$ — время (с)</span></li>
+        <li><span class="fx">$\varphi=\omega_0t+\dfrac{\varepsilon t^2}{2}$</span><span class="fd">угол поворота</span><span class="vars">где: $\varphi$ — угол поворота (рад), $\omega_0$ — нач. угл. скорость (рад/с), $t$ — время (с), $\varepsilon$ — угл. ускорение (рад/с²)</span></li>
+        <li><span class="fx">$\omega=2\pi\nu$</span><span class="fd">через частоту</span><span class="vars">где: $\omega$ — угловая скорость (рад/с), $\nu$ — частота (Гц)</span></li>
+        <li><span class="fx">$\upsilon=\omega r$</span><span class="fd">линейная скорость точки</span><span class="vars">где: $\upsilon$ — линейная скорость (м/с), $\omega$ — угловая скорость (рад/с), $r$ — радиус (м)</span></li>
+        <li><span class="fx">$\nu T=1$</span><span class="fd">частота и период обратны</span><span class="vars">где: $\nu$ — частота (Гц), $T$ — период (с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Клон линейной кинематики: $s\to\varphi$, $v\to\omega$, $a\to\varepsilon$.</div>
     </div>
@@ -149,11 +150,11 @@
     <div class="group">
       <h3><span class="code">1.3</span>Бросок под углом</h3>
       <ul class="flist">
-        <li><span class="fx">$v_{0x}=v_0\cos\alpha$</span><span class="fd">горизонт. составляющая</span></li>
-        <li><span class="fx">$v_{0y}=v_0\sin\alpha$</span><span class="fd">вертик. составляющая</span></li>
-        <li><span class="fx">$t_u=\dfrac{2v_{0y}}{g}$</span><span class="fd">время полёта</span></li>
-        <li><span class="fx">$h_{max}=\dfrac{v_{0y}^2}{2g}$</span><span class="fd">макс. высота</span></li>
-        <li><span class="fx">$s=v_{0x}t_u$</span><span class="fd">дальность полёта</span></li>
+        <li><span class="fx">$v_{0x}=v_0\cos\alpha$</span><span class="fd">горизонт. составляющая</span><span class="vars">где: $v_{0x}$ — горизонт. скорость (м/с), $v_0$ — нач. скорость (м/с), $\alpha$ — угол броска (рад)</span></li>
+        <li><span class="fx">$v_{0y}=v_0\sin\alpha$</span><span class="fd">вертик. составляющая</span><span class="vars">где: $v_{0y}$ — вертик. скорость (м/с), $v_0$ — нач. скорость (м/с), $\alpha$ — угол броска (рад)</span></li>
+        <li><span class="fx">$t_u=\dfrac{2v_{0y}}{g}$</span><span class="fd">время полёта</span><span class="vars">где: $t_u$ — время полёта (с), $v_{0y}$ — вертик. скорость (м/с), $g$ — ускор. своб. падения (м/с²)</span></li>
+        <li><span class="fx">$h_{max}=\dfrac{v_{0y}^2}{2g}$</span><span class="fd">макс. высота</span><span class="vars">где: $h_{max}$ — макс. высота (м), $v_{0y}$ — вертик. скорость (м/с), $g$ — ускор. своб. падения (м/с²)</span></li>
+        <li><span class="fx">$s=v_{0x}t_u$</span><span class="fd">дальность полёта</span><span class="vars">где: $s$ — дальность (м), $v_{0x}$ — горизонт. скорость (м/с), $t_u$ — время полёта (с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> По горизонтали скорость постоянна.</div>
     </div>
@@ -161,18 +162,18 @@
     <div class="group">
       <h3><span class="code">1.4</span>Криволинейное движение</h3>
       <ul class="flist">
-        <li><span class="fx">$\vec a=\vec a_r+\vec a_n$</span><span class="fd">полное ускорение</span></li>
-        <li><span class="fx">$a_n=\dfrac{v^2}{r}$</span><span class="fd">центростремительное ускорение</span></li>
-        <li><span class="fx">$m=\rho V$</span><span class="fd">масса через плотность</span></li>
+        <li><span class="fx">$\vec a=\vec a_r+\vec a_n$</span><span class="fd">полное ускорение</span><span class="vars">где: $\vec a$ — полное ускорение (м/с²), $\vec a_r$ — тангенциальное (м/с²), $\vec a_n$ — нормальное (центростр.) (м/с²)</span></li>
+        <li><span class="fx">$a_n=\dfrac{v^2}{r}$</span><span class="fd">центростремительное ускорение</span><span class="vars">где: $a_n$ — центростр. ускорение (м/с²), $v$ — скорость (м/с), $r$ — радиус траектории (м)</span></li>
+        <li><span class="fx">$m=\rho V$</span><span class="fd">масса через плотность</span><span class="vars">где: $m$ — масса (кг), $\rho$ — плотность (кг/м³), $V$ — объём (м³)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">1.5</span>Законы Ньютона</h3>
       <ul class="flist">
-        <li><span class="fx">$\vec F=m\vec a$</span><span class="fd">II закон Ньютона</span></li>
-        <li><span class="fx">$\vec F_1=-\vec F_2$</span><span class="fd">III закон — разные тела</span></li>
-        <li><span class="fx">$F_{el}=-k\Delta l$</span><span class="fd">закон Гука</span></li>
+        <li><span class="fx">$\vec F=m\vec a$</span><span class="fd">II закон Ньютона</span><span class="vars">где: $\vec F$ — сила (Н), $m$ — масса (кг), $\vec a$ — ускорение (м/с²)</span></li>
+        <li><span class="fx">$\vec F_1=-\vec F_2$</span><span class="fd">III закон — разные тела</span><span class="vars">где: $\vec F_1$, $\vec F_2$ — силы взаимодействия тел (Н)</span></li>
+        <li><span class="fx">$F_{el}=-k\Delta l$</span><span class="fd">закон Гука</span><span class="vars">где: $F_{el}$ — сила упругости (Н), $k$ — жёсткость (Н/м), $\Delta l$ — удлинение (м)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Пара III закона не уравновешивает друг друга.</div>
     </div>
@@ -180,26 +181,26 @@
     <div class="group">
       <h3><span class="code">1.6</span>Наклонная плоскость</h3>
       <ul class="flist">
-        <li><span class="fx">$a=g(\sin\alpha\pm\mu\cos\alpha)$</span><span class="fd">ускорение с трением</span></li>
+        <li><span class="fx">$a=g(\sin\alpha\pm\mu\cos\alpha)$</span><span class="fd">ускорение с трением</span><span class="vars">где: $a$ — ускорение (м/с²), $g$ — ускор. своб. падения (м/с²), $\alpha$ — угол наклона (рад), $\mu$ — коэфф. трения (безразм.)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">1.7</span>Импульс, энергия</h3>
       <ul class="flist">
-        <li><span class="fx">$\vec p=m\vec v$</span><span class="fd">импульс тела</span></li>
-        <li><span class="fx">$\vec F\Delta t=\Delta\vec p$</span><span class="fd">изменение импульса</span></li>
-        <li><span class="fx">$E_k=\dfrac{mv^2}{2}$</span><span class="fd">кинетическая энергия</span></li>
+        <li><span class="fx">$\vec p=m\vec v$</span><span class="fd">импульс тела</span><span class="vars">где: $\vec p$ — импульс (кг·м/с), $m$ — масса (кг), $\vec v$ — скорость (м/с)</span></li>
+        <li><span class="fx">$\vec F\Delta t=\Delta\vec p$</span><span class="fd">изменение импульса</span><span class="vars">где: $\vec F$ — сила (Н), $\Delta t$ — время действия (с), $\Delta\vec p$ — изменение импульса (кг·м/с)</span></li>
+        <li><span class="fx">$E_k=\dfrac{mv^2}{2}$</span><span class="fd">кинетическая энергия</span><span class="vars">где: $E_k$ — кинетич. энергия (Дж), $m$ — масса (кг), $v$ — скорость (м/с)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">1.8</span>Момент, трение, мощность</h3>
       <ul class="flist">
-        <li><span class="fx">$M=Fl$</span><span class="fd">момент силы</span></li>
-        <li><span class="fx">$F_1l_1=F_2l_2$</span><span class="fd">правило рычага</span></li>
-        <li><span class="fx">$F_{тр}=\mu N$</span><span class="fd">трение скольжения</span></li>
-        <li><span class="fx">$N=\dfrac{A}{t}=\vec F\cdot\vec v$</span><span class="fd">мощность</span></li>
+        <li><span class="fx">$M=Fl$</span><span class="fd">момент силы</span><span class="vars">где: $M$ — момент силы (Н·м), $F$ — сила (Н), $l$ — плечо силы (м)</span></li>
+        <li><span class="fx">$F_1l_1=F_2l_2$</span><span class="fd">правило рычага</span><span class="vars">где: $F_1,F_2$ — силы (Н), $l_1,l_2$ — плечи (м)</span></li>
+        <li><span class="fx">$F_{тр}=\mu N$</span><span class="fd">трение скольжения</span><span class="vars">где: $F_{тр}$ — сила трения (Н), $\mu$ — коэфф. трения (безразм.), $N$ — сила реакции опоры (Н)</span></li>
+        <li><span class="fx">$N=\dfrac{A}{t}=\vec F\cdot\vec v$</span><span class="fd">мощность</span><span class="vars">где: $N$ — мощность (Вт), $A$ — работа (Дж), $t$ — время (с), $\vec F$ — сила (Н), $\vec v$ — скорость (м/с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Если тело не движется, трение = приложенной силе, не $\mu mg$.</div>
     </div>
@@ -207,10 +208,10 @@
     <div class="group">
       <h3><span class="code">1.9</span>Работа, энергия, вес</h3>
       <ul class="flist">
-        <li><span class="fx">$A=FS\cos\alpha$</span><span class="fd">работа силы</span></li>
-        <li><span class="fx">$E_p=mgh$</span><span class="fd">потенциальная энергия</span></li>
-        <li><span class="fx">$E_k+E_p=const$</span><span class="fd">сохранение энергии</span></li>
-        <li><span class="fx">$\vec P=m(\vec g-\vec a)$</span><span class="fd">вес тела с ускорением</span></li>
+        <li><span class="fx">$A=FS\cos\alpha$</span><span class="fd">работа силы</span><span class="vars">где: $A$ — работа (Дж), $F$ — сила (Н), $S$ — перемещение (м), $\alpha$ — угол между $F$ и $S$ (рад)</span></li>
+        <li><span class="fx">$E_p=mgh$</span><span class="fd">потенциальная энергия</span><span class="vars">где: $E_p$ — потенц. энергия (Дж), $m$ — масса (кг), $g$ — ускор. своб. падения (м/с²), $h$ — высота (м)</span></li>
+        <li><span class="fx">$E_k+E_p=const$</span><span class="fd">сохранение энергии</span><span class="vars">где: $E_k$ — кинетич. энергия (Дж), $E_p$ — потенц. энергия (Дж)</span></li>
+        <li><span class="fx">$\vec P=m(\vec g-\vec a)$</span><span class="fd">вес тела с ускорением</span><span class="vars">где: $\vec P$ — вес тела (Н), $m$ — масса (кг), $\vec g$ — ускор. своб. падения (м/с²), $\vec a$ — ускорение тела (м/с²)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Вес зависит от направления ускорения, не скорости.</div>
     </div>
@@ -218,9 +219,9 @@
     <div class="group">
       <h3><span class="code">1.10</span>Гравитация, космич. скорости</h3>
       <ul class="flist">
-        <li><span class="fx">$g=\dfrac{GM}{R^2}$</span><span class="fd">ускорение своб. падения</span></li>
-        <li><span class="fx">$v_I=\sqrt{gR}$</span><span class="fd">первая косм. скорость</span></li>
-        <li><span class="fx">$v_{II}=\sqrt{2gR}$</span><span class="fd">вторая косм. скорость</span></li>
+        <li><span class="fx">$g=\dfrac{GM}{R^2}$</span><span class="fd">ускорение своб. падения</span><span class="vars">где: $g$ — ускор. своб. падения (м/с²), $G$ — гравитац. постоянная (Н·м²/кг²), $M$ — масса планеты (кг), $R$ — радиус (м)</span></li>
+        <li><span class="fx">$v_I=\sqrt{gR}$</span><span class="fd">первая косм. скорость</span><span class="vars">где: $v_I$ — первая косм. скорость (м/с), $g$ — ускор. своб. падения (м/с²), $R$ — радиус планеты (м)</span></li>
+        <li><span class="fx">$v_{II}=\sqrt{2gR}$</span><span class="fd">вторая косм. скорость</span><span class="vars">где: $v_{II}$ — вторая косм. скорость (м/с), $g$ — ускор. своб. падения (м/с²), $R$ — радиус планеты (м)</span></li>
       </ul>
       <div class="note"><b>⚠</b> $GM_{Земли}\approx4\times10^{14}$ м³/с²; $\rho=\dfrac{3g}{4\pi GR}$.</div>
     </div>
@@ -228,10 +229,10 @@
     <div class="group">
       <h3><span class="code">1.11</span>Колебания</h3>
       <ul class="flist">
-        <li><span class="fx">$x=A\sin(\omega t+\varphi_0)$</span><span class="fd">координата</span></li>
-        <li><span class="fx">$a=-\omega^2x$</span><span class="fd">ускорение</span></li>
-        <li><span class="fx">$\omega=\sqrt{k/m}$, $T=2\pi\sqrt{m/k}$</span><span class="fd">пружинный маятник</span></li>
-        <li><span class="fx">$\omega=\sqrt{g/l}$, $T=2\pi\sqrt{l/g}$</span><span class="fd">математич. маятник</span></li>
+        <li><span class="fx">$x=A\sin(\omega t+\varphi_0)$</span><span class="fd">координата</span><span class="vars">где: $x$ — координата (м), $A$ — амплитуда (м), $\omega$ — угл. частота (рад/с), $t$ — время (с), $\varphi_0$ — нач. фаза (рад)</span></li>
+        <li><span class="fx">$a=-\omega^2x$</span><span class="fd">ускорение</span><span class="vars">где: $a$ — ускорение (м/с²), $\omega$ — угл. частота (рад/с), $x$ — координата (м)</span></li>
+        <li><span class="fx">$\omega=\sqrt{k/m}$, $T=2\pi\sqrt{m/k}$</span><span class="fd">пружинный маятник</span><span class="vars">где: $\omega$ — угл. частота (рад/с), $k$ — жёсткость пружины (Н/м), $m$ — масса груза (кг), $T$ — период (с)</span></li>
+        <li><span class="fx">$\omega=\sqrt{g/l}$, $T=2\pi\sqrt{l/g}$</span><span class="fd">математич. маятник</span><span class="vars">где: $\omega$ — угл. частота (рад/с), $g$ — ускор. своб. падения (м/с²), $l$ — длина нити (м), $T$ — период (с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> $T$ пружины не завис. от $g$; $T$ маятника не завис. от $m$.</div>
     </div>
@@ -239,28 +240,28 @@
     <div class="group">
       <h3><span class="code">1.12</span>Волны</h3>
       <ul class="flist">
-        <li><span class="fx">$v=\lambda\nu$</span><span class="fd">скорость волны</span></li>
-        <li><span class="fx">$v=\sqrt{T/\rho_{ch}}$</span><span class="fd">волна на струне</span></li>
-        <li><span class="fx">$v=\sqrt{E/\rho}$</span><span class="fd">звук в тв. теле</span></li>
+        <li><span class="fx">$v=\lambda\nu$</span><span class="fd">скорость волны</span><span class="vars">где: $v$ — скорость волны (м/с), $\lambda$ — длина волны (м), $\nu$ — частота (Гц)</span></li>
+        <li><span class="fx">$v=\sqrt{T/\rho_{ch}}$</span><span class="fd">волна на струне</span><span class="vars">где: $v$ — скорость волны (м/с), $T$ — сила натяжения (Н), $\rho_{ch}$ — линейная плотность струны (кг/м)</span></li>
+        <li><span class="fx">$v=\sqrt{E/\rho}$</span><span class="fd">звук в тв. теле</span><span class="vars">где: $v$ — скорость звука (м/с), $E$ — модуль Юнга (Па), $\rho$ — плотность (кг/м³)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">1.13</span>Упругость тел</h3>
       <ul class="flist">
-        <li><span class="fx">$\Delta l=l-l_0$</span><span class="fd">абс. удлинение</span></li>
-        <li><span class="fx">$\varepsilon=\Delta l/l_0$</span><span class="fd">отн. удлинение</span></li>
-        <li><span class="fx">$k=\dfrac{ES}{l_0}$</span><span class="fd">жёсткость</span></li>
+        <li><span class="fx">$\Delta l=l-l_0$</span><span class="fd">абс. удлинение</span><span class="vars">где: $\Delta l$ — абс. удлинение (м), $l$ — конечная длина (м), $l_0$ — начальная длина (м)</span></li>
+        <li><span class="fx">$\varepsilon=\Delta l/l_0$</span><span class="fd">отн. удлинение</span><span class="vars">где: $\varepsilon$ — отн. удлинение (безразм.), $\Delta l$ — абс. удлинение (м), $l_0$ — начальная длина (м)</span></li>
+        <li><span class="fx">$k=\dfrac{ES}{l_0}$</span><span class="fd">жёсткость</span><span class="vars">где: $k$ — жёсткость (Н/м), $E$ — модуль Юнга (Па), $S$ — площадь сечения (м²), $l_0$ — начальная длина (м)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">1.14</span>Гидростатика</h3>
       <ul class="flist">
-        <li><span class="fx">$F_A=\rho_bV_bg$</span><span class="fd">сила Архимеда</span></li>
-        <li><span class="fx">$p=\rho gh$</span><span class="fd">гидростат. давление</span></li>
-        <li><span class="fx">$S_1v_1=S_2v_2$</span><span class="fd">неразрывность</span></li>
-        <li><span class="fx">$p+\dfrac{\rho v^2}{2}+\rho gh=const$</span><span class="fd">Бернулли</span></li>
+        <li><span class="fx">$F_A=\rho_bV_bg$</span><span class="fd">сила Архимеда</span><span class="vars">где: $F_A$ — сила Архимеда (Н), $\rho_b$ — плотность жидкости (кг/м³), $V_b$ — объём погруж. части (м³), $g$ — ускор. своб. падения (м/с²)</span></li>
+        <li><span class="fx">$p=\rho gh$</span><span class="fd">гидростат. давление</span><span class="vars">где: $p$ — давление (Па), $\rho$ — плотность жидкости (кг/м³), $g$ — ускор. своб. падения (м/с²), $h$ — глубина (м)</span></li>
+        <li><span class="fx">$S_1v_1=S_2v_2$</span><span class="fd">неразрывность</span><span class="vars">где: $S_1,S_2$ — площади сечения (м²), $v_1,v_2$ — скорости потока (м/с)</span></li>
+        <li><span class="fx">$p+\dfrac{\rho v^2}{2}+\rho gh=const$</span><span class="fd">Бернулли</span><span class="vars">где: $p$ — давление (Па), $\rho$ — плотность (кг/м³), $v$ — скорость потока (м/с), $g$ — ускор. своб. падения (м/с²), $h$ — высота (м)</span></li>
       </ul>
     </div>
 
@@ -279,18 +280,18 @@
     <div class="group">
       <h3><span class="code">2.1</span>Количество вещества</h3>
       <ul class="flist">
-        <li><span class="fx">$\nu=\dfrac{N}{N_A}=\dfrac{m}{M}$</span><span class="fd">кол-во вещества</span></li>
-        <li><span class="fx">$n=\dfrac{N}{V}$</span><span class="fd">концентрация частиц</span></li>
-        <li><span class="fx">$d=\sqrt[3]{\dfrac{VM}{mN_A}}$</span><span class="fd">расстояние между молекулами</span></li>
-        <li><span class="fx">$\rho=nm_0$</span><span class="fd">плотность газа</span></li>
+        <li><span class="fx">$\nu=\dfrac{N}{N_A}=\dfrac{m}{M}$</span><span class="fd">кол-во вещества</span><span class="vars">где: $\nu$ — кол-во вещества (моль), $N$ — число частиц (безразм.), $N_A$ — число Авогадро (моль⁻¹), $m$ — масса (кг), $M$ — молярная масса (кг/моль)</span></li>
+        <li><span class="fx">$n=\dfrac{N}{V}$</span><span class="fd">концентрация частиц</span><span class="vars">где: $n$ — концентрация (м⁻³), $N$ — число частиц (безразм.), $V$ — объём (м³)</span></li>
+        <li><span class="fx">$d=\sqrt[3]{\dfrac{VM}{mN_A}}$</span><span class="fd">расстояние между молекулами</span><span class="vars">где: $d$ — расстояние (м), $V$ — объём (м³), $M$ — молярная масса (кг/моль), $m$ — масса (кг), $N_A$ — число Авогадро (моль⁻¹)</span></li>
+        <li><span class="fx">$\rho=nm_0$</span><span class="fd">плотность газа</span><span class="vars">где: $\rho$ — плотность (кг/м³), $n$ — концентрация (м⁻³), $m_0$ — масса одной молекулы (кг)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">2.2</span>Уравнение МКТ</h3>
       <ul class="flist">
-        <li><span class="fx">$p=\dfrac{2}{3}n\bar E_k=nkT$</span><span class="fd">основное уравнение МКТ</span></li>
-        <li><span class="fx">$\bar E_k=\dfrac{3}{2}kT$</span><span class="fd">ср. кинетич. энергия молекулы</span></li>
+        <li><span class="fx">$p=\dfrac{2}{3}n\bar E_k=nkT$</span><span class="fd">основное уравнение МКТ</span><span class="vars">где: $p$ — давление (Па), $n$ — концентрация (м⁻³), $\bar E_k$ — ср. кинетич. энергия (Дж), $k$ — пост. Больцмана (Дж/К), $T$ — температура (К)</span></li>
+        <li><span class="fx">$\bar E_k=\dfrac{3}{2}kT$</span><span class="fd">ср. кинетич. энергия молекулы</span><span class="vars">где: $\bar E_k$ — ср. кинетич. энергия (Дж), $k$ — пост. Больцмана (Дж/К), $T$ — температура (К)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Энергия зависит только от $T$.</div>
     </div>
@@ -298,27 +299,27 @@
     <div class="group">
       <h3><span class="code">2.3</span>Скорость молекул</h3>
       <ul class="flist">
-        <li><span class="fx">$\bar\upsilon=\sqrt{\dfrac{3RT}{\mu}}=\sqrt{\dfrac{3kT}{m_0}}$</span><span class="fd">среднеквадр. скорость</span></li>
-        <li><span class="fx">$T=t+273$</span><span class="fd">°C → K</span></li>
+        <li><span class="fx">$\bar\upsilon=\sqrt{\dfrac{3RT}{\mu}}=\sqrt{\dfrac{3kT}{m_0}}$</span><span class="fd">среднеквадр. скорость</span><span class="vars">где: $\bar\upsilon$ — среднеквадр. скорость (м/с), $R$ — газовая постоянная (Дж/(моль·К)), $T$ — температура (К), $\mu$ — молярная масса (кг/моль), $k$ — пост. Больцмана (Дж/К), $m_0$ — масса молекулы (кг)</span></li>
+        <li><span class="fx">$T=t+273$</span><span class="fd">°C → K</span><span class="vars">где: $T$ — температура в Кельвинах (К), $t$ — температура в °C (К)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">2.4</span>Уравнение состояния</h3>
       <ul class="flist">
-        <li><span class="fx">$pV=\nu RT$</span><span class="fd">Менделеева–Клапейрона</span></li>
-        <li><span class="fx">$p=\dfrac{\rho}{M}RT$</span><span class="fd">через плотность</span></li>
-        <li><span class="fx">$\dfrac{pV}{T}=const$</span><span class="fd">объединённый закон</span></li>
+        <li><span class="fx">$pV=\nu RT$</span><span class="fd">Менделеева–Клапейрона</span><span class="vars">где: $p$ — давление (Па), $V$ — объём (м³), $\nu$ — кол-во вещества (моль), $R$ — газовая постоянная (Дж/(моль·К)), $T$ — температура (К)</span></li>
+        <li><span class="fx">$p=\dfrac{\rho}{M}RT$</span><span class="fd">через плотность</span><span class="vars">где: $p$ — давление (Па), $\rho$ — плотность (кг/м³), $M$ — молярная масса (кг/моль), $R$ — газовая постоянная (Дж/(моль·К)), $T$ — температура (К)</span></li>
+        <li><span class="fx">$\dfrac{pV}{T}=const$</span><span class="fd">объединённый закон</span><span class="vars">где: $p$ — давление (Па), $V$ — объём (м³), $T$ — температура (К)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">2.5</span>I закон термодинамики</h3>
       <ul class="flist">
-        <li><span class="fx">$Q=A+\Delta U$</span><span class="fd">первый закон термодинамики</span></li>
-        <li><span class="fx">$A=p\Delta V$</span><span class="fd">работа при изобаре</span></li>
-        <li><span class="fx">$\Delta U=\dfrac{3}{2}\nu R\Delta T$</span><span class="fd">внутр. энергия одноатомн. газа</span></li>
-        <li><span class="fx">$C=\dfrac{Q}{T_2-T_1}$</span><span class="fd">теплоёмкость</span></li>
+        <li><span class="fx">$Q=A+\Delta U$</span><span class="fd">первый закон термодинамики</span><span class="vars">где: $Q$ — теплота (Дж), $A$ — работа газа (Дж), $\Delta U$ — изменение внутр. энергии (Дж)</span></li>
+        <li><span class="fx">$A=p\Delta V$</span><span class="fd">работа при изобаре</span><span class="vars">где: $A$ — работа (Дж), $p$ — давление (Па), $\Delta V$ — изменение объёма (м³)</span></li>
+        <li><span class="fx">$\Delta U=\dfrac{3}{2}\nu R\Delta T$</span><span class="fd">внутр. энергия одноатомн. газа</span><span class="vars">где: $\Delta U$ — изменение внутр. энергии (Дж), $\nu$ — кол-во вещества (моль), $R$ — газовая постоянная (Дж/(моль·К)), $\Delta T$ — изменение температуры (К)</span></li>
+        <li><span class="fx">$C=\dfrac{Q}{T_2-T_1}$</span><span class="fd">теплоёмкость</span><span class="vars">где: $C$ — теплоёмкость (Дж/К), $Q$ — теплота (Дж), $T_1,T_2$ — нач. и кон. температуры (К)</span></li>
       </ul>
       <div class="note"><b>⚠</b> При $V=const$: $Q=\Delta U$.</div>
     </div>
@@ -326,36 +327,36 @@
     <div class="group">
       <h3><span class="code">2.6</span>Удельные теплоты</h3>
       <ul class="flist">
-        <li><span class="fx">$c=\dfrac{Q}{m\Delta T}$</span><span class="fd">удельная теплоёмкость</span></li>
-        <li><span class="fx">$\lambda=Q/m$</span><span class="fd">теплота плавления</span></li>
-        <li><span class="fx">$r=Q/m$</span><span class="fd">теплота парообразования</span></li>
-        <li><span class="fx">$q=Q/m$</span><span class="fd">теплота сгорания</span></li>
+        <li><span class="fx">$c=\dfrac{Q}{m\Delta T}$</span><span class="fd">удельная теплоёмкость</span><span class="vars">где: $c$ — уд. теплоёмкость (Дж/(кг·К)), $Q$ — теплота (Дж), $m$ — масса (кг), $\Delta T$ — изменение температуры (К)</span></li>
+        <li><span class="fx">$\lambda=Q/m$</span><span class="fd">теплота плавления</span><span class="vars">где: $\lambda$ — уд. теплота плавления (Дж/кг), $Q$ — теплота (Дж), $m$ — масса (кг)</span></li>
+        <li><span class="fx">$r=Q/m$</span><span class="fd">теплота парообразования</span><span class="vars">где: $r$ — уд. теплота парообразования (Дж/кг), $Q$ — теплота (Дж), $m$ — масса (кг)</span></li>
+        <li><span class="fx">$q=Q/m$</span><span class="fd">теплота сгорания</span><span class="vars">где: $q$ — уд. теплота сгорания (Дж/кг), $Q$ — теплота (Дж), $m$ — масса (кг)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">2.7</span>КПД тепловой машины</h3>
       <ul class="flist">
-        <li><span class="fx">$\eta=\dfrac{Q_1-Q_2}{Q_1}\cdot100\%$</span><span class="fd">реальный КПД</span></li>
-        <li><span class="fx">$\eta=\dfrac{T_1-T_2}{T_1}\cdot100\%$</span><span class="fd">КПД цикла Карно (максимум)</span></li>
+        <li><span class="fx">$\eta=\dfrac{Q_1-Q_2}{Q_1}\cdot100\%$</span><span class="fd">реальный КПД</span><span class="vars">где: $\eta$ — КПД (%), $Q_1$ — теплота от нагревателя (Дж), $Q_2$ — теплота холодильнику (Дж)</span></li>
+        <li><span class="fx">$\eta=\dfrac{T_1-T_2}{T_1}\cdot100\%$</span><span class="fd">КПД цикла Карно (максимум)</span><span class="vars">где: $\eta$ — КПД (%), $T_1$ — темп. нагревателя (К), $T_2$ — темп. холодильника (К)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">2.8</span>Поверхностное натяжение</h3>
       <ul class="flist">
-        <li><span class="fx">$F=\sigma l$</span><span class="fd">сила натяжения</span></li>
-        <li><span class="fx">$W=\sigma S$</span><span class="fd">энергия плёнки</span></li>
-        <li><span class="fx">$h=\dfrac{2\sigma}{\rho gr}$</span><span class="fd">капиллярное поднятие</span></li>
-        <li><span class="fx">$\Delta p=\dfrac{2\sigma}{R}$</span><span class="fd">лапласовское давление</span></li>
+        <li><span class="fx">$F=\sigma l$</span><span class="fd">сила натяжения</span><span class="vars">где: $F$ — сила натяжения (Н), $\sigma$ — коэфф. поверхн. натяжения (Н/м), $l$ — длина границы плёнки (м)</span></li>
+        <li><span class="fx">$W=\sigma S$</span><span class="fd">энергия плёнки</span><span class="vars">где: $W$ — энергия плёнки (Дж), $\sigma$ — коэфф. поверхн. натяжения (Н/м), $S$ — площадь (м²)</span></li>
+        <li><span class="fx">$h=\dfrac{2\sigma}{\rho gr}$</span><span class="fd">капиллярное поднятие</span><span class="vars">где: $h$ — высота поднятия (м), $\sigma$ — коэфф. поверхн. натяжения (Н/м), $\rho$ — плотность (кг/м³), $g$ — ускор. своб. падения (м/с²), $r$ — радиус капилляра (м)</span></li>
+        <li><span class="fx">$\Delta p=\dfrac{2\sigma}{R}$</span><span class="fd">лапласовское давление</span><span class="vars">где: $\Delta p$ — избыточное давление (Па), $\sigma$ — коэфф. поверхн. натяжения (Н/м), $R$ — радиус поверхности (м)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">2.9</span>Влажность воздуха</h3>
       <ul class="flist">
-        <li><span class="fx">$\rho=m/V$</span><span class="fd">абс. влажность</span></li>
-        <li><span class="fx">$\varphi=\dfrac{\rho}{\rho_0}\cdot100\%$</span><span class="fd">отн. влажность</span></li>
+        <li><span class="fx">$\rho=m/V$</span><span class="fd">абс. влажность</span><span class="vars">где: $\rho$ — абс. влажность (кг/м³), $m$ — масса пара (кг), $V$ — объём воздуха (м³)</span></li>
+        <li><span class="fx">$\varphi=\dfrac{\rho}{\rho_0}\cdot100\%$</span><span class="fd">отн. влажность</span><span class="vars">где: $\varphi$ — отн. влажность (%), $\rho$ — плотность пара (кг/м³), $\rho_0$ — плотность насыщ. пара (кг/м³)</span></li>
       </ul>
     </div>
 
@@ -374,11 +375,11 @@
     <div class="group">
       <h3><span class="code">3.1</span>Кулон, поле, потенциал</h3>
       <ul class="flist">
-        <li><span class="fx">$F=k\dfrac{|qQ|}{\varepsilon r^2}$</span><span class="fd">закон Кулона</span></li>
-        <li><span class="fx">$E=k\dfrac{|Q|}{\varepsilon r^2}$</span><span class="fd">напряжённость точечного заряда</span></li>
-        <li><span class="fx">$F=qE$</span><span class="fd">сила на заряд</span></li>
-        <li><span class="fx">$\varphi=k\dfrac{Q}{\varepsilon r}$</span><span class="fd">потенциал</span></li>
-        <li><span class="fx">$W_p=q\varphi$</span><span class="fd">потенц. энергия заряда</span></li>
+        <li><span class="fx">$F=k\dfrac{|qQ|}{\varepsilon r^2}$</span><span class="fd">закон Кулона</span><span class="vars">где: $F$ — сила (Н), $k$ — коэфф. Кулона (Н·м²/Кл²), $q,Q$ — заряды (Кл), $\varepsilon$ — диэлектрич. проницаемость (безразм.), $r$ — расстояние (м)</span></li>
+        <li><span class="fx">$E=k\dfrac{|Q|}{\varepsilon r^2}$</span><span class="fd">напряжённость точечного заряда</span><span class="vars">где: $E$ — напряжённость (В/м), $k$ — коэфф. Кулона (Н·м²/Кл²), $Q$ — заряд (Кл), $\varepsilon$ — диэлектрич. проницаемость (безразм.), $r$ — расстояние (м)</span></li>
+        <li><span class="fx">$F=qE$</span><span class="fd">сила на заряд</span><span class="vars">где: $F$ — сила (Н), $q$ — заряд (Кл), $E$ — напряжённость поля (В/м)</span></li>
+        <li><span class="fx">$\varphi=k\dfrac{Q}{\varepsilon r}$</span><span class="fd">потенциал</span><span class="vars">где: $\varphi$ — потенциал (В), $k$ — коэфф. Кулона (Н·м²/Кл²), $Q$ — заряд (Кл), $\varepsilon$ — диэлектрич. проницаемость (безразм.), $r$ — расстояние (м)</span></li>
+        <li><span class="fx">$W_p=q\varphi$</span><span class="fd">потенц. энергия заряда</span><span class="vars">где: $W_p$ — потенц. энергия (Дж), $q$ — заряд (Кл), $\varphi$ — потенциал (В)</span></li>
       </ul>
       <div class="note"><b>⚠</b> $E$ — вектор, $\varphi$ — скаляр.</div>
     </div>
@@ -386,20 +387,20 @@
     <div class="group">
       <h3><span class="code">3.2</span>Однородное поле</h3>
       <ul class="flist">
-        <li><span class="fx">$E=\dfrac{\varphi_1-\varphi_2}{d}$</span><span class="fd">напряжённость</span></li>
-        <li><span class="fx">$A=q(\varphi_1-\varphi_2)$</span><span class="fd">работа поля</span></li>
-        <li><span class="fx">$E=\dfrac{U}{d}=\dfrac{\sigma}{\varepsilon_0}$</span><span class="fd">через напряжение</span></li>
+        <li><span class="fx">$E=\dfrac{\varphi_1-\varphi_2}{d}$</span><span class="fd">напряжённость</span><span class="vars">где: $E$ — напряжённость (В/м), $\varphi_1,\varphi_2$ — потенциалы (В), $d$ — расстояние между точками (м)</span></li>
+        <li><span class="fx">$A=q(\varphi_1-\varphi_2)$</span><span class="fd">работа поля</span><span class="vars">где: $A$ — работа (Дж), $q$ — заряд (Кл), $\varphi_1,\varphi_2$ — потенциалы (В)</span></li>
+        <li><span class="fx">$E=\dfrac{U}{d}=\dfrac{\sigma}{\varepsilon_0}$</span><span class="fd">через напряжение</span><span class="vars">где: $E$ — напряжённость (В/м), $U$ — напряжение (В), $d$ — расстояние (м), $\sigma$ — поверхн. плотность заряда (Кл/м²), $\varepsilon_0$ — электрич. постоянная (Ф/м)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">3.3</span>Конденсаторы</h3>
       <ul class="flist">
-        <li><span class="fx">$C=\dfrac{\varepsilon_0S}{d}$</span><span class="fd">ёмкость плоского конд-ра</span></li>
-        <li><span class="fx">$q=CU$</span><span class="fd">заряд конденсатора</span></li>
-        <li><span class="fx">$W_{el}=\dfrac{CU^2}{2}$</span><span class="fd">энергия конденсатора</span></li>
-        <li><span class="fx">$C_p=\sum C_i$</span><span class="fd">параллельно</span></li>
-        <li><span class="fx">$\dfrac1{C_{посл}}=\sum\dfrac1{C_i}$</span><span class="fd">последовательно</span></li>
+        <li><span class="fx">$C=\dfrac{\varepsilon_0S}{d}$</span><span class="fd">ёмкость плоского конд-ра</span><span class="vars">где: $C$ — ёмкость (Ф), $\varepsilon_0$ — электрич. постоянная (Ф/м), $S$ — площадь пластин (м²), $d$ — расстояние между ними (м)</span></li>
+        <li><span class="fx">$q=CU$</span><span class="fd">заряд конденсатора</span><span class="vars">где: $q$ — заряд (Кл), $C$ — ёмкость (Ф), $U$ — напряжение (В)</span></li>
+        <li><span class="fx">$W_{el}=\dfrac{CU^2}{2}$</span><span class="fd">энергия конденсатора</span><span class="vars">где: $W_{el}$ — энергия (Дж), $C$ — ёмкость (Ф), $U$ — напряжение (В)</span></li>
+        <li><span class="fx">$C_p=\sum C_i$</span><span class="fd">параллельно</span><span class="vars">где: $C_p$ — общая ёмкость (Ф), $C_i$ — ёмкости конденсаторов (Ф)</span></li>
+        <li><span class="fx">$\dfrac1{C_{посл}}=\sum\dfrac1{C_i}$</span><span class="fd">последовательно</span><span class="vars">где: $C_{посл}$ — общая ёмкость (Ф), $C_i$ — ёмкости конденсаторов (Ф)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Правило обратно сопротивлениям.</div>
     </div>
@@ -407,21 +408,21 @@
     <div class="group">
       <h3><span class="code">3.4</span>Постоянный ток</h3>
       <ul class="flist">
-        <li><span class="fx">$I=\dfrac{U}{R}$</span><span class="fd">закон Ома</span></li>
-        <li><span class="fx">$Q=I^2Rt$</span><span class="fd">закон Джоуля–Ленца</span></li>
-        <li><span class="fx">$P=IU$</span><span class="fd">мощность</span></li>
-        <li><span class="fx">$I=ne\upsilon S$</span><span class="fd">через дрейф носителей</span></li>
-        <li><span class="fx">$q=It$</span><span class="fd">заряд за время $t$</span></li>
+        <li><span class="fx">$I=\dfrac{U}{R}$</span><span class="fd">закон Ома</span><span class="vars">где: $I$ — сила тока (Н), $U$ — напряжение (В), $R$ — сопротивление (Ом)</span></li>
+        <li><span class="fx">$Q=I^2Rt$</span><span class="fd">закон Джоуля–Ленца</span><span class="vars">где: $Q$ — теплота (Дж), $I$ — сила тока (Н), $R$ — сопротивление (Ом), $t$ — время (с)</span></li>
+        <li><span class="fx">$P=IU$</span><span class="fd">мощность</span><span class="vars">где: $P$ — мощность (Вт), $I$ — сила тока (Н), $U$ — напряжение (В)</span></li>
+        <li><span class="fx">$I=ne\upsilon S$</span><span class="fd">через дрейф носителей</span><span class="vars">где: $I$ — сила тока (Н), $n$ — концентрация носителей (м⁻³), $e$ — заряд электрона (Кл), $\upsilon$ — скорость дрейфа (м/с), $S$ — площадь сечения (м²)</span></li>
+        <li><span class="fx">$q=It$</span><span class="fd">заряд за время $t$</span><span class="vars">где: $q$ — заряд (Кл), $I$ — сила тока (Н), $t$ — время (с)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">3.5</span>Сопротивление</h3>
       <ul class="flist">
-        <li><span class="fx">$R=\dfrac{\rho l}{S}$</span><span class="fd">через уд. сопротивление</span></li>
-        <li><span class="fx">$R=R_0(1+\alpha\Delta t)$</span><span class="fd">завис. от температуры</span></li>
-        <li><span class="fx">$R_{посл}=\sum R_i$</span><span class="fd">последовательно</span></li>
-        <li><span class="fx">$\dfrac1{R_p}=\sum\dfrac1{R_i}$</span><span class="fd">параллельно</span></li>
+        <li><span class="fx">$R=\dfrac{\rho l}{S}$</span><span class="fd">через уд. сопротивление</span><span class="vars">где: $R$ — сопротивление (Ом), $\rho$ — уд. сопротивление (Ом·м), $l$ — длина проводника (м), $S$ — площадь сечения (м²)</span></li>
+        <li><span class="fx">$R=R_0(1+\alpha\Delta t)$</span><span class="fd">завис. от температуры</span><span class="vars">где: $R$ — сопротивление (Ом), $R_0$ — нач. сопротивление (Ом), $\alpha$ — темп. коэфф. (К⁻¹), $\Delta t$ — изменение температуры (К)</span></li>
+        <li><span class="fx">$R_{посл}=\sum R_i$</span><span class="fd">последовательно</span><span class="vars">где: $R_{посл}$ — общее сопротивление (Ом), $R_i$ — сопротивления участков (Ом)</span></li>
+        <li><span class="fx">$\dfrac1{R_p}=\sum\dfrac1{R_i}$</span><span class="fd">параллельно</span><span class="vars">где: $R_p$ — общее сопротивление (Ом), $R_i$ — сопротивления участков (Ом)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Правило обратно ёмкостям.</div>
     </div>
@@ -429,28 +430,28 @@
     <div class="group">
       <h3><span class="code">3.6</span>ЭДС, полная цепь</h3>
       <ul class="flist">
-        <li><span class="fx">$\varepsilon=\dfrac{A_{хим}}{q}$</span><span class="fd">ЭДС источника</span></li>
-        <li><span class="fx">$I=\dfrac{\varepsilon}{R+r}$</span><span class="fd">закон Ома для полной цепи</span></li>
-        <li><span class="fx">$\eta=\dfrac{R}{R+r}$</span><span class="fd">КПД источника</span></li>
+        <li><span class="fx">$\varepsilon=\dfrac{A_{хим}}{q}$</span><span class="fd">ЭДС источника</span><span class="vars">где: $\varepsilon$ — ЭДС (В), $A_{хим}$ — работа сторонних сил (Дж), $q$ — заряд (Кл)</span></li>
+        <li><span class="fx">$I=\dfrac{\varepsilon}{R+r}$</span><span class="fd">закон Ома для полной цепи</span><span class="vars">где: $I$ — сила тока (Н), $\varepsilon$ — ЭДС (В), $R$ — внешнее сопротивление (Ом), $r$ — внутр. сопротивление (Ом)</span></li>
+        <li><span class="fx">$\eta=\dfrac{R}{R+r}$</span><span class="fd">КПД источника</span><span class="vars">где: $\eta$ — КПД (%), $R$ — внешнее сопротивление (Ом), $r$ — внутр. сопротивление (Ом)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">3.7</span>Контур LC</h3>
       <ul class="flist">
-        <li><span class="fx">$T=2\pi\sqrt{LC}$</span><span class="fd">период Томсона</span></li>
-        <li><span class="fx">$\omega=\dfrac{1}{\sqrt{LC}}$</span><span class="fd">частота колебаний</span></li>
-        <li><span class="fx">$W=\dfrac{q^2}{2C}+\dfrac{LI^2}{2}$</span><span class="fd">энергия контура</span></li>
+        <li><span class="fx">$T=2\pi\sqrt{LC}$</span><span class="fd">период Томсона</span><span class="vars">где: $T$ — период (с), $L$ — индуктивность (Гн), $C$ — ёмкость (Ф)</span></li>
+        <li><span class="fx">$\omega=\dfrac{1}{\sqrt{LC}}$</span><span class="fd">частота колебаний</span><span class="vars">где: $\omega$ — угл. частота (рад/с), $L$ — индуктивность (Гн), $C$ — ёмкость (Ф)</span></li>
+        <li><span class="fx">$W=\dfrac{q^2}{2C}+\dfrac{LI^2}{2}$</span><span class="fd">энергия контура</span><span class="vars">где: $W$ — энергия (Дж), $q$ — заряд конденсатора (Кл), $C$ — ёмкость (Ф), $L$ — индуктивность (Гн), $I$ — сила тока (Н)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">3.8</span>Цепь переменного тока</h3>
       <ul class="flist">
-        <li><span class="fx">$Z=\sqrt{R^2+(\omega L-\frac1{\omega C})^2}$</span><span class="fd">импеданс</span></li>
-        <li><span class="fx">$I=U/Z$</span><span class="fd">закон Ома для RLC</span></li>
-        <li><span class="fx">$\cos\varphi=R/Z$</span><span class="fd">коэфф. мощности</span></li>
-        <li><span class="fx">$P=IU\cos\varphi$</span><span class="fd">активная мощность</span></li>
+        <li><span class="fx">$Z=\sqrt{R^2+(\omega L-\frac1{\omega C})^2}$</span><span class="fd">импеданс</span><span class="vars">где: $Z$ — импеданс (Ом), $R$ — сопротивление (Ом), $\omega$ — циклич. частота (рад/с), $L$ — индуктивность (Гн), $C$ — ёмкость (Ф)</span></li>
+        <li><span class="fx">$I=U/Z$</span><span class="fd">закон Ома для RLC</span><span class="vars">где: $I$ — сила тока (Н), $U$ — напряжение (В), $Z$ — импеданс (Ом)</span></li>
+        <li><span class="fx">$\cos\varphi=R/Z$</span><span class="fd">коэфф. мощности</span><span class="vars">где: $\varphi$ — сдвиг фаз (рад), $R$ — сопротивление (Ом), $Z$ — импеданс (Ом)</span></li>
+        <li><span class="fx">$P=IU\cos\varphi$</span><span class="fd">активная мощность</span><span class="vars">где: $P$ — активная мощность (Вт), $I$ — сила тока (Н), $U$ — напряжение (В), $\varphi$ — сдвиг фаз (рад)</span></li>
       </ul>
       <div class="note"><b>⚠</b> В чистом $LC$ напряжения вычитаются, не складываются по Пифагору.</div>
     </div>
@@ -458,11 +459,11 @@
     <div class="group">
       <h3><span class="code">3.9</span>Магнитное поле</h3>
       <ul class="flist">
-        <li><span class="fx">$B=\dfrac{\mu_0I}{2\pi R}$</span><span class="fd">поле прямого провода</span></li>
-        <li><span class="fx">$B=\dfrac{\mu_0I}{2R}$</span><span class="fd">поле в центре витка</span></li>
-        <li><span class="fx">$F_A=BIl\sin\alpha$</span><span class="fd">сила Ампера</span></li>
-        <li><span class="fx">$F_L=q\upsilon B\sin\alpha$</span><span class="fd">сила Лоренца</span></li>
-        <li><span class="fx">$R=\dfrac{m\upsilon}{qB}$, $T=\dfrac{2\pi m}{qB}$</span><span class="fd">радиус и период в поле</span></li>
+        <li><span class="fx">$B=\dfrac{\mu_0I}{2\pi R}$</span><span class="fd">поле прямого провода</span><span class="vars">где: $B$ — индукция (Тл), $\mu_0$ — магнитная постоянная (Гн/м), $I$ — сила тока (Н), $R$ — расстояние до провода (м)</span></li>
+        <li><span class="fx">$B=\dfrac{\mu_0I}{2R}$</span><span class="fd">поле в центре витка</span><span class="vars">где: $B$ — индукция (Тл), $\mu_0$ — магнитная постоянная (Гн/м), $I$ — сила тока (Н), $R$ — радиус витка (м)</span></li>
+        <li><span class="fx">$F_A=BIl\sin\alpha$</span><span class="fd">сила Ампера</span><span class="vars">где: $F_A$ — сила Ампера (Н), $B$ — индукция (Тл), $I$ — сила тока (Н), $l$ — длина проводника (м), $\alpha$ — угол между $B$ и проводником (рад)</span></li>
+        <li><span class="fx">$F_L=q\upsilon B\sin\alpha$</span><span class="fd">сила Лоренца</span><span class="vars">где: $F_L$ — сила Лоренца (Н), $q$ — заряд (Кл), $\upsilon$ — скорость (м/с), $B$ — индукция (Тл), $\alpha$ — угол между $v$ и $B$ (рад)</span></li>
+        <li><span class="fx">$R=\dfrac{m\upsilon}{qB}$, $T=\dfrac{2\pi m}{qB}$</span><span class="fd">радиус и период в поле</span><span class="vars">где: $R$ — радиус траектории (м), $m$ — масса (кг), $\upsilon$ — скорость (м/с), $q$ — заряд (Кл), $B$ — индукция (Тл), $T$ — период обращения (с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Сила Лоренца = 0, если $v\parallel B$.</div>
     </div>
@@ -470,10 +471,10 @@
     <div class="group">
       <h3><span class="code">3.10</span>ЭМ индукция</h3>
       <ul class="flist">
-        <li><span class="fx">$\Phi=NBS\cos\alpha$</span><span class="fd">магнитный поток</span></li>
-        <li><span class="fx">$\Phi=LI$</span><span class="fd">поток самоиндукции</span></li>
-        <li><span class="fx">$W=\dfrac{LI^2}{2}$</span><span class="fd">энергия катушки</span></li>
-        <li><span class="fx">$\varepsilon_i=-\dfrac{\Delta\Phi}{\Delta t}$</span><span class="fd">закон Фарадея</span></li>
+        <li><span class="fx">$\Phi=NBS\cos\alpha$</span><span class="fd">магнитный поток</span><span class="vars">где: $\Phi$ — магнитный поток (Вб), $N$ — число витков (безразм.), $B$ — индукция (Тл), $S$ — площадь контура (м²), $\alpha$ — угол между $B$ и нормалью (рад)</span></li>
+        <li><span class="fx">$\Phi=LI$</span><span class="fd">поток самоиндукции</span><span class="vars">где: $\Phi$ — магнитный поток (Вб), $L$ — индуктивность (Гн), $I$ — сила тока (Н)</span></li>
+        <li><span class="fx">$W=\dfrac{LI^2}{2}$</span><span class="fd">энергия катушки</span><span class="vars">где: $W$ — энергия (Дж), $L$ — индуктивность (Гн), $I$ — сила тока (Н)</span></li>
+        <li><span class="fx">$\varepsilon_i=-\dfrac{\Delta\Phi}{\Delta t}$</span><span class="fd">закон Фарадея</span><span class="vars">где: $\varepsilon_i$ — ЭДС индукции (В), $\Delta\Phi$ — изменение потока (Вб), $\Delta t$ — время (с)</span></li>
       </ul>
     </div>
 
@@ -492,11 +493,11 @@
     <div class="group">
       <h3><span class="code">4.1</span>Линзы, преломление</h3>
       <ul class="flist">
-        <li><span class="fx">$n=\dfrac{c}{\upsilon}=\sqrt{\varepsilon\mu}$</span><span class="fd">показатель преломления</span></li>
-        <li><span class="fx">$\dfrac{\sin\alpha}{\sin\beta}=\dfrac{n_2}{n_1}$</span><span class="fd">закон Снеллиуса</span></li>
-        <li><span class="fx">$\pm\dfrac1F=\pm\dfrac1d\pm\dfrac1f$</span><span class="fd">формула линзы</span></li>
-        <li><span class="fx">$D=1/F$</span><span class="fd">оптическая сила</span></li>
-        <li><span class="fx">$k=f/d$</span><span class="fd">увеличение линзы</span></li>
+        <li><span class="fx">$n=\dfrac{c}{\upsilon}=\sqrt{\varepsilon\mu}$</span><span class="fd">показатель преломления</span><span class="vars">где: $n$ — показатель преломления (безразм.), $c$ — скорость света в вакууме (м/с), $\upsilon$ — скорость света в среде (м/с), $\varepsilon,\mu$ — диэлектрич./магнитная проницаемости (безразм.)</span></li>
+        <li><span class="fx">$\dfrac{\sin\alpha}{\sin\beta}=\dfrac{n_2}{n_1}$</span><span class="fd">закон Снеллиуса</span><span class="vars">где: $\alpha$ — угол падения (рад), $\beta$ — угол преломления (рад), $n_1,n_2$ — показатели преломления сред (безразм.)</span></li>
+        <li><span class="fx">$\pm\dfrac1F=\pm\dfrac1d\pm\dfrac1f$</span><span class="fd">формула линзы</span><span class="vars">где: $F$ — фокусное расстояние (м), $d$ — расстояние до предмета (м), $f$ — расстояние до изображения (м)</span></li>
+        <li><span class="fx">$D=1/F$</span><span class="fd">оптическая сила</span><span class="vars">где: $D$ — оптич. сила (дптр), $F$ — фокусное расстояние (м)</span></li>
+        <li><span class="fx">$k=f/d$</span><span class="fd">увеличение линзы</span><span class="vars">где: $k$ — увеличение (безразм.), $f$ — расстояние до изображения (м), $d$ — расстояние до предмета (м)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Знаки зависят от типа линзы/изображения.</div>
     </div>
@@ -504,36 +505,36 @@
     <div class="group">
       <h3><span class="code">4.2</span>Интенсивность, излучение</h3>
       <ul class="flist">
-        <li><span class="fx">$I=\dfrac{P}{s\upsilon}=wv$</span><span class="fd">интенсивность волны</span></li>
-        <li><span class="fx">$I\sim\omega^4$</span><span class="fd">рассеяние (закон Рэлея)</span></li>
+        <li><span class="fx">$I=\dfrac{P}{s\upsilon}=wv$</span><span class="fd">интенсивность волны</span><span class="vars">где: $I$ — интенсивность (Вт/м²), $P$ — мощность (Вт), $s$ — площадь (м²), $\upsilon$ — скорость волны (м/с), $w$ — плотность энергии (Дж/м³)</span></li>
+        <li><span class="fx">$I\sim\omega^4$</span><span class="fd">рассеяние (закон Рэлея)</span><span class="vars">где: $I$ — интенсивность рассеянного света (Вт/м²), $\omega$ — частота света (Гц)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">4.3</span>Дифракция, поляризация</h3>
       <ul class="flist">
-        <li><span class="fx">$d\sin\alpha=n\lambda$</span><span class="fd">дифракционная решётка</span></li>
-        <li><span class="fx">$l_m=b/T$</span><span class="fd">интерференционные полосы</span></li>
-        <li><span class="fx">$I=I_0/2$</span><span class="fd">после одного поляризатора</span></li>
-        <li><span class="fx">$I=I_0\cos^2\alpha$</span><span class="fd">закон Малюса</span></li>
+        <li><span class="fx">$d\sin\alpha=n\lambda$</span><span class="fd">дифракционная решётка</span><span class="vars">где: $d$ — период решётки (с), $\alpha$ — угол дифракции (рад), $n$ — порядок максимума (безразм.), $\lambda$ — длина волны (м)</span></li>
+        <li><span class="fx">$l_m=b/T$</span><span class="fd">интерференционные полосы</span><span class="vars">где: $l_m$ — ширина полосы (м), $b$ — расстояние до экрана (м), $T$ — период структуры (с)</span></li>
+        <li><span class="fx">$I=I_0/2$</span><span class="fd">после одного поляризатора</span><span class="vars">где: $I$ — интенсивность после поляризатора (Вт/м²), $I_0$ — интенсивность естеств. света (Вт/м²)</span></li>
+        <li><span class="fx">$I=I_0\cos^2\alpha$</span><span class="fd">закон Малюса</span><span class="vars">где: $I$ — интенсивность прошедшего света (Вт/м²), $I_0$ — интенсивность падающего (Вт/м²), $\alpha$ — угол между плоскостями поляризаторов (рад)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">4.4</span>Фотометрия, фотон</h3>
       <ul class="flist">
-        <li><span class="fx">$E=\Phi/S$</span><span class="fd">освещённость</span></li>
-        <li><span class="fx">$E=h\nu$</span><span class="fd">энергия фотона</span></li>
-        <li><span class="fx">$p=\dfrac{h\nu}{c}=\dfrac{h}{\lambda}$</span><span class="fd">импульс фотона</span></li>
+        <li><span class="fx">$E=\Phi/S$</span><span class="fd">освещённость</span><span class="vars">где: $E$ — освещённость (лк), $\Phi$ — световой поток (лм), $S$ — площадь (м²)</span></li>
+        <li><span class="fx">$E=h\nu$</span><span class="fd">энергия фотона</span><span class="vars">где: $E$ — энергия фотона (Дж), $h$ — постоянная Планка (Дж·с), $\nu$ — частота (Гц)</span></li>
+        <li><span class="fx">$p=\dfrac{h\nu}{c}=\dfrac{h}{\lambda}$</span><span class="fd">импульс фотона</span><span class="vars">где: $p$ — импульс фотона (кг·м/с), $h$ — постоянная Планка (Дж·с), $\nu$ — частота (Гц), $c$ — скорость света (м/с), $\lambda$ — длина волны (м)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">4.5</span>Фотоэффект</h3>
       <ul class="flist">
-        <li><span class="fx">$h\nu=A+E_{k\,max}$</span><span class="fd">уравнение Эйнштейна</span></li>
-        <li><span class="fx">$E_{k\,max}=eU_{зад}$</span><span class="fd">через задерж. напряжение</span></li>
-        <li><span class="fx">$h\nu_{min}=\dfrac{hc}{\lambda_{max}}=A$</span><span class="fd">красная граница</span></li>
+        <li><span class="fx">$h\nu=A+E_{k\,max}$</span><span class="fd">уравнение Эйнштейна</span><span class="vars">где: $h\nu$ — энергия фотона (Дж), $A$ — работа выхода (Дж), $E_{k\,max}$ — макс. кинетич. энергия электрона (Дж)</span></li>
+        <li><span class="fx">$E_{k\,max}=eU_{зад}$</span><span class="fd">через задерж. напряжение</span><span class="vars">где: $E_{k\,max}$ — макс. кинетич. энергия (Дж), $e$ — заряд электрона (Кл), $U_{зад}$ — задерж. напряжение (В)</span></li>
+        <li><span class="fx">$h\nu_{min}=\dfrac{hc}{\lambda_{max}}=A$</span><span class="fd">красная граница</span><span class="vars">где: $\nu_{min}$ — мин. частота (Гц), $\lambda_{max}$ — макс. длина волны (м), $A$ — работа выхода (Дж)</span></li>
       </ul>
       <div class="note"><b>⚠</b> Ниже границы фотоэффекта нет вообще.</div>
     </div>
@@ -541,10 +542,10 @@
     <div class="group">
       <h3><span class="code">4.6</span>Атом Бора</h3>
       <ul class="flist">
-        <li><span class="fx">$E_n=E_1/n^2$</span><span class="fd">энергия уровня ($E_1=-13{,}6$ эВ)</span></li>
-        <li><span class="fx">$h\nu=E_n-E_m$</span><span class="fd">энергия перехода</span></li>
-        <li><span class="fx">$m\upsilon r_n=n\hbar$</span><span class="fd">постулат Бора</span></li>
-        <li><span class="fx">$r_n=n^2r_Б$</span><span class="fd">радиус орбиты</span></li>
+        <li><span class="fx">$E_n=E_1/n^2$</span><span class="fd">энергия уровня ($E_1=-13{,}6$ эВ)</span><span class="vars">где: $E_n$ — энергия уровня $n$ (Дж), $E_1$ — энергия осн. состояния (Дж), $n$ — номер уровня (безразм.)</span></li>
+        <li><span class="fx">$h\nu=E_n-E_m$</span><span class="fd">энергия перехода</span><span class="vars">где: $h\nu$ — энергия фотона (Дж), $E_n,E_m$ — энергии уровней (Дж)</span></li>
+        <li><span class="fx">$m\upsilon r_n=n\hbar$</span><span class="fd">постулат Бора</span><span class="vars">где: $m$ — масса электрона (кг), $\upsilon$ — скорость (м/с), $r_n$ — радиус орбиты (м), $n$ — номер орбиты (безразм.), $\hbar$ — приведённая пост. Планка (Дж·с)</span></li>
+        <li><span class="fx">$r_n=n^2r_Б$</span><span class="fd">радиус орбиты</span><span class="vars">где: $r_n$ — радиус орбиты $n$ (м), $n$ — номер орбиты (безразм.), $r_Б$ — боровский радиус (м)</span></li>
       </ul>
       <div class="note"><b>⚠</b> $p_n\cdot n=const$, $r\propto n^2$, $v\propto1/n$.</div>
     </div>
@@ -552,21 +553,21 @@
     <div class="group">
       <h3><span class="code">4.7</span>Ядерная физика</h3>
       <ul class="flist">
-        <li><span class="fx">$E_{связи}=\Delta mc^2$</span><span class="fd">энергия связи ядра</span></li>
-        <li><span class="fx">$E_{уд}=E_{связи}/A$</span><span class="fd">на нуклон</span></li>
-        <li><span class="fx">$N=N_0\cdot2^{-t/T}$</span><span class="fd">радиоактивный распад</span></li>
-        <li><span class="fx">$\lambda T=\ln2\approx0{,}7$</span><span class="fd">распад ↔ полураспад</span></li>
+        <li><span class="fx">$E_{связи}=\Delta mc^2$</span><span class="fd">энергия связи ядра</span><span class="vars">где: $E_{связи}$ — энергия связи (Дж), $\Delta m$ — дефект массы (кг), $c$ — скорость света (м/с)</span></li>
+        <li><span class="fx">$E_{уд}=E_{связи}/A$</span><span class="fd">на нуклон</span><span class="vars">где: $E_{уд}$ — уд. энергия связи (Дж), $E_{связи}$ — энергия связи (Дж), $A$ — массовое число (безразм.)</span></li>
+        <li><span class="fx">$N=N_0\cdot2^{-t/T}$</span><span class="fd">радиоактивный распад</span><span class="vars">где: $N$ — число ядер (безразм.), $N_0$ — нач. число ядер (безразм.), $t$ — время (с), $T$ — период полураспада (с)</span></li>
+        <li><span class="fx">$\lambda T=\ln2\approx0{,}7$</span><span class="fd">распад ↔ полураспад</span><span class="vars">где: $\lambda$ — постоянная распада (с⁻¹), $T$ — период полураспада (с)</span></li>
       </ul>
     </div>
 
     <div class="group">
       <h3><span class="code">4.8</span>Теория относительности</h3>
       <ul class="flist">
-        <li><span class="fx">$\tau=\dfrac{\tau_0}{\sqrt{1-v^2/c^2}}$</span><span class="fd">замедление времени</span></li>
-        <li><span class="fx">$l=l_0\sqrt{1-v^2/c^2}$</span><span class="fd">сокращение длины</span></li>
-        <li><span class="fx">$E_0=m_0c^2$, $E=mc^2$</span><span class="fd">энергия покоя и полная</span></li>
-        <li><span class="fx">$E_k=(m-m_0)c^2$</span><span class="fd">релятив. кинетич. энергия</span></li>
-        <li><span class="fx">$E^2-c^2p^2=m_0^2c^4$</span><span class="fd">инвариант</span></li>
+        <li><span class="fx">$\tau=\dfrac{\tau_0}{\sqrt{1-v^2/c^2}}$</span><span class="fd">замедление времени</span><span class="vars">где: $\tau$ — время в неподв. системе (с), $\tau_0$ — собств. время (с), $v$ — скорость (м/с), $c$ — скорость света (м/с)</span></li>
+        <li><span class="fx">$l=l_0\sqrt{1-v^2/c^2}$</span><span class="fd">сокращение длины</span><span class="vars">где: $l$ — длина в движ. системе (м), $l_0$ — собств. длина (м), $v$ — скорость (м/с), $c$ — скорость света (м/с)</span></li>
+        <li><span class="fx">$E_0=m_0c^2$, $E=mc^2$</span><span class="fd">энергия покоя и полная</span><span class="vars">где: $E_0$ — энергия покоя (Дж), $m_0$ — масса покоя (кг), $E$ — полная энергия (Дж), $m$ — релятив. масса (кг), $c$ — скорость света (м/с)</span></li>
+        <li><span class="fx">$E_k=(m-m_0)c^2$</span><span class="fd">релятив. кинетич. энергия</span><span class="vars">где: $E_k$ — кинетич. энергия (Дж), $m$ — релятив. масса (кг), $m_0$ — масса покоя (кг), $c$ — скорость света (м/с)</span></li>
+        <li><span class="fx">$E^2-c^2p^2=m_0^2c^4$</span><span class="fd">инвариант</span><span class="vars">где: $E$ — полная энергия (Дж), $p$ — импульс (кг·м/с), $m_0$ — масса покоя (кг), $c$ — скорость света (м/с)</span></li>
       </ul>
       <div class="note"><b>⚠</b> При $v\ll c$ всё сводится к классике.</div>
     </div>
