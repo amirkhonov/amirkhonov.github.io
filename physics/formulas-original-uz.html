@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fizikaning asosiy formulalari · maslahatli original sahifa</title>
+<meta name="description" content="DTM tayyorgarligi uchun maslahatlar va tushuntirishlar bilan fizika formulalari konspektining original sahifasi.">
+<link rel="canonical" href="https://amirkhonov.github.io/physics/formulas-original-uz.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fizikaning asosiy formulalari · maslahatli original sahifa">
+<meta property="og:description" content="DTM tayyorgarligi uchun maslahatlar va tushuntirishlar bilan fizika formulalari konspektining original sahifasi.">
+<meta property="og:url" content="https://amirkhonov.github.io/physics/formulas-original-uz.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fizikaning asosiy formulalari · maslahatli original sahifa">
+<meta name="twitter:description" content="DTM tayyorgarligi uchun maslahatlar va tushuntirishlar bilan fizika formulalari konspektining original sahifasi.">
+<meta name="google-site-verification" content="Tz4cWeLPz-DU_7x9lO80aqqmAL6cyBRWhJ53pmcJL4k" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<style>
+  :root{
+    --ink:#1b2235; --ink-soft:#4a5268; --paper:#faf9f6; --card:#ffffff;
+    --rule:#e6e3da; --muted:#8b8f9c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Manrope',system-ui,sans-serif; font-size:14px; line-height:1.4;
+    -webkit-font-smoothing:antialiased;
+  }
+  .topbar{
+    background:#181f33; color:#f4f3ee; padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    position:sticky; top:0; z-index:50; border-bottom:2px solid #2c3a5c;
+  }
+  .topbar h1{font-size:15px; margin:0; font-weight:800;}
+  .topbar .eyebrow{font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#9aa2b8; margin-bottom:2px;}
+  .topbar a.back{font-size:12px; font-weight:700; color:#dfe2ec; text-decoration:none; background:rgba(255,255,255,.08); padding:6px 12px; border-radius:6px; border:1px solid rgba(255,255,255,.12);}
+  .topbar a.back:hover{background:rgba(255,255,255,.16);}
+  .hint-bar{
+    max-width:1100px; margin:10px auto 0; padding:8px 16px; font-size:12.5px; color:var(--ink-soft);
+    text-align:center;
+  }
+  .stage{
+    max-width:1100px; margin:14px auto 60px; padding:0 16px;
+  }
+  .imgwrap{
+    position:relative; width:100%; border:1px solid var(--rule); border-radius:10px; overflow:hidden;
+    box-shadow:0 6px 24px rgba(20,20,40,.08); background:#fff;
+  }
+  .scrollhint{
+    display:none; align-items:center; gap:6px; justify-content:center;
+    font-size:11.5px; color:var(--muted); margin:0 0 8px;
+  }
+  .imgwrap img{display:block; width:100%; height:auto;}
+  .hs{
+    position:absolute; margin:0; padding:0; border:none; background:transparent; cursor:pointer;
+    border-radius:3px;
+  }
+  .hs:hover, .hs:focus-visible, .hs.active{
+    background:color-mix(in srgb, var(--c) 16%, transparent);
+    outline:1.5px solid color-mix(in srgb, var(--c) 65%, transparent);
+  }
+  .tooltip{
+    position:absolute; z-index:100; max-width:340px; background:#181f33; color:#f4f3ee;
+    border-radius:10px; padding:12px 14px; font-size:12.5px; line-height:1.5;
+    box-shadow:0 10px 30px rgba(0,0,0,.28); pointer-events:none;
+    opacity:0; transform:translateY(4px); transition:opacity .12s ease, transform .12s ease;
+  }
+  .tooltip.show{opacity:1; transform:translateY(0);}
+  .tooltip .tt-formula{font-size:15px; margin-bottom:6px; color:#fff;}
+  .tooltip .tt-name{font-weight:700; color:#ffd479; margin-bottom:4px;}
+  .tooltip .tt-vars{color:#c3c8d6; font-size:11.5px;}
+  .tooltip .katex{color:inherit;}
+  .legend{
+    max-width:1100px; margin:0 auto; padding:0 16px 4px; display:flex; gap:14px; flex-wrap:wrap;
+    font-size:12px; color:var(--ink-soft); justify-content:center;
+  }
+  .legend span{display:flex; align-items:center; gap:5px;}
+  .legend i{width:9px; height:9px; border-radius:2px; display:inline-block;}
+  footer{max-width:1100px; margin:0 auto 40px; padding:0 16px; color:var(--muted); font-size:11px; text-align:center;}
+  @media (max-width:640px){
+    .tooltip{max-width:78vw;}
+    .scrollhint{display:flex;}
+    .stage{
+      overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:14px;
+      cursor:grab;
+    }
+    .stage.dragging{cursor:grabbing; user-select:none;}
+    .imgwrap{width:820px; max-width:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div class="eyebrow">DTM · Fizika</div>
+    <h1>Fizikaning asosiy formulalari — original sahifa</h1>
+  </div>
+  <div style="display:flex; gap:8px;">
+    <a class="back" href="formulas-original.html">Русский</a>
+    <a class="back" href="formulas.html">← Ixcham versiya</a>
+  </div>
+</div>
+
+<div class="hint-bar">
+  Formula ustiga sichqonchani olib boring (telefonda — teging), nomi va o’zgaruvchilar tavsifini ko’rish uchun.
+</div>
+
+<div class="legend">
+  <span><i style="background:#1f5fa6"></i> Mexanika</span>
+  <span><i style="background:#0f766e"></i> Molekulyar fizika</span>
+  <span><i style="background:#c0480e"></i> Elektr va magnetizm</span>
+  <span><i style="background:#7c3aed"></i> Optika va kvant fizikasi</span>
+</div>
+
+<div class="stage">
+  <div class="scrollhint" id="scrollhint">↔ Qolgan formulalarni ko’rish uchun barmog’ingizni o’ngga suring</div>
+  <div class="imgwrap" id="imgwrap">
+    <img src="formulas-page2.png" alt="Fizikaning asosiy formulalari — 2-sahifa" id="pageimg">
+<button type="button" class="hs" style="left:7.287%;top:9.856%;width:5.700%;height:2.124%;3.309 data-tex="v=\dfrac{\Delta S}{\Delta t}" data-name="o’rtacha tezlik" data-vars="$v$ — tezlik (m/s), $\Delta S$ — yo’l (m), $\Delta t$ — vaqt (s)" aria-label="o’rtacha tezlik"></button>
+<button type="button" class="hs" style="left:13.414%;top:9.856%;width:5.498%;height:2.124%;3.309 data-tex="a=\dfrac{\Delta v}{\Delta t}" data-name="tezlanish" data-vars="$a$ — tezlanish (m/s²), $\Delta v$ — tezlik o’zgarishi (m/s), $\Delta t$ — vaqt (s)" aria-label="tezlanish"></button>
+<button type="button" class="hs" style="left:19.299%;top:9.856%;width:9.246%;height:2.124%;3.309 data-tex="S=v_0t+\dfrac{at^2}{2}" data-name="tekis tezlanuvchan harakatdagi yo’l" data-vars="$S$ — yo’l (m), $v_0$ — boshlang’ich tezlik (m/s), $t$ — vaqt (s), $a$ — tezlanish (m/s²)" aria-label="tekis tezlanuvchan harakatdagi yo’l"></button>
+<button type="button" class="hs" style="left:28.891%;top:9.856%;width:5.941%;height:2.124%;3.309 data-tex="\omega=\dfrac{\Delta\varphi}{\Delta t}" data-name="burchak tezligi" data-vars="$\omega$ — burchak tezligi (rad/s), $\Delta\varphi$ — burilish burchagi (rad), $\Delta t$ — vaqt (s)" aria-label="burchak tezligi"></button>
+<button type="button" class="hs" style="left:35.220%;top:9.856%;width:5.619%;height:2.124%;3.309 data-tex="\varepsilon=\dfrac{\Delta\omega}{\Delta t}" data-name="burchak tezlanishi" data-vars="$\varepsilon$ — burchak tezlanishi (rad/s²), $\Delta\omega$ — burchak tezligi o’zgarishi (rad/s), $\Delta t$ — vaqt (s)" aria-label="burchak tezlanishi"></button>
+<button type="button" class="hs" style="left:41.266%;top:9.856%;width:9.287%;height:3.578%;3.309 data-tex="\varphi=\omega_0t+\dfrac{\varepsilon t^2}{2}" data-name="burilish burchagi" data-vars="$\varphi$ — burilish burchagi (rad), $\omega_0$ — boshlang’ich burchak tezligi (rad/s), $t$ — vaqt (s), $\varepsilon$ — burchak tezlanishi (rad/s²)" aria-label="burilish burchagi"></button>
+<button type="button" class="hs" style="left:7.247%;top:13.590%;width:5.861%;height:1.155%;3.309 data-tex="\omega=2\pi\nu" data-name="burchak tezligi chastota orqali" data-vars="$\omega$ — burchak tezligi (rad/s), $\nu$ — chastota (Hz)" aria-label="burchak tezligi chastota orqali"></button>
+<button type="button" class="hs" style="left:14.018%;top:13.818%;width:4.853%;height:0.927%;3.309 data-tex="\upsilon=\omega r" data-name="nuqtaning chiziqli tezligi" data-vars="$\upsilon$ — chiziqli tezlik (m/s), $\omega$ — burchak tezligi (rad/s), $r$ — radius (m)" aria-label="nuqtaning chiziqli tezligi"></button>
+<button type="button" class="hs" style="left:19.742%;top:13.590%;width:6.183%;height:1.155%;3.309 data-tex="\nu T=1" data-name="chastota va davr o’zaro teskari" data-vars="$\nu$ — chastota (Hz), $T$ — davr (s)" aria-label="chastota va davr o’zaro teskari"></button>
+<button type="button" class="hs" style="left:26.796%;top:13.647%;width:7.594%;height:3.094%;3.309 data-tex="v=v_0\pm gt" data-name="vertikal harakatdagi tezlik" data-vars="$v$ — tezlik (m/s), $v_0$ — boshlang’ich tezlik (m/s), $g$ — erkin tushish tezlanishi (m/s²), $t$ — vaqt (s)" aria-label="vertikal harakatdagi tezlik"></button>
+<button type="button" class="hs" style="left:35.300%;top:13.162%;width:9.005%;height:3.578%;3.309 data-tex="h=v_0t\pm\dfrac{gt^2}{2}" data-name="vertikal uloqtirishda balandlik/yo’l" data-vars="$h$ — balandlik/yo’l (m), $v_0$ — boshlang’ich tezlik (m/s), $g$ — erkin tushish tezlanishi (m/s²), $t$ — vaqt (s)" aria-label="vertikal uloqtirishda balandlik/yo’l"></button>
+<button type="button" class="hs" style="left:7.287%;top:17.125%;width:9.327%;height:1.013%;3.309 data-tex="v_{0x}=v_0\cos\alpha" data-name="tezlikning gorizontal tashkil etuvchisi" data-vars="$v_{0x}$ — gorizontal tezlik (m/s), $v_0$ — boshlang’ich tezlik (m/s), $\alpha$ — otish burchagi (rad)" aria-label="tezlikning gorizontal tashkil etuvchisi"></button>
+<button type="button" class="hs" style="left:17.525%;top:16.897%;width:9.126%;height:3.151%;3.309 data-tex="v_{0y}=v_0\sin\alpha" data-name="tezlikning vertikal tashkil etuvchisi" data-vars="$v_{0y}$ — vertikal tezlik (m/s), $v_0$ — boshlang’ich tezlik (m/s), $\alpha$ — otish burchagi (rad)" aria-label="tezlikning vertikal tashkil etuvchisi"></button>
+<button type="button" class="hs" style="left:27.521%;top:16.469%;width:6.627%;height:3.521%;3.309 data-tex="t_u=\dfrac{2v_{0y}}{g}" data-name="uchish vaqti" data-vars="$t_u$ — uchish vaqti (s), $v_{0y}$ — vertikal tezlik (m/s), $g$ — erkin tushish tezlanishi (m/s²)" aria-label="uchish vaqti"></button>
+<button type="button" class="hs" style="left:35.058%;top:16.469%;width:7.675%;height:2.267%;3.309 data-tex="h_{max}=\dfrac{v_{0y}^2}{2g}" data-name="maks. ko’tarilish balandligi" data-vars="$h_{max}$ — maks. balandlik (m), $v_{0y}$ — vertikal tezlik (m/s), $g$ — erkin tushish tezlanishi (m/s²)" aria-label="maks. ko’tarilish balandligi"></button>
+<button type="button" class="hs" style="left:43.603%;top:16.868%;width:7.715%;height:1.269%;3.309 data-tex="S=v_{0x}\cdot t_u" data-name="uchish uzoqligi" data-vars="$S$ — uchish uzoqligi (m), $v_{0x}$ — gorizontal tezlik (m/s), $t_u$ — uchish vaqti (s)" aria-label="uchish uzoqligi"></button>
+<button type="button" class="hs" style="left:7.287%;top:20.460%;width:7.997%;height:1.212%;3.309 data-tex="\vec a=\vec a_\tau+\vec a_n" data-name="to’liq tezlanish" data-vars="$\vec a$ — to’liq tezlanish (m/s²), $\vec a_\tau$ — tangensial tezlanish (m/s²), $\vec a_n$ — normal/markazga intilma tezlanish (m/s²)" aria-label="to’liq tezlanish"></button>
+<button type="button" class="hs" style="left:16.155%;top:19.776%;width:5.659%;height:2.381%;3.309 data-tex="a_n=\dfrac{v^2}{r}" data-name="markazga intilma tezlanish" data-vars="$a_n$ — markazga intilma tezlanish (m/s²), $v$ — tezlik (m/s), $r$ — traektoriya radiusi (m)" aria-label="markazga intilma tezlanish"></button>
+<button type="button" class="hs" style="left:22.684%;top:20.489%;width:5.740%;height:1.155%;3.309 data-tex="m=\rho V" data-name="massa zichlik orqali" data-vars="$m$ — massa (kg), $\rho$ — zichlik (kg/m³), $V$ — hajm (m³)" aria-label="massa zichlik orqali"></button>
+<button type="button" class="hs" style="left:29.335%;top:19.804%;width:4.813%;height:2.352%;3.309 data-tex="\vec a=\dfrac{\vec F}{m}" data-name="Nyutonning II qonuni" data-vars="$\vec a$ — tezlanish (m/s²), $\vec F$ — kuch (N), $m$ — massa (kg)" aria-label="Nyutonning II qonuni"></button>
+<button type="button" class="hs" style="left:35.058%;top:20.203%;width:6.747%;height:1.469%;3.309 data-tex="\vec F_1=-\vec F_2" data-name="Nyutonning III qonuni — turli jismlar" data-vars="$\vec F_1,\vec F_2$ — jismlar o’zaro ta’sir kuchlari (N)" aria-label="Nyutonning III qonuni — turli jismlar"></button>
+<button type="button" class="hs" style="left:42.152%;top:20.432%;width:8.763%;height:2.923%;3.309 data-tex="F_{e\ell}=-k\Delta \ell" data-name="Guk qonuni" data-vars="$F_{e\ell}$ — elastiklik kuchi (N), $k$ — qattiqlik koeffitsienti (N/m), $\Delta \ell$ — uzayish (m)" aria-label="Guk qonuni"></button>
+<button type="button" class="hs" style="left:7.287%;top:23.653%;width:14.003%;height:1.298%;3.309 data-tex="a=g(\sin\alpha\pm\mu\cos\alpha)" data-name="qiya tekislikdagi tezlanish (ishqalanish bilan)" data-vars="$a$ — tezlanish (m/s²), $g$ — erkin tushish tezlanishi (m/s²), $\alpha$ — og’ish burchagi (rad), $\mu$ — ishqalanish koeffitsienti (o’lchamsiz)" aria-label="qiya tekislikdagi tezlanish (ishqalanish bilan)"></button>
+<button type="button" class="hs" style="left:22.120%;top:23.681%;width:5.377%;height:1.184%;3.309 data-tex="\vec p=m\vec v" data-name="jism impulsi" data-vars="$\vec p$ — impuls (kg·m/s), $m$ — massa (kg), $\vec v$ — tezlik (m/s)" aria-label="jism impulsi"></button>
+<button type="button" class="hs" style="left:28.367%;top:23.453%;width:7.352%;height:3.208%;3.309 data-tex="\vec F\Delta t=\Delta \vec p" data-name="impuls o’zgarishi" data-vars="$\vec F$ — kuch (N), $\Delta t$ — ta’sir vaqti (s), $\Delta \vec p$ — impuls o’zgarishi (kg·m/s)" aria-label="impuls o’zgarishi"></button>
+<button type="button" class="hs" style="left:36.590%;top:23.083%;width:7.110%;height:2.295%;3.309 data-tex="E_k=\dfrac{mv^2}{2}" data-name="kinetik energiya" data-vars="$E_k$ — kinetik energiya (J), $m$ — massa (kg), $v$ — tezlik (m/s)" aria-label="kinetik energiya"></button>
+<button type="button" class="hs" style="left:7.358%;top:26.875%;width:5.559%;height:3.091%;3.309 data-tex="M=F\ell" data-name="kuch momenti" data-vars="$M$ — kuch momenti (N·m), $F$ — kuch (N), $\ell$ — kuch yelkasi (m)" aria-label="kuch momenti"></button>
+<button type="button" class="hs" style="left:13.887%;top:26.875%;width:7.977%;height:3.091%;3.309 data-tex="F_1\ell_1=F_2\ell_2" data-name="richag qoidasi" data-vars="$F_1,F_2$ — kuchlar (N), $\ell_1,\ell_2$ — yelkalar (m)" aria-label="richag qoidasi"></button>
+<button type="button" class="hs" style="left:22.795%;top:26.904%;width:7.292%;height:3.062%;3.309 data-tex="F_{ishq}=\mu N" data-name="sirpanish ishqalanishi" data-vars="$F_{ishq}$ — ishqalanish kuchi (N), $\mu$ — ishqalanish koeffitsienti (o’lchamsiz), $N$ — tayanch reaksiya kuchi (N)" aria-label="sirpanish ishqalanishi"></button>
+<button type="button" class="hs" style="left:30.937%;top:26.419%;width:14.870%;height:3.547%;3.309 data-tex="N=\dfrac{A}{t}=\vec F\vec v" data-name="quvvat" data-vars="$N$ — quvvat (W), $A$ — ish (J), $t$ — vaqt (s), $\vec F$ — kuch (N), $\vec v$ — tezlik (m/s)" aria-label="quvvat"></button>
+<button type="button" class="hs" style="left:7.317%;top:29.755%;width:9.066%;height:3.319%;3.309 data-tex="A=FS\cos\alpha" data-name="kuch ishi" data-vars="$A$ — ish (J), $F$ — kuch (N), $S$ — ko’chish (m), $\alpha$ — $F$ va $S$ orasidagi burchak (rad)" aria-label="kuch ishi"></button>
+<button type="button" class="hs" style="left:17.313%;top:29.755%;width:6.970%;height:3.518%;3.309 data-tex="E_p=mgh" data-name="potensial energiya" data-vars="$E_p$ — potensial energiya (J), $m$ — massa (kg), $g$ — erkin tushish tezlanishi (m/s²), $h$ — balandlik (m)" aria-label="potensial energiya"></button>
+<button type="button" class="hs" style="left:25.213%;top:29.755%;width:10.920%;height:3.518%;3.309 data-tex="E_k+E_p=const" data-name="mexanik energiyaning saqlanish qonuni" data-vars="$E_k$ — kinetik energiya (J), $E_p$ — potensial energiya (J)" aria-label="mexanik energiyaning saqlanish qonuni"></button>
+<button type="button" class="hs" style="left:36.459%;top:29.755%;width:13.338%;height:3.518%;3.309 data-tex="\vec P=m(\vec g-\vec a)" data-name="tezlanish bilan harakatlanayotgan jism og’irligi" data-vars="$\vec P$ — jism og’irligi (N), $m$ — massa (kg), $\vec g$ — erkin tushish tezlanishi (m/s²), $\vec a$ — jism tezlanishi (m/s²)" aria-label="tezlanish bilan harakatlanayotgan jism og’irligi"></button>
+<button type="button" class="hs" style="left:7.287%;top:33.031%;width:6.223%;height:3.578%;3.309 data-tex="g=\dfrac{GM}{R^2}" data-name="sayyoradagi erkin tushish tezlanishi" data-vars="$g$ — erkin tushish tezlanishi (m/s²), $G$ — gravitatsion doimiy (N·m²/kg²), $M$ — sayyora massasi (kg), $R$ — radius (m)" aria-label="sayyoradagi erkin tushish tezlanishi"></button>
+<button type="button" class="hs" style="left:13.898%;top:33.031%;width:7.151%;height:3.578%;3.309 data-tex="v_1=\sqrt{gR}" data-name="birinchi kosmik tezlik" data-vars="$v_1$ — birinchi kosmik tezlik (m/s), $g$ — erkin tushish tezlanishi (m/s²), $R$ — sayyora radiusi (m)" aria-label="birinchi kosmik tezlik"></button>
+<button type="button" class="hs" style="left:21.475%;top:33.031%;width:7.836%;height:3.578%;3.309 data-tex="v_2=\sqrt{2gR}" data-name="ikkinchi kosmik tezlik" data-vars="$v_2$ — ikkinchi kosmik tezlik (m/s), $g$ — erkin tushish tezlanishi (m/s²), $R$ — sayyora radiusi (m)" aria-label="ikkinchi kosmik tezlik"></button>
+<button type="button" class="hs" style="left:29.698%;top:33.031%;width:13.317%;height:3.578%;3.309 data-tex="x=A\cdot\sin(\omega t+\varphi_0)" data-name="garmonik tebranishdagi koordinata" data-vars="$x$ — koordinata (m), $A$ — amplituda (m), $\omega$ — burchak chastotasi (rad/s), $t$ — vaqt (s), $\varphi_0$ — boshlang’ich faza (rad)" aria-label="garmonik tebranishdagi koordinata"></button>
+<button type="button" class="hs" style="left:43.442%;top:33.031%;width:6.868%;height:2.010%;3.309 data-tex="v=\sqrt{\dfrac{T}{\rho_{ch}}}" data-name="simdagi to’lqin tezligi" data-vars="$v$ — to’lqin tezligi (m/s), $T$ — tortilish kuchi (N), $\rho_{ch}$ — sim chizig’i zichligi (kg/m)" aria-label="simdagi to’lqin tezligi"></button>
+<button type="button" class="hs" style="left:7.287%;top:36.338%;width:6.103%;height:2.809%;3.309 data-tex="v=\sqrt{\dfrac{E}{\rho}}" data-name="qattiq jismdagi tovush tezligi" data-vars="$v$ — tovush tezligi (m/s), $E$ — Yung moduli (Pa), $\rho$ — zichlik (kg/m³)" aria-label="qattiq jismdagi tovush tezligi"></button>
+<button type="button" class="hs" style="left:13.777%;top:36.338%;width:6.465%;height:2.409%;3.309 data-tex="\omega=\sqrt{\dfrac{k}{m}}" data-name="prujinali mayatnik burchak chastotasi" data-vars="$\omega$ — burchak chastotasi (rad/s), $k$ — prujina qattiqligi (N/m), $m$ — yuk massasi (kg)" aria-label="prujinali mayatnik burchak chastotasi"></button>
+<button type="button" class="hs" style="left:20.669%;top:36.338%;width:8.118%;height:2.523%;3.309 data-tex="T=2\pi\sqrt{\dfrac{m}{k}}" data-name="prujinali mayatnik davri" data-vars="$T$ — davr (s), $m$ — yuk massasi (kg), $k$ — prujina qattiqligi (N/m)" aria-label="prujinali mayatnik davri"></button>
+<button type="button" class="hs" style="left:29.133%;top:36.338%;width:5.941%;height:2.523%;3.309 data-tex="\omega=\sqrt{\dfrac{g}{\ell}}" data-name="matematik mayatnik burchak chastotasi" data-vars="$\omega$ — burchak chastotasi (rad/s), $g$ — erkin tushish tezlanishi (m/s²), $\ell$ — ip uzunligi (m)" aria-label="matematik mayatnik burchak chastotasi"></button>
+<button type="button" class="hs" style="left:35.461%;top:36.338%;width:7.634%;height:2.780%;3.309 data-tex="T=2\pi\sqrt{\dfrac{\ell}{g}}" data-name="matematik mayatnik davri" data-vars="$T$ — davr (s), $\ell$ — ip uzunligi (m), $g$ — erkin tushish tezlanishi (m/s²)" aria-label="matematik mayatnik davri"></button>
+<button type="button" class="hs" style="left:43.482%;top:36.880%;width:7.957%;height:1.298%;3.309 data-tex="\Delta \ell=\ell-\ell_0" data-name="mutlaq uzayish" data-vars="$\Delta \ell$ — mutlaq uzayish (m), $\ell$ — oxirgi uzunlik (m), $\ell_0$ — boshlang’ich uzunlik (m)" aria-label="mutlaq uzayish"></button>
+<button type="button" class="hs" style="left:7.287%;top:39.930%;width:5.296%;height:2.666%;3.309 data-tex="\varepsilon=\dfrac{\Delta \ell}{\ell_0}" data-name="nisbiy uzayish" data-vars="$\varepsilon$ — nisbiy uzayish (o’lchamsiz), $\Delta \ell$ — mutlaq uzayish (m), $\ell_0$ — boshlang’ich uzunlik (m)" aria-label="nisbiy uzayish"></button>
+<button type="button" class="hs" style="left:13.535%;top:39.958%;width:5.579%;height:2.638%;3.309 data-tex="k=\dfrac{E S}{\ell_0}" data-name="qattiqlik Yung moduli orqali" data-vars="$k$ — qattiqlik koeffitsienti (N/m), $E$ — Yung moduli (Pa), $S$ — kesim yuzasi (m²), $\ell_0$ — boshlang’ich uzunlik (m)" aria-label="qattiqlik Yung moduli orqali"></button>
+<button type="button" class="hs" style="left:19.984%;top:40.671%;width:7.836%;height:1.212%;3.309 data-tex="F_A=\rho_s V_b g" data-name="Arximed kuchi" data-vars="$F_A$ — Arximed kuchi (N), $\rho_s$ — suyuqlik zichligi (kg/m³), $V_b$ — botgan qismning hajmi (m³), $g$ — erkin tushish tezlanishi (m/s²)" aria-label="Arximed kuchi"></button>
+<button type="button" class="hs" style="left:28.609%;top:40.642%;width:5.659%;height:1.184%;3.309 data-tex="p=\rho gh" data-name="gidrostatik bosim" data-vars="$p$ — bosim (Pa), $\rho$ — suyuqlik zichligi (kg/m³), $g$ — erkin tushish tezlanishi (m/s²), $h$ — chuqurlik (m)" aria-label="gidrostatik bosim"></button>
+<button type="button" class="hs" style="left:35.139%;top:40.642%;width:8.158%;height:1.241%;3.309 data-tex="S_1v_1=S_2v_2" data-name="uzluksizlik tenglamasi" data-vars="$S_1,S_2$ — kesim yuzalari (m²), $v_1,v_2$ — oqim tezliklari (m/s)" aria-label="uzluksizlik tenglamasi"></button>
+<button type="button" class="hs" style="left:7.358%;top:43.409%;width:6.728%;height:2.606%;3.309 data-tex="V_b=\dfrac{\rho_j V_j}{\rho_s}" data-name="jismning botgan qismi hajmi" data-vars="$V_b$ — botgan qismning hajmi (m³), $\rho_j$ — jism zichligi (kg/m³), $V_j$ — jism hajmi (m³), $\rho_s$ — suyuqlik zichligi (kg/m³)" aria-label="jismning botgan qismi hajmi"></button>
+<button type="button" class="hs" style="left:14.975%;top:43.381%;width:14.426%;height:2.378%;3.309 data-tex="p+\rho gh+\dfrac{\rho v^2}{2}=const" data-name="Bernulli tenglamasi" data-vars="$p$ — bosim (Pa), $\rho$ — zichlik (kg/m³), $v$ — oqim tezligi (m/s), $g$ — erkin tushish tezlanishi (m/s²), $h$ — balandlik (m)" aria-label="Bernulli tenglamasi"></button>
+<button type="button" class="hs" style="left:53.387%;top:10.000%;width:9.025%;height:2.521%;3.309 data-tex="\nu=\dfrac{N}{N_A}=\dfrac{m}{M}" data-name="modda miqdori" data-vars="$\nu$ — modda miqdori (mol), $N$ — zarralar soni (o’lchamsiz), $N_A$ — Avogadro soni (mol⁻¹), $m$ — massa (kg), $M$ — molyar massa (kg/mol)" aria-label="modda miqdori"></button>
+<button type="button" class="hs" style="left:63.343%;top:10.000%;width:4.954%;height:2.321%;3.309 data-tex="n=\dfrac{N}{V}" data-name="zarralar konsentratsiyasi" data-vars="$n$ — konsentratsiya (m⁻³), $N$ — zarralar soni (o’lchamsiz), $V$ — hajm (m³)" aria-label="zarralar konsentratsiyasi"></button>
+<button type="button" class="hs" style="left:69.228%;top:9.886%;width:8.340%;height:2.948%;3.309 data-tex="d=\sqrt[3]{\dfrac{VM}{mN_A}}" data-name="molekulalar orasidagi masofa" data-vars="$d$ — masofa (m), $V$ — hajm (m³), $M$ — molyar massa (kg/mol), $m$ — massa (kg), $N_A$ — Avogadro soni (mol⁻¹)" aria-label="molekulalar orasidagi masofa"></button>
+<button type="button" class="hs" style="left:78.498%;top:10.912%;width:6.002%;height:0.953%;3.309 data-tex="\rho=nm_0" data-name="gaz zichligi" data-vars="$\rho$ — zichlik (kg/m³), $n$ — konsentratsiya (m⁻³), $m_0$ — bitta molekula massasi (kg)" aria-label="gaz zichligi"></button>
+<button type="button" class="hs" style="left:53.277%;top:13.761%;width:16.381%;height:2.324%;3.309 data-tex="p=\dfrac{2}{3}n\bar E_k=\dfrac{1}{3}\rho\bar v^2=nkT" data-name="ideal gaz MKN asosiy tenglamasi" data-vars="$p$ — bosim (Pa), $n$ — konsentratsiya (m⁻³), $\bar E_k$ — o’rtacha kinetik energiya (J), $\rho$ — zichlik (kg/m³), $k$ — Boltsman doimiysi (J/K), $T$ — harorat (K)" aria-label="ideal gaz MKN asosiy tenglamasi"></button>
+<button type="button" class="hs" style="left:70.568%;top:13.647%;width:12.108%;height:2.438%;3.309 data-tex="\bar E_k=\dfrac{m_0\bar v^2}{2}=\dfrac{3}{2}kT" data-name="molekulaning o’rtacha kinetik energiyasi" data-vars="$\bar E_k$ — o’rtacha kinetik energiya (J), $m_0$ — molekula massasi (kg), $k$ — Boltsman doimiysi (J/K), $T$ — harorat (K)" aria-label="molekulaning o’rtacha kinetik energiyasi"></button>
+<button type="button" class="hs" style="left:53.387%;top:16.955%;width:13.580%;height:3.062%;3.309 data-tex="\bar v=\sqrt{\dfrac{3RT}{M}}=\sqrt{\dfrac{3kT}{m_0}}" data-name="molekulalarning o’rtacha kvadratik tezligi" data-vars="$\bar v$ — o’rtacha kvadratik tezlik (m/s), $R$ — gaz doimiysi (J/(mol·K)), $M$ — molyar massa (kg/mol), $k$ — Boltsman doimiysi (J/K), $m_0$ — molekula massasi (kg), $T$ — harorat (K)" aria-label="molekulalarning o’rtacha kvadratik tezligi"></button>
+<button type="button" class="hs" style="left:67.898%;top:18.038%;width:8.018%;height:1.124%;3.309 data-tex="T=t+273" data-name="°C ni Kelvinga o’tkazish" data-vars="$T$ — harorat (K), $t$ — harorat (°C)" aria-label="°C ni Kelvinga o’tkazish"></button>
+<button type="button" class="hs" style="left:53.307%;top:21.744%;width:7.332%;height:1.095%;3.309 data-tex="pV=\nu RT" data-name="Mendeleyev–Klapeyron tenglamasi" data-vars="$p$ — bosim (Pa), $V$ — hajm (m³), $\nu$ — modda miqdori (mol), $R$ — gaz doimiysi (J/(mol·K)), $T$ — harorat (K)" aria-label="Mendeleyev–Klapeyron tenglamasi"></button>
+<button type="button" class="hs" style="left:61.489%;top:19.806%;width:7.252%;height:3.518%;3.309 data-tex="p=\dfrac{\rho}{M}RT" data-name="bosim gaz zichligi orqali" data-vars="$p$ — bosim (Pa), $\rho$ — zichlik (kg/m³), $M$ — molyar massa (kg/mol), $R$ — gaz doimiysi (J/(mol·K)), $T$ — harorat (K)" aria-label="bosim gaz zichligi orqali"></button>
+<button type="button" class="hs" style="left:69.591%;top:21.060%;width:7.735%;height:2.264%;3.309 data-tex="\dfrac{pV}{T}=const" data-name="birlashgan gaz qonuni" data-vars="$p$ — bosim (Pa), $V$ — hajm (m³), $T$ — harorat (K)" aria-label="birlashgan gaz qonuni"></button>
+<button type="button" class="hs" style="left:78.337%;top:21.687%;width:8.743%;height:1.152%;3.309 data-tex="Q=\Delta U+A" data-name="termodinamikaning birinchi qonuni" data-vars="$Q$ — issiqlik miqdori (J), $\Delta U$ — ichki energiya o’zgarishi (J), $A$ — gaz ishi (J)" aria-label="termodinamikaning birinchi qonuni"></button>
+<button type="button" class="hs" style="left:53.357%;top:24.793%;width:6.747%;height:1.212%;3.309 data-tex="A=p\Delta V" data-name="izobarik jarayonda gaz ishi" data-vars="$A$ — ish (J), $p$ — bosim (Pa), $\Delta V$ — hajm o’zgarishi (m³)" aria-label="izobarik jarayonda gaz ishi"></button>
+<button type="button" class="hs" style="left:60.975%;top:24.137%;width:19.928%;height:2.352%;3.309 data-tex="\Delta U=\dfrac{3}{2}(p_2V_2-p_1V_1)=\dfrac{3}{2}\nu R\Delta T" data-name="bir atomli gazning ichki energiyasi o’zgarishi" data-vars="$\Delta U$ — ichki energiya o’zgarishi (J), $p_1,p_2,V_1,V_2$ — boshlang’ich/oxirgi bosim va hajm, $\nu$ — modda miqdori (mol), $R$ — gaz doimiysi (J/(mol·K))" aria-label="bir atomli gazning ichki energiyasi o’zgarishi"></button>
+<button type="button" class="hs" style="left:81.854%;top:24.137%;width:8.521%;height:2.523%;3.309 data-tex="C=\dfrac{Q}{T_2-T_1}" data-name="jism issiqlik sig’imi" data-vars="$C$ — issiqlik sig’imi (J/K), $Q$ — issiqlik miqdori (J), $T_1,T_2$ — boshlang’ich va oxirgi harorat (K)" aria-label="jism issiqlik sig’imi"></button>
+<button type="button" class="hs" style="left:53.387%;top:27.560%;width:10.396%;height:2.406%;3.309 data-tex="c=\dfrac{Q}{m(T_2-T_1)}" data-name="moddaning solishtirma issiqlik sig’imi" data-vars="$c$ — solishtirma issiqlik sig’imi (J/(kg·K)), $Q$ — issiqlik miqdori (J), $m$ — massa (kg), $T_1,T_2$ — boshlang’ich/oxirgi harorat (K)" aria-label="moddaning solishtirma issiqlik sig’imi"></button>
+<button type="button" class="hs" style="left:64.794%;top:27.560%;width:4.833%;height:2.321%;3.309 data-tex="\lambda=\dfrac{Q}{m}" data-name="solishtirma erish issiqligi" data-vars="$\lambda$ — solishtirma erish issiqligi (J/kg), $Q$ — issiqlik miqdori (J), $m$ — massa (kg)" aria-label="solishtirma erish issiqligi"></button>
+<button type="button" class="hs" style="left:70.558%;top:27.560%;width:4.712%;height:2.321%;3.309 data-tex="r=\dfrac{Q}{m}" data-name="solishtirma bug’lanish issiqligi" data-vars="$r$ — solishtirma bug’lanish issiqligi (J/kg), $Q$ — issiqlik miqdori (J), $m$ — massa (kg)" aria-label="solishtirma bug’lanish issiqligi"></button>
+<button type="button" class="hs" style="left:76.201%;top:27.560%;width:4.712%;height:2.321%;3.309 data-tex="q=\dfrac{Q}{m}" data-name="yoqilg’ining solishtirma yonish issiqligi" data-vars="$q$ — solishtirma yonish issiqligi (J/kg), $Q$ — issiqlik miqdori (J), $m$ — massa (kg)" aria-label="yoqilg’ining solishtirma yonish issiqligi"></button>
+<button type="button" class="hs" style="left:53.387%;top:29.755%;width:24.704%;height:3.518%;3.309 data-tex="\eta=\dfrac{Q_1-Q_2}{Q_1}\cdot100\%=\dfrac{T_1-T_2}{T_1}\cdot100\%" data-name="issiqlik mashinasi FIKi (va Karno sikli — maksimum)" data-vars="$\eta$ — FIK (%), $Q_1$ — isitgichdan olingan issiqlik (J), $Q_2$ — sovutgichga berilgan issiqlik (J), $T_1,T_2$ — isitgich/sovutgich harorati (K)" aria-label="issiqlik mashinasi FIKi (va Karno sikli — maksimum)"></button>
+<button type="button" class="hs" style="left:79.022%;top:31.636%;width:4.914%;height:1.124%;3.309 data-tex="F=\sigma \ell" data-name="sirt taranglik kuchi" data-vars="$F$ — tortilish kuchi (N), $\sigma$ — sirt taranglik koeffitsienti (N/m), $\ell$ — parda chegarasi uzunligi (m)" aria-label="sirt taranglik kuchi"></button>
+<button type="button" class="hs" style="left:53.387%;top:33.061%;width:8.300%;height:3.518%;3.309 data-tex="\sigma=\dfrac{F}{S}" data-name="mexanik zo’riqish (ta’rifi)" data-vars="$\sigma$ — zo’riqish (Pa), $F$ — kuch (N), $S$ — kesim yuzasi (m²)" aria-label="mexanik zo’riqish (ta’rifi)"></button>
+<button type="button" class="hs" style="left:61.811%;top:34.943%;width:3.261%;height:1.238%;3.309 data-tex="\sigma=E|\varepsilon|" data-name="Guk qonuni zo’riqish orqali" data-vars="$\sigma$ — zo’riqish (Pa), $E$ — Yung moduli (Pa), $\varepsilon$ — nisbiy uzayish (o’lchamsiz)" aria-label="Guk qonuni zo’riqish orqali"></button>
+<button type="button" class="hs" style="left:66.044%;top:33.061%;width:5.801%;height:3.034%;3.309 data-tex="W=\sigma S" data-name="sirt pardasi energiyasi" data-vars="$W$ — parda energiyasi (J), $\sigma$ — sirt taranglik koeffitsienti (N/m), $S$ — yuza (m²)" aria-label="sirt pardasi energiyasi"></button>
+<button type="button" class="hs" style="left:72.815%;top:34.316%;width:5.680%;height:2.264%;3.309 data-tex="h=\dfrac{2\sigma}{\rho gr}" data-name="suyuqlikning kapillyar ko’tarilishi" data-vars="$h$ — ko’tarilish balandligi (m), $\sigma$ — sirt taranglik koeffitsienti (N/m), $\rho$ — zichlik (kg/m³), $g$ — erkin tushish tezlanishi (m/s²), $r$ — kapillyar radiusi (m)" aria-label="suyuqlikning kapillyar ko’tarilishi"></button>
+<button type="button" class="hs" style="left:79.425%;top:34.316%;width:6.284%;height:2.264%;3.309 data-tex="\Delta p=\dfrac{2\sigma}{R}" data-name="Laplas (ortiqcha) bosimi" data-vars="$\Delta p$ — ortiqcha bosim (Pa), $\sigma$ — sirt taranglik koeffitsienti (N/m), $R$ — sirt radiusi (m)" aria-label="Laplas (ortiqcha) bosimi"></button>
+<button type="button" class="hs" style="left:53.387%;top:36.368%;width:4.793%;height:3.376%;3.309 data-tex="\rho=\dfrac{m}{V}" data-name="havoning mutlaq namligi" data-vars="$\rho$ — mutlaq namlik (kg/m³), $m$ — bug’ massasi (kg), $V$ — havo hajmi (m³)" aria-label="havoning mutlaq namligi"></button>
+<button type="button" class="hs" style="left:59.151%;top:36.368%;width:18.296%;height:3.518%;3.309 data-tex="\varphi=\dfrac{\rho}{\rho_0}\cdot100\%=\dfrac{p}{p_0}\cdot100\%" data-name="havoning nisbiy namligi" data-vars="$\varphi$ — nisbiy namlik (%), $\rho$ — bug’ zichligi (kg/m³), $\rho_0$ — to’yingan bug’ zichligi (kg/m³), $p,p_0$ — bug’ bosimlari (Pa)" aria-label="havoning nisbiy namligi"></button>
+<button type="button" class="hs" style="left:7.317%;top:52.303%;width:7.574%;height:3.604%;3.384 data-tex="F=k\dfrac{|qQ|}{\varepsilon r^2}" data-name="Kulon qonuni" data-vars="$F$ — kuch (N), $k$ — Kulon koeffitsienti (N·m²/C²), $q,Q$ — zaryadlar (C), $\varepsilon$ — dielektrik singdiruvchanlik (o’lchamsiz), $r$ — masofa (m)" aria-label="Kulon qonuni"></button>
+<button type="button" class="hs" style="left:15.499%;top:52.303%;width:6.607%;height:2.150%;3.384 data-tex="E=k\dfrac{|Q|}{\varepsilon r^2}" data-name="nuqtaviy zaryad maydoni kuchlanganligi" data-vars="$E$ — kuchlanganlik (V/m), $k$ — Kulon koeffitsienti (N·m²/C²), $Q$ — zaryad (C), $\varepsilon$ — dielektrik singdiruvchanlik (o’lchamsiz), $r$ — masofa (m)" aria-label="nuqtaviy zaryad maydoni kuchlanganligi"></button>
+<button type="button" class="hs" style="left:23.037%;top:52.845%;width:5.398%;height:1.095%;3.384 data-tex="F=qE" data-name="maydonda zaryadga ta’sir etuvchi kuch" data-vars="$F$ — kuch (N), $q$ — zaryad (C), $E$ — maydon kuchlanganligi (V/m)" aria-label="maydonda zaryadga ta’sir etuvchi kuch"></button>
+<button type="button" class="hs" style="left:29.445%;top:52.303%;width:5.519%;height:3.604%;3.384 data-tex="\varphi=k\dfrac{Q}{\varepsilon r}" data-name="nuqtaviy zaryad maydoni potensiali" data-vars="$\varphi$ — potensial (V), $k$ — Kulon koeffitsienti (N·m²/C²), $Q$ — zaryad (C), $\varepsilon$ — dielektrik singdiruvchanlik (o’lchamsiz), $r$ — masofa (m)" aria-label="nuqtaviy zaryad maydoni potensiali"></button>
+<button type="button" class="hs" style="left:35.975%;top:52.845%;width:6.163%;height:3.062%;3.384 data-tex="W_p=q\varphi" data-name="zaryadning potensial energiyasi" data-vars="$W_p$ — potensial energiya (J), $q$ — zaryad (C), $\varphi$ — potensial (V)" aria-label="zaryadning potensial energiyasi"></button>
+<button type="button" class="hs" style="left:7.317%;top:55.695%;width:8.743%;height:3.575%;3.384 data-tex="E=\dfrac{\varphi_1-\varphi_2}{d}" data-name="bir jinsli maydon kuchlanganligi" data-vars="$E$ — kuchlanganlik (V/m), $\varphi_1,\varphi_2$ — potensiallar (V), $d$ — nuqtalar orasidagi masofa (m)" aria-label="bir jinsli maydon kuchlanganligi"></button>
+<button type="button" class="hs" style="left:16.991%;top:55.923%;width:10.275%;height:1.238%;3.384 data-tex="A=q(\varphi_1-\varphi_2)" data-name="zaryadni ko’chirishda maydon ishi" data-vars="$A$ — ish (J), $q$ — zaryad (C), $\varphi_1,\varphi_2$ — potensiallar (V)" aria-label="zaryadni ko’chirishda maydon ishi"></button>
+<button type="button" class="hs" style="left:28.236%;top:55.695%;width:6.768%;height:3.575%;3.384 data-tex="W_{el}=\dfrac{qU}{2}" data-name="zaryadlangan kondensator energiyasi ($q,U$ orqali)" data-vars="$W_{el}$ — energiya (J), $q$ — zaryad (C), $U$ — kuchlanish (V)" aria-label="zaryadlangan kondensator energiyasi ($q,U$ orqali)"></button>
+<button type="button" class="hs" style="left:35.975%;top:55.695%;width:6.768%;height:3.575%;3.384 data-tex="C=\dfrac{\varepsilon\varepsilon_0S}{d}" data-name="yassi kondensator sig’imi" data-vars="$C$ — sig’im (F), $\varepsilon$ — dielektrik singdiruvchanlik, $\varepsilon_0$ — elektr doimiysi (F/m), $S$ — plastinalar yuzasi (m²), $d$ — masofa (m)" aria-label="yassi kondensator sig’imi"></button>
+<button type="button" class="hs" style="left:43.674%;top:55.980%;width:5.357%;height:3.290%;3.384 data-tex="q=CU" data-name="kondensator zaryadi" data-vars="$q$ — zaryad (C), $C$ — sig’im (F), $U$ — kuchlanish (V)" aria-label="kondensator zaryadi"></button>
+<button type="button" class="hs" style="left:7.287%;top:59.029%;width:7.997%;height:3.664%;3.384 data-tex="W=\dfrac{\varepsilon\varepsilon_0E^2}{2}" data-name="elektr maydon energiyasi zichligi" data-vars="$W$ — energiya (J), $\varepsilon\varepsilon_0$ — singdiruvchanlik × elektr doimiysi, $E$ — kuchlanganlik (V/m)" aria-label="elektr maydon energiyasi zichligi"></button>
+<button type="button" class="hs" style="left:16.195%;top:59.172%;width:15.776%;height:3.521%;3.384 data-tex="C_p=C_1+C_2+\cdots+C_N" data-name="parallel ulanishda sig’im" data-vars="$C_p$ — umumiy sig’im (F), $C_i$ — kondensatorlar sig’imi (F)" aria-label="parallel ulanishda sig’im"></button>
+<button type="button" class="hs" style="left:32.318%;top:59.029%;width:17.348%;height:3.664%;3.384 data-tex="\dfrac1{C_{ket}}=\dfrac1{C_1}+\dfrac1{C_2}+\cdots+\dfrac1{C_N}" data-name="ketma-ket ulanishda sig’im" data-vars="$C_{ket}$ — umumiy sig’im (F), $C_i$ — kondensatorlar sig’imi (F)" aria-label="ketma-ket ulanishda sig’im"></button>
+<button type="button" class="hs" style="left:7.287%;top:62.421%;width:8.924%;height:2.067%;3.384 data-tex="E=\dfrac{U}{d}=\dfrac{\sigma}{\varepsilon\varepsilon_0}" data-name="kuchlanganlik kuchlanish / zaryad zichligi orqali" data-vars="$E$ — kuchlanganlik (V/m), $U$ — kuchlanish (V), $d$ — masofa (m), $\sigma$ — sirtqi zaryad zichligi (C/m²)" aria-label="kuchlanganlik kuchlanish / zaryad zichligi orqali"></button>
+<button type="button" class="hs" style="left:17.122%;top:62.421%;width:5.055%;height:3.664%;3.384 data-tex="I=\dfrac{U}{R}" data-name="zanjir qismi uchun Om qonuni" data-vars="$I$ — tok kuchi (A), $U$ — kuchlanish (V), $R$ — qarshilik (Om)" aria-label="zanjir qismi uchun Om qonuni"></button>
+<button type="button" class="hs" style="left:22.765%;top:62.450%;width:6.667%;height:1.269%;3.384 data-tex="Q=I^2Rt" data-name="Joul–Lens qonuni" data-vars="$Q$ — issiqlik miqdori (J), $I$ — tok kuchi (A), $R$ — qarshilik (Om), $t$ — vaqt (s)" aria-label="Joul–Lens qonuni"></button>
+<button type="button" class="hs" style="left:30.302%;top:62.564%;width:5.458%;height:1.155%;3.384 data-tex="P=IU" data-name="elektr quvvati" data-vars="$P$ — quvvat (W), $I$ — tok kuchi (A), $U$ — kuchlanish (V)" aria-label="elektr quvvati"></button>
+<button type="button" class="hs" style="left:36.630%;top:62.535%;width:6.546%;height:1.184%;3.384 data-tex="I=ne\upsilon S" data-name="tok kuchi tashuvchilar drifti orqali" data-vars="$I$ — tok kuchi (A), $n$ — tashuvchilar konsentratsiyasi (m⁻³), $e$ — elektron zaryadi (C), $\upsilon$ — drift tezligi (m/s), $S$ — kesim yuzasi (m²)" aria-label="tok kuchi tashuvchilar drifti orqali"></button>
+<button type="button" class="hs" style="left:44.006%;top:62.421%;width:4.450%;height:1.839%;3.384 data-tex="j=\dfrac{I}{S}" data-name="tok zichligi" data-vars="$j$ — tok zichligi (A/m²), $I$ — tok kuchi (A), $S$ — kesim yuzasi (m²)" aria-label="tok zichligi"></button>
+<button type="button" class="hs" style="left:7.317%;top:65.986%;width:6.284%;height:3.461%;3.384 data-tex="q=It" data-name="$t$ vaqt ichida o’tgan zaryad" data-vars="$q$ — zaryad (C), $I$ — tok kuchi (A), $t$ — vaqt (s)" aria-label="$t$ vaqt ichida o’tgan zaryad"></button>
+<button type="button" class="hs" style="left:13.726%;top:66.015%;width:3.463%;height:3.433%;3.384 data-tex="E=\rho j" data-name="kuchlanganlik tok zichligi orqali" data-vars="$E$ — kuchlanganlik (V/m), $\rho$ — solishtirma qarshilik (Om·m), $j$ — tok zichligi (A/m²)" aria-label="kuchlanganlik tok zichligi orqali"></button>
+<button type="button" class="hs" style="left:17.676%;top:65.844%;width:5.035%;height:3.604%;3.384 data-tex="R=\dfrac{\rho \ell}{S}" data-name="qarshilik solishtirma qarshilik orqali" data-vars="$R$ — qarshilik (Om), $\rho$ — solishtirma qarshilik (Om·m), $\ell$ — o’tkazgich uzunligi (m), $S$ — kesim yuzasi (m²)" aria-label="qarshilik solishtirma qarshilik orqali"></button>
+<button type="button" class="hs" style="left:23.198%;top:65.929%;width:11.524%;height:3.518%;3.384 data-tex="R=R_0(1+\alpha\Delta t)" data-name="qarshilikning haroratga bog’liqligi" data-vars="$R$ — qarshilik (Om), $R_0$ — boshlang’ich qarshilik (Om), $\alpha$ — harorat koeffitsienti (K⁻¹), $\Delta t$ — harorat o’zgarishi (K)" aria-label="qarshilikning haroratga bog’liqligi"></button>
+<button type="button" class="hs" style="left:35.209%;top:65.986%;width:15.837%;height:3.461%;3.384 data-tex="R_{ket}=R_1+R_2+\cdots R_N" data-name="ketma-ket ulanishda qarshilik" data-vars="$R_{ket}$ — umumiy qarshilik (Om), $R_i$ — qismlar qarshiligi (Om)" aria-label="ketma-ket ulanishda qarshilik"></button>
+<button type="button" class="hs" style="left:7.247%;top:69.206%;width:16.340%;height:2.438%;3.384 data-tex="\dfrac1{R_p}=\dfrac1{R_1}+\dfrac1{R_2}+\cdots+\dfrac1{R_N}" data-name="parallel ulanishda qarshilik" data-vars="$R_p$ — umumiy qarshilik (Om), $R_i$ — qismlar qarshiligi (Om)" aria-label="parallel ulanishda qarshilik"></button>
+<button type="button" class="hs" style="left:24.458%;top:69.206%;width:7.755%;height:2.238%;3.384 data-tex="\mathscr{E}=\dfrac{A_{kim}}{q}" data-name="manba EYUKi" data-vars="$\mathscr{E}$ — EYUK (V), $A_{kim}$ — begona kuchlar ishi (J), $q$ — zaryad (C)" aria-label="manba EYUKi"></button>
+<button type="button" class="hs" style="left:32.640%;top:69.206%;width:7.110%;height:2.124%;3.384 data-tex="I=\dfrac{\mathscr{E}}{R+r}" data-name="to’liq zanjir uchun Om qonuni" data-vars="$I$ — tok kuchi (A), $\mathscr{E}$ — EYUK (V), $R$ — tashqi qarshilik (Om), $r$ — manbaning ichki qarshiligi (Om)" aria-label="to’liq zanjir uchun Om qonuni"></button>
+<button type="button" class="hs" style="left:40.621%;top:69.206%;width:10.818%;height:2.552%;3.384 data-tex="\eta=\dfrac{R}{R+r}=\dfrac{U}{\mathscr{E}}" data-name="tok manbaining FIKi" data-vars="$\eta$ — FIK (%), $R$ — tashqi qarshilik (Om), $r$ — ichki qarshilik (Om), $U$ — yuklamadagi kuchlanish (V)" aria-label="tok manbaining FIKi"></button>
+<button type="button" class="hs" style="left:7.287%;top:72.940%;width:6.385%;height:1.640%;3.384 data-tex="I_a=kU^{3/2}" data-name="«uchdan ikki» qonuni (vakuum diodidagi tok)" data-vars="$I_a$ — anod toki (A), $k$ — diod geometriyasiga bog’liq doimiy, $U$ — anod kuchlanishi (V)" aria-label="«uchdan ikki» qonuni (vakuum diodidagi tok)"></button>
+<button type="button" class="hs" style="left:14.542%;top:73.111%;width:8.521%;height:1.412%;3.384 data-tex="T=2\pi\sqrt{LC}" data-name="Tomson davri (tebranish konturi)" data-vars="$T$ — davr (s), $L$ — induktivlik (H), $C$ — sig’im (F)" aria-label="Tomson davri (tebranish konturi)"></button>
+<button type="button" class="hs" style="left:23.893%;top:72.684%;width:7.070%;height:2.581%;3.384 data-tex="\omega=\dfrac{1}{\sqrt{LC}}" data-name="kontur tebranish chastotasi" data-vars="$\omega$ — burchak chastotasi (rad/s), $L$ — induktivlik (H), $C$ — sig’im (F)" aria-label="kontur tebranish chastotasi"></button>
+<button type="button" class="hs" style="left:31.874%;top:72.569%;width:10.254%;height:2.466%;3.384 data-tex="W=\dfrac{q^2}{2C}+\dfrac{LI^2}{2}" data-name="tebranish konturining to’liq energiyasi" data-vars="$W$ — energiya (J), $q$ — kondensator zaryadi (C), $C$ — sig’im (F), $L$ — induktivlik (H), $I$ — tok kuchi (A)" aria-label="tebranish konturining to’liq energiyasi"></button>
+<button type="button" class="hs" style="left:7.328%;top:76.104%;width:16.703%;height:3.293%;3.384 data-tex="Z=\sqrt{R^2+\left(\omega L-\dfrac1{\omega C}\right)^2}" data-name="o’zgaruvchan tok zanjiri impedansi" data-vars="$Z$ — impedans (Om), $R$ — qarshilik (Om), $\omega$ — siklik chastota (rad/s), $L$ — induktivlik (H), $C$ — sig’im (F)" aria-label="o’zgaruvchan tok zanjiri impedansi"></button>
+<button type="button" class="hs" style="left:24.901%;top:76.674%;width:4.732%;height:2.352%;3.384 data-tex="I=\dfrac{U}{Z}" data-name="o’zgaruvchan tok zanjiri uchun Om qonuni (RLC)" data-vars="$I$ — tok kuchi (A), $U$ — kuchlanish (V), $Z$ — impedans (Om)" aria-label="o’zgaruvchan tok zanjiri uchun Om qonuni (RLC)"></button>
+<button type="button" class="hs" style="left:30.020%;top:76.674%;width:7.070%;height:2.352%;3.384 data-tex="\cos\varphi=\dfrac{R}{Z}" data-name="quvvat koeffitsienti" data-vars="$\varphi$ — faza siljishi (rad), $R$ — qarshilik (Om), $Z$ — impedans (Om)" aria-label="quvvat koeffitsienti"></button>
+<button type="button" class="hs" style="left:37.960%;top:77.273%;width:13.438%;height:1.269%;3.384 data-tex="P=I^2R=IU\cos\varphi" data-name="zanjirning aktiv quvvati" data-vars="$P$ — aktiv quvvat (W), $I$ — tok kuchi (A), $U$ — kuchlanish (V), $\varphi$ — faza siljishi (rad)" aria-label="zanjirning aktiv quvvati"></button>
+<button type="button" class="hs" style="left:7.287%;top:80.181%;width:5.982%;height:2.581%;3.384 data-tex="I=\dfrac{I_0}{\sqrt2}" data-name="tokning amaldagi (effektiv) qiymati" data-vars="$I$ — tokning amaldagi qiymati (A), $I_0$ — tok amplitudasi (A)" aria-label="tokning amaldagi (effektiv) qiymati"></button>
+<button type="button" class="hs" style="left:14.180%;top:80.181%;width:6.304%;height:2.581%;3.384 data-tex="U=\dfrac{U_0}{\sqrt2}" data-name="kuchlanishning amaldagi (effektiv) qiymati" data-vars="$U$ — kuchlanishning amaldagi qiymati (V), $U_0$ — kuchlanish amplitudasi (V)" aria-label="kuchlanishning amaldagi (effektiv) qiymati"></button>
+<button type="button" class="hs" style="left:21.354%;top:80.181%;width:6.627%;height:2.352%;3.384 data-tex="B=\dfrac{\mu_0I}{2\pi R}" data-name="to’g’ri simning magnit maydoni" data-vars="$B$ — induksiya (T), $\mu_0$ — magnit doimiysi (H/m), $I$ — tok kuchi (A), $R$ — simgacha bo’lgan masofa (m)" aria-label="to’g’ri simning magnit maydoni"></button>
+<button type="button" class="hs" style="left:28.851%;top:80.181%;width:6.183%;height:2.352%;3.384 data-tex="B=\dfrac{\mu_0I}{2R}" data-name="o’ram markazidagi magnit maydoni" data-vars="$B$ — induksiya (T), $\mu_0$ — magnit doimiysi (H/m), $I$ — tok kuchi (A), $R$ — o’ram radiusi (m)" aria-label="o’ram markazidagi magnit maydoni"></button>
+<button type="button" class="hs" style="left:35.905%;top:80.181%;width:9.206%;height:2.352%;3.384 data-tex="F=\dfrac{\mu\mu_0I_1I_2}{2\pi d}\,\ell" data-name="parallel toklarning o’zaro ta’sir kuchi" data-vars="$F$ — kuch (N), $\mu\mu_0$ — muhitning magnit singdiruvchanligi × magnit doimiysi, $I_1,I_2$ — toklar (A), $d$ — simlar orasidagi masofa (m), $\ell$ — qism uzunligi (m)" aria-label="parallel toklarning o’zaro ta’sir kuchi"></button>
+<button type="button" class="hs" style="left:7.287%;top:84.200%;width:9.932%;height:1.212%;3.384 data-tex="F_A=BI\ell\sin\alpha" data-name="Amper kuchi" data-vars="$F_A$ — Amper kuchi (N), $B$ — induksiya (T), $I$ — tok kuchi (A), $\ell$ — o’tkazgich uzunligi (m), $\alpha$ — $B$ va o’tkazgich orasidagi burchak (rad)" aria-label="Amper kuchi"></button>
+<button type="button" class="hs" style="left:18.089%;top:84.229%;width:10.174%;height:1.184%;3.384 data-tex="F_L=qvB\sin\alpha" data-name="Lorens kuchi" data-vars="$F_L$ — Lorens kuchi (N), $q$ — zaryad (C), $v$ — tezlik (m/s), $B$ — induksiya (T), $\alpha$ — $v$ va $B$ orasidagi burchak (rad)" aria-label="Lorens kuchi"></button>
+<button type="button" class="hs" style="left:29.133%;top:83.772%;width:5.941%;height:2.295%;3.384 data-tex="R=\dfrac{mv}{qB}" data-name="magnit maydondagi zaryad traektoriyasi radiusi" data-vars="$R$ — traektoriya radiusi (m), $m$ — massa (kg), $v$ — tezlik (m/s), $q$ — zaryad (C), $B$ — induksiya (T)" aria-label="magnit maydondagi zaryad traektoriyasi radiusi"></button>
+<button type="button" class="hs" style="left:35.945%;top:83.544%;width:6.667%;height:2.523%;3.384 data-tex="T=\dfrac{2\pi m}{qB}" data-name="maydondagi zaryad aylanish davri" data-vars="$T$ — aylanish davri (s), $m$ — massa (kg), $q$ — zaryad (C), $B$ — induksiya (T)" aria-label="maydondagi zaryad aylanish davri"></button>
+<button type="button" class="hs" style="left:43.482%;top:83.544%;width:5.538%;height:2.352%;3.384 data-tex="\omega=\dfrac{qB}{m}" data-name="siklotron chastotasi" data-vars="$\omega$ — aylanish burchak chastotasi (rad/s), $q$ — zaryad (C), $B$ — induksiya (T), $m$ — massa (kg)" aria-label="siklotron chastotasi"></button>
+<button type="button" class="hs" style="left:7.328%;top:87.621%;width:10.335%;height:1.184%;3.384 data-tex="\Phi=NBS\cos\alpha" data-name="magnit oqimi" data-vars="$\Phi$ — magnit oqimi (Wb), $N$ — o’ramlar soni (o’lchamsiz), $B$ — induksiya (T), $S$ — kontur yuzasi (m²), $\alpha$ — $B$ va normal orasidagi burchak (rad)" aria-label="magnit oqimi"></button>
+<button type="button" class="hs" style="left:18.573%;top:87.649%;width:5.337%;height:1.155%;3.384 data-tex="\Phi=LI" data-name="o’z-o’zidan induksiya oqimi" data-vars="$\Phi$ — magnit oqimi (Wb), $L$ — induktivlik (H), $I$ — tok kuchi (A)" aria-label="o’z-o’zidan induksiya oqimi"></button>
+<button type="button" class="hs" style="left:24.821%;top:86.851%;width:10.335%;height:2.438%;3.384 data-tex="W=\dfrac{\Phi I}{2}=\dfrac{LI^2}{2}" data-name="g’altak magnit maydoni energiyasi" data-vars="$W$ — energiya (J), $\Phi$ — oqim (Wb), $L$ — induktivlik (H), $I$ — tok kuchi (A)" aria-label="g’altak magnit maydoni energiyasi"></button>
+<button type="button" class="hs" style="left:36.066%;top:86.908%;width:14.124%;height:2.381%;3.384 data-tex="\mathscr{E}=-\dfrac{\Delta\Phi}{\Delta t}=-L\dfrac{\Delta I}{\Delta t}" data-name="Faradeyning elektromagnit induksiya qonuni" data-vars="$\mathscr{E}$ — induksiya EYUKi (V), $\Delta\Phi$ — oqim o’zgarishi (Wb), $\Delta t$ — vaqt (s), $L$ — induktivlik (H), $\Delta I$ — tok o’zgarishi (A)" aria-label="Faradeyning elektromagnit induksiya qonuni"></button>
+<button type="button" class="hs" style="left:53.387%;top:52.303%;width:9.106%;height:3.604%;3.384 data-tex="n=\dfrac{c}{v}=\sqrt{\varepsilon\mu}" data-name="muhitning sindirish ko’rsatkichi" data-vars="$n$ — sindirish ko’rsatkichi (o’lchamsiz), $c$ — vakuumdagi yorug’lik tezligi (m/s), $v$ — muhitdagi yorug’lik tezligi (m/s), $\varepsilon,\mu$ — dielektrik/magnit singdiruvchanliklari" aria-label="muhitning sindirish ko’rsatkichi"></button>
+<button type="button" class="hs" style="left:62.577%;top:52.303%;width:9.710%;height:3.604%;3.384 data-tex="\dfrac{\sin\alpha}{\sin\beta}=\dfrac{n_2}{n_1}" data-name="sindirish qonuni (Snellius)" data-vars="$\alpha$ — tushish burchagi (rad), $\beta$ — sindirish burchagi (rad), $n_1,n_2$ — muhitlar sindirish ko’rsatkichlari (o’lchamsiz)" aria-label="sindirish qonuni (Snellius)"></button>
+<button type="button" class="hs" style="left:72.210%;top:52.303%;width:7.292%;height:3.604%;3.384 data-tex="\pm\dfrac1F=\dfrac1d\pm\dfrac1f" data-name="yupqa linza formulasi" data-vars="$F$ — fokus masofasi (m), $d$ — jismgacha bo’lgan masofa (m), $f$ — tasvirgacha bo’lgan masofa (m)" aria-label="yupqa linza formulasi"></button>
+<button type="button" class="hs" style="left:80.473%;top:52.303%;width:6.405%;height:3.604%;3.384 data-tex="D=\pm\dfrac1F" data-name="linzaning optik kuchi" data-vars="$D$ — optik kuch (dptr), $F$ — fokus masofasi (m)" aria-label="linzaning optik kuchi"></button>
+<button type="button" class="hs" style="left:53.398%;top:55.665%;width:4.369%;height:2.096%;3.384 data-tex="k=\dfrac{f}{d}" data-name="linzaning chiziqli kattalashtirishi" data-vars="$k$ — kattalashtirish (o’lchamsiz), $f$ — tasvirgacha bo’lgan masofa (m), $d$ — jismgacha bo’lgan masofa (m)" aria-label="linzaning chiziqli kattalashtirishi"></button>
+<button type="button" class="hs" style="left:58.154%;top:55.665%;width:18.839%;height:3.635%;3.384 data-tex="\dfrac1F=\left(\dfrac{n_l}{n_m}-1\right)\left(\pm\dfrac1{R_1}\pm\dfrac1{R_2}\right)" data-name="linza optik kuchi egrilik radiuslari orqali" data-vars="$F$ — fokus masofasi (m), $n_l$ — linza sindirish ko’rsatkichi, $n_m$ — muhit sindirish ko’rsatkichi, $R_1,R_2$ — sirtlar egrilik radiuslari (m)" aria-label="linza optik kuchi egrilik radiuslari orqali"></button>
+<button type="button" class="hs" style="left:77.864%;top:55.665%;width:8.521%;height:2.124%;3.384 data-tex="I=\dfrac{P}{S\upsilon}=Wv" data-name="to’lqin intensivligi" data-vars="$I$ — intensivlik (W/m²), $P$ — quvvat (W), $S$ — yuza (m²), $\upsilon$ — to’lqin tezligi (m/s), $W$ — energiya zichligi (J/m³)" aria-label="to’lqin intensivligi"></button>
+<button type="button" class="hs" style="left:87.094%;top:55.979%;width:5.055%;height:3.322%;3.384 data-tex="I\sim\omega^4" data-name="Reley sochilish qonuni" data-vars="$I$ — sochilgan yorug’lik intensivligi (W/m²), $\omega$ — yorug’lik chastotasi (Hz)" aria-label="Reley sochilish qonuni"></button>
+<button type="button" class="hs" style="left:53.387%;top:59.487%;width:8.058%;height:3.176%;3.384 data-tex="d\sin\varphi=k\lambda" data-name="difraksion panjara (maksimum sharti)" data-vars="$d$ — panjara davri (m), $\varphi$ — difraksiya burchagi (rad), $k$ — maksimum tartibi (o’lchamsiz), $\lambda$ — to’lqin uzunligi (m)" aria-label="difraksion panjara (maksimum sharti)"></button>
+<button type="button" class="hs" style="left:62.456%;top:59.059%;width:5.599%;height:2.036%;3.384 data-tex="\lambda_m=\dfrac{b}{T}" data-name="interferensiya polosasi kengligi" data-vars="$\lambda_m$ — polosa kengligi (m), $b$ — ekrangacha bo’lgan masofa (m), $T$ — struktura davri (m)" aria-label="interferensiya polosasi kengligi"></button>
+<button type="button" class="hs" style="left:69.026%;top:59.059%;width:4.753%;height:2.036%;3.384 data-tex="I=\dfrac{I_0}{2}" data-name="bitta polyarizatordan keyingi intensivlik" data-vars="$I$ — polyarizatordan keyingi intensivlik (W/m²), $I_0$ — tabiiy yorug’lik intensivligi (W/m²)" aria-label="bitta polyarizatordan keyingi intensivlik"></button>
+<button type="button" class="hs" style="left:74.709%;top:59.401%;width:8.703%;height:3.262%;3.384 data-tex="I=I_0\cos^2\alpha" data-name="Malyus qonuni" data-vars="$I$ — o’tgan yorug’lik intensivligi (W/m²), $I_0$ — tushayotgan yorug’lik intensivligi (W/m²), $\alpha$ — polyarizatorlar tekisliklari orasidagi burchak (rad)" aria-label="Malyus qonuni"></button>
+<button type="button" class="hs" style="left:84.343%;top:59.059%;width:4.551%;height:3.604%;3.384 data-tex="I=\dfrac{\Phi}{\Omega}" data-name="yorug’lik kuchi fazoviy burchak orqali" data-vars="$I$ — yorug’lik kuchi (kd), $\Phi$ — yorug’lik oqimi (lm), $\Omega$ — fazoviy burchak (sr)" aria-label="yorug’lik kuchi fazoviy burchak orqali"></button>
+<button type="button" class="hs" style="left:53.357%;top:62.421%;width:11.947%;height:3.664%;3.384 data-tex="E=\dfrac{\Phi}{S}=\dfrac{I}{R^2}\cos\varphi" data-name="yoritilganlik" data-vars="$E$ — yoritilganlik (lk), $\Phi$ — yorug’lik oqimi (lm), $S$ — yuza (m²), $I$ — yorug’lik kuchi (kd), $R$ — manbagacha bo’lgan masofa (m), $\varphi$ — tushish burchagi (rad)" aria-label="yoritilganlik"></button>
+<button type="button" class="hs" style="left:65.973%;top:62.592%;width:5.579%;height:3.493%;3.384 data-tex="E=h\nu" data-name="foton energiyasi" data-vars="$E$ — foton energiyasi (J), $h$ — Plank doimiysi (J·s), $\nu$ — chastota (Hz)" aria-label="foton energiyasi"></button>
+<button type="button" class="hs" style="left:71.697%;top:62.421%;width:8.642%;height:3.664%;3.384 data-tex="p=\dfrac{h\nu}{c}=\dfrac{h}{\lambda}" data-name="foton impulsi" data-vars="$p$ — foton impulsi (kg·m/s), $h$ — Plank doimiysi (J·s), $\nu$ — chastota (Hz), $c$ — yorug’lik tezligi (m/s), $\lambda$ — to’lqin uzunligi (m)" aria-label="foton impulsi"></button>
+<button type="button" class="hs" style="left:81.209%;top:62.421%;width:7.715%;height:3.664%;3.384 data-tex="I=\dfrac{N}{S\cdot t}h\nu" data-name="nurlanish intensivligi fotonlar soni orqali" data-vars="$I$ — intensivlik (W/m²), $N$ — fotonlar soni (o’lchamsiz), $S$ — yuza (m²), $t$ — vaqt (s), $h\nu$ — foton energiyasi (J)" aria-label="nurlanish intensivligi fotonlar soni orqali"></button>
+<button type="button" class="hs" style="left:53.398%;top:65.814%;width:11.504%;height:3.664%;3.384 data-tex="h\nu=A_{chiq}+E_{k\,max}" data-name="fotoeffekt uchun Eynshteyn tenglamasi" data-vars="$h\nu$ — foton energiyasi (J), $A_{chiq}$ — chiqish ishi (J), $E_{k\,max}$ — elektronning maks. kinetik energiyasi (J)" aria-label="fotoeffekt uchun Eynshteyn tenglamasi"></button>
+<button type="button" class="hs" style="left:65.369%;top:65.814%;width:9.609%;height:3.664%;3.384 data-tex="E_{k\,max}=eU_{tx}" data-name="maks. kinetik energiya to’xtatuvchi kuchlanish orqali" data-vars="$E_{k\,max}$ — maks. kinetik energiya (J), $e$ — elektron zaryadi (C), $U_{tx}$ — to’xtatuvchi kuchlanish (V)" aria-label="maks. kinetik energiya to’xtatuvchi kuchlanish orqali"></button>
+<button type="button" class="hs" style="left:75.324%;top:65.814%;width:15.373%;height:3.664%;3.384 data-tex="h\nu_{min}=\dfrac{hc}{\lambda_{max}}=A_{chiq}" data-name="fotoeffektning qizil chegarasi" data-vars="$\nu_{min}$ — min. chastota (Hz), $\lambda_{max}$ — maks. to’lqin uzunligi (m), $A_{chiq}$ — chiqish ishi (J)" aria-label="fotoeffektning qizil chegarasi"></button>
+<button type="button" class="hs" style="left:53.357%;top:69.206%;width:6.304%;height:3.635%;3.384 data-tex="E_n=\dfrac{E_1}{n^2}" data-name="vodorod atomidagi sath energiyasi" data-vars="$E_n$ — $n$-sath energiyasi (J), $E_1$ — asosiy holat energiyasi (J), $n$ — sath raqami (o’lchamsiz)" aria-label="vodorod atomidagi sath energiyasi"></button>
+<button type="button" class="hs" style="left:60.532%;top:69.206%;width:10.174%;height:3.635%;3.384 data-tex="E_1=-13{,}6\text{ eV}" data-name="vodorod atomining asosiy holat energiyasi" data-vars="$E_1$ — asosiy holat energiyasi" aria-label="vodorod atomining asosiy holat energiyasi"></button>
+<button type="button" class="hs" style="left:71.616%;top:69.206%;width:9.811%;height:3.635%;3.384 data-tex="h\nu=E_n-E_m" data-name="sathlar orasidagi o’tishda foton energiyasi" data-vars="$h\nu$ — foton energiyasi (J), $E_n,E_m$ — sathlar energiyasi (J)" aria-label="sathlar orasidagi o’tishda foton energiyasi"></button>
+<button type="button" class="hs" style="left:82.136%;top:69.206%;width:9.085%;height:3.635%;3.384 data-tex="m_e v_n r_n=n\hbar" data-name="Bor postulati (impuls momenti kvantlanishi)" data-vars="$m_e$ — elektron massasi (kg), $v_n$ — tezlik (m/s), $r_n$ — orbita radiusi (m), $n$ — orbita raqami (o’lchamsiz), $\hbar$ — keltirilgan Plank doimiysi (J·s)" aria-label="Bor postulati (impuls momenti kvantlanishi)"></button>
+<button type="button" class="hs" style="left:53.387%;top:72.599%;width:7.252%;height:3.604%;3.384 data-tex="r_n=n^2r_B" data-name="$n$-boror orbitasining radiusi" data-vars="$r_n$ — $n$-orbita radiusi (m), $n$ — orbita raqami (o’lchamsiz), $r_B$ — Bor radiusi (m)" aria-label="$n$-boror orbitasining radiusi"></button>
+<button type="button" class="hs" style="left:61.207%;top:72.599%;width:5.519%;height:3.604%;3.384 data-tex="v_n=\dfrac{v_1}{n}" data-name="$n$-orbitadagi elektron tezligi" data-vars="$v_n$ — $n$-orbitadagi tezlik (m/s), $v_1$ — birinchi orbitadagi tezlik (m/s), $n$ — orbita raqami (o’lchamsiz)" aria-label="$n$-orbitadagi elektron tezligi"></button>
+<button type="button" class="hs" style="left:66.527%;top:72.599%;width:10.355%;height:3.604%;3.384 data-tex="E_{bog'}=\Delta mc^2" data-name="yadro bog’lanish energiyasi" data-vars="$E_{bog'}$ — bog’lanish energiyasi (J), $\Delta m$ — massa defekti (kg), $c$ — yorug’lik tezligi (m/s)" aria-label="yadro bog’lanish energiyasi"></button>
+<button type="button" class="hs" style="left:76.846%;top:72.599%;width:10.114%;height:3.604%;3.384 data-tex="E_{sol}=\dfrac{E_{bog'}}{A}" data-name="solishtirma bog’lanish energiyasi (nuklonga)" data-vars="$E_{sol}$ — solishtirma bog’lanish energiyasi (J), $E_{bog'}$ — bog’lanish energiyasi (J), $A$ — massa soni (o’lchamsiz)" aria-label="solishtirma bog’lanish energiyasi (nuklonga)"></button>
+<button type="button" class="hs" style="left:53.387%;top:75.992%;width:9.469%;height:3.604%;3.384 data-tex="A=-\dfrac{dN}{dt}" data-name="radioaktiv manba faolligi" data-vars="$A$ — faollik (parchalanish/s), $N$ — yadrolar soni (o’lchamsiz), $t$ — vaqt (s)" aria-label="radioaktiv manba faolligi"></button>
+<button type="button" class="hs" style="left:63.142%;top:75.992%;width:12.854%;height:3.604%;3.384 data-tex="N=N_0e^{-\lambda t}=N_0\cdot2^{-t/T}" data-name="radioaktiv parchalanish qonuni" data-vars="$N$ — yadrolar soni (o’lchamsiz), $N_0$ — boshlang’ich yadrolar soni (o’lchamsiz), $\lambda$ — parchalanish doimiysi (s⁻¹), $t$ — vaqt (s), $T$ — yarim yemirilish davri (s)" aria-label="radioaktiv parchalanish qonuni"></button>
+<button type="button" class="hs" style="left:76.080%;top:75.992%;width:14.184%;height:3.604%;3.384 data-tex="\lambda T=\ln2\approx0{,}7" data-name="parchalanish doimiysi va yarim yemirilish davri bog’lanishi" data-vars="$\lambda$ — parchalanish doimiysi (s⁻¹), $T$ — yarim yemirilish davri (s)" aria-label="parchalanish doimiysi va yarim yemirilish davri bog’lanishi"></button>
+<button type="button" class="hs" style="left:53.519%;top:79.354%;width:8.642%;height:3.664%;3.384 data-tex="\tau=\dfrac{\tau_0}{\sqrt{1-v^2/c^2}}" data-name="vaqtning sekinlashishi" data-vars="$\tau$ — qo’zg’almas sanoq sistemasidagi vaqt (s), $\tau_0$ — xos vaqt (s), $v$ — tezlik (m/s), $c$ — yorug’lik tezligi (m/s)" aria-label="vaqtning sekinlashishi"></button>
+<button type="button" class="hs" style="left:63.071%;top:79.354%;width:9.488%;height:3.664%;3.384 data-tex="\ell=\ell_0\sqrt{1-v^2/c^2}" data-name="relyativistik (Lorens) uzunlik qisqarishi" data-vars="$\ell$ — harakatdagi sistemadagi uzunlik (m), $\ell_0$ — xos uzunlik (m), $v$ — tezlik (m/s), $c$ — yorug’lik tezligi (m/s)" aria-label="relyativistik (Lorens) uzunlik qisqarishi"></button>
+<button type="button" class="hs" style="left:73.430%;top:79.354%;width:7.352%;height:3.664%;3.384 data-tex="\rho=\dfrac{\rho_0}{1-v^2/c^2}" data-name="relyativistik zichlik o’zgarishi" data-vars="$\rho$ — harakatdagi sistemadagi zichlik (kg/m³), $\rho_0$ — xos zichlik (kg/m³), $v$ — tezlik (m/s), $c$ — yorug’lik tezligi (m/s)" aria-label="relyativistik zichlik o’zgarishi"></button>
+<button type="button" class="hs" style="left:81.814%;top:79.354%;width:8.481%;height:1.925%;3.384 data-tex="v=\dfrac{v_1\pm v_2}{1\pm\frac{v_1v_2}{c^2}}" data-name="relyativistik tezliklar qo’shilishi" data-vars="$v$ — natijaviy tezlik (m/s), $v_1,v_2$ — qo’shiladigan tezliklar (m/s), $c$ — yorug’lik tezligi (m/s)" aria-label="relyativistik tezliklar qo’shilishi"></button>
+<button type="button" class="hs" style="left:53.387%;top:82.776%;width:9.227%;height:2.720%;3.384 data-tex="m=\dfrac{m_0}{\sqrt{1-v^2/c^2}}" data-name="relyativistik massa" data-vars="$m$ — relyativistik massa (kg), $m_0$ — tinchlik massasi (kg), $v$ — tezlik (m/s), $c$ — yorug’lik tezligi (m/s)" aria-label="relyativistik massa"></button>
+<button type="button" class="hs" style="left:63.545%;top:82.776%;width:7.332%;height:1.238%;3.384 data-tex="E_0=m_0c^2" data-name="tinchlik energiyasi" data-vars="$E_0$ — tinchlik energiyasi (J), $m_0$ — tinchlik massasi (kg), $c$ — yorug’lik tezligi (m/s)" aria-label="tinchlik energiyasi"></button>
+<button type="button" class="hs" style="left:71.807%;top:82.776%;width:6.204%;height:1.181%;3.384 data-tex="E=mc^2" data-name="jismning to’liq energiyasi" data-vars="$E$ — to’liq energiya (J), $m$ — relyativistik massa (kg), $c$ — yorug’lik tezligi (m/s)" aria-label="jismning to’liq energiyasi"></button>
+<button type="button" class="hs" style="left:78.861%;top:82.833%;width:5.357%;height:1.124%;3.384 data-tex="\vec p=m\vec v" data-name="relyativistik impuls" data-vars="$\vec p$ — impuls (kg·m/s), $m$ — relyativistik massa (kg), $\vec v$ — tezlik (m/s)" aria-label="relyativistik impuls"></button>
+<button type="button" class="hs" style="left:53.357%;top:86.367%;width:11.544%;height:1.355%;3.384 data-tex="E_k=(m-m_0)c^2" data-name="relyativistik kinetik energiya" data-vars="$E_k$ — kinetik energiya (J), $m$ — relyativistik massa (kg), $m_0$ — tinchlik massasi (kg), $c$ — yorug’lik tezligi (m/s)" aria-label="relyativistik kinetik energiya"></button>
+<button type="button" class="hs" style="left:65.772%;top:86.338%;width:11.786%;height:1.383%;3.384 data-tex="E^2-c^2p^2=m_0^2c^4" data-name="energiya-impuls invarianti" data-vars="$E$ — to’liq energiya (J), $p$ — impuls (kg·m/s), $m_0$ — tinchlik massasi (kg), $c$ — yorug’lik tezligi (m/s)" aria-label="energiya-impuls invarianti"></button>
+    <div class="tooltip" id="tooltip">
+      <div class="tt-formula" id="tt-formula"></div>
+      <div class="tt-name" id="tt-name"></div>
+      <div class="tt-vars" id="tt-vars"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  DTM formulalar konspekti (Spectrum, 2024) — interaktiv maslahatlar bilan «Fizikaning asosiy formulalari» original sahifasi. Sichqoncha olib borish/teging har bir formulaning nomi va o’zgaruvchilarini ko’rsatadi.
+</footer>
+
+<script>
+  var wrap = document.getElementById('imgwrap');
+  var tooltip = document.getElementById('tooltip');
+  var ttFormula = document.getElementById('tt-formula');
+  var ttName = document.getElementById('tt-name');
+  var ttVars = document.getElementById('tt-vars');
+  var activeHs = null;
+  var isTouch = matchMedia('(hover: none)').matches;
+
+  if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
+  document.querySelector('.stage').scrollLeft = 0;
+
+  if(!isTouch){
+    var scrollhint = document.getElementById('scrollhint');
+    if(scrollhint) scrollhint.textContent = '↔ Qolgan formulalarni ko\u2019rish uchun o\u2019ngga suring (sichqoncha bilan torting)';
+    var stage = document.querySelector('.stage');
+    var isDragging = false, dragStartX = 0, dragStartScroll = 0, dragMoved = false;
+    stage.addEventListener('mousedown', function(e){
+      isDragging = true; dragMoved = false;
+      dragStartX = e.pageX; dragStartScroll = stage.scrollLeft;
+      stage.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', function(e){
+      if(!isDragging) return;
+      var delta = e.pageX - dragStartX;
+      if(Math.abs(delta) > 3) dragMoved = true;
+      stage.scrollLeft = dragStartScroll - delta;
+    });
+    window.addEventListener('mouseup', function(){
+      if(!isDragging) return;
+      isDragging = false;
+      stage.classList.remove('dragging');
+    });
+    stage.addEventListener('click', function(e){
+      if(dragMoved){ e.preventDefault(); e.stopPropagation(); dragMoved = false; }
+    }, true);
+  }
+
+  function renderMathIn(el){
+    if(window.katex){
+      var walker = el;
+      // render all $...$ segments within text nodes
+      function renderNode(node){
+        var text = node.textContent;
+        if(text.indexOf('$') === -1){ el.appendChild(document.createTextNode(text)); return; }
+        var parts = text.split(/(\$[^$]+\$)/g);
+        parts.forEach(function(p){
+          if(p.charAt(0)==='$' && p.charAt(p.length-1)==='$'){
+            var span = document.createElement('span');
+            try{
+              katex.render(p.slice(1,-1), span, {throwOnError:false});
+            }catch(e){ span.textContent = p; }
+            el.appendChild(span);
+          } else if(p.length){
+            el.appendChild(document.createTextNode(p));
+          }
+        });
+      }
+      renderNode({textContent: el.textContent});
+    } else {
+      el.textContent = el.textContent;
+    }
+  }
+
+  function setContent(container, text){
+    container.innerHTML = '';
+    renderMathIn(container, text);
+  }
+
+  function showTooltip(hs){
+    var tex = hs.getAttribute('data-tex');
+    var name = hs.getAttribute('data-name');
+    var vars = hs.getAttribute('data-vars');
+
+    ttFormula.innerHTML = '';
+    if(window.katex){
+      try{ katex.render(tex, ttFormula, {throwOnError:false, displayMode:false}); }
+      catch(e){ ttFormula.textContent = tex; }
+    } else {
+      ttFormula.textContent = tex;
+    }
+    ttName.textContent = name;
+
+    ttVars.innerHTML = '';
+    var parts = vars.split(/(\$[^$]+\$)/g);
+    parts.forEach(function(p){
+      if(p.charAt(0)==='$' && p.charAt(p.length-1)==='$' && window.katex){
+        var span = document.createElement('span');
+        try{ katex.render(p.slice(1,-1), span, {throwOnError:false}); }
+        catch(e){ span.textContent = p; }
+        ttVars.appendChild(span);
+      } else if(p.length){
+        ttVars.appendChild(document.createTextNode(p));
+      }
+    });
+
+    var wrapRect = wrap.getBoundingClientRect();
+    var hsRect = hs.getBoundingClientRect();
+    tooltip.classList.add('show');
+    tooltip.style.left = '-9999px';
+    tooltip.style.top = '0px';
+    requestAnimationFrame(function(){
+      var tRect = tooltip.getBoundingClientRect();
+      var left = (hsRect.left - wrapRect.left) + hsRect.width/2 - tRect.width/2;
+      left = Math.max(6, Math.min(left, wrapRect.width - tRect.width - 6));
+      var top = (hsRect.top - wrapRect.top) - tRect.height - 10;
+      if(top < 6){ top = (hsRect.bottom - wrapRect.top) + 10; }
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    });
+  }
+
+  function hideTooltip(){
+    tooltip.classList.remove('show');
+    if(activeHs){ activeHs.classList.remove('active'); activeHs = null; }
+  }
+
+  document.querySelectorAll('.hs').forEach(function(hs){
+    if(!isTouch){
+      hs.addEventListener('mouseenter', function(){
+        if(activeHs) activeHs.classList.remove('active');
+        activeHs = hs; hs.classList.add('active');
+        showTooltip(hs);
+      });
+      hs.addEventListener('mouseleave', hideTooltip);
+      hs.addEventListener('focus', function(){ activeHs = hs; hs.classList.add('active'); showTooltip(hs); });
+      hs.addEventListener('blur', hideTooltip);
+    } else {
+      hs.addEventListener('click', function(e){
+        e.stopPropagation();
+        if(activeHs === hs){ hideTooltip(); return; }
+        if(activeHs) activeHs.classList.remove('active');
+        activeHs = hs; hs.classList.add('active');
+        showTooltip(hs);
+      });
+    }
+  });
+  document.addEventListener('click', function(e){
+    if(isTouch && activeHs && !e.target.closest('.hs')){ hideTooltip(); }
+  });
+  document.addEventListener('scroll', hideTooltip, true);
+</script>
+
+</body>
+</html>
