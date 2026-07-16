@@ -50,6 +50,10 @@
     position:relative; width:100%; border:1px solid var(--rule); border-radius:10px; overflow:hidden;
     box-shadow:0 6px 24px rgba(20,20,40,.08); background:#fff;
   }
+  .scrollhint{
+    display:none; align-items:center; gap:6px; justify-content:center;
+    font-size:11.5px; color:var(--muted); margin:0 0 8px;
+  }
   .imgwrap img{display:block; width:100%; height:auto;}
   .hs{
     position:absolute; margin:0; padding:0; border:none; background:transparent; cursor:pointer;
@@ -79,6 +83,13 @@
   footer{max-width:1100px; margin:0 auto 40px; padding:0 16px; color:var(--muted); font-size:11px; text-align:center;}
   @media (max-width:640px){
     .tooltip{max-width:78vw;}
+    .scrollhint{display:flex;}
+    .stage{
+      overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:14px;
+      cursor:grab;
+    }
+    .stage.dragging{cursor:grabbing; user-select:none;}
+    .imgwrap{width:820px; max-width:none;}
   }
 </style>
 </head>
@@ -104,6 +115,7 @@
 </div>
 
 <div class="stage">
+  <div class="scrollhint" id="scrollhint">↔ Проведите пальцем вправо, чтобы увидеть остальные формулы</div>
   <div class="imgwrap" id="imgwrap">
     <img src="formulas-page2.png" alt="Основные формулы физики — страница 2" id="pageimg">
 <button type="button" class="hs" style="left:7.013%;top:10.006%;width:6.957%;height:3.309%;--c:#1f5fa6" data-tex="v=\dfrac{\Delta S}{\Delta t}" data-name="средняя скорость" data-vars="$v$ — скорость (м/с), $\Delta S$ — путь (м), $\Delta t$ — время (с)" aria-label="средняя скорость"></button>
@@ -297,6 +309,35 @@
   var ttVars = document.getElementById('tt-vars');
   var activeHs = null;
   var isTouch = matchMedia('(hover: none)').matches;
+
+  if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
+  document.querySelector('.stage').scrollLeft = 0;
+
+  if(!isTouch){
+    var scrollhint = document.getElementById('scrollhint');
+    if(scrollhint) scrollhint.textContent = '↔ Прокрутите вправо (перетащите мышью), чтобы увидеть остальные формулы';
+    var stage = document.querySelector('.stage');
+    var isDragging = false, dragStartX = 0, dragStartScroll = 0, dragMoved = false;
+    stage.addEventListener('mousedown', function(e){
+      isDragging = true; dragMoved = false;
+      dragStartX = e.pageX; dragStartScroll = stage.scrollLeft;
+      stage.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', function(e){
+      if(!isDragging) return;
+      var delta = e.pageX - dragStartX;
+      if(Math.abs(delta) > 3) dragMoved = true;
+      stage.scrollLeft = dragStartScroll - delta;
+    });
+    window.addEventListener('mouseup', function(){
+      if(!isDragging) return;
+      isDragging = false;
+      stage.classList.remove('dragging');
+    });
+    stage.addEventListener('click', function(e){
+      if(dragMoved){ e.preventDefault(); e.stopPropagation(); dragMoved = false; }
+    }, true);
+  }
 
   function renderMathIn(el){
     if(window.katex){
